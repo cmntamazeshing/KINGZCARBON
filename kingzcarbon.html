@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KINGZCARBON | Sovereign Carbon Works</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+/* Carbon Fiber Background */
+body {
+    background-color: #000;
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.03) 0px,
+            rgba(255,255,255,0.03) 2px,
+            transparent 2px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,255,255,0.03) 0px,
+            rgba(255,255,255,0.03) 2px,
+            transparent 2px,
+            transparent 6px
+        );
+}
+
+/* Gold Flow Animation */
+.gold-flow {
+    background: linear-gradient(
+        90deg,
+        #b8892e,
+        #f5e6a8,
+        #d4af37,
+        #f5e6a8,
+        #b8892e
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+}
+
+/* Glow */
+.gold-glow {
+    text-shadow: 0 0 8px rgba(212,175,55,0.6),
+                 0 0 18px rgba(212,175,55,0.3);
+}
+
+/* Border */
+.gold-border {
+    border: 1px solid rgba(212,175,55,0.5);
+}
+
+/* Card Hover Glow */
+.card-glow:hover {
+    box-shadow: 0 0 30px rgba(212,175,55,0.18);
+    transition: 0.4s ease;
+}
+
+</style>
+</head>
+
+<body class="text-gray-200">
+
+<div class="max-w-6xl mx-auto px-6 py-16">
+
+    <!-- Brand Declaration -->
+    <div class="text-center mb-12">
+        <p class="uppercase tracking-widest text-sm text-gray-500 mb-4">
+            Brand Declaration
+        </p>
+        <h2 class="text-2xl md:text-3xl font-semibold gold-flow gold-glow tracking-wider leading-relaxed">
+            We Do Not Follow Standards.<br>
+            We Define Carbon Craftsmanship.
+        </h2>
+    </div>
+
+    <!-- Logo -->
+    <div class="flex justify-center mb-8">
+        <img src="https://i.imgur.com/WNQPBad.png"
+             alt="KINGZCARBON Logo"
+             class="w-32 h-32 object-contain rounded-full border-2 border-yellow-600 shadow-2xl">
+    </div>
+
+    <!-- Brand Name -->
+    <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-widest gold-flow gold-glow">
+            KINGZCARBON
+        </h1>
+        <p class="mt-6 text-gray-400 text-sm md:text-base tracking-widest uppercase">
+            Vacuum Engineered • 2K Automotive Finish • Premium Carbon Selection
+        </p>
+    </div>
+
+    <!-- Level Grid -->
+    <div class="grid md:grid-cols-3 gap-10">
+
+        <!-- Level 1 -->
+        <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 gold-border card-glow">
+            <h2 class="text-xl font-semibold mb-4 gold-flow gold-glow tracking-wider">
+                Level 1
+            </h2>
+            <p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+                Skinning Process
+            </p>
+            <p class="text-2xl font-bold mb-6 text-yellow-500 gold-glow">
+                $780 – $1,880+
+            </p>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li>✔ 客戶提供原件進行專業 Skinning 包覆</li>
+                <li>✔ 真空技術處理，降低氣泡與瑕疵</li>
+                <li>✔ 2K 汽車級高硬度透明塗層</li>
+                <li>✔ 多款碳纖維紋理可選</li>
+            </ul>
+        </div>
+
+        <!-- Level 2 -->
+        <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-600 shadow-2xl relative card-glow">
+            <div class="absolute top-0 right-0 bg-yellow-600 text-black text-xs px-3 py-1 rounded-bl-xl tracking-widest">
+                MOST SELECTED
+            </div>
+            <h2 class="text-xl font-semibold mb-4 gold-flow gold-glow tracking-wider">
+                Level 2
+            </h2>
+            <p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+                Advanced Bespoke Finish
+            </p>
+            <p class="text-2xl font-bold mb-6 text-yellow-400 gold-glow">
+                $1,680 – $2,880+
+            </p>
+            <ul class="space-y-3 text-sm text-gray-300">
+                <li>✔ 包含 Level 1 全部工序</li>
+                <li>✔ 深度訂製細節規劃</li>
+                <li>可選以下各種特製細節: </li>
+                <li>✔ 客製專屬色系處理</li>
+                <li>✔ 原車色 Highlight 精準融合</li>
+                <li>✔ 閃粉與特殊效果層次堆疊</li>
+                <li>✔ 貼紙整合封層並完整保護</li>
+                <li>✔ 其他 : ASK</li>
+            </ul>
+        </div>
+
+        <!-- Level 3 -->
+        <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 gold-border card-glow">
+            <h2 class="text-xl font-semibold mb-4 gold-flow gold-glow tracking-wider">
+                Level 3
+            </h2>
+            <p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+                Mold Development & Full Carbon Construction
+            </p>
+            <p class="text-2xl font-bold mb-6 text-yellow-500 gold-glow">
+                $2,380 – $4,500+
+            </p>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li>✔ 包含 Level 2 全部訂製內容</li>
+                <li>✔ 專業模具開發與製作</li>
+                <li>✔ 全碳纖維結構一體成型</li>
+                <li>✔ 高強度與輕量化並重</li>
+                <li>✔ 提供一次免費輕度保養或重新拋光</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Membership Card -->
+    <div class="mt-16">
+        <div class="bg-black bg-opacity-80 backdrop-blur-sm rounded-2xl p-10 border-2 border-yellow-600 shadow-2xl card-glow">
+
+            <h2 class="text-2xl font-semibold gold-flow gold-glow tracking-wider mb-6 text-center">
+                Royal Referral Membership
+            </h2>
+
+            <p class="text-sm text-gray-400 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
+                成為 KINGZCARBON 會員，建立屬於你嘅專屬碳纖圈層。
+                凡經會員名義轉介之訂製項目，
+                會員本人將獲得該項目總金額 10% 之品牌回贈積分。
+            </p>
+
+            <p class="text-sm text-gray-400 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
+                回贈並非現金形式，而是作為會員下次訂製時之專屬折扣金額使用，
+                可持續累積，無使用期限。
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-400 mb-8">
+                <div>✔ 10% Referral Credit 回贈</div>
+                <div>✔ 無到期日累積制度</div>
+                <div>✔ 優先預約製作時段</div>
+                <div>✔ 會員專屬保養諮詢支援</div>
+            </div>
+
+            <p class="text-center text-yellow-400 font-semibold gold-glow text-lg">
+                Membership Fee: $888 (Lifetime)
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Final Notice -->
+    <div class="mt-20 text-center text-sm text-gray-500 space-y-4 tracking-wide leading-relaxed">
+        <p>
+            價格將依尺寸、結構複雜度及實際工序作出調整。
+        </p>
+        <p>
+            所有作品均為純手工製作，製作時間視項目而定。<br>
+            歡迎隨時查詢進度，恕不接急單，敬請理解。
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
