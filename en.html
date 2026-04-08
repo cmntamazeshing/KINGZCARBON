@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-HK">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,8 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+
+/* Carbon Fiber Background */
 body {
     background-color: #000;
     background-image:
@@ -26,6 +28,7 @@ body {
         );
 }
 
+/* Gold Flow Animation */
 .gold-flow {
     background: linear-gradient(
         90deg,
@@ -59,110 +62,121 @@ body {
     box-shadow: 0 0 30px rgba(212,175,55,0.18);
     transition: 0.4s ease;
 }
+
 </style>
 </head>
 
 <body class="text-gray-200">
 
+<!-- Language Switch -->
 <div class="absolute top-6 right-6 z-50 text-sm tracking-widest">
-    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">
+    <a href="index.html" class="text-yellow-400 mr-4 border-b border-yellow-600">
         中文 HKD
     </a>
-    <a href="en.html" class="text-yellow-400 border-b border-yellow-600">
+    <a href="en.html" class="text-gray-400 hover:text-yellow-400 transition">
         English USD
     </a>
 </div>
 
 <div class="max-w-6xl mx-auto px-6 py-16">
 
-<!-- Brand Declaration -->
-<div class="text-center mb-12">
-<p class="uppercase tracking-widest text-sm text-gray-500 mb-4">
-Brand Declaration
-</p>
-<h2 class="text-2xl md:text-3xl font-semibold gold-flow gold-glow tracking-wider leading-relaxed">
-We Do Not Follow Standards.<br>
-We Define Carbon Craftsmanship.
-</h2>
-</div>
+    <!-- Brand Declaration -->
+    <div class="text-center mb-12">
+        <p class="uppercase tracking-widest text-sm text-gray-500 mb-4">
+            Brand Declaration
+        </p>
+        <h2 class="text-2xl md:text-3xl font-semibold gold-flow gold-glow tracking-wider leading-relaxed">
+            We Do Not Follow Standards.<br>
+            We Define Carbon Craftsmanship.
+        </h2>
+    </div>
 
-<!-- Logo -->
-<div class="flex justify-center mb-8">
-<img src="https://i.imgur.com/WNQPBad.png"
-     class="w-32 h-32 object-contain rounded-full border-2 border-yellow-600 shadow-2xl">
-</div>
+    <!-- Logo -->
+    <div class="flex justify-center mb-8">
+        <img src="https://i.imgur.com/WNQPBad.png"
+             alt="KINGZCARBON Logo"
+             class="w-32 h-32 object-contain rounded-full border-2 border-yellow-600 shadow-2xl">
+    </div>
 
-<!-- Brand Name -->
-<div class="text-center mb-16">
-<h1 class="text-4xl md:text-6xl font-bold tracking-widest gold-flow gold-glow">
-KINGZCARBON
-</h1>
-<p class="mt-6 text-gray-400 text-sm md:text-base tracking-widest uppercase">
-Vacuum Engineered • 2K Automotive Finish • Premium Carbon Selection
-</p>
-</div>
+    <!-- Brand Name -->
+    <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-widest gold-flow gold-glow">
+            KINGZCARBON
+        </h1>
+        <p class="mt-6 text-gray-400 text-sm md:text-base tracking-widest uppercase">
+            Vacuum Engineered • 2K Automotive Finish • Premium Carbon Selection
+        </p>
+    </div>
 
-<!-- Level Grid -->
-<div class="grid md:grid-cols-3 gap-10">
+    <!-- Level Grid -->
+    <div class="grid md:grid-cols-3 gap-10">
 
-<div class="bg-black bg-opacity-70 rounded-2xl p-8 gold-border">
-<h2 class="text-xl font-semibold mb-4 gold-flow gold-glow">Level 1</h2>
-<p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
-Skinning Process
-</p>
-<p class="text-2xl font-bold mb-6 text-yellow-500 gold-glow">
-$150 – $599
-</p>
-<ul class="space-y-3 text-sm text-gray-400">
-<li>✔ Client provides original part for professional skinning</li>
-<li>✔ Vacuum processing to reduce bubbles and imperfections</li>
-<li>✔ 2K automotive-grade high hardness clear coat</li>
-<li>✔ Multiple carbon weave options available</li>
-</ul>
-</div>
+        <!-- Level 1 -->
+        <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 gold-border card-glow">
+            <h2 class="text-xl font-semibold mb-4 gold-flow gold-glow tracking-wider">
+                Level 1
+            </h2>
+            <p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+                Skinning Process
+            </p>
+            <p class="text-2xl font-bold mb-6 text-yellow-500 gold-glow">
+                $980 – $1,880+
+            </p>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li>✔ 客戶提供原件進行專業 Skinning 包覆</li>
+                <li>✔ 真空技術處理，降低氣泡與瑕疵</li>
+                <li>✔ 2K 汽車級高硬度透明塗層</li>
+                <li>✔ 多款碳纖維紋理可選</li>
+            </ul>
+        </div>
 
-<div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-600 shadow-2xl relative card-glow">
+        <!-- Level 2 -->
+        <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-600 shadow-2xl relative card-glow">
+            <div class="absolute top-0 right-0 bg-yellow-600 text-black text-xs px-3 py-1 rounded-bl-xl tracking-widest">
+                MOST SELECTED
+            </div>
+            <h2 class="text-xl font-semibold mb-4 gold-flow gold-glow tracking-wider">
+                Level 2
+            </h2>
+            <p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+                Advanced Bespoke Finish
+            </p>
+            <p class="text-2xl font-bold mb-6 text-yellow-400 gold-glow">
+                $1,680 – $2,880+
+            </p>
+            <ul class="space-y-3 text-sm text-gray-300">
+                <li>✔ 包含 Level 1 全部工序</li>
+                <li>✔ 深度訂製細節規劃</li>
+                <li>可選以下各種特製細節: </li>
+                <li>✔ 客製專屬色系處理</li>
+                <li>✔ 原車色 Highlight 精準融合</li>
+                <li>✔ 閃粉與特殊效果層次堆疊</li>
+                <li>✔ 貼紙整合封層並完整保護</li>
+                <li>✔ 其他 : ASK</li>
+            </ul>
+        </div>
 
-<div class="absolute top-0 right-0 bg-yellow-600 text-black text-xs px-3 py-1 rounded-bl-xl tracking-widest">
-MOST SELECTED
-</div>
+        <!-- Level 3 -->
+        <div class="bg-black bg-opacity-70 backdrop-blur-sm rounded-2xl p-8 gold-border card-glow">
+            <h2 class="text-xl font-semibold mb-4 gold-flow gold-glow tracking-wider">
+                Level 3
+            </h2>
+            <p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+                Mold Development & Full Carbon Construction
+            </p>
+            <p class="text-2xl font-bold mb-6 text-yellow-500 gold-glow">
+                $2,380 – $4,500+
+            </p>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li>✔ 包含 Level 2 全部訂製內容</li>
+                <li>✔ 專業模具開發與製作</li>
+                <li>✔ 全碳纖維結構一體成型</li>
+                <li>✔ 高強度與輕量化並重</li>
+                <li>✔ 提供一次免費輕度保養或重新拋光</li>
+            </ul>
+        </div>
 
-<h2 class="text-xl font-semibold mb-4 gold-flow gold-glow">Level 2</h2>
-<p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
-Advanced Bespoke Finish
-</p>
-<p class="text-2xl font-bold mb-6 text-yellow-400 gold-glow">
-$250 – $1299
-</p>
-<ul class="space-y-3 text-sm text-gray-400">
-<li>✔ Includes all Level 1 processes</li>
-<li>✔ In-depth bespoke detail planning</li>
-<li>✔ Custom color integration</li>
-<li>✔ OEM highlight precision blending</li>
-<li>✔ Metallic & special layered effects</li>
-<li>✔ Decal encapsulation & protection</li>
-<li>✔ Others: ASK</li>
-</ul>
-</div>
-
-<div class="bg-black bg-opacity-70 rounded-2xl p-8 gold-border">
-<h2 class="text-xl font-semibold mb-4 gold-flow gold-glow">Level 3</h2>
-<p class="text-xs text-gray-500 mb-3 uppercase tracking-widest">
-Mold Development & Full Carbon Construction
-</p>
-<p class="text-2xl font-bold mb-6 text-yellow-500 gold-glow">
-$650 – ASK
-</p>
-<ul class="space-y-3 text-sm text-gray-400">
-<li>✔ Includes all Level 2 bespoke elements</li>
-<li>✔ Professional mold development</li>
-<li>✔ Full carbon fiber structural construction</li>
-<li>✔ High strength with lightweight balance</li>
-<li>✔ One complimentary light maintenance or polish</li>
-</ul>
-</div>
-
-</div>
+    </div>
 
     <!-- ✅ Carbon Pattern Showcase (已完全修正結構) -->
     <div class="mt-24">
@@ -196,7 +210,7 @@ $650 – ASK
                     </button>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-lg font-semibold gold-glow mb-2">Classic</h3>
+                    <h3 class="text-lg font-semibold gold-glow mb-2">經典斜紋</h3>
                 </div>
             </div>
 
@@ -205,8 +219,8 @@ $650 – ASK
                 <img src="https://i.imgur.com/IqyNQ3E.png.jpg"
                      class="w-full h-64 object-cover">
                 <div class="p-6">
-                    <h3 class="text-lg font-semibold gold-glow mb-2">「Forged」</h3>
-                    <p class="text-sm text-gray-400 mb-2">Unable to copy.</p>
+                    <h3 class="text-lg font-semibold gold-glow mb-2">「鍛」</h3>
+                    <p class="text-sm text-gray-400 mb-2">最有操作空間，無法複製</p>
                 </div>
             </div>
 
@@ -215,8 +229,8 @@ $650 – ASK
                 <img src="https://i.imgur.com/uysf1Cy.png"
                      class="w-full h-64 object-cover">
                 <div class="p-6">
-                    <h3 class="text-lg font-semibold gold-glow mb-2">「Phantom」</h3>
-                    <p class="text-sm text-gray-400 mb-2">[ 回 ] Shape</p>
+                    <h3 class="text-lg font-semibold gold-glow mb-2">「幻」</h3>
+                    <p class="text-sm text-gray-400 mb-2">回字形狀</p>
                 </div>
             </div>
 
@@ -243,8 +257,8 @@ $650 – ASK
                     </button>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-lg font-semibold gold-glow mb-2">「HEX」</h3>
-                    <p class="text-sm text-gray-400 mb-2">Honeycomb / hexagon Texture</p>
+                    <h3 class="text-lg font-semibold gold-glow mb-2">「蜂」</h3>
+                    <p class="text-sm text-gray-400 mb-2">蜂巢六角紋</p>
                 </div>
             </div>
 
@@ -271,8 +285,8 @@ $650 – ASK
                     </button>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-lg font-semibold gold-glow mb-2">「Shadow」</h3>
-                    <p class="text-sm text-gray-400 mb-2">[ X ] Shape</p>
+                    <h3 class="text-lg font-semibold gold-glow mb-2">「影」</h3>
+                    <p class="text-sm text-gray-400 mb-2">X形狀排列</p>
                 </div>
             </div>
 
@@ -299,8 +313,8 @@ $650 – ASK
                     </button>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-lg font-semibold gold-glow mb-2">「Dou」</h3>
-                    <p class="text-sm text-gray-400 mb-2">Classic arrangement + colored threads on two sides </p> 
+                    <h3 class="text-lg font-semibold gold-glow mb-2">「雙」</h3>
+                    <p class="text-sm text-gray-400 mb-2">標準十字排列+顏色絲線</p> 
 
 </div>
         </div>
@@ -328,24 +342,22 @@ $650 – ASK
                 Royal Referral Membership
             </h2>
             <p class="text-sm text-gray-400 leading-relaxed mb-4 text-center max-w-3xl mx-auto">
-                You can choose to become a KINGZCARBON member.
-For any custom orders referred under a member’s name, the member will receive brand rebate points equal to 10% of the total order amount.
+                可選成為 KINGZCARBON 會員。
+                凡經會員名義轉介之訂製項目，
+                會員本人將獲得該項目總金額 10% 之品牌回贈積分。
             </p>
             <p class="text-sm text-gray-400 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
-                The rebate is not in cash form but can be used as an exclusive discount amount for the member’s next custom order.
-Points accumulate continuously and have no expiration date.
+                回贈並非現金形式，而是作為會員下次訂製時之專屬折扣金額使用，
+                可持續累積，無使用期限。
             </p>
             <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-400 mb-8 max-w-2xl mx-auto text-left">
-                <div>✔ 10% Referral Credit Rebate</div>
-
-<div>✔ No Expiry Date Accumulation</div>
-
-<div>✔ Priority Booking for Production Slots</div>
-
-<div>✔ Member-Exclusive Maintenance Consultation Support</div>
+                <div>✔ 10% Referral Credit 回贈</div>
+                <div>✔ 無到期日累積制度</div>
+                <div>✔ 優先預約製作時段</div>
+                <div>✔ 會員專屬保養諮詢支援</div>
             </div>
             <p class="text-center text-yellow-400 font-semibold gold-glow text-lg">
-                Membership Fee: $150 (Lifetime)
+                Membership Fee: $888 (Lifetime)
             </p>
         </div>
     </div>
@@ -353,11 +365,11 @@ Points accumulate continuously and have no expiration date.
     <!-- Final Notice -->
     <div class="mt-20 text-center text-sm text-gray-500 space-y-4 tracking-wide leading-relaxed">
         <p>
-          Prices will be adjusted based on size, structural complexity, and actual procedures.
+            價格將依尺寸、結構複雜度及實際工序作出調整。
         </p>
         <p>
-            All works are purely handmade, and the production time depends on the project.
-You are welcome to inquire about progress anytime. We do not accept rush orders, thank you for your understanding.
+            所有作品均為純手工製作，製作時間視項目而定。<br>
+            歡迎隨時查詢進度，恕不接急單，敬請理解。
         </p>
     </div>
 
@@ -412,7 +424,3 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </body>
 </html>
-
-</html>
-
-
