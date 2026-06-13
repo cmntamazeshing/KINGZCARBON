@@ -7,12 +7,15 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+/* 完美繼承標誌性的碳纖維紋理背景 */
 body {
     background-color: #000;
     background-image:
         repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px),
         repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px);
 }
+
+/* 金色流光動畫 */
 .gold-flow {
     background: linear-gradient(90deg, #b8892e, #f5e6a8, #d4af37, #f5e6a8, #b8892e);
     background-size: 300% 100%;
@@ -20,22 +23,29 @@ body {
     -webkit-text-fill-color: transparent;
     animation: flow 6s linear infinite;
 }
+
 @keyframes flow {
     0% { background-position: 0% }
     100% { background-position: 300% }
 }
+
+/* 金色字體發光 */
 .gold-glow {
     text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3);
 }
+
 .gold-border {
     border: 1px solid rgba(212,175,55,0.4);
 }
+
 .product-card {
     background: rgba(0, 0, 0, 0.75);
     transition: all 0.4s ease;
 }
+
 .product-card:hover {
-    box-shadow: 0 0 30px rgba(212,175,55,0.15);
+    box-shadow: 0 0 30px rgba(212,175,55,0.18);
+    transform: translateY(-2px);
 }
 </style>
 </head>
@@ -46,8 +56,8 @@ body {
     <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a>
 </div>
 <div class="absolute top-6 right-6 z-50 text-sm tracking-widest">
-    <a href="cockpit-zh.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">中文 HKD</a>
-    <a href="cockpit.html" class="text-yellow-400 border-b border-yellow-600">English USD</a>
+    <a href="ride-zh.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">中文 HKD</a>
+    <a href="ride-en.html" class="text-yellow-400 border-b border-yellow-600">English USD</a>
 </div>
 
 <div class="max-w-5xl mx-auto px-6 py-20">
@@ -56,46 +66,86 @@ body {
         <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Tactile Control Center</p>
         <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Cockpit Upgrades</h1>
         <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
-            A unified 3-piece modular performance system engineered for BMW F-Chassis. Upgrade individually or commission the entire bundle.
+            A unified modular performance system engineered for BMW F-Chassis. Upgrade individually or commission the entire bundle.
         </p>
     </div>
 
     <div class="space-y-16">
 
-        <div id="product-steering-wheel" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
+        <div id="ready-steering-wheel" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
             <div class="h-72 bg-gray-900 rounded-xl overflow-hidden">
-                <img src="https://i.imgur.com/BoTuxrK.jpeg" alt="Steering Wheel Core" class="w-full h-full object-cover">
+                <img src="YOUR_READY_STEERING_IMAGE_URL" alt="Ready-to-Ship Steering Wheel Core" class="w-full h-full object-cover">
             </div>
             <div>
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Component 01</span>
-                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Ergonomic Leather Steering Wheel Core</h2>
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 01 • In Stock</span>
+                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Ready-to-Ship Steering Wheel Core</h2>
                 <p class="text-sm text-gray-400 leading-relaxed mb-6">
-                    Premium handcrafted replacement steering wheel core wrapped in ultra-dense automotive leather or Alcantara. Features enhanced thumb rests and contoured grips for track-ready ergonomics.
+                    Pre-fabricated premium replacement core wrapped in ultra-dense, genuine automotive leather or Alcantara. Features standard performance layouts, signature cross-stitching, and enhanced thumb rests. Zero production wait time—perfect for an instant direct replacement.
                 </p>
                 <div class="flex items-center justify-between border-t border-gray-900 pt-4">
                     <div>
                         <p class="text-xs text-gray-500 uppercase tracking-widest">Pricing From</p>
                         <p class="text-xl font-bold text-yellow-500">$450 USD</p>
                     </div>
+                    <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="custom-steering-wheel" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
+            <div class="h-72 bg-gray-900 rounded-xl overflow-hidden md:order-2">
+                <img src="YOUR_CUSTOM_STEERING_IMAGE_URL" alt="100% Fully Bespoke Steering Wheel Commission" class="w-full h-full object-cover">
+            </div>
+            <div class="md:order-1">
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 02 • Tailored</span>
+                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">100% Bespoke Steering Wheel Build</h2>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Complete aesthetic sovereignty. Fully customized from scratch. Select your favorite carbon fiber weave (Classic Twill or Forged Carbon), customize the top 12 o'clock stripe color, specify grip thickness, and choose bespoke contrast stitching patterns tailored exactly to your vision.
+                </p>
+                <div class="flex items-center justify-between border-t border-gray-900 pt-4">
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Pricing From</p>
+                        <p class="text-xl font-bold text-yellow-500">$599 USD</p>
+                    </div>
                     <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Commission Core</a>
                 </div>
             </div>
         </div>
 
-        <div id="product-paddles" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
-            <div class="h-72 bg-gray-900 rounded-xl overflow-hidden md:order-2">
-                <img src="YOUR_PADDLES_IMAGE_URL" alt="Magnetic Paddle Shifters" class="w-full h-full object-cover">
+        <div id="led-paddle-shifters" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
+            <div class="h-72 bg-gray-900 rounded-xl overflow-hidden">
+                <img src="YOUR_LED_PADDLES_IMAGE_URL" alt="Dynamic LED Performance Magnetic Paddles" class="w-full h-full object-cover">
             </div>
-            <div class="md:order-1">
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Component 02</span>
-                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Tactile Carbon Magnetic Paddle Shifters</h2>
+            <div>
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 03 • Intelligence</span>
+                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Dynamic LED Performance Magnetic Paddles</h2>
                 <p class="text-sm text-gray-400 leading-relaxed mb-6">
-                    Real carbon fiber paddles equipped with heavy-duty Neodymium magnets for an aggressive, crisp snap with every gear change. Available in Standard Mechanical or Dynamic LED Shift-Light configurations.
+                    Real carbon fiber arms embedded with smart synchronized RPM shift-light indicators. Equipped with premium heavy-duty Neodymium magnets, delivering an instantaneous, crisp mechanical snap with every gear shift. Combines advanced technology with tactile feedback.
                 </p>
                 <div class="flex items-center justify-between border-t border-gray-900 pt-4">
                     <div>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest">Options Available</p>
-                        <p class="text-xl font-bold text-yellow-500">Standard / LED</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Bespoke Layout</p>
+                        <p class="text-xl font-bold text-yellow-500">Contact for Rate</p>
+                    </div>
+                    <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Configure LED</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="standard-paddle-shifters" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
+            <div class="h-72 bg-gray-900 rounded-xl overflow-hidden md:order-2">
+                <img src="YOUR_STANDARD_PADDLES_IMAGE_URL" alt="Tactile Mechanical Magnetic Paddle Shifters" class="w-full h-full object-cover">
+            </div>
+            <div class="md:order-1">
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 04 • Pure Motorsport</span>
+                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Tactile Mechanical Magnetic Paddles</h2>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Engineered for drivers who demand pure, uninterrupted mechanical feedback. High-stiffness premium carbon fiber paddle arms backed by high-strength raw magnets. Guarantees a highly responsive, satisfying click feel inspired directly by GT racing cockpits.
+                </p>
+                <div class="flex items-center justify-between border-t border-gray-900 pt-4">
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Pricing From</p>
+                        <p class="text-xl font-bold text-yellow-500">$250 USD</p>
                     </div>
                     <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Configure Shifters</a>
                 </div>
@@ -104,18 +154,24 @@ body {
 
         <div id="product-trim-cover" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
             <div class="h-72 bg-gray-900 rounded-xl overflow-hidden">
-                <img src="YOUR_TRIM_COVER_IMAGE_URL" alt="Modular Trim Cover Set" class="w-full h-full object-cover">
+                <img src="YOUR_TRIM_COVER_IMAGE_URL" alt="M Performance Modular Split-Bezel Trim Cover Set" class="w-full h-full object-cover">
             </div>
             <div>
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Component 03</span>
-                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Modular Custom Trim Cover Bezel Set</h2>
-                <p class="text-sm text-gray-400 leading-relaxed mb-6">
-                    Exclusively engineered for the M Performance steering wheel layout. Features a 2-piece modular split-bezel design (Upper Bezel & Lower Frame) allowing custom combinations of real carbon fiber weave and paint-matched automotive finishes.
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 05 • Complete Continuity</span>
+                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">M Performance Modular Split-Bezel Trim Set</h2>
+                <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                    Exclusively engineered to fit the M Performance steering wheel layout (the original leather core upgrade). This 2-piece modular architecture breaks away from restrictive factory limitations, allowing completely independent customization across upper and lower profiles.
                 </p>
+                <ul class="text-xs text-gray-400 space-y-2 mb-6 list-disc list-inside">
+                    <li><strong class="text-gray-300">Infinite Mix & Match:</strong> Pair a raw carbon lower frame with any custom automotive paint-matched upper accent (e.g., Sky Blue, Yas Marina Blue).</li>
+                    <li><strong class="text-gray-300">Carbon Weave Liberty:</strong> Choose between classic 3K Twill, stealth Matte Carbon, or exotic Forged Carbon textures.</li>
+                    <li><strong class="text-gray-300">Color-Matched M1/M2 Buttons:</strong> Optional physical replacement button pieces professionally sprayed to exactly match your upper bezel accent color.</li>
+                    <li><strong class="text-gray-300">Bottom Emblem Inscription:</strong> Personalize the small recessed badge plate at the base with either the classic <span class="text-yellow-500">"M"</span> insignia or the script <span class="text-yellow-500">"M Performance"</span> script.</li>
+                </ul>
                 <div class="flex items-center justify-between border-t border-gray-900 pt-4">
                     <div>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest">Bespoke Options</p>
-                        <p class="text-sm text-yellow-500 font-semibold">M1/M2 Buttons & Emblem Choice</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Bespoke Layout</p>
+                        <p class="text-sm text-yellow-500 font-semibold">100% Fully Tailored</p>
                     </div>
                     <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Design Layout</a>
                 </div>
@@ -126,14 +182,32 @@ body {
 
     <div class="mt-24 border-t border-gray-950 pt-12 text-center">
         <div class="bg-black bg-opacity-60 rounded-xl p-8 gold-border inline-block max-w-2xl">
-            <h3 class="text-lg font-bold gold-flow gold-glow mb-2">The Ultimate 3-Piece Cockpit Bundle</h3>
+            <h3 class="text-lg font-bold gold-flow gold-glow mb-2">The Ultimate Cockpit System Bundle</h3>
             <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                Commission the Steering Wheel Core, Magnetic Paddles, and Custom Trim Cover together via WhatsApp to unlock package pricing and pre-assembled plug-and-play delivery.
+                Commission your choice of Steering Wheel Core, Magnetic Paddles, and the Modular Trim Cover Set together via WhatsApp to unlock special package tier pricing and pre-assembled plug-and-play delivery.
             </p>
-            <a href="https://wa.me/85295368533" target="_blank" class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">Inquire Package Rate &rarr;</a>
+            <a href="https://wa.me/85295368533" target="_blank" class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">Inquire Bundle Package Rate &rarr;</a>
         </div>
     </div>
-
+<div id="custom-interior-trim" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
+            <div class="h-72 bg-gray-900 rounded-xl overflow-hidden md:order-2">
+                <img src="YOUR_CUSTOM_INTERIOR_IMAGE_URL" alt="Bespoke Carbon Fiber Interior Trim Packages" class="w-full h-full object-cover">
+            </div>
+            <div class="md:order-1">
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 06 • Total Overhaul</span>
+                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Bespoke Carbon Fiber Interior Trim Packages</h2>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Extend carbon excellence to every corner of your cabin. Complete interior trim customization packages engineered for a full cockpit transformation. Covers dashboard paneling, center consoles, gear selector surrounds, door card accents, and vent frames. Meticulously handcrafted to guarantee precise weave alignment and flawless continuity throughout your entire vehicle layout.
+                </p>
+                <div class="flex items-center justify-between border-t border-gray-900 pt-4">
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Bespoke Commission</p>
+                        <p class="text-xl font-bold text-yellow-500">Contact for Rate</p>
+                    </div>
+                    <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Inquire Trim</a>
+                </div>
+            </div>
+        </div>
 </div>
 
 </body>
