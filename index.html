@@ -1,85 +1,24 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KINGZCARBON | Sovereign Carbon Works & Bespoke Cockpits</title>
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-/* 完美繼承你最標誌性的碳纖維紋理背景 */
-body {
-    background-color: #000;
-    background-image:
-        repeating-linear-gradient(
-            45deg,
-            rgba(255,255,255,0.03) 0px,
-            rgba(255,255,255,0.03) 2px,
-            transparent 2px,
-            transparent 6px
-        ),
-        repeating-linear-gradient(
-            -45deg,
-            rgba(255,255,255,0.03) 0px,
-            rgba(255,255,255,0.03) 2px,
-            transparent 2px,
-            transparent 6px
-        );
-}
-
-/* 金色流光動畫 */
-.gold-flow {
-    background: linear-gradient(
-        90deg,
-        #b8892e,
-        #f5e6a8,
-        #d4af37,
-        #f5e6a8,
-        #b8892e
-    );
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: flow 6s linear infinite;
-}
-
-@keyframes flow {
-    0% { background-position: 0% }
-    100% { background-position: 300% }
-}
-
-/* 金色字體發光 */
-.gold-glow {
-    text-shadow: 0 0 8px rgba(212,175,55,0.6),
-                 0 0 18px rgba(212,175,55,0.3);
-}
-
-.gold-border {
-    border: 1px solid rgba(212,175,55,0.5);
-}
-
-.card-glow:hover {
-    box-shadow: 0 0 30px rgba(212,175,55,0.18);
-    transition: 0.4s ease;
-}
-</style>
-</head>
-
-<body class="text-gray-200">
-
-<div class="absolute top-6 right-6 z-50 text-sm tracking-widest">
-    <a href="zh.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">
-        中文 HKD
-    </a>
-    <a href="index.html" class="text-yellow-400 border-b border-yellow-600">
-        English USD
-    </a>
-</div>
-
-<div class="max-w-6xl mx-auto px-6 py-16">
-
+<div class="flex justify-center mb-6">
+        <img src="https://i.imgur.com/WNQPBad.png"
+             alt="KINGZCARBON Logo"
+             class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-full border-2 border-yellow-600 shadow-2xl">
     </div>
 
-</body>
-</html>
+    <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold tracking-widest gold-flow gold-glow uppercase">
+            KINGZCARBON
+        </h1>
+        <p class="mt-6 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
+            Vacuum Engineered • 2K Automotive Finish • Premium Carbon Selection
+        </p>
+    </div>
+
+    <div class="text-center mb-20">
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-4">
+            Brand Declaration
+        </p>
+        <h2 class="text-2xl md:text-4xl font-semibold gold-flow gold-glow tracking-wider leading-relaxed">
+            We Do Not Follow Standards.<br>
+            We Define Bespoke Automotive Luxury.
+        </h2>
+    </div>
