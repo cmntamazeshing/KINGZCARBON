@@ -1,4 +1,76 @@
-<div class="space-y-16">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cockpit Upgrades | KINGZCARBON</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* 完美繼承標誌性的碳纖維紋理背景 */
+body {
+    background-color: #000;
+    background-image:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px);
+}
+
+/* 金色流光動畫 */
+.gold-flow {
+    background: linear-gradient(90deg, #b8892e, #f5e6a8, #d4af37, #f5e6a8, #b8892e);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+}
+
+/* 金色字體發光 */
+.gold-glow {
+    text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3);
+}
+
+.gold-border {
+    border: 1px solid rgba(212,175,55,0.4);
+}
+
+.product-card {
+    background: rgba(0, 0, 0, 0.75);
+    transition: all 0.4s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 30px rgba(212,175,55,0.18);
+    transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body class="text-gray-200">
+
+<div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6">
+    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a>
+</div>
+<div class="absolute top-6 right-6 z-50 text-sm tracking-widest">
+    <a href="ride-zh.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">中文 HKD</a>
+    <a href="ride-en.html" class="text-yellow-400 border-b border-yellow-600">English USD</a>
+</div>
+
+<div class="max-w-5xl mx-auto px-6 py-20">
+
+    <div class="text-center mb-20">
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Tactile Control Center</p>
+        <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Cockpit Upgrades</h1>
+        <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
+            A unified modular performance system engineered for BMW F-Chassis. Upgrade individually or commission the entire bundle.
+        </p>
+    </div>
+
+    <div class="space-y-16">
 
         <div id="ready-steering-wheel" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
             <div class="h-72 bg-gray-900 rounded-xl overflow-hidden">
@@ -100,7 +172,9 @@
             </div>
         </div>
 
-    </div> <div class="mt-24 border-t border-gray-950 pt-12 text-center">
+    </div>
+
+    <div class="mt-24 border-t border-gray-950 pt-12 text-center">
         <div class="bg-black bg-opacity-60 rounded-xl p-8 gold-border inline-block max-w-2xl">
             <h3 class="text-lg font-bold gold-flow gold-glow mb-2">The Ultimate Cockpit System Bundle</h3>
             <p class="text-xs text-gray-400 leading-relaxed mb-4">
@@ -110,4 +184,7 @@
         </div>
     </div>
 
-</div> ```
+</div>
+
+</body>
+</html>
