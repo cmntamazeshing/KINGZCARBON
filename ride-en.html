@@ -1,76 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cockpit Upgrades | KINGZCARBON</title>
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-/* 完美繼承標誌性的碳纖維紋理背景 */
-body {
-    background-color: #000;
-    background-image:
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px),
-        repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px);
-}
-
-/* 金色流光動畫 */
-.gold-flow {
-    background: linear-gradient(90deg, #b8892e, #f5e6a8, #d4af37, #f5e6a8, #b8892e);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: flow 6s linear infinite;
-}
-
-@keyframes flow {
-    0% { background-position: 0% }
-    100% { background-position: 300% }
-}
-
-/* 金色字體發光 */
-.gold-glow {
-    text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3);
-}
-
-.gold-border {
-    border: 1px solid rgba(212,175,55,0.4);
-}
-
-.product-card {
-    background: rgba(0, 0, 0, 0.75);
-    transition: all 0.4s ease;
-}
-
-.product-card:hover {
-    box-shadow: 0 0 30px rgba(212,175,55,0.18);
-    transform: translateY(-2px);
-}
-</style>
-</head>
-
-<body class="text-gray-200">
-
-<div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6">
-    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a>
-</div>
-<div class="absolute top-6 right-6 z-50 text-sm tracking-widest">
-    <a href="ride-zh.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">中文 HKD</a>
-    <a href="ride-en.html" class="text-yellow-400 border-b border-yellow-600">English USD</a>
-</div>
-
-<div class="max-w-5xl mx-auto px-6 py-20">
-
-    <div class="text-center mb-20">
-        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Tactile Control Center</p>
-        <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Cockpit Upgrades</h1>
-        <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
-            A unified modular performance system engineered for BMW F-Chassis. Upgrade individually or commission the entire bundle.
-        </p>
-    </div>
-
-    <div class="space-y-16">
+<div class="space-y-16">
 
         <div id="ready-steering-wheel" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
             <div class="h-72 bg-gray-900 rounded-xl overflow-hidden">
@@ -152,49 +80,12 @@ body {
             </div>
         </div>
 
-        <div id="product-trim-cover" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
+        <div id="custom-interior-trim" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
             <div class="h-72 bg-gray-900 rounded-xl overflow-hidden">
-                <img src="YOUR_TRIM_COVER_IMAGE_URL" alt="M Performance Modular Split-Bezel Trim Cover Set" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 05 • Complete Continuity</span>
-                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">M Performance Modular Split-Bezel Trim Set</h2>
-                <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                    Exclusively engineered to fit the M Performance steering wheel layout (the original leather core upgrade). This 2-piece modular architecture breaks away from restrictive factory limitations, allowing completely independent customization across upper and lower profiles.
-                </p>
-                <ul class="text-xs text-gray-400 space-y-2 mb-6 list-disc list-inside">
-                    <li><strong class="text-gray-300">Infinite Mix & Match:</strong> Pair a raw carbon lower frame with any custom automotive paint-matched upper accent (e.g., Sky Blue, Yas Marina Blue).</li>
-                    <li><strong class="text-gray-300">Carbon Weave Liberty:</strong> Choose between classic 3K Twill, stealth Matte Carbon, or exotic Forged Carbon textures.</li>
-                    <li><strong class="text-gray-300">Color-Matched M1/M2 Buttons:</strong> Optional physical replacement button pieces professionally sprayed to exactly match your upper bezel accent color.</li>
-                    <li><strong class="text-gray-300">Bottom Emblem Inscription:</strong> Personalize the small recessed badge plate at the base with either the classic <span class="text-yellow-500">"M"</span> insignia or the script <span class="text-yellow-500">"M Performance"</span> script.</li>
-                </ul>
-                <div class="flex items-center justify-between border-t border-gray-900 pt-4">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest">Bespoke Layout</p>
-                        <p class="text-sm text-yellow-500 font-semibold">100% Fully Tailored</p>
-                    </div>
-                    <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Design Layout</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="mt-24 border-t border-gray-950 pt-12 text-center">
-        <div class="bg-black bg-opacity-60 rounded-xl p-8 gold-border inline-block max-w-2xl">
-            <h3 class="text-lg font-bold gold-flow gold-glow mb-2">The Ultimate Cockpit System Bundle</h3>
-            <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                Commission your choice of Steering Wheel Core, Magnetic Paddles, and the Modular Trim Cover Set together via WhatsApp to unlock special package tier pricing and pre-assembled plug-and-play delivery.
-            </p>
-            <a href="https://wa.me/85295368533" target="_blank" class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">Inquire Bundle Package Rate &rarr;</a>
-        </div>
-    </div>
-<div id="custom-interior-trim" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
-            <div class="h-72 bg-gray-900 rounded-xl overflow-hidden md:order-2">
                 <img src="YOUR_CUSTOM_INTERIOR_IMAGE_URL" alt="Bespoke Carbon Fiber Interior Trim Packages" class="w-full h-full object-cover">
             </div>
-            <div class="md:order-1">
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 06 • Total Overhaul</span>
+            <div>
+                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 05 • Total Overhaul</span>
                 <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Bespoke Carbon Fiber Interior Trim Packages</h2>
                 <p class="text-sm text-gray-400 leading-relaxed mb-6">
                     Extend carbon excellence to every corner of your cabin. Complete interior trim customization packages engineered for a full cockpit transformation. Covers dashboard paneling, center consoles, gear selector surrounds, door card accents, and vent frames. Meticulously handcrafted to guarantee precise weave alignment and flawless continuity throughout your entire vehicle layout.
@@ -208,7 +99,15 @@ body {
                 </div>
             </div>
         </div>
-</div>
 
-</body>
-</html>
+    </div> <div class="mt-24 border-t border-gray-950 pt-12 text-center">
+        <div class="bg-black bg-opacity-60 rounded-xl p-8 gold-border inline-block max-w-2xl">
+            <h3 class="text-lg font-bold gold-flow gold-glow mb-2">The Ultimate Cockpit System Bundle</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                Commission your choice of Steering Wheel Core and Magnetic Paddles together via WhatsApp to unlock special package tier pricing and pre-assembled plug-and-play delivery.
+            </p>
+            <a href="https://wa.me/85295368533" target="_blank" class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">Inquire Bundle Package Rate &rarr;</a>
+        </div>
+    </div>
+
+</div> ```
