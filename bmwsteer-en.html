@@ -357,7 +357,7 @@ function handleVariantChange() {
     }, 150);
 }
 
-// 2. 核心計價與撥片圖庫全新互鎖邏輯系統
+// 2. 核心計價與網址重排鎖定系統
 function updateConfiguration() {
     let totalComputedPrice = 399; // 基礎裸盤價
     
@@ -378,11 +378,10 @@ function updateConfiguration() {
     const trimType = document.getElementById('trim-type-select').value;
     const trimFinish = document.getElementById('trim-finish-select').value;
     
-    // 累加氣袋與中框飾蓋套件金額
     if (isAirbagChecked) { totalComputedPrice += 50; }
     if (isTrimChecked) { totalComputedPrice += 50; }
     
-    // 3. 🛠️ 重新校正 9 款磁吸撥片全新排版圖庫網址與計價
+    // 3. 🛠️ 重新徹底校正 9 款撥片圖片對接關係
     let paddleImgUrl = ""; 
     let paddleCaptionText = "";
     
@@ -391,43 +390,43 @@ function updateConfiguration() {
         paddleCaptionText = "";
     } else if (paddleAddonStatus === "standard") {
         totalComputedPrice += 160;
-        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg"; // 第4張圖更換至此
+        paddleImgUrl = "https://i.imgur.com/CrujdVG.jpeg"; // 修正：1 為原本第 2 張圖
         paddleCaptionText = "1. Standard Carbon Fiber Layout";
     } else if (paddleAddonStatus === "hollow") {
         totalComputedPrice += 160;
-        paddleImgUrl = "https://i.imgur.com/CrujdVG.jpeg"; // 第2張保持不變
+        paddleImgUrl = "https://i.imgur.com/1i8ELNQ.jpeg"; // 修正：2 為原本第 3 張圖
         paddleCaptionText = "2. Standard Carbon (Hollow Cutout Design)";
     } else if (paddleAddonStatus === "led") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg"; // 原本第1張移至此處 (LED基本款)
+        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg"; // 修正：3 為原本第 1 張圖
         paddleCaptionText = "3. Dynamic LED Indicators Edition";
     } else if (paddleAddonStatus === "led-blue") {
         totalComputedPrice += 256;
-        paddleImgUrl = "https://i.imgur.com/1i8ELNQ.jpeg"; // 原本第3張換到此處 (LED+Blue)
+        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg"; // 修正：4 為原本第 4 張圖
         paddleCaptionText = "4. Dynamic LED + Blue Perimeter Frame";
     } else if (paddleAddonStatus === "led-silver") {
         totalComputedPrice += 256;
-        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  // 第5張不變
+        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  // 第 5 張不變
         paddleCaptionText = "5. Dynamic LED + Silver Perimeter Frame";
     } else if (paddleAddonStatus === "led-red") {
         totalComputedPrice += 256;
-        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  // 第6張不變
+        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  // 第 6 張不變
         paddleCaptionText = "6. Dynamic LED + Red Perimeter Frame";
     } else if (paddleAddonStatus === "dual-blue") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/1i8ELNQ.jpeg"; // 雙層藍色代用對應圖
+        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg"; // 雙層藍色對應底圖位置
         paddleCaptionText = "7. Dual-Layer Metallic Shift Set (Liquid Blue)";
     } else if (paddleAddonStatus === "dual-red") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  // 雙層紅色代用對應圖
+        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  // 雙層紅色對應底圖位置
         paddleCaptionText = "8. Dual-Layer Metallic Shift Set (Crimson Red)";
     } else if (paddleAddonStatus === "dual-silver") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  // 雙層銀色代用對應圖
+        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  // 雙層銀色對應底圖位置
         paddleCaptionText = "9. Dual-Layer Metallic Shift Set (Satin Silver)";
     }
     
-    // 控制撥片展示框與文案的動態顯隱 (none 狀態下完美無圖無字)
+    // 渲染控制展示框 (none 狀態下完美隱藏圖文組件)
     const pImg = document.getElementById('paddle-gallery-img');
     const pCaption = document.getElementById('paddle-gallery-caption');
     const pContainer = document.getElementById('paddle-img-container');
@@ -442,10 +441,10 @@ function updateConfiguration() {
         pCaption.innerText = paddleCaptionText;
     }
     
-    // 實時渲染總金額至看板
+    // 實時總金額看版更新
     document.getElementById('live-price-display').innerText = '$' + totalComputedPrice + ' USD';
     
-    // 4. 控制 04 項細節面板與所有警告框顯隱
+    // 4. 控制 04 項面板與警告框顯隱
     const trimDetailsContainer = document.getElementById('trim-details-container');
     if (isTrimChecked) {
         trimDetailsContainer.classList.remove('hidden');
@@ -468,7 +467,7 @@ function updateConfiguration() {
     if (isTrimChecked && trimFinish.includes("Bespoke Paint")) { document.getElementById('trim-finish-warning').classList.remove('hidden'); } 
     else { document.getElementById('trim-finish-warning').classList.add('hidden'); }
     
-    // 5. 核心訊息流拼接發送至 WhatsApp
+    // 5. 封裝動態對話數據字串
     let shortOptions = [];
     
     let variantShort = "black";
