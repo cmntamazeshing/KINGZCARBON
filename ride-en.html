@@ -142,25 +142,12 @@ body {
         </div>
 
         <div id="magnetic-paddle-shifters" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
-            <div class="grid grid-cols-3 gap-3">
-                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                     <img src="https://i.imgur.com/Ovrk5zx.jpeg" alt="Magnetic Paddle 1" class="w-full h-full object-contain">
+            
+            <div class="text-center">
+                <div id="paddle-img-container" class="w-full aspect-[4/3] bg-gray-950 rounded-xl border border-gray-900 p-2 flex items-center justify-center overflow-hidden relative">
+                    <img id="paddle-gallery-img" src="" alt="Select Paddle Style" class="max-w-full max-h-full object-contain transition duration-300">
                 </div>
-                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                    <img src="https://i.imgur.com/1i8ELNQ.jpeg" alt="Magnetic Paddle 2" class="w-full h-full object-contain">
-                </div>
-                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                    <img src="https://i.imgur.com/FxccdQ8.jpeg" alt="Magnetic Paddle 3" class="w-full h-full object-contain">
-                </div>
-                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                    <img src="https://i.imgur.com/CrujdVG.jpeg" alt="Magnetic Paddle 4" class="w-full h-full object-contain">
-                </div>
-                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                    <img src="https://i.imgur.com/e6QJV01.png" alt="Magnetic Paddle 5" class="w-full h-full object-contain">
-                </div>
-                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                    <img src="https://i.imgur.com/8OLPvhD.png" alt="Magnetic Paddle 6" class="w-full h-full object-contain">
-                </div>
+                <p id="paddle-gallery-caption" class="text-[11px] text-gray-500 uppercase tracking-widest mt-2 font-medium"></p>
             </div>
             
             <div>
@@ -239,45 +226,72 @@ body {
 </div>
 
 <script>
-// 核心計價與英文字串拼接控制
+// 核心計價與英文字串拼接、圖片動態連動控制系統 (主頁原價版)
 function updatePaddleConfig() {
     const select = document.getElementById('paddle-select');
     const selectedValue = select.value;
     
     let priceText = "$200 USD";
     let messageSegment = "standard carbon paddles";
+    let paddleImgUrl = "";
+    let paddleCaptionText = "";
     
     if (selectedValue === "standard") {
         priceText = "$200 USD";
         messageSegment = "standard carbon paddles";
+        paddleImgUrl = "https://i.imgur.com/CrujdVG.jpeg";
+        paddleCaptionText = "1. Standard Carbon Fiber Layout";
     } else if (selectedValue === "hollow") {
         priceText = "$200 USD";
         messageSegment = "standard carbon hollow paddles";
+        paddleImgUrl = "https://i.imgur.com/1i8ELNQ.jpeg";
+        paddleCaptionText = "2. Standard Carbon (Hollow Cutout Design)";
     } else if (selectedValue === "led") {
         priceText = "$300 USD";
         messageSegment = "led paddles";
+        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg";
+        paddleCaptionText = "3. Dynamic LED Indicators Edition";
     } else if (selectedValue === "led-blue") {
         priceText = "$320 USD";
         messageSegment = "led paddles blue frame";
+        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg";
+        paddleCaptionText = "4. Dynamic LED + Blue Perimeter Frame";
     } else if (selectedValue === "led-silver") {
         priceText = "$320 USD";
         messageSegment = "led paddles silver frame";
+        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";
+        paddleCaptionText = "5. Dynamic LED + Silver Perimeter Frame";
     } else if (selectedValue === "led-red") {
         priceText = "$320 USD";
         messageSegment = "led paddles red frame";
+        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";
+        paddleCaptionText = "6. Dynamic LED + Red Perimeter Frame";
     } else if (selectedValue === "dual-blue") {
         priceText = "$300 USD";
         messageSegment = "dual-layer metallic blue paddles";
+        paddleImgUrl = "https://i.imgur.com/LSnlvDp.jpeg";
+        paddleCaptionText = "7. Dual-Layer Metallic Shift Set (Liquid Blue)";
     } else if (selectedValue === "dual-red") {
         priceText = "$300 USD";
         messageSegment = "dual-layer metallic red paddles";
+        paddleImgUrl = "https://i.imgur.com/aPR4ObG.jpeg";
+        paddleCaptionText = "8. Dual-Layer Metallic Shift Set (Crimson Red)";
     } else if (selectedValue === "dual-silver") {
         priceText = "$300 USD";
         messageSegment = "dual-layer metallic silver paddles";
+        paddleImgUrl = "https://i.imgur.com/Y50sZmW.jpeg";
+        paddleCaptionText = "9. Dual-Layer Metallic Shift Set (Satin Silver)";
     }
     
-    // 即時刷新畫面看版原價金額
+    // 即時更新主頁金額看版
     document.getElementById('paddle-price-display').innerText = priceText;
+    
+    // 動態變更左側展示框圖片與對應文案
+    const pImg = document.getElementById('paddle-gallery-img');
+    const pCaption = document.getElementById('paddle-gallery-caption');
+    
+    pImg.src = paddleImgUrl;
+    pCaption.innerText = paddleCaptionText;
     
     // 動態封裝對齊 9 款規格的英文字段至 WhatsApp 預填酬載
     let finalPayload = `Hello Shing, i want to order a set of KINGZCARBON ${messageSegment}.`;
