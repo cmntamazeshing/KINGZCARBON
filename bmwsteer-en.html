@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMW Performance Leather Steering Wheel Configuration | KINGZCARBON</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* 完美繼承標誌性的碳纖維紋理背景 */
+body {
+    background-color: #000;
+    background-image:
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px);
+}
+
+/* 金色流光動畫 */
+.gold-flow {
+    background: linear-gradient(90deg, #b8892e, #f5e6a8, #d4af37, #f5e6a8, #b8892e);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+}
+
+/* 金色字體發光 */
+.gold-glow {
+    text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3);
+}
+
+.gold-border {
+    border: 1px solid rgba(212,175,55,0.4);
+}
+
+.config-box {
+    background: rgba(0, 0, 0, 0.75);
+}
+</style>
+</head>
+
+<body class="text-gray-200">
+
+<div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6">
+    <a href="ride-en.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Back to Cockpit</a>
+</div>
+<div class="absolute top-6 right-6 z-50 text-sm tracking-widest">
+    <a href="bmwsteer-zh.html" class="text-gray-400 hover:text-yellow-400 transition mr-4">中文 HKD</a>
+    <a href="bmwsteer-en.html" class="text-yellow-400 border-b border-yellow-600">English USD</a>
+</div>
+
+<div class="max-w-5xl mx-auto px-6 py-20">
+
+    <div class="text-center mb-16">
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Rapid Factory Series • 1-Week Dispatch</p>
+        <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">BMW Leather Steering Wheel</h1>
+        <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
+            Premium Handcrafted Non-Carbon "T-Thong" (丁字褲) Styling Upgrade for Ultimate Tactile Ergonomics.
+        </p>
+    </div>
+
+    <div class="mb-16">
+        <h2 class="text-xl font-bold gold-flow gold-glow uppercase tracking-wider mb-6">01. Fitment & Compatibility</h2>
+        <div class="bg-black bg-opacity-70 p-8 rounded-2xl gold-border grid md:grid-cols-4 gap-8 items-center">
+            <div class="md:col-span-3">
+                <img src="https://i.imgur.com/xQKFwHq.png" 
+                     alt="BMW Steering Wheel Fitment Guide" 
+                     class="w-full h-auto rounded-xl shadow-2xl object-contain border border-gray-800">
+            </div>
+            <div class="text-center md:text-left md:col-span-1">
+                <h3 class="text-base font-semibold text-gray-100 mb-3">Model Missing?</h3>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    If your specific BMW chassis or manufacturing year is not explicitly listed on the visual matrix template, our factory accommodates alternative custom dimensions.
+                </p>
+                <a href="https://wa.me/85295368533" 
+                   target="_blank" 
+                   class="block text-center w-full px-4 py-3 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
+                    Inquire Chassis
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start mt-12">
+        
+        <div class="space-y-6 sticky top-6">
+            <div class="h-96 bg-gray-950 rounded-2xl overflow-hidden gold-border shadow-2xl relative">
+                <img id="main-gallery-img" 
+                     src="YOUR_ALL_BLACK_STEERING_IMAGE_URL" 
+                     alt="BMW Leather Steering Wheel Display" 
+                     class="w-full h-full object-cover transition duration-300">
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4">
+                <button onclick="switchDisplay('YOUR_ALL_BLACK_STEERING_IMAGE_URL', 'All Black Leather Edition')" 
+                        class="px-3 py-3 bg-black bg-opacity-60 border border-gray-800 rounded-xl text-xs tracking-wider uppercase font-semibold text-gray-300 hover:border-yellow-600 hover:text-yellow-400 transition">
+                    All Black
+                </button>
+                <button onclick="switchDisplay('YOUR_RED_ACCENT_STEERING_IMAGE_URL', 'Red Performance Accent Edition')" 
+                        class="px-3 py-3 bg-black bg-opacity-60 border border-gray-800 rounded-xl text-xs tracking-wider uppercase font-semibold text-gray-300 hover:border-yellow-600 hover:text-yellow-400 transition">
+                    Red Accent
+                </button>
+                <button onclick="switchDisplay('YOUR_BLUE_ACCENT_STEERING_IMAGE_URL', 'Blue Performance Accent Edition')" 
+                        class="px-3 py-3 bg-black bg-opacity-60 border border-gray-800 rounded-xl text-xs tracking-wider uppercase font-semibold text-gray-300 hover:border-yellow-600 hover:text-yellow-400 transition">
+                    Blue Accent
+                </button>
+            </div>
+            <p id="gallery-caption" class="text-center text-xs text-gray-500 uppercase tracking-widest pt-2">All Black Leather Edition</p>
+        </div>
+
+        <div class="space-y-8">
+            
+            <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
+                <h3 class="text-lg font-bold text-gray-100 tracking-wide mb-4 border-b border-gray-900 pb-2">02. Base Configurations</h3>
+                
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-2">Leather Texture Finish</label>
+                        <p class="text-xs text-yellow-500 font-medium mb-1">Available Profiles:</p>
+                        <p class="text-gray-300 text-xs leading-relaxed">Ultra-Dense Smooth Nappa / Premium Tactile Alcantara / Breathable Perforated Sport Leather</p>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1">12 O'Clock Center Alignment Ribbon</label>
+                        <p class="text-gray-300 text-xs">Custom color stripe configurations completely matching chosen design layouts.</p>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1">Ergonomic Stitching Colors</label>
+                        <p class="text-gray-300 text-xs">Classic M-Sport tri-color stitch layout, stealth black stitch, or specific custom paint codes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
+                <div class="flex justify-between items-start border-b border-gray-900 pb-2 mb-4">
+                    <h3 class="text-lg font-bold text-gray-100 tracking-wide">03. Airbag & Electronics Package</h3>
+                    <span class="text-xs bg-yellow-600 text-black px-2 py-0.5 rounded font-bold tracking-wider">+ $100 USD</span>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Opt-in to incorporate a comprehensive replacement physical Airbag Assembly, hand-stitched leather Airbag Outer Cover Bezel, and a fully functional multi-media control button infrastructure cluster group. Delivered complete for total plug-and-play installation capability.
+                </p>
+            </div>
+
+            <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
+                <h3 class="text-lg font-bold text-gray-100 tracking-wide mb-4 border-b border-gray-900 pb-2">04. Modular Trim Cover Upgrade</h3>
+                <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                    Upgrade your foundational infrastructure with a specialized 2-piece modular layout set. Allows separate visual detailing across Upper Bezel rings and Lower structural Frames.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4 text-xs text-gray-400 mb-6">
+                    <div class="p-3 bg-black bg-opacity-50 rounded-xl border border-gray-900">
+                        <strong class="text-gray-200 block mb-1">Option A: Full Carbon</strong>
+                        Real vacuum carbon fiber weave layer skinning.
+                    </div>
+                    <div class="p-3 bg-black bg-opacity-50 rounded-xl border border-gray-900">
+                        <strong class="text-gray-200 block mb-1">Option B: Painted Finish</strong>
+                        Automotive grade paint sprayed to custom color specifications.
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-3">Trim Color Schemes Showcase Reference</p>
+                <div class="grid grid-cols-3 gap-3 mb-2">
+                    <div class="h-20 bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                        <img src="YOUR_TRIM_COLOR_1_IMAGE_URL" alt="Trim Variant 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-20 bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                        <img src="YOUR_TRIM_COLOR_2_IMAGE_URL" alt="Trim Variant 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-20 bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+                        <img src="YOUR_TRIM_COLOR_3_IMAGE_URL" alt="Trim Variant 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4">
+                <a href="https://wa.me/85295368533" 
+                   target="_blank" 
+                   class="block text-center w-full py-4 bg-yellow-600 text-black rounded-xl font-bold tracking-widest uppercase text-sm shadow-2xl transition duration-300 hover:bg-yellow-500 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]">
+                    Commission This Configuration
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+function switchDisplay(imageUrl, captionText) {
+    const mainImg = document.getElementById('main-gallery-img');
+    const caption = document.getElementById('gallery-caption');
+    
+    // 淡出效果過渡
+    mainImg.style.opacity = '0.3';
+    
+    setTimeout(() => {
+        mainImg.src = imageUrl;
+        caption.innerText = captionText;
+        mainImg.style.opacity = '1';
+    }, 150);
+}
+</script>
+
+</body>
+</html>
