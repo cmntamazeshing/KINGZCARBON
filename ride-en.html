@@ -160,9 +160,9 @@ body {
                 <div class="mb-6">
                     <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5 font-semibold">Select Shifter Specification</label>
                     <select id="paddle-select" onchange="updatePaddleConfig()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
-                        <option value="standard" selected>1. Standard Carbon Fiber ($200 USD)</option>
+                        <option value="standard">1. Standard Carbon Fiber ($200 USD)</option>
                         <option value="hollow">2. Standard Carbon (Hollow Design) ($200 USD)</option>
-                        <option value="led">3. Dynamic LED Indicators ($300 USD)</option>
+                        <option value="led" selected>3. Dynamic LED Indicators ($300 USD)</option>
                         <option value="led-blue">4. Dynamic LED + Blue Perimeter Frame ($320 USD)</option>
                         <option value="led-silver">5. Dynamic LED + Silver Perimeter Frame ($320 USD)</option>
                         <option value="led-red">6. Dynamic LED + Red Perimeter Frame ($320 USD)</option>
@@ -175,7 +175,7 @@ body {
                 <div class="flex items-center justify-between border-t border-gray-900 pt-4">
                     <div>
                         <p class="text-xs text-gray-500 uppercase tracking-widest">Configuration Total</p>
-                        <p id="paddle-price-display" class="text-xl font-bold text-yellow-500">$200 USD</p>
+                        <p id="paddle-price-display" class="text-xl font-bold text-yellow-500">$300 USD</p>
                     </div>
                     <a id="paddle-submit" 
                        href="https://wa.me/85295368533" 
@@ -226,7 +226,7 @@ body {
 </div>
 
 <script>
-// 核心計價與英文字串拼接、圖片動態連動控制系統 (主頁原價版)
+// 核心計價與英文字串拼接、圖片動態連動控制系統 (主頁原價無折扣版)
 function updatePaddleConfig() {
     const select = document.getElementById('paddle-select');
     const selectedValue = select.value;
@@ -236,6 +236,7 @@ function updatePaddleConfig() {
     let paddleImgUrl = "";
     let paddleCaptionText = "";
     
+    // 計價邏輯判斷 (對應選單預設值，初始化載入將顯示 led 分支)
     if (selectedValue === "standard") {
         priceText = "$200 USD";
         messageSegment = "standard carbon paddles";
@@ -249,7 +250,7 @@ function updatePaddleConfig() {
     } else if (selectedValue === "led") {
         priceText = "$300 USD";
         messageSegment = "led paddles";
-        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg";
+        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg"; // 預設封面圖
         paddleCaptionText = "3. Dynamic LED Indicators Edition";
     } else if (selectedValue === "led-blue") {
         priceText = "$320 USD";
@@ -283,7 +284,7 @@ function updatePaddleConfig() {
         paddleCaptionText = "9. Dual-Layer Metallic Shift Set (Satin Silver)";
     }
     
-    // 即時更新主頁金額看版
+    // 即時更新主頁看版原價金額
     document.getElementById('paddle-price-display').innerText = priceText;
     
     // 動態變更左側展示框圖片與對應文案
@@ -298,7 +299,7 @@ function updatePaddleConfig() {
     document.getElementById('paddle-submit').href = `https://wa.me/85295368533?text=${encodeURIComponent(finalPayload)}`;
 }
 
-// 首次載入就緒同步
+// 首次載入就緒同步，由於選單已預設選取 'led'，頁面將預設載入 LED 款圖片與價格
 window.onload = function() {
     updatePaddleConfig();
 };
