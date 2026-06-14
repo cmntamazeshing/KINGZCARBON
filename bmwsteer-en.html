@@ -77,7 +77,7 @@ body {
                 <p class="text-xs text-gray-400 leading-relaxed mb-6">
                     If your specific BMW chassis or manufacturing year is not explicitly listed on the visual matrix template, our factory accommodates alternative custom dimensions.
                 </p>
-                <a href="https://wa.me/85295368533" 
+                <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." 
                    target="_blank" 
                    class="block text-center w-full px-4 py-3 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
                     Inquire Chassis
@@ -96,20 +96,19 @@ body {
                      class="w-full h-full object-contain transition duration-300">
             </div>
             
-            <div class="grid grid-cols-3 gap-4">
-                <button onclick="switchDisplay('https://i.imgur.com/wtqvT7v.jpeg', 'All Black Leather Edition')" 
-                        class="px-3 py-3 bg-black bg-opacity-60 border border-gray-800 rounded-xl text-xs tracking-wider uppercase font-semibold text-gray-300 hover:border-yellow-600 hover:text-yellow-400 transition">
-                    All Black
-                </button>
-                <button onclick="switchDisplay('https://i.imgur.com/tMMH1qf.png', 'Red Performance Accent Edition')" 
-                        class="px-3 py-3 bg-black bg-opacity-60 border border-gray-800 rounded-xl text-xs tracking-wider uppercase font-semibold text-gray-300 hover:border-yellow-600 hover:text-yellow-400 transition">
-                    Red Accent
-                </button>
-                <button onclick="switchDisplay('https://i.imgur.com/QDaWOvO.png', 'Blue Performance Accent Edition')" 
-                        class="px-3 py-3 bg-black bg-opacity-60 border border-gray-800 rounded-xl text-xs tracking-wider uppercase font-semibold text-gray-300 hover:border-yellow-600 hover:text-yellow-400 transition">
-                    Blue Accent
-                </button>
+            <div>
+                <label class="block text-xs text-gray-500 uppercase tracking-widest mb-2 font-semibold">Select Steering Wheel Base Tone</label>
+                <select id="variant-select" onchange="handleVariantChange()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-3 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                    <option value="All Black">All Black Edition</option>
+                    <option value="Red Accent">Red Performance Accent Edition</option>
+                    <option value="Blue Accent">Blue Performance Accent Edition</option>
+                    <option value="Other">Other Color (Requires WhatsApp Consultation)</option>
+                </select>
+                <p id="variant-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-2 leading-relaxed">
+                    &rarr; <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." target="_blank" class="underline">Tap here to discuss custom visual configurations via WhatsApp.</a>
+                </p>
             </div>
+
             <div class="text-center px-2">
                 <p id="gallery-caption" class="text-xs text-gray-500 uppercase tracking-widest pt-1 font-semibold">All Black Leather Edition</p>
                 <p class="text-[10px] text-gray-600 leading-normal mt-3 max-w-sm mx-auto">
@@ -125,7 +124,7 @@ body {
                     <h4 class="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-1">Bespoke Design Hotline</h4>
                     <p class="text-[11px] text-gray-400 leading-tight">Skip the form. Chat directly with our master craftsmen to design your dream leather steering wheel setup.</p>
                 </div>
-                <a href="https://wa.me/85295368533?text=Hello%20KINGZCARBON%2C%20I%20am%20interested%20in%20commissioning%20a%20fully%20tailored%20BMW%20Leather%20Steering%20Wheel%20package.%20Please%20guide%20me%20through%20the%20available%20customization%20options." 
+                <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." 
                    target="_blank" 
                    class="shrink-0 px-4 py-2.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-bold uppercase tracking-wider rounded-xl transition duration-300 hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]">
                     Chat Now
@@ -157,12 +156,14 @@ body {
                     <div class="pt-1">
                         <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5">12 O'Clock Center Alignment Ribbon</label>
                         <select id="ribbon-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
-                            <option value="Stealth Matte Black Ribbon">None (default) </option>
+                            <option value="None">None (Default)</option>
                             <option value="Crimson Red Performance Ribbon">Crimson Red Performance Ribbon</option>
                             <option value="Liquid Blue Performance Ribbon">Liquid Blue Performance Ribbon</option>
                             <option value="Other Custom Color">Other Color (Requires WhatsApp Consultation)</option>
                         </select>
-                        <p id="ribbon-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">&rarr; Please tap the WhatsApp button below to discuss your unique color mapping with our team.</p>
+                        <p id="ribbon-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">
+                            &rarr; <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." target="_blank" class="underline">Tap here to communicate your unique alignment color parameters via WhatsApp.</a>
+                        </p>
                     </div>
                     
                     <div class="pt-1">
@@ -172,7 +173,9 @@ body {
                             <option value="Germany Theme Stitching">Germany Theme Stitching (Black + Red + Yellow)</option>
                             <option value="Other Bespoke Stitching Color">Other Colors (Requires WhatsApp Consultation)</option>
                         </select>
-                        <p id="stitch-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">&rarr; Tailoring unique multi-color stitching codes requires direct sync via WhatsApp button below.</p>
+                        <p id="stitch-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">
+                            &rarr; <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." target="_blank" class="underline">Tailoring unique multi-color stitching layouts requires direct sync via WhatsApp.</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -180,8 +183,8 @@ body {
             <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
                 <div class="flex justify-between items-center border-b border-gray-900 pb-2 mb-4">
                     <div class="flex items-center gap-3">
-                        <input type="checkbox" id="airbag-addon" onchange="updateConfiguration()" class="w-4 h-4 rounded border-gray-800 text-yellow-600 bg-black focus:ring-yellow-600 focus:ring-offset-0">
-                        <label for="airbag-addon" class="text-lg font-bold text-gray-100 tracking-wide cursor-pointer">03.Full Set:Airbag & Buttons</label>
+                        <input type="checkbox" id="airbag-addon" onchange="updateConfiguration()" class="w-5 h-5 rounded border-gray-800 text-yellow-600 bg-black focus:ring-yellow-600 focus:ring-offset-0 cursor-pointer">
+                        <label for="airbag-addon" class="text-lg font-bold text-gray-100 tracking-wide cursor-pointer select-none">03. Full Set: Airbag & Buttons</label>
                     </div>
                     <span class="text-xs bg-yellow-600 text-black px-2 py-0.5 rounded font-bold tracking-wider">+ $50 USD</span>
                 </div>
@@ -193,37 +196,36 @@ body {
             <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
                 <div class="flex justify-between items-center border-b border-gray-900 pb-2 mb-4">
                     <div class="flex items-center gap-3">
-                        <input type="checkbox" id="trim-addon" onchange="updateConfiguration()" class="w-4 h-4 rounded border-gray-800 text-yellow-600 bg-black focus:ring-yellow-600 focus:ring-offset-0">
-                        <label for="trim-addon" class="text-lg font-bold text-gray-100 tracking-wide cursor-pointer">04. Modular Trim Cover Upgrade</label>
+                        <input type="checkbox" id="trim-addon" onchange="updateConfiguration()" class="w-5 h-5 rounded border-gray-800 text-yellow-600 bg-black focus:ring-yellow-600 focus:ring-offset-0 cursor-pointer">
+                        <label for="trim-addon" class="text-lg font-bold text-gray-100 tracking-wide cursor-pointer select-none">04. Modular Trim Cover Upgrade</label>
                     </div>
                     <span class="text-xs bg-yellow-600 text-black px-2 py-0.5 rounded font-bold tracking-wider">+ $50 USD</span>
                 </div>
                 <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                    Upgrade your foundational infrastructure with a specialized 2-piece modular layout set. Allows separate visual detailing across Upper Bezel rings and Lower structural Frames.
+                    Upgrade your infrastructure with a specialized 2-piece modular layout set (Upper Bezel & Lower Frame). <span class="text-yellow-500 font-semibold">* Includes standalone physical replacement M1/M2 button pieces (does NOT include the electronic multi-media control cluster assembly group).</span>
                 </p>
                 
-                <div class="grid grid-cols-2 gap-4 text-xs text-gray-400 mb-6">
-                    <div class="p-3 bg-black bg-opacity-50 rounded-xl border border-gray-900">
-                        <strong class="text-gray-200 block mb-1">Option A: Full Carbon</strong>
-                        Real vacuum carbon fiber weave layer skinning.
-                    </div>
-                    <div class="p-3 bg-black bg-opacity-50 rounded-xl border border-gray-900">
-                        <strong class="text-gray-200 block mb-1">Option B: Painted Finish</strong>
-                        Automotive grade paint sprayed to custom color specifications.
-                    </div>
-                </div>
-
-                <div class="space-y-4 border-t border-gray-900 pt-4 mb-6 text-xs">
+                <div class="space-y-4 mb-6">
                     <div>
-                        <span class="text-yellow-500 font-bold uppercase tracking-wider block mb-1">Upper Bezel Continuity</span>
-                        <p class="text-gray-400 leading-relaxed">
-                            The upper section of the modular trim panel can be custom-finished to seamlessly harmonize with your core grip color choices (Stealth Black, Crimson Red, or Liquid Blue).
+                        <label class="block text-[11px] text-gray-500 uppercase tracking-widest mb-1.5">Base Architecture (Option A)</label>
+                        <select id="trim-type-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                            <option value="Full Carbon (Real Vacuum Skinning)">1. Full Carbon (Real Vacuum Layer Skinning)</option>
+                            <option value="Premium Wrapped Black Leather">2. Premium Wrapped Black Leather</option>
+                            <option value="Special Custom Architecture">3. Special Custom Accent (Requires WhatsApp)</option>
+                        </select>
+                        <p id="trim-type-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">
+                            &rarr; <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." target="_blank" class="underline">Contact via WhatsApp to configure advanced custom materials.</a>
                         </p>
                     </div>
+                    
                     <div>
-                        <span class="text-yellow-500 font-bold uppercase tracking-wider block mb-1">Color-Matched M1 / M2 Buttons</span>
-                        <p class="text-gray-400 leading-relaxed">
-                            Complete the synchronization. Physical tactical M1 and M2 driving profile control replacement button toggles can be sprayed to perfectly lock with the chosen upper accent theme.
+                        <label class="block text-[11px] text-gray-500 uppercase tracking-widest mb-1.5">Surface Finish Treatment (Option B)</label>
+                        <select id="trim-finish-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                            <option value="Follow Chosen Main Style Color">1. Match Chosen Main Style Color (Stealth Black / Red / Blue)</option>
+                            <option value="Bespoke Paint custom Code">2. Bespoke Paint Custom Finish (Requires WhatsApp)</option>
+                        </select>
+                        <p id="trim-finish-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">
+                            &rarr; <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20a%20bmw%20leather%20steering%20wheel." target="_blank" class="underline">Contact via WhatsApp to define color paint matching criteria.</a>
                         </p>
                     </div>
                 </div>
@@ -269,14 +271,33 @@ body {
 <script>
 let currentStyle = "All Black Leather Edition";
 
-function switchDisplay(imageUrl, captionText) {
+function handleVariantChange() {
+    const select = document.getElementById('variant-select');
+    const selectedValue = select.value;
+    
+    let imgUrl = "";
+    let captionText = "";
+    
+    if (selectedValue === "All Black") {
+        imgUrl = "https://i.imgur.com/wtqvT7v.jpeg";
+        captionText = "All Black Leather Edition";
+    } else if (selectedValue === "Red Accent") {
+        imgUrl = "https://i.imgur.com/tMMH1qf.png";
+        captionText = "Red Performance Accent Edition";
+    } else if (selectedValue === "Blue Accent") {
+        imgUrl = "https://i.imgur.com/QDaWOvO.png";
+        captionText = "Blue Performance Accent Edition";
+    } else if (selectedValue === "Other") {
+        imgUrl = "https://i.imgur.com/wtqvT7v.jpeg"; 
+        captionText = "Bespoke Custom Variant (Contact WhatsApp)";
+    }
+    
     const mainImg = document.getElementById('main-gallery-img');
     const caption = document.getElementById('gallery-caption');
     
     mainImg.style.opacity = '0.3';
-    
     setTimeout(() => {
-        mainImg.src = imageUrl;
+        mainImg.src = imgUrl;
         caption.innerText = captionText;
         mainImg.style.opacity = '1';
         currentStyle = captionText;
@@ -285,28 +306,37 @@ function switchDisplay(imageUrl, captionText) {
 }
 
 function updateConfiguration() {
-    let totalComputedPrice = 399; // 基礎出廠底價
+    let totalComputedPrice = 399; // 底價
     
-    // 讀取全新分區與特殊選單組件
+    // 讀取所有選配組件狀態
+    const variantValue = document.getElementById('variant-select').value;
     const leatherTop = document.getElementById('leather-top-select').value;
     const leatherSide = document.getElementById('leather-side-select').value;
     const currentRibbon = document.getElementById('ribbon-select').value;
     const currentStitch = document.getElementById('stitch-select').value;
     const isAirbagChecked = document.getElementById('airbag-addon').checked;
     const isTrimChecked = document.getElementById('trim-addon').checked;
+    const trimType = document.getElementById('trim-type-select').value;
+    const trimFinish = document.getElementById('trim-finish-select').value;
     
-    // 1. 分區材質計價邏輯：選中 Alcantara 每區各加 $30 USD
+    // 1. 累加分區材質價格：任何一區選 Alcantara 則分別 +$30 USD
     if (leatherTop.includes("Alcantara")) { totalComputedPrice += 30; }
     if (leatherSide.includes("Alcantara")) { totalComputedPrice += 30; }
     
-    // 2. 加購包計價邏輯
+    // 2. 累加包價格
     if (isAirbagChecked) { totalComputedPrice += 50; }
     if (isTrimChecked) { totalComputedPrice += 50; }
     
-    // 3. 刷新畫面的實時總金額
+    // 3. 實時渲染總金額
     document.getElementById('live-price-display').innerText = '$' + totalComputedPrice + ' USD';
     
-    // 4. 智能處理特殊定製警告文字切換
+    // 4. 監聽與切換全系列「Requires WhatsApp」智能隱藏/顯示警告框
+    if (variantValue === "Other") {
+        document.getElementById('variant-warning').classList.remove('hidden');
+    } else {
+        document.getElementById('variant-warning').classList.add('hidden');
+    }
+
     if (currentRibbon.includes("Other")) {
         document.getElementById('ribbon-warning').classList.remove('hidden');
     } else {
@@ -318,38 +348,47 @@ function updateConfiguration() {
     } else {
         document.getElementById('stitch-warning').classList.add('hidden');
     }
+
+    if (trimType.includes("Special Custom")) {
+        document.getElementById('trim-type-warning').classList.remove('hidden');
+    } else {
+        document.getElementById('trim-type-warning').classList.add('hidden');
+    }
+
+    if (trimFinish.includes("Bespoke Paint")) {
+        document.getElementById('trim-finish-warning').classList.remove('hidden');
+    } else {
+        document.getElementById('trim-finish-warning').classList.add('hidden');
+    }
     
-    // 5. 動態拼裝多維度客製 WhatsApp 訊息負載
+    // 5. 動態構建高清晰度委託清單 (最後大按鈕依選配生成完整的訂購單)
     let orderText = `Hello KINGZCARBON, I would like to order a bespoke BMW Leather Steering Wheel series:\n\n`;
     orderText += `[ BASE MATERIAL CONFIGS ]\n`;
     orderText += `• Visual Variant: ${currentStyle}\n`;
-    orderText += `• Top & Bottom Material: ${leatherTop}\n`;
-    orderText += `• Left & Right Side Grip: ${leatherSide}\n`;
-    orderText += `• 12 O'Clock Ribbon Line: ${currentRibbon}\n`;
-    orderText += `• Stitching Thread Color: ${currentStitch}\n\n`;
+    orderText += `• Top & Bottom Section: ${leatherTop}\n`;
+    orderText += `• Left & Right Grips: ${leatherSide}\n`;
+    orderText += `• 12 O'Clock Ribbon: ${currentRibbon}\n`;
+    orderText += `• Stitching Profile: ${currentStitch}\n\n`;
     
-    orderText += `[ ELECTRONICS & AERODYNAMIC OPTIONS ]\n`;
-    orderText += `• Airbag + Media Controls Group: ${isAirbagChecked ? 'YES (+$50 USD Upgrade Package)' : 'NO (Foundational Core Only)'}\n`;
-    orderText += `• Modular Trim Cover Set Bezel: ${isTrimChecked ? 'YES (+$50 USD Upgrade - Sync Color Rings + M1/M2 Toggles)' : 'NO'}\n\n`;
-    
-    // 如果客人觸發特殊定製，在訂單內自動備註提醒大師對接
-    if (currentRibbon.includes("Other") || currentStitch.includes("Other")) {
-        orderText += `[ SPECIAL BESPOKE NOTES ]\n`;
-        if (currentRibbon.includes("Other")) orderText += `• Requires a totally unique bespoke 12 o'clock ribbon shade.\n`;
-        if (currentStitch.includes("Other")) orderText += `• Requires unique custom multi-color sewing thread matching.\n`;
-        orderText += `\n`;
+    orderText += `[ OPTIONS & ADD-ONS ]\n`;
+    orderText += `• Airbag + Media Buttons Set: ${isAirbagChecked ? 'YES (+$50 USD)' : 'NO'}\n`;
+    orderText += `• Modular Trim Cover Upgrade: ${isTrimChecked ? 'YES (+$50 USD - Standalone M1/M2 Pieces Included)' : 'NO'}\n`;
+    if (isTrimChecked) {
+        orderText += `  - Trim Option A (Architecture): ${trimType}\n`;
+        orderText += `  - Trim Option B (Surface Finish): ${trimFinish}\n`;
     }
+    orderText += `\n`;
     
-    orderText += `[ FINAL COMPUTED ESTIMATE ]\n`;
-    orderText += `• Total Investment Value: $${totalComputedPrice} USD\n\n`;
+    orderText += `[ TOTAL ESTIMATED RATE ]\n`;
+    orderText += `• Final Value: $${totalComputedPrice} USD\n\n`;
     orderText += `Please approve my selected styling parameters and allocate a facility production line slot.`;
     
-    // 6. 寫入按鈕的直連參數中
+    // 6. 寫入底部的提交按鈕
     const encodedPayload = encodeURIComponent(orderText);
     document.getElementById('whatsapp-submit').href = `https://wa.me/85295368533?text=${encodedPayload}`;
 }
 
-// 首次加載就緒自同步
+// 初始化自同步
 window.onload = function() {
     updateConfiguration();
 };
