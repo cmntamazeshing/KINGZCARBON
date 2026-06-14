@@ -66,7 +66,7 @@ body {
         <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Tactile Control Center</p>
         <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Cockpit Upgrades</h1>
         <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
-            A unified modular performance system engineered . Upgrade individually or commission the entire bundle.
+            A unified modular performance system engineered. Upgrade individually or commission the entire bundle.
         </p>
     </div>
 
@@ -80,7 +80,7 @@ body {
                 <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 01 • In Stock</span>
                 <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">BMW Leather Steering Wheel</h2>
                 <p class="text-sm text-gray-400 leading-relaxed mb-6">
-               Fast-tracked directly from our production facility and completely ready to ship out within one week. This premium replacement core is available in several pre-configured baseline options, successfully bypassing traditional bespoke wait times for a rapid, instant cockpit upgrade.
+                Fast-tracked directly from our production facility and completely ready to ship out within one week. This premium replacement core is available in several pre-configured baseline options, successfully bypassing traditional bespoke wait times for a rapid, instant cockpit upgrade.
                 </p>
                 <div class="flex items-center justify-between border-t border-gray-900 pt-4">
                     <div>
@@ -145,21 +145,21 @@ body {
             <div class="grid grid-cols-3 gap-3">
                 <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
                      <img src="https://i.imgur.com/Ovrk5zx.jpeg" alt="Magnetic Paddle 1" class="w-full h-full object-contain">
-                    </div>
-                    <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.imgur.com/CrujdVG.jpeg" alt="Magnetic Paddle 2" class="w-full h-full object-contain">
-                    </div>
-                    <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.imgur.com/1i8ELNQ.jpeg" alt="Magnetic Paddle 3" class="w-full h-full object-contain">
-                    </div>
-                    <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.imgur.com/FxccdQ8.jpeg" alt="Magnetic Paddle 4" class="w-full h-full object-contain">
-                    </div>
-                    <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.imgur.com/e6QJV01.png" alt="Magnetic Paddle 5" class="w-full h-full object-contain">
-                    </div>
-                    <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
-                        <img src="https://i.imgur.com/8OLPvhD.png" alt="Magnetic Paddle 6" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/1i8ELNQ.jpeg" alt="Magnetic Paddle 2" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/FxccdQ8.jpeg" alt="Magnetic Paddle 3" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/CrujdVG.jpeg" alt="Magnetic Paddle 4" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/e6QJV01.png" alt="Magnetic Paddle 5" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/8OLPvhD.png" alt="Magnetic Paddle 6" class="w-full h-full object-contain">
                 </div>
             </div>
             
@@ -173,11 +173,15 @@ body {
                 <div class="mb-6">
                     <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5 font-semibold">Select Shifter Specification</label>
                     <select id="paddle-select" onchange="updatePaddleConfig()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
-                        <option value="standard" selected>1. Standard Mechanical ($200 USD)</option>
-                        <option value="led">2. Dynamic LED Indicators ($300 USD)</option>
-                        <option value="led-red">3. Dynamic LED + Red Perimeter Frame ($320 USD)</option>
+                        <option value="standard" selected>1. Standard Carbon Fiber ($200 USD)</option>
+                        <option value="hollow">2. Standard Carbon (Hollow Design) ($200 USD)</option>
+                        <option value="led">3. Dynamic LED Indicators ($300 USD)</option>
                         <option value="led-blue">4. Dynamic LED + Blue Perimeter Frame ($320 USD)</option>
                         <option value="led-silver">5. Dynamic LED + Silver Perimeter Frame ($320 USD)</option>
+                        <option value="led-red">6. Dynamic LED + Red Perimeter Frame ($320 USD)</option>
+                        <option value="dual-blue">7. Dual-Layer Metallic (Liquid Blue) ($300 USD)</option>
+                        <option value="dual-red">8. Dual-Layer Metallic (Crimson Red) ($300 USD)</option>
+                        <option value="dual-silver">9. Dual-Layer Metallic (Satin Silver) ($300 USD)</option>
                     </select>
                 </div>
 
@@ -228,43 +232,59 @@ body {
             <p class="text-xs text-gray-400 leading-relaxed mb-4">
                 Commission your choice of Steering Wheel Core and Magnetic Paddles together via WhatsApp to unlock special package tier pricing and pre-assembled plug-and-play delivery.
             </p>
-            <a href="https://wa.me/85295368533" target="_blank" class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">Inquire Bundle Package Rate &rarr;</a>
+            <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20inquire%20the%20steering%20wheel%20and%20paddles%20combo%20bundle%20rate." target="_blank" class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">Inquire Bundle Package Rate &rarr;</a>
         </div>
     </div>
 
 </div>
 
 <script>
+// 核心計價與英文字串拼接控制
 function updatePaddleConfig() {
     const select = document.getElementById('paddle-select');
     const selectedValue = select.value;
     
     let priceText = "$200 USD";
-    let messageSegment = "paddle shift";
+    let messageSegment = "standard carbon paddles";
     
-    if (selectedValue === "led") {
+    if (selectedValue === "standard") {
+        priceText = "$200 USD";
+        messageSegment = "standard carbon paddles";
+    } else if (selectedValue === "hollow") {
+        priceText = "$200 USD";
+        messageSegment = "standard carbon hollow paddles";
+    } else if (selectedValue === "led") {
         priceText = "$300 USD";
-        messageSegment = "led paddle shift";
-    } else if (selectedValue === "led-red") {
-        priceText = "$320 USD";
-        messageSegment = "led paddle shift with red frame";
+        messageSegment = "led paddles";
     } else if (selectedValue === "led-blue") {
         priceText = "$320 USD";
-        messageSegment = "led paddle shift with blue frame";
+        messageSegment = "led paddles blue frame";
     } else if (selectedValue === "led-silver") {
         priceText = "$320 USD";
-        messageSegment = "led paddle shift with silver frame";
+        messageSegment = "led paddles silver frame";
+    } else if (selectedValue === "led-red") {
+        priceText = "$320 USD";
+        messageSegment = "led paddles red frame";
+    } else if (selectedValue === "dual-blue") {
+        priceText = "$300 USD";
+        messageSegment = "dual-layer metallic blue paddles";
+    } else if (selectedValue === "dual-red") {
+        priceText = "$300 USD";
+        messageSegment = "dual-layer metallic red paddles";
+    } else if (selectedValue === "dual-silver") {
+        priceText = "$300 USD";
+        messageSegment = "dual-layer metallic silver paddles";
     }
     
-    // 即時刷新畫面金額
+    // 即時刷新畫面看版原價金額
     document.getElementById('paddle-price-display').innerText = priceText;
     
-    // 重新封裝並輸出動態客製化 WhatsApp 預填代載荷
-    let finalPayload = `Hello Shing, i want a ${messageSegment}.`;
+    // 動態封裝對齊 9 款規格的英文字段至 WhatsApp 預填酬載
+    let finalPayload = `Hello Shing, i want to order a set of KINGZCARBON ${messageSegment}.`;
     document.getElementById('paddle-submit').href = `https://wa.me/85295368533?text=${encodeURIComponent(finalPayload)}`;
 }
 
-// 首次加載就緒自同步
+// 首次載入就緒同步
 window.onload = function() {
     updatePaddleConfig();
 };
