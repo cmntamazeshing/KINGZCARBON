@@ -381,7 +381,7 @@ function updateConfiguration() {
     if (isAirbagChecked) { totalComputedPrice += 50; }
     if (isTrimChecked) { totalComputedPrice += 50; }
     
-    // 3. 🛠️ 重新徹底校正 9 款撥片圖片對接關係
+    // 3. 🛠️ 重新徹底校正 9 款撥片圖片對接關係 (置入 7、8、9 正確網址)
     let paddleImgUrl = ""; 
     let paddleCaptionText = "";
     
@@ -390,39 +390,39 @@ function updateConfiguration() {
         paddleCaptionText = "";
     } else if (paddleAddonStatus === "standard") {
         totalComputedPrice += 160;
-        paddleImgUrl = "https://i.imgur.com/CrujdVG.jpeg"; // 修正：1 為原本第 2 張圖
+        paddleImgUrl = "https://i.imgur.com/CrujdVG.jpeg"; 
         paddleCaptionText = "1. Standard Carbon Fiber Layout";
     } else if (paddleAddonStatus === "hollow") {
         totalComputedPrice += 160;
-        paddleImgUrl = "https://i.imgur.com/1i8ELNQ.jpeg"; // 修正：2 為原本第 3 張圖
+        paddleImgUrl = "https://i.imgur.com/1i8ELNQ.jpeg"; 
         paddleCaptionText = "2. Standard Carbon (Hollow Cutout Design)";
     } else if (paddleAddonStatus === "led") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg"; // 修正：3 為原本第 1 張圖
+        paddleImgUrl = "https://i.imgur.com/Ovrk5zx.jpeg"; 
         paddleCaptionText = "3. Dynamic LED Indicators Edition";
     } else if (paddleAddonStatus === "led-blue") {
         totalComputedPrice += 256;
-        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg"; // 修正：4 為原本第 4 張圖
+        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg"; 
         paddleCaptionText = "4. Dynamic LED + Blue Perimeter Frame";
     } else if (paddleAddonStatus === "led-silver") {
         totalComputedPrice += 256;
-        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  // 第 5 張不變
+        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  
         paddleCaptionText = "5. Dynamic LED + Silver Perimeter Frame";
     } else if (paddleAddonStatus === "led-red") {
         totalComputedPrice += 256;
-        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  // 第 6 張不變
+        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  
         paddleCaptionText = "6. Dynamic LED + Red Perimeter Frame";
     } else if (paddleAddonStatus === "dual-blue") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/FxccdQ8.jpeg"; // 雙層藍色對應底圖位置
+        paddleImgUrl = "https://i.imgur.com/fnjjimh.jpeg"; // 已更換為正確網址
         paddleCaptionText = "7. Dual-Layer Metallic Shift Set (Liquid Blue)";
     } else if (paddleAddonStatus === "dual-red") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/8OLPvhD.png";  // 雙層紅色對應底圖位置
+        paddleImgUrl = "https://i.imgur.com/wsSBXOP.jpeg"; // 已更換為正確網址
         paddleCaptionText = "8. Dual-Layer Metallic Shift Set (Crimson Red)";
     } else if (paddleAddonStatus === "dual-silver") {
         totalComputedPrice += 240;
-        paddleImgUrl = "https://i.imgur.com/e6QJV01.png";  // 雙層銀色對應底圖位置
+        paddleImgUrl = "https://i.imgur.com/Esk5YRF.jpeg"; // 已更換為正確網址
         paddleCaptionText = "9. Dual-Layer Metallic Shift Set (Satin Silver)";
     }
     
