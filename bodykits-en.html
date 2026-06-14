@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +64,7 @@ body {
         <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Custom Showcase Base</p>
         <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Body Kits & Parts</h1>
         <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
-            Select a sample configuration profile below to view high-definition structural renders and real-world movement demonstrations.
+            Select a sample configuration profile below to view real-world movement demonstrations and HD renders.
         </p>
     </div>
 
@@ -76,31 +75,41 @@ body {
         
         <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
             
-            <div onclick="switchViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 active-thumb">
-                <img src="https://i.imgur.com/DNeHanC.png" alt="Sample 1" class="w-full h-full object-cover rounded-lg">
-            </div>
-
-            <div onclick="switchViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
-                <img src="https://i.imgur.com/pDM1hYH.png" alt="Sample 2" class="w-full h-full object-cover rounded-lg">
-            </div>
-
-            <div onclick="switchViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
-                <img src="https://i.imgur.com/DNeHanC.png" alt="Sample 3" class="w-full h-full object-cover rounded-lg opacity-60">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-yellow-500 opacity-80" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+            <div onclick="switchViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
+                <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg class="w-5 h-5 text-yellow-500 opacity-90 shadow-xl" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
                 </div>
             </div>
 
-            <div onclick="switchViewer(3, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
-                <img src="https://i.imgur.com/pDM1hYH.png" alt="Sample 4" class="w-full h-full object-cover rounded-lg">
+            <div onclick="switchViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                <video src="https://i.imgur.com/CzT3FVY.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg class="w-5 h-5 text-yellow-500 opacity-90 shadow-xl" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                </div>
+            </div>
+
+            <div onclick="switchViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                <video src="https://i.imgur.com/lIweAMD.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg class="w-5 h-5 text-yellow-500 opacity-90 shadow-xl" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                </div>
+            </div>
+
+            <div onclick="switchViewer(3, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                <video src="https://i.imgur.com/BqBmit2.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <svg class="w-5 h-5 text-yellow-500 opacity-90 shadow-xl" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                </div>
             </div>
 
             <div onclick="switchViewer(4, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
-                <img src="https://i.imgur.com/DNeHanC.png" alt="Sample 5" class="w-full h-full object-cover rounded-lg">
+                <img src="https://i.imgur.com/DNeHanC.png" alt="Bespoke Front Splitter Profile" class="w-full h-full object-cover rounded-lg">
             </div>
 
-            <div onclick="switchViewer(5, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
-                <img src="https://i.imgur.com/pDM1hYH.png" alt="Sample 6" class="w-full h-full object-cover rounded-lg">
+            <div onclick="switchViewer(5, this)" class="paddle-thumb aspect-square bg-black bg-opacity-40 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center cursor-pointer transition duration-300 hover:border-yellow-600">
+                <span class="text-[10px] text-gray-600 font-bold uppercase tracking-widest block">Coming</span>
+                <span class="text-[10px] text-yellow-600 font-bold uppercase tracking-widest block">Soon</span>
             </div>
 
         </div>
@@ -109,19 +118,18 @@ body {
     <div class="viewer-box rounded-2xl overflow-hidden gold-border p-6 md:p-8 shadow-2xl">
         
         <div class="w-full aspect-video bg-black rounded-xl overflow-hidden border border-gray-900 flex items-center justify-center relative p-2">
-            
             <img id="main-view-img" src="" alt="HD Display View" class="max-w-full max-h-full object-contain transition duration-300">
-            
             <video id="main-view-video" class="hidden w-full h-full object-contain" autoplay loop muted playsinline controls></video>
+            
+            <div id="coming-soon-overlay" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gray-950 bg-opacity-90">
+                <h3 class="text-lg font-bold gold-flow gold-glow uppercase tracking-widest">Next Project</h3>
+                <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">Coming Soon</p>
+            </div>
         </div>
 
-        <div class="mt-6 border-t border-gray-900 border-opacity-60 pt-4">
-            <h2 id="main-view-title" class="text-xl font-bold text-gray-100 tracking-wide mb-2 uppercase"></h2>
-            <p id="main-view-desc" class="text-sm text-gray-400 leading-relaxed"></p>
-        </div>
-
-        <div class="mt-8 pt-4 border-t border-gray-900 border-opacity-40">
-            <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20some%20body%20kits." 
+        <div id="action-btn-container" class="mt-8">
+            <a id="whatsapp-link"
+               href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20some%20body%20kits." 
                target="_blank" 
                class="block text-center w-full py-4 bg-yellow-600 text-black rounded-xl font-bold tracking-widest uppercase text-xs sm:text-sm shadow-xl transition duration-300 hover:bg-yellow-500 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]">
                 Inquire This Custom Kit Configuration
@@ -134,92 +142,75 @@ body {
 
 <script>
 /**
- * 🛠️ KINGZCARBON 前端動態數據庫
- * Shing 你可以直接修改這裡的數據，隨時更換圖片、影片或文案說明：
- * - type: 可填入 'image' 或 'video'
- * - url: 檔案的高清完整網址
+ * 🛠️ KINGZCARBON 簡化外觀數據矩陣
  */
 const bodyKitsDatabase = [
-    {
-        type: 'image',
-        url: 'https://i.imgur.com/DNeHanC.png',
-        title: 'Carbon Fiber Front Lip Splitter Profile',
-        desc: 'Vacuum infused 2x2 twill carbon fiber front splitter designed for sharp downforce management and precise lower chassis edge refinement.'
-    },
-    {
-        type: 'image',
-        url: 'https://i.imgur.com/pDM1hYH.png',
-        title: 'Handcrafted Performance Rear Diffuser',
-        desc: 'Aggressive multi-finned rear diffuser variant engineered to control rear underbody airflow while framing exhaust channels perfectly.'
-    },
-    {
-        type: 'video',
-        url: 'https://www.w3schools.com/html/mov_bbb.mp4', // 這裡暫用範例 mp4，將來可更換為你的外觀件高清動態影片網址
-        title: 'Dry Carbon Aerodynamic Wing Demonstration',
-        desc: 'Real-world fluid dynamic rendering and motion showcase of our ultra-lightweight, high-downforce custom wing structure.'
-    },
-    {
-        type: 'image',
-        url: 'https://i.imgur.com/pDM1hYH.png',
-        title: 'Aggressive Carbon Side Skirt Extensions',
-        desc: 'Low-profile side panel skirts crafted to lower the vehicle’s visual center of gravity while optimizing lateral wind stability.'
-    },
-    {
-        type: 'image',
-        url: 'https://i.imgur.com/DNeHanC.png',
-        title: 'Replacement Carbon Fiber Mirror Covers',
-        desc: 'A pair of elite featherweight side mirror housings utilizing specialized weave continuity alignment for an instantaneous exterior pop.'
-    },
-    {
-        type: 'image',
-        url: 'https://i.imgur.com/pDM1hYH.png',
-        title: 'Bespoke Ventilated Carbon Bonnet / Hood',
-        desc: 'A complete replacement hood system featuring raw exposed carbon fiber internal structures and aggressive thermal extraction vents.'
-    }
+    { type: 'video', url: 'https://i.imgur.com/OWKM58C.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/CzT3FVY.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/lIweAMD.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/BqBmit2.mp4' },
+    { type: 'image', url: 'https://i.imgur.com/DNeHanC.png' },
+    { type: 'coming-soon', url: '' }
 ];
 
-// 核心切換邏輯
+// 核心動態渲染中樞
 function switchViewer(index, thumbElement) {
     const data = bodyKitsDatabase[index];
     if (!data) return;
 
-    // 1. 更新小圖的選中邊框樣式 (Active State)
+    // 1. 同步更換縮圖高亮邊框
     const allThumbs = document.querySelectorAll('.paddle-thumb');
     allThumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
     if (thumbElement) {
         thumbElement.classList.add('active-thumb');
     }
 
-    // 2. 獲取大圖與影片元件
     const imgElement = document.getElementById('main-view-img');
     const videoElement = document.getElementById('main-view-video');
-    const titleElement = document.getElementById('main-view-title');
-    const descElement = document.getElementById('main-view-desc');
+    const csOverlay = document.getElementById('coming-soon-overlay');
+    const btnLink = document.getElementById('whatsapp-link');
 
-    // 3. 根據類型執行顯隱與數據加載
+    // 2. 模式排他性控制流
     if (data.type === 'video') {
+        csOverlay.classList.add('hidden');
         imgElement.classList.add('hidden');
         imgElement.src = "";
         
         videoElement.src = data.url;
         videoElement.classList.remove('hidden');
         videoElement.load();
-        videoElement.play().catch(e => console.log("Autoplay blocked or video loaded: ", e));
-    } else {
+        videoElement.play().catch(e => console.log("Stream initialize: ", e));
+        
+        btnLink.style.opacity = "1";
+        btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'image') {
+        csOverlay.classList.add('hidden');
         videoElement.classList.add('hidden');
         videoElement.pause();
         videoElement.src = "";
         
         imgElement.src = data.url;
         imgElement.classList.remove('hidden');
+        
+        btnLink.style.opacity = "1";
+        btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'coming-soon') {
+        // 如果是第六格 Coming Soon, 隱藏所有影音，並秀出 Coming Soon Overlay 覆蓋層
+        videoElement.classList.add('hidden');
+        videoElement.pause();
+        videoElement.src = "";
+        imgElement.classList.add('hidden');
+        imgElement.src = "";
+        
+        csOverlay.classList.remove('hidden');
+        
+        // 降低按鈕明度，使其不可點擊
+        btnLink.style.opacity = "0.3";
+        btnLink.style.pointerEvents = "none";
     }
-
-    // 4. 刷新標題與描述文案
-    titleElement.innerText = data.title;
-    descElement.innerText = data.desc;
 }
 
-// 首次加載時預設觸發第 0 個樣板 (即第一個前唇項目)
+// 初始化預設觸發第 0 位（即第一個高端影片案例）
 window.onload = function() {
     switchViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
 };
