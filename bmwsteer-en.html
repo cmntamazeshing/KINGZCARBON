@@ -120,38 +120,59 @@ body {
 
         <div class="space-y-8">
             
+            <div class="p-5 rounded-2xl gold-border bg-gradient-to-r from-yellow-950 from-opacity-40 to-black shadow-xl flex items-center justify-between gap-4">
+                <div>
+                    <h4 class="text-xs font-bold text-yellow-500 uppercase tracking-widest mb-1">Bespoke Design Hotline</h4>
+                    <p class="text-[11px] text-gray-400 leading-tight">Skip the form. Chat directly with our master craftsmen to design your dream leather steering wheel setup.</p>
+                </div>
+                <a href="https://wa.me/85295368533?text=Hello%20KINGZCARBON%2C%20I%20am%20interested%20in%20commissioning%20a%20fully%20tailored%20BMW%20Leather%20Steering%20Wheel%20package.%20Please%20guide%20me%20through%20the%20available%20customization%20options." 
+                   target="_blank" 
+                   class="shrink-0 px-4 py-2.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-bold uppercase tracking-wider rounded-xl transition duration-300 hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                    Chat Now
+                </a>
+            </div>
+            
             <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
                 <h3 class="text-lg font-bold text-gray-100 tracking-wide mb-4 border-b border-gray-900 pb-2">02. Base Configurations</h3>
                 
-                <div class="space-y-4 text-sm">
+                <div class="space-y-5 text-sm">
                     <div>
-                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-2">Leather Texture Finish</label>
-                        <select id="leather-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
-                            <option value="Ultra-Dense Smooth Nappa">Ultra-Dense Smooth Nappa</option>
-                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara</option>
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5">Top & Bottom Section Material</label>
+                        <select id="leather-top-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                            <option value="Ultra-Dense Smooth Nappa" selected>Ultra-Dense Smooth Nappa (Default)</option>
                             <option value="Breathable Perforated Sport Leather">Breathable Perforated Sport Leather</option>
+                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara (+$30 USD)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5">Left & Right Grip Material</label>
+                        <select id="leather-side-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                            <option value="Breathable Perforated Sport Leather" selected>Breathable Perforated Sport Leather (Default)</option>
+                            <option value="Ultra-Dense Smooth Nappa">Ultra-Dense Smooth Nappa</option>
+                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara (+$30 USD)</option>
                         </select>
                     </div>
                     
-                    <div class="pt-2">
-                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-2">12 O'Clock Center Alignment Ribbon</label>
+                    <div class="pt-1">
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5">12 O'Clock Center Alignment Ribbon</label>
                         <select id="ribbon-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
-                            <option value="Match Design Layout color">Match Design Layout color</option>
                             <option value="Stealth Matte Black Ribbon">Stealth Matte Black Ribbon</option>
                             <option value="Crimson Red Performance Ribbon">Crimson Red Performance Ribbon</option>
                             <option value="Liquid Blue Performance Ribbon">Liquid Blue Performance Ribbon</option>
-                            <option value="None">None</option>
+                            <option value="Other Custom Color">Other Color (Requires WhatsApp Consultation)</option>
                         </select>
+                        <p id="ribbon-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">&rarr; Please tap the WhatsApp button below to discuss your unique color mapping with our team.</p>
                     </div>
                     
-                    <div class="pt-2">
-                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-2">Ergonomic Stitching Colors</label>
+                    <div class="pt-1">
+                        <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5">Ergonomic Stitching Colors</label>
                         <select id="stitch-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
-                            <option value="Classic M-Sport Tri-Color Stitch">Classic M-Sport Tri-Color Stitch</option>
-                            <option value="Stealth Black Monochromatic Stitch">Stealth Black Monochromatic Stitch</option>
-                            <option value="Performance Crimson Red Stitch">Performance Crimson Red Stitch</option>
-                            <option value="Performance Liquid Blue Stitch">Performance Liquid Blue Stitch</option>
+                            <option value="Classic M-Sport Tri-Color Stitching" selected>Classic M-Sport Tri-Color (Red + Light Blue + Dark Blue)</option>
+                            <option value="Germany Theme Stitching">Germany Theme Stitching (Black + Red + Yellow)</option>
+                            <option value="Other Bespoke Stitching Color">Other Colors (Requires WhatsApp Consultation)</option>
                         </select>
+                        <p id="stitch-warning" class="hidden text-[11px] text-yellow-500 font-medium mt-1.5 leading-relaxed">&rarr; Tailoring unique multi-color stitching codes requires direct sync via WhatsApp button below.</p>
                     </div>
                 </div>
             </div>
@@ -246,7 +267,6 @@ body {
 </div>
 
 <script>
-// 初始化全域樣式變數
 let currentStyle = "All Black Leather Edition";
 
 function switchDisplay(imageUrl, captionText) {
@@ -260,51 +280,76 @@ function switchDisplay(imageUrl, captionText) {
         caption.innerText = captionText;
         mainImg.style.opacity = '1';
         currentStyle = captionText;
-        // 切換外觀時同步更新價格與訊息內文
         updateConfiguration();
     }, 150);
 }
 
 function updateConfiguration() {
-    // 1. 初始化底價
-    let totalComputedPrice = 399;
+    let totalComputedPrice = 399; // 基礎出廠底價
     
-    // 2. 讀取互動組件狀態
-    const isAirbagChecked = document.getElementById('airbag-addon').checked;
-    const isTrimChecked = document.getElementById('trim-addon').checked;
-    const currentLeather = document.getElementById('leather-select').value;
+    // 讀取全新分區與特殊選單組件
+    const leatherTop = document.getElementById('leather-top-select').value;
+    const leatherSide = document.getElementById('leather-side-select').value;
     const currentRibbon = document.getElementById('ribbon-select').value;
     const currentStitch = document.getElementById('stitch-select').value;
+    const isAirbagChecked = document.getElementById('airbag-addon').checked;
+    const isTrimChecked = document.getElementById('trim-addon').checked;
     
-    // 3. 疊加計價邏輯
+    // 1. 分區材質計價邏輯：選中 Alcantara 每區各加 $30 USD
+    if (leatherTop.includes("Alcantara")) { totalComputedPrice += 30; }
+    if (leatherSide.includes("Alcantara")) { totalComputedPrice += 30; }
+    
+    // 2. 加購包計價邏輯
     if (isAirbagChecked) { totalComputedPrice += 50; }
     if (isTrimChecked) { totalComputedPrice += 50; }
     
-    // 4. 即時刷新前端畫面的總金額
+    // 3. 刷新畫面的實時總金額
     document.getElementById('live-price-display').innerText = '$' + totalComputedPrice + ' USD';
     
-    // 5. 動態構建預填寫的 WhatsApp 訊息範本
-    let orderText = `Hello KINGZCARBON, I would like to commission a BMW Leather Steering Wheel layout package:\n\n`;
-    orderText += `[ FOUNDATIONAL SERIES ]\n`;
+    // 4. 智能處理特殊定製警告文字切換
+    if (currentRibbon.includes("Other")) {
+        document.getElementById('ribbon-warning').classList.remove('hidden');
+    } else {
+        document.getElementById('ribbon-warning').classList.add('hidden');
+    }
+    
+    if (currentStitch.includes("Other")) {
+        document.getElementById('stitch-warning').classList.remove('hidden');
+    } else {
+        document.getElementById('stitch-warning').classList.add('hidden');
+    }
+    
+    // 5. 動態拼裝多維度客製 WhatsApp 訊息負載
+    let orderText = `Hello KINGZCARBON, I would like to order a bespoke BMW Leather Steering Wheel series:\n\n`;
+    orderText += `[ BASE MATERIAL CONFIGS ]\n`;
     orderText += `• Visual Variant: ${currentStyle}\n`;
-    orderText += `• Leather Selection: ${currentLeather}\n`;
-    orderText += `• 12 O'Clock Ribbon: ${currentRibbon}\n`;
-    orderText += `• Stitching Profile: ${currentStitch}\n\n`;
+    orderText += `• Top & Bottom Material: ${leatherTop}\n`;
+    orderText += `• Left & Right Side Grip: ${leatherSide}\n`;
+    orderText += `• 12 O'Clock Ribbon Line: ${currentRibbon}\n`;
+    orderText += `• Stitching Thread Color: ${currentStitch}\n\n`;
     
-    orderText += `[ OPTIONAL ADD-ONS ]\n`;
-    orderText += `• Airbag & Multi-media buttons: ${isAirbagChecked ? 'YES (+$50 USD)' : 'NO (Foundational Rim Only)'}\n`;
-    orderText += `• Modular 2-Piece Trim Cover Upgrade: ${isTrimChecked ? 'YES (+$50 USD - Includes Upper Bezel Synchronize & Paint-Matched M1/M2 Toggles)' : 'NO'}\n\n`;
+    orderText += `[ ELECTRONICS & AERODYNAMIC OPTIONS ]\n`;
+    orderText += `• Airbag + Media Controls Group: ${isAirbagChecked ? 'YES (+$50 USD Upgrade Package)' : 'NO (Foundational Core Only)'}\n`;
+    orderText += `• Modular Trim Cover Set Bezel: ${isTrimChecked ? 'YES (+$50 USD Upgrade - Sync Color Rings + M1/M2 Toggles)' : 'NO'}\n\n`;
     
-    orderText += `[ TOTAL ESTIMATED RATE ]\n`;
-    orderText += `• Final Value: $${totalComputedPrice} USD\n\n`;
-    orderText += `Please verify this build slots configuration and provide production schedule mapping.`;
+    // 如果客人觸發特殊定製，在訂單內自動備註提醒大師對接
+    if (currentRibbon.includes("Other") || currentStitch.includes("Other")) {
+        orderText += `[ SPECIAL BESPOKE NOTES ]\n`;
+        if (currentRibbon.includes("Other")) orderText += `• Requires a totally unique bespoke 12 o'clock ribbon shade.\n`;
+        if (currentStitch.includes("Other")) orderText += `• Requires unique custom multi-color sewing thread matching.\n`;
+        orderText += `\n`;
+    }
     
-    // 6. 安全進行 URL 編碼並寫入直連按鈕
+    orderText += `[ FINAL COMPUTED ESTIMATE ]\n`;
+    orderText += `• Total Investment Value: $${totalComputedPrice} USD\n\n`;
+    orderText += `Please approve my selected styling parameters and allocate a facility production line slot.`;
+    
+    // 6. 寫入按鈕的直連參數中
     const encodedPayload = encodeURIComponent(orderText);
     document.getElementById('whatsapp-submit').href = `https://wa.me/85295368533?text=${encodedPayload}`;
 }
 
-// 網頁初始加載完成時自動執行一次，確保初始按鈕內已帶有預設訊息與正確價格
+// 首次加載就緒自同步
 window.onload = function() {
     updateConfiguration();
 };
