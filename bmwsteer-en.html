@@ -140,7 +140,7 @@ body {
                         <select id="leather-top-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
                             <option value="Ultra-Dense Smooth Nappa" selected>Ultra-Dense Smooth Nappa (Default)</option>
                             <option value="Breathable Perforated Sport Leather">Breathable Perforated Sport Leather</option>
-                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara (+$30 USD)</option>
+                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara</option>
                         </select>
                     </div>
 
@@ -149,7 +149,7 @@ body {
                         <select id="leather-side-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
                             <option value="Breathable Perforated Sport Leather" selected>Breathable Perforated Sport Leather (Default)</option>
                             <option value="Ultra-Dense Smooth Nappa">Ultra-Dense Smooth Nappa</option>
-                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara (+$30 USD)</option>
+                            <option value="Premium Tactile Alcantara">Premium Tactile Alcantara</option>
                         </select>
                     </div>
                     
@@ -333,7 +333,7 @@ function updateConfiguration() {
     
     const airbagStatus = document.getElementById('airbag-select').value;
     const trimStatus = document.getElementById('trim-select').value;
-    const badgeStatus = document.getElementById('badge-select').value; // 讀取 05 標牌狀態
+    const badgeStatus = document.getElementById('badge-select').value; 
     
     const isAirbagChecked = (airbagStatus === "Yes");
     const isTrimChecked = (trimStatus === "Yes");
@@ -341,9 +341,7 @@ function updateConfiguration() {
     const trimType = document.getElementById('trim-type-select').value;
     const trimFinish = document.getElementById('trim-finish-select').value;
     
-    // 1. 累加材質價格
-    if (leatherTop.includes("Premium Tactile Alcantara")) { totalComputedPrice += 30; }
-    if (leatherSide.includes("Premium Tactile Alcantara")) { totalComputedPrice += 30; }
+    // 1. 累加材質價格 -> Alcantara 選項現已改為免費，不在此疊加計價
     
     // 2. 依據選單狀態動態累加價格
     if (isAirbagChecked) { totalComputedPrice += 50; }
@@ -431,7 +429,7 @@ function updateConfiguration() {
         shortOptions.push(`${typeShort} and ${finishShort} trim cover and m1m2`);
     }
 
-    // 05 🛠️ 全新加入的標牌精簡對照邏輯
+    // 05 標牌精簡對照邏輯
     let badgeShort = "M badge";
     if (badgeStatus === "M Performance Badge") badgeShort = "M Performance badge";
     shortOptions.push(badgeShort);
