@@ -152,34 +152,46 @@ body {
                 <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
                     <img src="https://i.imgur.com/1i8ELNQ.jpeg" alt="Magnetic Paddle 3" class="w-full h-full object-contain">
                 </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/Ovrk5zx.jpeg" alt="Magnetic Paddle 4" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/CrujdVG.jpeg" alt="Magnetic Paddle 5" class="w-full h-full object-contain">
+                </div>
+                <div class="aspect-square bg-gray-950 rounded-xl border border-gray-900 p-1 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.imgur.com/1i8ELNQ.jpeg" alt="Magnetic Paddle 6" class="w-full h-full object-contain">
+                </div>
             </div>
             
             <div>
                 <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 03 • Shift System</span>
                 <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Bespoke Carbon Magnetic Paddles</h2>
                 <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                    Real carbon fiber arms backed by heavy-duty Neodymium magnets, delivering an instantaneous mechanical snap with every gear shift. Choose your desired configuration from our 3-tier layout matrix:
+                    Real carbon fiber arms backed by heavy-duty Neodymium magnets, delivering an instantaneous mechanical snap with every gear shift.
                 </p>
-                <ul class="text-xs text-gray-400 space-y-2.5 mb-6">
-                    <li class="flex justify-between border-b border-gray-900 pb-2">
-                        <span><strong class="text-gray-300">Level 1: Standard Mechanical</strong><br><span class="text-gray-500">Pure motorsport motorsport crisp feedback (Non-LED)</span></span>
-                        <span class="text-yellow-500 font-bold text-sm self-center">$250 USD</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-900 pb-2">
-                        <span><strong class="text-gray-300">Level 2: Dynamic LED Indicators</strong><br><span class="text-gray-500">Synchronized intelligent RPM track shift-lights</span></span>
-                        <span class="text-yellow-500 font-bold text-sm self-center">$499 USD</span>
-                    </li>
-                    <li class="flex justify-between pb-1">
-                        <span><strong class="text-gray-300">Level 3: Dynamic LED + Colored Frame</strong><br><span class="text-gray-500">LED indicators with specialized perimeter trim (Red / Blue / Silver)</span></span>
-                        <span class="text-yellow-500 font-bold text-sm self-center">$549 USD</span>
-                    </li>
-                </ul>
+
+                <div class="mb-6">
+                    <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5 font-semibold">Select Shifter Specification</label>
+                    <select id="paddle-select" onchange="updatePaddleConfig()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                        <option value="standard" selected>1. Standard Mechanical ($200 USD)</option>
+                        <option value="led">2. Dynamic LED Indicators ($300 USD)</option>
+                        <option value="led-red">3. Dynamic LED + Red Perimeter Frame ($320 USD)</option>
+                        <option value="led-blue">4. Dynamic LED + Blue Perimeter Frame ($320 USD)</option>
+                        <option value="led-silver">5. Dynamic LED + Silver Perimeter Frame ($320 USD)</option>
+                    </select>
+                </div>
+
                 <div class="flex items-center justify-between border-t border-gray-900 pt-4">
                     <div>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest">Configuration</p>
-                        <p class="text-sm text-yellow-500 font-semibold">Level 1 / 2 / 3</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-widest">Configuration Total</p>
+                        <p id="paddle-price-display" class="text-xl font-bold text-yellow-500">$200 USD</p>
                     </div>
-                    <a href="https://wa.me/85295368533" target="_blank" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">Configure Shifters</a>
+                    <a id="paddle-submit" 
+                       href="https://wa.me/85295368533" 
+                       target="_blank" 
+                       class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
+                        Configure Shifters
+                    </a>
                 </div>
             </div>
         </div>
@@ -221,6 +233,42 @@ body {
     </div>
 
 </div>
+
+<script>
+function updatePaddleConfig() {
+    const select = document.getElementById('paddle-select');
+    const selectedValue = select.value;
+    
+    let priceText = "$200 USD";
+    let messageSegment = "paddle shift";
+    
+    if (selectedValue === "led") {
+        priceText = "$300 USD";
+        messageSegment = "led paddle shift";
+    } else if (selectedValue === "led-red") {
+        priceText = "$320 USD";
+        messageSegment = "led paddle shift with red frame";
+    } else if (selectedValue === "led-blue") {
+        priceText = "$320 USD";
+        messageSegment = "led paddle shift with blue frame";
+    } else if (selectedValue === "led-silver") {
+        priceText = "$320 USD";
+        messageSegment = "led paddle shift with silver frame";
+    }
+    
+    // 即時刷新畫面金額
+    document.getElementById('paddle-price-display').innerText = priceText;
+    
+    // 重新封裝並輸出動態客製化 WhatsApp 預填代載荷
+    let finalPayload = `Hello Shing, i want a ${messageSegment}.`;
+    document.getElementById('paddle-submit').href = `https://wa.me/85295368533?text=${encodeURIComponent(finalPayload)}`;
+}
+
+// 首次加載就緒自同步
+window.onload = function() {
+    updatePaddleConfig();
+};
+</script>
 
 </body>
 </html>
