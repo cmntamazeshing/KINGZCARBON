@@ -308,7 +308,6 @@ function handleVariantChange() {
 function updateConfiguration() {
     let totalComputedPrice = 399; // 底價
     
-    // 讀取所有選配組件狀態
     const variantValue = document.getElementById('variant-select').value;
     const leatherTop = document.getElementById('leather-top-select').value;
     const leatherSide = document.getElementById('leather-side-select').value;
@@ -319,9 +318,9 @@ function updateConfiguration() {
     const trimType = document.getElementById('trim-type-select').value;
     const trimFinish = document.getElementById('trim-finish-select').value;
     
-    // 1. 累加分區材質價格：任何一區選 Alcantara 則分別 +$30 USD
-    if (leatherTop.includes("Alcantara")) { totalComputedPrice += 30; }
-    if (leatherSide.includes("Alcantara")) { totalComputedPrice += 30; }
+    // 1. 累加材質價格
+    if (leatherTop.includes("Premium Tactile Alcantara")) { totalComputedPrice += 30; }
+    if (leatherSide.includes("Premium Tactile Alcantara")) { totalComputedPrice += 30; }
     
     // 2. 累加包價格
     if (isAirbagChecked) { totalComputedPrice += 50; }
@@ -330,65 +329,86 @@ function updateConfiguration() {
     // 3. 實時渲染總金額
     document.getElementById('live-price-display').innerText = '$' + totalComputedPrice + ' USD';
     
-    // 4. 監聽與切換全系列「Requires WhatsApp」智能隱藏/顯示警告框
-    if (variantValue === "Other") {
-        document.getElementById('variant-warning').classList.remove('hidden');
-    } else {
-        document.getElementById('variant-warning').classList.add('hidden');
-    }
+    // 4. 控制警告框顯示
+    if (variantValue === "Other") { document.getElementById('variant-warning').classList.remove('hidden'); } 
+    else { document.getElementById('variant-warning').classList.add('hidden'); }
 
-    if (currentRibbon.includes("Other")) {
-        document.getElementById('ribbon-warning').classList.remove('hidden');
-    } else {
-        document.getElementById('ribbon-warning').classList.add('hidden');
+    if (currentRibbon.includes("Other")) { document.getElementById('ribbon-warning').classList.remove('hidden'); } 
+    else { document.getElementById('ribbon-warning').classList.add('hidden'); }
+    
+    if (currentStitch.includes("Other")) { document.getElementById('stitch-warning').classList.remove('hidden'); } 
+    else { document.getElementById('stitch-warning').classList.add('hidden'); }
+
+    if (trimType.includes("Special Custom")) { document.getElementById('trim-type-warning').classList.remove('hidden'); } 
+    else { document.getElementById('trim-type-warning').classList.add('hidden'); }
+
+    if (trimFinish.includes("Bespoke Paint")) { document.getElementById('trim-finish-warning').classList.remove('hidden'); } 
+    else { document.getElementById('trim-finish-warning').classList.add('hidden'); }
+    
+    // 5. 🛠️ 核心邏輯升級：依據選項動態翻譯、提煉並拼接簡短版專用訊息
+    let shortOptions = [];
+    
+    // 簡化對照：Base Tone
+    let variantShort = "black";
+    if (variantValue === "Red Accent") variantShort = "red";
+    if (variantValue === "Blue Accent") variantShort = "blue";
+    if (variantValue === "Other") variantShort = "other";
+    shortOptions.push(variantShort);
+    
+    // 簡化對照：Top & Bottom Section Material
+    let topShort = "nappa";
+    if (leatherTop.includes("Perforated")) topShort = "breathable leather";
+    if (leatherTop.includes("Alcantara")) topShort = "alcantara";
+    shortOptions.push(`top and bottom ${topShort}`);
+    
+    // 簡化對照：Left & Right Grip Material
+    let sideShort = "breathable leather";
+    if (leatherSide.includes("Nappa")) sideShort = "nappa";
+    if (leatherSide.includes("Alcantara")) sideShort = "alcantara";
+    shortOptions.push(`left and right ${sideShort}`);
+    
+    // 簡化對照：12 O'Clock Center Alignment Ribbon
+    let ribbonShort = "none";
+    if (currentRibbon.includes("Crimson Red")) ribbonShort = "red";
+    if (currentRibbon.includes("Liquid Blue")) ribbonShort = "blue";
+    if (currentRibbon.includes("Other Custom")) ribbonShort = "other";
+    shortOptions.push(`ribbon ${ribbonShort}`);
+    
+    // 簡化對照：Ergonomic Stitching Colors
+    let stitchShort = "BMW";
+    if (currentStitch.includes("Germany Theme")) stitchShort = "Germany";
+    if (currentStitch.includes("Other Bespoke")) stitchShort = "other";
+    shortOptions.push(`stitching ${stitchShort}`);
+    
+    // 簡化對照：03 Full Set
+    if (isAirbagChecked) {
+        shortOptions.push("full set");
     }
     
-    if (currentStitch.includes("Other")) {
-        document.getElementById('stitch-warning').classList.remove('hidden');
-    } else {
-        document.getElementById('stitch-warning').classList.add('hidden');
-    }
-
-    if (trimType.includes("Special Custom")) {
-        document.getElementById('trim-type-warning').classList.remove('hidden');
-    } else {
-        document.getElementById('trim-type-warning').classList.add('hidden');
-    }
-
-    if (trimFinish.includes("Bespoke Paint")) {
-        document.getElementById('trim-finish-warning').classList.remove('hidden');
-    } else {
-        document.getElementById('trim-finish-warning').classList.add('hidden');
-    }
-    
-    // 5. 動態構建高清晰度委託清單 (最後大按鈕依選配生成完整的訂購單)
-    let orderText = `Hello KINGZCARBON, I would like to order a bespoke BMW Leather Steering Wheel series:\n\n`;
-    orderText += `[ BASE MATERIAL CONFIGS ]\n`;
-    orderText += `• Visual Variant: ${currentStyle}\n`;
-    orderText += `• Top & Bottom Section: ${leatherTop}\n`;
-    orderText += `• Left & Right Grips: ${leatherSide}\n`;
-    orderText += `• 12 O'Clock Ribbon: ${currentRibbon}\n`;
-    orderText += `• Stitching Profile: ${currentStitch}\n\n`;
-    
-    orderText += `[ OPTIONS & ADD-ONS ]\n`;
-    orderText += `• Airbag + Media Buttons Set: ${isAirbagChecked ? 'YES (+$50 USD)' : 'NO'}\n`;
-    orderText += `• Modular Trim Cover Upgrade: ${isTrimChecked ? 'YES (+$50 USD - Standalone M1/M2 Pieces Included)' : 'NO'}\n`;
+    // 簡化對照：04 Trim Cover + M1M2
     if (isTrimChecked) {
-        orderText += `  - Trim Option A (Architecture): ${trimType}\n`;
-        orderText += `  - Trim Option B (Surface Finish): ${trimFinish}\n`;
+        let typeShort = "carbon";
+        if (trimType.includes("Wrapped Black Leather")) typeShort = "leather";
+        if (trimType.includes("Special Custom")) typeShort = "custom";
+        
+        let finishShort = "chosen color";
+        if (trimFinish.includes("Follow Chosen")) {
+            // 如果是跟隨主色，直接代入主色單字 (black/red/blue/other)，若為other則保留chosen color
+            finishShort = (variantShort !== "other") ? variantShort : "chosen color";
+        } else if (trimFinish.includes("Bespoke Paint")) {
+            finishShort = "custom";
+        }
+        
+        shortOptions.push(`${typeShort} and ${finishShort} trim cover and m1m2`);
     }
-    orderText += `\n`;
     
-    orderText += `[ TOTAL ESTIMATED RATE ]\n`;
-    orderText += `• Final Value: $${totalComputedPrice} USD\n\n`;
-    orderText += `Please approve my selected styling parameters and allocate a facility production line slot.`;
+    // 組合最終預填字串並附加到 WhatsApp
+    let orderPayload = `Hello Shing, i want to custom a bmw leather steering wheel. ${shortOptions.join(", ")}.`;
     
-    // 6. 寫入底部的提交按鈕
-    const encodedPayload = encodeURIComponent(orderText);
+    const encodedPayload = encodeURIComponent(orderPayload);
     document.getElementById('whatsapp-submit').href = `https://wa.me/85295368533?text=${encodedPayload}`;
 }
 
-// 初始化自同步
 window.onload = function() {
     updateConfiguration();
 };
