@@ -188,8 +188,11 @@ body {
                         <option value="Yes">Yes, Include Full Set Airbag & Multi-media Buttons (+$50 USD)</option>
                     </select>
                 </div>
-                <p class="text-xs text-gray-400 leading-relaxed">
+                <p class="text-xs text-gray-400 leading-relaxed mb-3">
                     Opt-in to incorporate a comprehensive replacement physical Airbag Assembly, hand-stitched leather Airbag Outer Cover Bezel, and a fully functional multi-media control button infrastructure cluster group. Delivered complete for total plug-and-play installation capability.
+                </p>
+                <p class="text-[11px] text-yellow-600 font-medium leading-relaxed border-t border-gray-900 border-opacity-40 pt-2">
+                    * Hardware Note: If your vehicle currently utilizes a factory M-Sport or M Performance "T-Thong" (丁字褲) styling profile steering core, your existing airbag unit and physical button clusters are 100% cross-compatible and reusable (Full Set Optional). However, if your original cockpit is equipped with a non-M baseline rounded wheel, the standard elements will not fit this performance frame profile, making the Full Set upgrade strictly mandatory.
                 </p>
             </div>
 
@@ -242,6 +245,20 @@ body {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="config-box p-6 rounded-2xl gold-border shadow-lg">
+                <h3 class="text-lg font-bold text-gray-100 tracking-wide mb-4 border-b border-gray-900 pb-2">05. Trim Base Emblem Badge</h3>
+                <div>
+                    <label class="block text-xs text-gray-500 uppercase tracking-widest mb-1.5">Select Lower Steering Trim Emblem</label>
+                    <select id="badge-select" onchange="updateConfiguration()" class="w-full bg-black bg-opacity-60 border border-gray-800 rounded-xl p-2.5 text-xs text-gray-300 focus:border-yellow-600 focus:outline-none">
+                        <option value="M Badge" selected>Iconic M Emblem (Default)</option>
+                        <option value="M Performance Badge">M Performance Script Emblem</option>
+                    </select>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed mt-4">
+                    Choose your desired factory-styled physical metallic insert badge located directly at the base of the lower trim structure.
+                </p>
             </div>
 
             <div class="config-box p-6 rounded-2xl gold-border shadow-lg flex justify-between items-center">
@@ -314,9 +331,9 @@ function updateConfiguration() {
     const currentRibbon = document.getElementById('ribbon-select').value;
     const currentStitch = document.getElementById('stitch-select').value;
     
-    // 讀取全新下拉選單（Yes / No 狀態）
     const airbagStatus = document.getElementById('airbag-select').value;
     const trimStatus = document.getElementById('trim-select').value;
+    const badgeStatus = document.getElementById('badge-select').value; // 讀取 05 標牌狀態
     
     const isAirbagChecked = (airbagStatus === "Yes");
     const isTrimChecked = (trimStatus === "Yes");
@@ -358,47 +375,47 @@ function updateConfiguration() {
     if (isTrimChecked && trimFinish.includes("Bespoke Paint")) { document.getElementById('trim-finish-warning').classList.remove('hidden'); } 
     else { document.getElementById('trim-finish-warning').classList.add('hidden'); }
     
-    // 5. 核心邏輯：依據選項動態翻譯、提煉並拼接簡短版專用訊息
+    // 5. 核心邏輯：動態翻譯、提煉並拼接簡短版專用訊息
     let shortOptions = [];
     
-    // 簡化對照：Base Tone
+    // Base Tone
     let variantShort = "black";
     if (variantValue === "Red Accent") variantShort = "red";
     if (variantValue === "Blue Accent") variantShort = "blue";
     if (variantValue === "Other") variantShort = "other";
     shortOptions.push(variantShort);
     
-    // 簡化對照：Top & Bottom Section Material
+    // Top & Bottom Section Material
     let topShort = "nappa";
     if (leatherTop.includes("Perforated")) topShort = "breathable leather";
     if (leatherTop.includes("Alcantara")) topShort = "alcantara";
     shortOptions.push(`top and bottom ${topShort}`);
     
-    // 簡化對照：Left & Right Grip Material
+    // Left & Right Grip Material
     let sideShort = "breathable leather";
     if (leatherSide.includes("Nappa")) sideShort = "nappa";
     if (leatherSide.includes("Alcantara")) sideShort = "alcantara";
     shortOptions.push(`left and right ${sideShort}`);
     
-    // 簡化對照：12 O'Clock Center Alignment Ribbon
+    // 12 O'Clock Center Alignment Ribbon
     let ribbonShort = "none";
     if (currentRibbon.includes("Crimson Red")) ribbonShort = "red";
     if (currentRibbon.includes("Liquid Blue")) ribbonShort = "blue";
     if (currentRibbon.includes("Other Custom")) ribbonShort = "other";
     shortOptions.push(`ribbon ${ribbonShort}`);
     
-    // 簡化對照：Ergonomic Stitching Colors
+    // Ergonomic Stitching Colors
     let stitchShort = "BMW";
     if (currentStitch.includes("Germany Theme")) stitchShort = "Germany";
     if (currentStitch.includes("Other Bespoke")) stitchShort = "other";
     shortOptions.push(`stitching ${stitchShort}`);
     
-    // 簡化對照：03 Full Set (選 Yes 才加入訊息)
+    // 03 Full Set
     if (isAirbagChecked) {
         shortOptions.push("full set");
     }
     
-    // 簡化對照：04 Trim Cover + M1M2 (選 Yes 才加入訊息)
+    // 04 Trim Cover + M1M2
     if (isTrimChecked) {
         let typeShort = "carbon";
         if (trimType.includes("Wrapped Black Leather")) typeShort = "leather";
@@ -413,6 +430,11 @@ function updateConfiguration() {
         
         shortOptions.push(`${typeShort} and ${finishShort} trim cover and m1m2`);
     }
+
+    // 05 🛠️ 全新加入的標牌精簡對照邏輯
+    let badgeShort = "M badge";
+    if (badgeStatus === "M Performance Badge") badgeShort = "M Performance badge";
+    shortOptions.push(badgeShort);
     
     // 組合最終預填字串並附加到 WhatsApp
     let orderPayload = `Hello Shing, i want to custom a bmw leather steering wheel. ${shortOptions.join(", ")}.`;
