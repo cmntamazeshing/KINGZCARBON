@@ -44,8 +44,8 @@ body {
 }
 
 .product-card:hover {
-    box-shadow: 0 0 30px rgba(212,175,55,0.18);
-    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(212,175,55,0.22);
+    transform: translateY(-3px);
 }
 
 /* 篩選按鈕激活狀態 */
@@ -75,6 +75,7 @@ body {
     </div>
 
     <div class="bg-black bg-opacity-60 rounded-2xl gold-border p-6 mb-10 shadow-xl">
+        
         <div class="flex flex-wrap items-center gap-3 border-b border-gray-900 pb-4 mb-4">
             <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Brand:</span>
             <button onclick="selectBrand('All')" id="brand-All" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600 filter-active">All Brands</button>
@@ -111,19 +112,28 @@ body {
             <button onclick="selectCategory('Rear Diffusers')" id="cat-RearDiffusers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
                 Rear Diffusers
             </button>
-            <button onclick="selectCategory('Rear Spoilers')" id="cat-RearSpoilers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
-                Rear Spoilers
-            </button>
             <button onclick="selectCategory('Mirror Covers')" id="cat-MirrorCovers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
                 Mirror Covers
+            </button>
+            <button onclick="selectCategory('Front Fender')" id="cat-FrontFender" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Front Fender
+            </button>
+            <button onclick="selectCategory('Hood')" id="cat-Hood" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Hood
+            </button>
+            <button onclick="selectCategory('Trunk')" id="cat-Trunk" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Trunk
             </button>
             <button onclick="selectCategory('Badges')" id="cat-Badges" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
                 Badges
             </button>
+            <button onclick="selectCategory('Other')" id="cat-Other" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Other (Accents)
+            </button>
         </div>
 
         <div class="md:col-span-3">
-            <div id="exterior-matrix-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="exterior-matrix-grid" class="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 gap-8">
                 </div>
             
             <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
@@ -139,66 +149,85 @@ body {
 
 <script>
 /**
- * 🛠️ KINGZCARBON 核心外觀交叉篩選動態數據庫
- * Shing 之後你可以隨意在這裡追加、刪除或修改任何車型與相應大圖
+ * 🛠️ KINGZCARBON 高階交叉共享外觀數據庫
+ * 透過 compat 陣列自動鎖定跨型號共享邏輯：
+ * - Front Lips: 支援 ['F80', 'F82', 'F83'] 共通
+ * - Side Skirts & Rear Diffusers: 支援 ['F82', 'F83'] 共通，排除 F80
  */
 const exteriorDatabase = [
-    // === BMW F8X Series ===
-    { brand: 'BMW', model: 'F8X Series', category: 'Front Lips', title: 'BMW F8X Carbon Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', model: 'F8X Series', category: 'Rear Spoilers', title: 'BMW F8X Performance Wing', image: 'https://i.imgur.com/qjDVZHW.png' },
-    { brand: 'BMW', model: 'F8X Series', category: 'Mirror Covers', title: 'BMW F8X M-Style Mirror Caps', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', model: 'F8X Series', category: 'Badges', title: 'BMW F8X Handcrafted M3/M4 Badge', image: 'https://i.imgur.com/qjDVZHW.png' },
+    // ==========================================
+    // 📦 BMW F82 M4 專屬與共通集群數據庫
+    // ==========================================
+    
+    // 12 款共通頭唇 (F80, F82, F83 共通)
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (3D Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (CS Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (V Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (R Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (PSM Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (PSM Dual-Layer Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (Varis Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (MP Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (C Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (GT4 Track Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (AC Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (Demon 魔王 Style)', image: 'https://i.imgur.com/DNeHanC.png' },
 
-    // === BMW G8X Series ===
-    { brand: 'BMW', model: 'G8X Series', category: 'Front Lips', title: 'BMW G8X CSL-Style Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', model: 'G8X Series', category: 'Rear Diffusers', title: 'BMW G8X Carbon Rear Diffuser', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', model: 'G8X Series', category: 'Badges', title: 'BMW G8X Gloss Carbon Badge Set', image: 'https://i.imgur.com/qjDVZHW.png' },
+    // 4 款共通側裙 (F82, F83 共通，排他 F80)
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (Blade Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (3D Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (PSM Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (R Style)', image: 'https://i.imgur.com/DNeHanC.png' },
 
-    // === Mercedes-Benz ===
-    { brand: 'Mercedes-Benz', model: 'W205 C63', category: 'Front Lips', title: 'Benz W205 C63 Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'Mercedes-Benz', model: 'W205 C63', category: 'Rear Spoilers', title: 'Benz W205 PSM-Style Spoiler', image: 'https://i.imgur.com/qjDVZHW.png' },
-    { brand: 'Mercedes-Benz', model: 'W206 C-Class', category: 'Mirror Covers', title: 'Benz W206 Carbon Mirror Covers', image: 'https://i.imgur.com/DNeHanC.png' },
+    // 7 款共通後唇/擴散器 (F82, F83 共通，排他 F80)
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (MP Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (3D Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (V Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (3D LED Edition)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (PSM Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (PSM LED Edition)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (Varis Style)', image: 'https://i.imgur.com/DNeHanC.png' },
 
-    // === Audi ===
-    { brand: 'Audi', model: '8V RS3', category: 'Rear Diffusers', title: 'Audi 8V RS3 Aggressive Diffuser', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'Audi', model: '8Y RS3', category: 'Side Skirts', title: 'Audi 8Y Carbon Side Extensions', image: 'https://i.imgur.com/DNeHanC.png' },
+    // F82 擴充四大類別佔位快取
+    { brand: 'BMW', compat: ['F82'], category: 'Front Fender', title: 'BMW F82 Custom Lightweight Front Fender Set', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82'], category: 'Hood', title: 'BMW F82 Handcrafted Carbon Fiber Hood', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82'], category: 'Trunk', title: 'BMW F82 CSL-Style Carbon Trunk Lid', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82'], category: 'Other', title: 'BMW F8X Carbon Accents (Canards / Grilles / Eyebrows Bundle)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', compat: ['F82'], category: 'Badges', title: 'BMW F82 Handcrafted Custom Carbon Emblems', image: 'https://i.imgur.com/qjDVZHW.png' },
+    { brand: 'BMW', compat: ['F82'], category: 'Mirror Covers', title: 'BMW F82 M Performance Mirror Caps', image: 'https://i.imgur.com/DNeHanC.png' },
 
-    // === Toyota ===
-    { brand: 'Toyota', model: 'A90 Supra', category: 'Rear Spoilers', title: 'Supra A90 Heritage Wing Profile', image: 'https://i.imgur.com/qjDVZHW.png' },
-    { brand: 'Toyota', model: 'A90 Supra', category: 'Front Lips', title: 'Supra A90 Street Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
-
-    // === Nissan ===
-    { brand: 'Nissan', model: 'R35 GTR', category: 'Front Lips', title: 'GTR R35 N-Style Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'Nissan', model: 'R35 GTR', category: 'Rear Spoilers', title: 'GTR R35 Track-Spec Spoiler', image: 'https://i.imgur.com/qjDVZHW.png' }
+    // ==========================================
+    // 📦 其他品牌基礎範例資料庫
+    // ==========================================
+    { brand: 'Mercedes-Benz', compat: ['W205 C63'], category: 'Front Lips', title: 'Benz W205 C63 Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Audi', compat: ['8V RS3'], category: 'Rear Diffusers', title: 'Audi 8V RS3 Aggressive Diffuser', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Toyota', compat: ['A90 Supra'], category: 'Front Lips', title: 'Supra A90 Street Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Nissan', compat: ['R35 GTR'], category: 'Front Lips', title: 'GTR R35 N-Style Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' }
 ];
 
-// 車型子選單配置表
+// 車廠子選單底盤代號細分配置表 (BMW F代號全面補齊)
 const chassisMapping = {
-    'BMW': ['F8X Series', 'G8X Series', 'G20/G30 Series'],
+    'BMW': ['F80 M3', 'F82 M4', 'F83 M4 Cab', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G8X Series'],
     'Mercedes-Benz': ['W205 C63', 'W206 C-Class', 'C190 AMG GT'],
     'Audi': ['8V RS3', '8Y RS3', 'B9 RS4/RS5'],
-    'Toyota': ['A90 Supra', 'GR Yaris/Corolla'],
+    'Toyota': ['A90 Supra', 'GR Yaris'],
     'Nissan': ['R35 GTR', 'RZ34 400Z']
 };
 
-// 全局當前篩選狀態核心變數
 let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
 
-// 1. 車廠選擇事件控制流
+// 1. 車廠選擇控制流
 function selectBrand(brand) {
     currentBrand = brand;
-    currentModel = 'All'; // 重置車型狀態
+    currentModel = 'All'; 
     
-    // 更新品牌按鈕高亮樣式
     document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('filter-active'));
-    // 對齊自定義 ID 對應
     let targetId = 'brand-' + (brand === 'Mercedes-Benz' ? 'Benz' : brand);
     const activeBtn = document.getElementById(targetId);
     if(activeBtn) activeBtn.classList.add('filter-active');
 
-    // 動態重構型號（Chassis）子選單列
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
@@ -206,7 +235,8 @@ function selectBrand(brand) {
         let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
         if (chassisMapping[brand]) {
             chassisMapping[brand].forEach(chassis => {
-                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${chassis.replace(/[^a-zA-Z0-9]/g, '')}" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
+                let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
+                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
             });
         }
         modelListDiv.innerHTML = listHtml;
@@ -215,44 +245,55 @@ function selectBrand(brand) {
     renderMatrix();
 }
 
-// 2. 車型選擇事件控制流
+// 2. 底盤型號選擇控制流
 function selectModel(model) {
     currentModel = model;
     document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
     
-    let targetId = 'model-' + (model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, ''));
-    const activeBtn = document.getElementById(targetId);
+    let cleanId = model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, '');
+    const activeBtn = document.getElementById('model-' + cleanId);
     if(activeBtn) activeBtn.classList.add('filter-active');
 
     renderMatrix();
 }
 
-// 3. 左側配件分類選擇事件控制流
+// 3. 配件類別選擇控制流
 function selectCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
     
-    let targetId = 'cat-' + (category === 'All' ? 'All' : category.replace(/[^a-zA-Z0-9]/g, ''));
-    const activeBtn = document.getElementById(targetId);
+    let cleanId = category === 'All' ? 'All' : category.replace(/[^a-zA-Z0-9]/g, '');
+    const activeBtn = document.getElementById('cat-' + cleanId);
     if(activeBtn) activeBtn.classList.add('filter-active');
 
     renderMatrix();
 }
 
-// 4. 交叉過濾核心渲染引擎
+// 4. 交叉共享過濾與兩倍尺寸大圖渲染引擎
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const emptyState = document.getElementById('empty-state');
     
-    // 執行條件篩選
+    // 計算與共享條件篩選
     const filteredData = exteriorDatabase.filter(item => {
         const matchBrand = (currentBrand === 'All' || item.brand === currentBrand);
-        const matchModel = (currentModel === 'All' || item.model === currentModel);
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
+        
+        // 核心共享邏輯判斷
+        let matchModel = false;
+        if (currentModel === 'All') {
+            matchModel = true;
+        } else {
+            // 提取精簡前綴（例如將 "F82 M4" 轉換成數據庫對齊的 "F82" 旗標）
+            let coreChassis = currentModel.split(' ')[0]; 
+            if (item.compat && item.compat.includes(coreChassis)) {
+                matchModel = true;
+            }
+        }
+        
         return matchBrand && matchModel && matchCat;
     });
 
-    // 清空舊網格數據
     gridContainer.innerHTML = '';
 
     if (filteredData.length === 0) {
@@ -262,25 +303,26 @@ function renderMatrix() {
         emptyState.classList.add('hidden');
         gridContainer.classList.remove('hidden');
 
-        // 循環動態注入卡片元件
         filteredData.forEach(item => {
-            // 根據當前項目的屬性，動態打造專屬且優雅的 WhatsApp 英語酬載字串
-            let dynamicPayload = `Hello Shing, i want to inquire about the ${item.brand} ${item.model} ${item.category}.`;
+            // 抓取第一個相容代號作為隨車標籤
+            let displayBadge = item.compat ? item.compat[0] : 'Custom';
+            let dynamicPayload = `Hello Shing, i want to inquire about the ${item.brand} exterior setup (${item.title}).`;
             let encodedPayload = encodeURIComponent(dynamicPayload);
             
+            // 雙倍Preview尺寸核心：採用寬視角高清晰比例 aspect-[4/3]
             let cardHtml = `
-                <div class="product-card rounded-2xl overflow-hidden gold-border p-4 flex flex-col justify-between animate-fadeIn">
-                    <div class="w-full aspect-square bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center p-2 border border-gray-900 relative">
-                        <img src="${item.image}" alt="${item.title}" class="max-w-full max-h-full object-contain transition duration-300 hover:scale-105">
-                        <div class="absolute top-2 left-2 bg-black bg-opacity-75 px-2 py-0.5 rounded border border-gray-800 text-[9px] uppercase text-yellow-500 tracking-wider font-semibold">${item.model}</div>
+                <div class="product-card rounded-2xl overflow-hidden gold-border p-5 flex flex-col justify-between animate-fadeIn">
+                    <div class="w-full aspect-[4/3] bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center p-3 border border-gray-900 relative">
+                        <img src="${item.image}" alt="${item.title}" class="max-w-full max-h-full object-contain transition duration-500 hover:scale-105">
+                        <div class="absolute top-3 left-3 bg-black bg-opacity-75 px-2.5 py-0.5 rounded border border-gray-800 text-[10px] uppercase text-yellow-500 tracking-wider font-semibold">${displayBadge}</div>
                     </div>
-                    <div class="mt-4 flex flex-col justify-between flex-grow">
-                        <h3 class="text-sm font-bold text-gray-100 tracking-wide mb-3">${item.title}</h3>
-                        <div class="border-t border-gray-900 pt-3 flex items-center justify-between">
-                            <span class="text-[10px] text-gray-500 uppercase tracking-wider font-medium">${item.category}</span>
+                    <div class="mt-5 flex flex-col justify-between flex-grow">
+                        <h3 class="text-base font-bold text-gray-100 tracking-wide mb-4">${item.title}</h3>
+                        <div class="border-t border-gray-900 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-gray-500 uppercase tracking-wider font-medium">${item.category}</span>
                             <a href="https://wa.me/85295368533?text=${encodedPayload}" 
                                target="_blank" 
-                               class="px-3 py-1.5 border border-yellow-600 text-yellow-400 rounded-lg text-[10px] tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
+                               class="px-4 py-2 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
                                 Inquire Setup
                             </a>
                         </div>
@@ -292,7 +334,6 @@ function renderMatrix() {
     }
 }
 
-// 首次加載就緒初始化
 window.onload = function() {
     selectBrand('All');
 };
