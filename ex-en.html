@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bespoke Exterior Commissions | KINGZCARBON</title>
+<title>Bespoke Exterior Matrix | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
@@ -47,6 +47,14 @@ body {
     box-shadow: 0 0 30px rgba(212,175,55,0.18);
     transform: translateY(-2px);
 }
+
+/* 篩選按鈕激活狀態 */
+.filter-active {
+    border-color: #d4af37 !important;
+    color: #fff !important;
+    background-color: rgba(212, 175, 55, 0.15) !important;
+    text-shadow: 0 0 8px rgba(212,175,55,0.6);
+}
 </style>
 </head>
 
@@ -59,91 +67,236 @@ body {
     English USD
 </div>
 
-<div class="max-w-5xl mx-auto px-6 py-20">
+<div class="max-w-7xl mx-auto px-6 py-20">
 
-    <div class="text-center mb-20">
-        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Aesthetical & Aerodynamic Sovereignty</p>
+    <div class="text-center mb-12">
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Modular Matrix Configurator</p>
         <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Bespoke Exterior Works</h1>
-        <p class="mt-4 text-gray-400 text-sm max-w-xl mx-auto leading-relaxed">
-            Uncompromising structural elegance engineered for the streets and track. Flawless carbon weave continuity crafted individually to redefine your vehicle's visual presence.
-        </p>
     </div>
 
-    <div class="space-y-16">
-
-        <div id="aerodynamic-components" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
-            <div class="h-80 bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center border border-gray-900 p-2 relative group">
-                <img src="https://i.imgur.com/DNeHanC.png" alt="KINGZCARBON Bespoke Aerodynamic Components" class="max-w-full max-h-full object-contain transition duration-500 group-hover:scale-105">
-                <div class="absolute bottom-3 left-3 bg-black bg-opacity-75 px-3 py-1 rounded border border-gray-800 text-[10px] uppercase text-gray-400 tracking-widest">Vacuum Infusion / Skinning</div>
-            </div>
-            <div>
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 01 • Aero & Panels</span>
-                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Bespoke Aerodynamic Components</h2>
-                <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                    Complete exterior styling transformations engineered with absolute structural precision. This segment incorporates low-profile front splitters, side skirts, aggressive rear diffusers, lightweight mirror covers, custom trunk setups, and track-ready GT wing profiles.
-                </p>
-                <ul class="text-xs text-gray-400 space-y-2 mb-6 list-disc list-inside">
-                    <li><strong class="text-gray-300">Perfect Continuity:</strong> Hand-laid carbon fiber strands matched precisely to factory lines.</li>
-                    <li><strong class="text-gray-300">Premium Finishing:</strong> Multi-layered 2K automotive high-gloss clear coats providing high UV protection.</li>
-                    <li><strong class="text-gray-300">Tailored Profiling:</strong> Available in classic 2x2 twill, clean forged carbon patterns, or custom texturing.</li>
-                </ul>
-                <div class="flex items-center justify-between border-t border-gray-900 pt-4">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest">Pricing Structure</p>
-                        <p class="text-xl font-bold text-yellow-500">Bespoke Quote</p>
-                    </div>
-                    <a href="bodykits-en.html" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
-                        Explore Body Kits & Parts
-                    </a>
-                </div>
-            </div>
+    <div class="bg-black bg-opacity-60 rounded-2xl gold-border p-6 mb-10 shadow-xl">
+        <div class="flex flex-wrap items-center gap-3 border-b border-gray-900 pb-4 mb-4">
+            <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Brand:</span>
+            <button onclick="selectBrand('All')" id="brand-All" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600 filter-active">All Brands</button>
+            <button onclick="selectBrand('BMW')" id="brand-BMW" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">BMW</button>
+            <button onclick="selectBrand('Mercedes-Benz')" id="brand-Benz" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Mercedes-Benz</button>
+            <button onclick="selectBrand('Audi')" id="brand-Audi" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Audi</button>
+            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Toyota</button>
+            <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
         </div>
 
-        <div id="bespoke-badges" class="product-card rounded-2xl overflow-hidden gold-border grid md:grid-cols-2 gap-8 p-8 items-center">
-            <div class="h-80 bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center border border-gray-900 p-2 md:order-2 relative group">
-                <img src="https://i.imgur.com/qjDVZHW.png" alt="KINGZCARBON Elite Custom Badges" class="max-w-full max-h-full object-contain transition duration-500 group-hover:scale-105">
-                <div class="absolute bottom-3 left-3 bg-black bg-opacity-75 px-3 py-1 rounded border border-gray-800 text-[10px] uppercase text-gray-400 tracking-widest">100% Handcrafted Artisan</div>
-            </div>
-            <div class="md:order-1">
-                <span class="text-xs text-yellow-500 uppercase tracking-widest block mb-2">Option 02 • Elite Accents</span>
-                <h2 class="text-2xl font-bold text-gray-100 tracking-wide mb-3">Handcrafted Custom Emblems</h2>
-                <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                    The ultimate mark of individualism. Personalized exterior brand insignia and vehicle identifiers meticulously handcrafted from premium carbon fiber layers. Every single piece is sculpted and finished individually to guarantee an exquisite bespoke detail that factory-stamped plastic badges can never duplicate.
-                </p>
-                <ul class="text-xs text-gray-400 space-y-2 mb-6 list-disc list-inside">
-                    <li><strong class="text-gray-300">Artisan Sculpture:</strong> Meticulously hand-laid composite weave tailored for sharp contour definitions and perfect alignment.</li>
-                    <li><strong class="text-gray-300">Flawless Lacquering:</strong> Finished with mirror-like, deep gloss 2K clear coats for maximum environmental durability and UV shielding.</li>
-                    <li><strong class="text-gray-300">Infinite Variations:</strong> Fully customizable dimensional parameters, typography styles, and raw weave variations to sync with your build.</li>
-                </ul>
-                <div class="flex items-center justify-between border-t border-gray-900 pt-4">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase tracking-widest">Starting Parameter</p>
-                        <p class="text-xl font-bold text-yellow-500">Private Commission</p>
-                    </div>
-                    <a href="badges-en.html" class="px-5 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
-                        Explore Badges
-                    </a>
-                </div>
+        <div id="model-container" class="flex flex-wrap items-center gap-3">
+            <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Chassis:</span>
+            <div id="model-list" class="flex flex-wrap gap-2">
+                <span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>
             </div>
         </div>
-
     </div>
 
-    <div class="mt-24 border-t border-gray-950 pt-12 text-center">
-        <div class="bg-black bg-opacity-60 rounded-xl p-8 gold-border inline-block max-w-2xl">
-            <h3 class="text-lg font-bold gold-flow gold-glow mb-2">Have a Proprietary Exterior Prototype Project?</h3>
-            <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                From 3D scanning rare body panels to manufacturing complex automotive composite components, our facility handles high-margin customization seamlessly. No rush orders. Excellence prioritized.
-            </p>
-            <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20have%20a%20special%20exterior%20carbon%20fiber%20project%20and%20want%20to%20discuss%20details." 
-               target="_blank" 
-               class="text-xs text-yellow-400 font-bold tracking-widest uppercase border-b border-yellow-600 pb-1 hover:text-yellow-300 transition">
-                Consult with Our Master Craftsman &rarr;
-            </a>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+        
+        <div class="md:col-span-1 bg-black bg-opacity-60 rounded-2xl gold-border p-5 sticky top-6 space-y-2.5 shadow-xl">
+            <span class="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-4 border-b border-gray-900 pb-2 text-center md:text-left">
+                Categories
+            </span>
+            <button onclick="selectCategory('All')" id="cat-All" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 filter-active block">
+                All Components
+            </button>
+            <button onclick="selectCategory('Front Lips')" id="cat-FrontLips" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Front Lips
+            </button>
+            <button onclick="selectCategory('Side Skirts')" id="cat-SideSkirts" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Side Skirts
+            </button>
+            <button onclick="selectCategory('Rear Diffusers')" id="cat-RearDiffusers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Rear Diffusers
+            </button>
+            <button onclick="selectCategory('Rear Spoilers')" id="cat-RearSpoilers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Rear Spoilers
+            </button>
+            <button onclick="selectCategory('Mirror Covers')" id="cat-MirrorCovers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Mirror Covers
+            </button>
+            <button onclick="selectCategory('Badges')" id="cat-Badges" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Badges
+            </button>
         </div>
+
+        <div class="md:col-span-3">
+            <div id="exterior-matrix-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+            
+            <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
+                <p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found matching the criteria.</p>
+                <p class="text-xs text-gray-600 mt-2">Our facility templates are fully adaptive. Tap below to commission custom parameters directly.</p>
+                <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20commission%20a%20special%20carbon%20fiber%20exterior%20part." target="_blank" class="inline-block mt-6 px-6 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs uppercase tracking-widest font-semibold transition hover:bg-yellow-600 hover:text-black">Direct Inquiry</a>
+            </div>
+        </div>
+
     </div>
 
 </div>
+
+<script>
+/**
+ * 🛠️ KINGZCARBON 核心外觀交叉篩選動態數據庫
+ * Shing 之後你可以隨意在這裡追加、刪除或修改任何車型與相應大圖
+ */
+const exteriorDatabase = [
+    // === BMW F8X Series ===
+    { brand: 'BMW', model: 'F8X Series', category: 'Front Lips', title: 'BMW F8X Carbon Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', model: 'F8X Series', category: 'Rear Spoilers', title: 'BMW F8X Performance Wing', image: 'https://i.imgur.com/qjDVZHW.png' },
+    { brand: 'BMW', model: 'F8X Series', category: 'Mirror Covers', title: 'BMW F8X M-Style Mirror Caps', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', model: 'F8X Series', category: 'Badges', title: 'BMW F8X Handcrafted M3/M4 Badge', image: 'https://i.imgur.com/qjDVZHW.png' },
+
+    // === BMW G8X Series ===
+    { brand: 'BMW', model: 'G8X Series', category: 'Front Lips', title: 'BMW G8X CSL-Style Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', model: 'G8X Series', category: 'Rear Diffusers', title: 'BMW G8X Carbon Rear Diffuser', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'BMW', model: 'G8X Series', category: 'Badges', title: 'BMW G8X Gloss Carbon Badge Set', image: 'https://i.imgur.com/qjDVZHW.png' },
+
+    // === Mercedes-Benz ===
+    { brand: 'Mercedes-Benz', model: 'W205 C63', category: 'Front Lips', title: 'Benz W205 C63 Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Mercedes-Benz', model: 'W205 C63', category: 'Rear Spoilers', title: 'Benz W205 PSM-Style Spoiler', image: 'https://i.imgur.com/qjDVZHW.png' },
+    { brand: 'Mercedes-Benz', model: 'W206 C-Class', category: 'Mirror Covers', title: 'Benz W206 Carbon Mirror Covers', image: 'https://i.imgur.com/DNeHanC.png' },
+
+    // === Audi ===
+    { brand: 'Audi', model: '8V RS3', category: 'Rear Diffusers', title: 'Audi 8V RS3 Aggressive Diffuser', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Audi', model: '8Y RS3', category: 'Side Skirts', title: 'Audi 8Y Carbon Side Extensions', image: 'https://i.imgur.com/DNeHanC.png' },
+
+    // === Toyota ===
+    { brand: 'Toyota', model: 'A90 Supra', category: 'Rear Spoilers', title: 'Supra A90 Heritage Wing Profile', image: 'https://i.imgur.com/qjDVZHW.png' },
+    { brand: 'Toyota', model: 'A90 Supra', category: 'Front Lips', title: 'Supra A90 Street Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
+
+    // === Nissan ===
+    { brand: 'Nissan', model: 'R35 GTR', category: 'Front Lips', title: 'GTR R35 N-Style Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Nissan', model: 'R35 GTR', category: 'Rear Spoilers', title: 'GTR R35 Track-Spec Spoiler', image: 'https://i.imgur.com/qjDVZHW.png' }
+];
+
+// 車型子選單配置表
+const chassisMapping = {
+    'BMW': ['F8X Series', 'G8X Series', 'G20/G30 Series'],
+    'Mercedes-Benz': ['W205 C63', 'W206 C-Class', 'C190 AMG GT'],
+    'Audi': ['8V RS3', '8Y RS3', 'B9 RS4/RS5'],
+    'Toyota': ['A90 Supra', 'GR Yaris/Corolla'],
+    'Nissan': ['R35 GTR', 'RZ34 400Z']
+};
+
+// 全局當前篩選狀態核心變數
+let currentBrand = 'All';
+let currentModel = 'All';
+let currentCategory = 'All';
+
+// 1. 車廠選擇事件控制流
+function selectBrand(brand) {
+    currentBrand = brand;
+    currentModel = 'All'; // 重置車型狀態
+    
+    // 更新品牌按鈕高亮樣式
+    document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('filter-active'));
+    // 對齊自定義 ID 對應
+    let targetId = 'brand-' + (brand === 'Mercedes-Benz' ? 'Benz' : brand);
+    const activeBtn = document.getElementById(targetId);
+    if(activeBtn) activeBtn.classList.add('filter-active');
+
+    // 動態重構型號（Chassis）子選單列
+    const modelListDiv = document.getElementById('model-list');
+    if (brand === 'All') {
+        modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
+    } else {
+        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
+        if (chassisMapping[brand]) {
+            chassisMapping[brand].forEach(chassis => {
+                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${chassis.replace(/[^a-zA-Z0-9]/g, '')}" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
+            });
+        }
+        modelListDiv.innerHTML = listHtml;
+    }
+
+    renderMatrix();
+}
+
+// 2. 車型選擇事件控制流
+function selectModel(model) {
+    currentModel = model;
+    document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
+    
+    let targetId = 'model-' + (model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, ''));
+    const activeBtn = document.getElementById(targetId);
+    if(activeBtn) activeBtn.classList.add('filter-active');
+
+    renderMatrix();
+}
+
+// 3. 左側配件分類選擇事件控制流
+function selectCategory(category) {
+    currentCategory = category;
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
+    
+    let targetId = 'cat-' + (category === 'All' ? 'All' : category.replace(/[^a-zA-Z0-9]/g, ''));
+    const activeBtn = document.getElementById(targetId);
+    if(activeBtn) activeBtn.classList.add('filter-active');
+
+    renderMatrix();
+}
+
+// 4. 交叉過濾核心渲染引擎
+function renderMatrix() {
+    const gridContainer = document.getElementById('exterior-matrix-grid');
+    const emptyState = document.getElementById('empty-state');
+    
+    // 執行條件篩選
+    const filteredData = exteriorDatabase.filter(item => {
+        const matchBrand = (currentBrand === 'All' || item.brand === currentBrand);
+        const matchModel = (currentModel === 'All' || item.model === currentModel);
+        const matchCat = (currentCategory === 'All' || item.category === currentCategory);
+        return matchBrand && matchModel && matchCat;
+    });
+
+    // 清空舊網格數據
+    gridContainer.innerHTML = '';
+
+    if (filteredData.length === 0) {
+        gridContainer.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+    } else {
+        emptyState.classList.add('hidden');
+        gridContainer.classList.remove('hidden');
+
+        // 循環動態注入卡片元件
+        filteredData.forEach(item => {
+            // 根據當前項目的屬性，動態打造專屬且優雅的 WhatsApp 英語酬載字串
+            let dynamicPayload = `Hello Shing, i want to inquire about the ${item.brand} ${item.model} ${item.category}.`;
+            let encodedPayload = encodeURIComponent(dynamicPayload);
+            
+            let cardHtml = `
+                <div class="product-card rounded-2xl overflow-hidden gold-border p-4 flex flex-col justify-between animate-fadeIn">
+                    <div class="w-full aspect-square bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center p-2 border border-gray-900 relative">
+                        <img src="${item.image}" alt="${item.title}" class="max-w-full max-h-full object-contain transition duration-300 hover:scale-105">
+                        <div class="absolute top-2 left-2 bg-black bg-opacity-75 px-2 py-0.5 rounded border border-gray-800 text-[9px] uppercase text-yellow-500 tracking-wider font-semibold">${item.model}</div>
+                    </div>
+                    <div class="mt-4 flex flex-col justify-between flex-grow">
+                        <h3 class="text-sm font-bold text-gray-100 tracking-wide mb-3">${item.title}</h3>
+                        <div class="border-t border-gray-900 pt-3 flex items-center justify-between">
+                            <span class="text-[10px] text-gray-500 uppercase tracking-wider font-medium">${item.category}</span>
+                            <a href="https://wa.me/85295368533?text=${encodedPayload}" 
+                               target="_blank" 
+                               class="px-3 py-1.5 border border-yellow-600 text-yellow-400 rounded-lg text-[10px] tracking-widest uppercase font-semibold transition hover:bg-yellow-600 hover:text-black">
+                                Inquire Setup
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            gridContainer.innerHTML += cardHtml;
+        });
+    }
+}
+
+// 首次加載就緒初始化
+window.onload = function() {
+    selectBrand('All');
+};
+</script>
 
 </body>
 </html>
