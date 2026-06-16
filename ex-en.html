@@ -152,9 +152,7 @@ body {
 
 <script>
 /**
- * 🛠️ KINGZCARBON 核心精密外觀共享數據庫 (全案 44 款資料完全鎖定)
- * - compat: ['All'] 代表任何車、所有車通用件
- * - compat: ['F80', 'F82'] 代表同時出現在 F80 M3 與 F82 M4 之中
+ * 🛠️ KINGZCARBON 核心外觀數據庫
  */
 const exteriorDatabase = [
     // 側裙系列 (Side Skirts)
@@ -185,7 +183,7 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (Varis Style)', image: 'https://i.imgur.com/z3on1NN.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (PSM Style)', image: 'https://i.imgur.com/2Wp3vLo.png' },
 
-    // 尾翼系列 (Rear Spoilers - 包含通用車款標記)
+    // 尾翼系列 (Rear Spoilers)
     { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (CH Style)', image: 'https://i.imgur.com/uULyRUO.png' },
     { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (GTS Style)', image: 'https://i.imgur.com/yGpD4OE.png' },
     { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (AP Style)', image: 'https://i.imgur.com/DjKiSnM.png' },
@@ -218,7 +216,6 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Canards (MAD Style)', image: 'https://i.imgur.com/R6ar2YY.png' }
 ];
 
-// 車廠子選單底盤代號細分配置表 (極致細分 F 世代所有底盤號)
 const chassisMapping = {
     'BMW': ['F80 M3', 'F82 M4', 'F83 M4 Cab', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G8X Series'],
     'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
@@ -231,7 +228,6 @@ let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
 
-// 1. 車廠選擇控制流
 function selectBrand(brand) {
     currentBrand = brand;
     currentModel = 'All'; 
@@ -258,7 +254,6 @@ function selectBrand(brand) {
     renderMatrix();
 }
 
-// 2. 底盤型號精密篩選控制
 function selectModel(model) {
     currentModel = model;
     document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -270,7 +265,7 @@ function selectModel(model) {
     renderMatrix();
 }
 
-// 3. 配件類別選擇控制
+// 修正結構
 function selectCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -282,7 +277,6 @@ function selectCategory(category) {
     renderMatrix();
 }
 
-// 4. 交叉過濾與翻倍放大直排渲染引擎
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const emptyState = document.getElementById('empty-state');
@@ -295,7 +289,6 @@ function renderMatrix() {
         if (currentModel === 'All') {
             matchModel = true;
         } else {
-            // 擷取前綴底盤代號 (例如 "F82 M4" -> "F82")
             let coreChassis = currentModel.split(' ')[0]; 
             if (item.compat && (item.compat.includes(coreChassis) || item.compat.includes('All'))) {
                 matchModel = true;
@@ -315,18 +308,16 @@ function renderMatrix() {
         gridContainer.classList.remove('hidden');
 
         filteredData.forEach(item => {
-            let displayBadge = item.compat.includes('All') ? 'Universal' : item.compat[0];
             let dynamicPayload = `Hello Shing, i want to inquire about the ${item.brand} exterior setup (${item.title}).`;
             let encodedPayload = encodeURIComponent(dynamicPayload);
             
-            // 翻倍Preview核心：改為 max-w-3xl 居中單一卡片，高清晰比例 aspect-[16/9] 直排
+            // 修正為 object-cover w-full h-full 完美填滿格柵，移除 absolute 標籤
             let cardHtml = `
-                <div class="product-card rounded-2xl overflow-hidden gold-border p-6 flex flex-col justify-between max-w-3xl mx-auto w-full animate-fadeIn">
-                    <div class="w-full aspect-[16/9] bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center p-4 border border-gray-900 relative">
-                        <img src="${item.image}" alt="${item.title}" class="max-w-full max-h-full object-contain transition duration-500 hover:scale-105">
-                        <div class="absolute top-3 left-3 bg-black bg-opacity-75 px-2.5 py-0.5 rounded border border-gray-800 text-[10px] uppercase text-yellow-500 tracking-wider font-semibold">${displayBadge}</div>
+                <div class="product-card rounded-2xl overflow-hidden gold-border flex flex-col justify-between max-w-3xl mx-auto w-full animate-fadeIn">
+                    <div class="w-full aspect-[16/9] bg-gray-950 overflow-hidden flex items-center justify-center border-b border-gray-900 relative">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition duration-500 hover:scale-105">
                     </div>
-                    <div class="mt-5 flex flex-col justify-between flex-grow">
+                    <div class="p-6 flex flex-col justify-between flex-grow">
                         <div>
                             <h3 class="text-lg font-bold text-gray-100 tracking-wide">${item.title}</h3>
                             <div class="text-sm font-semibold text-yellow-500 mt-1">Price: TBD</div>
