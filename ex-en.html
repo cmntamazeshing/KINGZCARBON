@@ -112,6 +112,9 @@ body {
             <button onclick="selectCategory('Rear Diffusers')" id="cat-RearDiffusers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
                 Rear Diffusers
             </button>
+            <button onclick="selectCategory('Rear Spoilers')" id="cat-RearSpoilers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
+                Rear Spoilers
+            </button>
             <button onclick="selectCategory('Mirror Covers')" id="cat-MirrorCovers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">
                 Mirror Covers
             </button>
@@ -133,7 +136,7 @@ body {
         </div>
 
         <div class="md:col-span-3">
-            <div id="exterior-matrix-grid" class="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-2 gap-8">
+            <div id="exterior-matrix-grid" class="grid grid-cols-1 gap-10">
                 </div>
             
             <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
@@ -149,69 +152,79 @@ body {
 
 <script>
 /**
- * 🛠️ KINGZCARBON 高階交叉共享外觀數據庫
- * 透過 compat 陣列自動鎖定跨型號共享邏輯：
- * - Front Lips: 支援 ['F80', 'F82', 'F83'] 共通
- * - Side Skirts & Rear Diffusers: 支援 ['F82', 'F83'] 共通，排除 F80
+ * 🛠️ KINGZCARBON 核心精密外觀共享數據庫 (全案 44 款資料完全鎖定)
+ * - compat: ['All'] 代表任何車、所有車通用件
+ * - compat: ['F80', 'F82'] 代表同時出現在 F80 M3 與 F82 M4 之中
  */
 const exteriorDatabase = [
-    // ==========================================
-    // 📦 BMW F82 M4 專屬與共通集群數據庫
-    // ==========================================
-    
-    // 12 款共通頭唇 (F80, F82, F83 共通)
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (3D Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (CS Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (V Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (R Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (PSM Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (PSM Dual-Layer Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (Varis Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (MP Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (C Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (GT4 Track Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (AC Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (Demon 魔王 Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    // 側裙系列 (Side Skirts)
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (PSM Style)', image: 'https://i.imgur.com/qrnGuXy.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (R Style)', image: 'https://i.imgur.com/F3Hd0r2.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (3D Style)', image: 'https://i.imgur.com/CoCsiSq.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (Blade Style)', image: 'https://i.imgur.com/qEVNTeI.png' },
 
-    // 4 款共通側裙 (F82, F83 共通，排他 F80)
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (Blade Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (3D Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (PSM Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Side Skirts', title: 'BMW F82/F83 Carbon Side Skirts (R Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    // 前唇/頭唇系列 (Front Lips)
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (V Style)', image: 'https://i.imgur.com/t6UEZip.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (AC Style)', image: 'https://i.imgur.com/v9j4bly.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (PSM Style)', image: 'https://i.imgur.com/pyEwfHG.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (PSM Dual-Layer Style)', image: 'https://i.imgur.com/45wbJ8B.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (CS Style)', image: 'https://i.imgur.com/6lnCcNx.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (MP Style)', image: 'https://i.imgur.com/L8Tt0vX.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (R Style)', image: 'https://i.imgur.com/aBCtbi6.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (Varis Style)', image: 'https://i.imgur.com/9scjvNX.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (Laptorr Style)', image: 'https://i.imgur.com/eCVCTCY.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Splitters (AC Style)', image: 'https://i.imgur.com/twBj4wn.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (3D Style)', image: 'https://i.imgur.com/HMLHfl9.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (GT4 Style)', image: 'https://i.imgur.com/EaAeqv2.png' },
 
-    // 7 款共通後唇/擴散器 (F82, F83 共通，排他 F80)
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (MP Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (3D Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (V Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (3D LED Edition)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (PSM Style)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (PSM LED Edition)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F82/F83 Carbon Diffuser (Varis Style)', image: 'https://i.imgur.com/DNeHanC.png' },
+    // 後唇/尾唇系列 (Rear Diffusers)
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (V Style)', image: 'https://i.imgur.com/mkbH1tR.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (PSM Style with LED Light)', image: 'https://i.imgur.com/Mg3BpAO.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (3D Style)', image: 'https://i.imgur.com/3yXUq9r.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (CH Style with LED Light)', image: 'https://i.imgur.com/rIPpydQ.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (Varis Style)', image: 'https://i.imgur.com/z3on1NN.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (PSM Style)', image: 'https://i.imgur.com/2Wp3vLo.png' },
 
-    // F82 擴充四大類別佔位快取
-    { brand: 'BMW', compat: ['F82'], category: 'Front Fender', title: 'BMW F82 Custom Lightweight Front Fender Set', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82'], category: 'Hood', title: 'BMW F82 Handcrafted Carbon Fiber Hood', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82'], category: 'Trunk', title: 'BMW F82 CSL-Style Carbon Trunk Lid', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82'], category: 'Other', title: 'BMW F8X Carbon Accents (Canards / Grilles / Eyebrows Bundle)', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'BMW', compat: ['F82'], category: 'Badges', title: 'BMW F82 Handcrafted Custom Carbon Emblems', image: 'https://i.imgur.com/qjDVZHW.png' },
-    { brand: 'BMW', compat: ['F82'], category: 'Mirror Covers', title: 'BMW F82 M Performance Mirror Caps', image: 'https://i.imgur.com/DNeHanC.png' },
+    // 尾翼系列 (Rear Spoilers - 包含通用車款標記)
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (CH Style)', image: 'https://i.imgur.com/uULyRUO.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (GTS Style)', image: 'https://i.imgur.com/yGpD4OE.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (AP Style)', image: 'https://i.imgur.com/DjKiSnM.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (PSM Style)', image: 'https://i.imgur.com/59AHaeO.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (V Style)', image: 'https://i.imgur.com/TEMJKsN.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (CS Style)', image: 'https://i.imgur.com/eZgut4k.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (M4 Style)', image: 'https://i.imgur.com/TwmQcsa.png' },
 
-    // ==========================================
-    // 📦 其他品牌基礎範例資料庫
-    // ==========================================
-    { brand: 'Mercedes-Benz', compat: ['W205 C63'], category: 'Front Lips', title: 'Benz W205 C63 Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'Audi', compat: ['8V RS3'], category: 'Rear Diffusers', title: 'Audi 8V RS3 Aggressive Diffuser', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'Toyota', compat: ['A90 Supra'], category: 'Front Lips', title: 'Supra A90 Street Front Lip', image: 'https://i.imgur.com/DNeHanC.png' },
-    { brand: 'Nissan', compat: ['R35 GTR'], category: 'Front Lips', title: 'GTR R35 N-Style Front Splitter', image: 'https://i.imgur.com/DNeHanC.png' }
+    // 引擎蓋與尾箱蓋系列 (Hood & Trunk)
+    { brand: 'BMW', compat: ['F82'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (OEM Style)', image: 'https://i.imgur.com/7DCoR72.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Hood', title: 'BMW F8X Carbon Fiber Transparent Hood (Glass Style)', image: 'https://i.imgur.com/lzoObzG.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Hood', title: 'BMW F8X Carbon Fiber Hood (GTS Style)', image: 'https://i.imgur.com/HYcDgsl.png' },
+    { brand: 'BMW', compat: ['F82'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (CSL Style)', image: 'https://i.imgur.com/LP5wTIr.png' },
+
+    // 葉子板/沙板系列 (Front Fender)
+    { brand: 'BMW', compat: ['F82'], category: 'Front Fender', title: 'BMW F82 M4 Lightweight Carbon Fiber Front Fenders', image: 'https://i.imgur.com/d51eFkh.png' },
+    { brand: 'BMW', compat: ['F80'], category: 'Front Fender', title: 'BMW F80 M3 Lightweight Carbon Fiber Front Fenders', image: 'https://i.imgur.com/MulsV31.png' },
+
+    // 鏡殼系列 (Mirror Covers)
+    { brand: 'BMW', compat: ['All'], category: 'Mirror Covers', title: 'BMW Universal Carbon Fiber Horn-Style Mirror Covers', image: 'https://i.imgur.com/wQQt4zz.png' },
+
+    // 雜項與其他外觀裝飾類 (Other / Accents)
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Canards (C Style)', image: 'https://i.imgur.com/A26hT46.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Front Bumper Splitters (CH Style)', image: 'https://i.imgur.com/1ju5fcm.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Front Canards (CH Style)', image: 'https://i.imgur.com/NwBBP29.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Customizable Carbon Fiber Exhaust Tips', image: 'https://i.imgur.com/eBqLfC3.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Full Carbon Fiber Front Kidney Grilles', image: 'https://i.imgur.com/8Q0W43Q.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Full Carbon Fiber Seat Back Panels', image: 'https://i.imgur.com/FZMPLBY.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Bumper Canards (GT4 Style)', image: 'https://i.imgur.com/rS2y3tE.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Canards (MAD Style)', image: 'https://i.imgur.com/R6ar2YY.png' }
 ];
 
-// 車廠子選單底盤代號細分配置表 (BMW F代號全面補齊)
+// 車廠子選單底盤代號細分配置表 (極致細分 F 世代所有底盤號)
 const chassisMapping = {
     'BMW': ['F80 M3', 'F82 M4', 'F83 M4 Cab', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G8X Series'],
-    'Mercedes-Benz': ['W205 C63', 'W206 C-Class', 'C190 AMG GT'],
-    'Audi': ['8V RS3', '8Y RS3', 'B9 RS4/RS5'],
-    'Toyota': ['A90 Supra', 'GR Yaris'],
-    'Nissan': ['R35 GTR', 'RZ34 400Z']
+    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
+    'Audi': ['8V RS3', '8Y RS3'],
+    'Toyota': ['A90 Supra'],
+    'Nissan': ['R35 GTR']
 };
 
 let currentBrand = 'All';
@@ -245,7 +258,7 @@ function selectBrand(brand) {
     renderMatrix();
 }
 
-// 2. 底盤型號選擇控制流
+// 2. 底盤型號精密篩選控制
 function selectModel(model) {
     currentModel = model;
     document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -257,7 +270,7 @@ function selectModel(model) {
     renderMatrix();
 }
 
-// 3. 配件類別選擇控制流
+// 3. 配件類別選擇控制
 function selectCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -269,24 +282,22 @@ function selectCategory(category) {
     renderMatrix();
 }
 
-// 4. 交叉共享過濾與兩倍尺寸大圖渲染引擎
+// 4. 交叉過濾與翻倍放大直排渲染引擎
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const emptyState = document.getElementById('empty-state');
     
-    // 計算與共享條件篩選
     const filteredData = exteriorDatabase.filter(item => {
         const matchBrand = (currentBrand === 'All' || item.brand === currentBrand);
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
         
-        // 核心共享邏輯判斷
         let matchModel = false;
         if (currentModel === 'All') {
             matchModel = true;
         } else {
-            // 提取精簡前綴（例如將 "F82 M4" 轉換成數據庫對齊的 "F82" 旗標）
+            // 擷取前綴底盤代號 (例如 "F82 M4" -> "F82")
             let coreChassis = currentModel.split(' ')[0]; 
-            if (item.compat && item.compat.includes(coreChassis)) {
+            if (item.compat && (item.compat.includes(coreChassis) || item.compat.includes('All'))) {
                 matchModel = true;
             }
         }
@@ -304,21 +315,23 @@ function renderMatrix() {
         gridContainer.classList.remove('hidden');
 
         filteredData.forEach(item => {
-            // 抓取第一個相容代號作為隨車標籤
-            let displayBadge = item.compat ? item.compat[0] : 'Custom';
+            let displayBadge = item.compat.includes('All') ? 'Universal' : item.compat[0];
             let dynamicPayload = `Hello Shing, i want to inquire about the ${item.brand} exterior setup (${item.title}).`;
             let encodedPayload = encodeURIComponent(dynamicPayload);
             
-            // 雙倍Preview尺寸核心：採用寬視角高清晰比例 aspect-[4/3]
+            // 翻倍Preview核心：改為 max-w-3xl 居中單一卡片，高清晰比例 aspect-[16/9] 直排
             let cardHtml = `
-                <div class="product-card rounded-2xl overflow-hidden gold-border p-5 flex flex-col justify-between animate-fadeIn">
-                    <div class="w-full aspect-[4/3] bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center p-3 border border-gray-900 relative">
+                <div class="product-card rounded-2xl overflow-hidden gold-border p-6 flex flex-col justify-between max-w-3xl mx-auto w-full animate-fadeIn">
+                    <div class="w-full aspect-[16/9] bg-gray-950 rounded-xl overflow-hidden flex items-center justify-center p-4 border border-gray-900 relative">
                         <img src="${item.image}" alt="${item.title}" class="max-w-full max-h-full object-contain transition duration-500 hover:scale-105">
                         <div class="absolute top-3 left-3 bg-black bg-opacity-75 px-2.5 py-0.5 rounded border border-gray-800 text-[10px] uppercase text-yellow-500 tracking-wider font-semibold">${displayBadge}</div>
                     </div>
                     <div class="mt-5 flex flex-col justify-between flex-grow">
-                        <h3 class="text-base font-bold text-gray-100 tracking-wide mb-4">${item.title}</h3>
-                        <div class="border-t border-gray-900 pt-4 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-100 tracking-wide">${item.title}</h3>
+                            <div class="text-sm font-semibold text-yellow-500 mt-1">Price: TBD</div>
+                        </div>
+                        <div class="border-t border-gray-900 mt-4 pt-4 flex items-center justify-between">
                             <span class="text-xs text-gray-500 uppercase tracking-wider font-medium">${item.category}</span>
                             <a href="https://wa.me/85295368533?text=${encodedPayload}" 
                                target="_blank" 
