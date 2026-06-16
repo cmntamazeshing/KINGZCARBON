@@ -265,7 +265,6 @@ function selectModel(model) {
     renderMatrix();
 }
 
-// 修正結構
 function selectCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -311,11 +310,11 @@ function renderMatrix() {
             let dynamicPayload = `Hello Shing, i want to inquire about the ${item.brand} exterior setup (${item.title}).`;
             let encodedPayload = encodeURIComponent(dynamicPayload);
             
-            // 修正為 object-cover w-full h-full 完美填滿格柵，移除 absolute 標籤
+            // 完美優化：移除 aspect-[16/9] 的高度限制，直接使用 h-auto 讓圖片自由向下擴充，完整顯示不被截斷
             let cardHtml = `
                 <div class="product-card rounded-2xl overflow-hidden gold-border flex flex-col justify-between max-w-3xl mx-auto w-full animate-fadeIn">
-                    <div class="w-full aspect-[16/9] bg-gray-950 overflow-hidden flex items-center justify-center border-b border-gray-900 relative">
-                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                    <div class="w-full h-auto bg-gray-950 overflow-hidden flex items-center justify-center border-b border-gray-900 relative">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-auto object-cover transition duration-500 hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col justify-between flex-grow">
                         <div>
