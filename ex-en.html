@@ -151,23 +151,17 @@ body {
 </div>
 
 <script>
-// 1. 確保 F5 重新整理時不會停留在之前的捲動位置，強制回到頂部
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-window.scrollTo(0, 0);
-
 /**
- * 🛠️ KINGZCARBON 核心外觀數據庫
+ * 🛠️ KINGZCARBON 核心外觀數據庫 (已植入自動定價轉換邏輯)
  */
 const exteriorDatabase = [
-    // 側裙系列 (Side Skirts)
+    // === 側裙系列 (Side Skirts) - 運費 $1600 HKD ===
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (PSM Style)', price: '$739 USD', image: 'https://i.imgur.com/qrnGuXy.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (R Style)', price: '$739 USD', image: 'https://i.imgur.com/F3Hd0r2.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (3D Style)', price: '$739 USD', image: 'https://i.imgur.com/CoCsiSq.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Side Skirts', title: 'BMW F8X Carbon Side Skirts (Blade Style)', price: '$649 USD', image: 'https://i.imgur.com/qEVNTeI.png' },
 
-    // 前唇/頭唇系列 (Front Lips)
+    // === 前唇/頭唇系列 (Front Lips) - 運費 $1600 HKD ===
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (V Style)', price: '$699 USD', image: 'https://i.imgur.com/t6UEZip.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (AC Style)', price: '$919 USD', image: 'https://i.imgur.com/v9j4bly.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Splitters (AC Style Lite Edition)', price: '$479 USD', image: 'https://i.imgur.com/twBj4wn.png' },
@@ -181,7 +175,7 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (3D Style)', price: '$649 USD', image: 'https://i.imgur.com/HMLHfl9.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Front Lips', title: 'BMW F8X Carbon Front Lip (GT4 Style)', price: '$919 USD', image: 'https://i.imgur.com/EaAeqv2.png' },
 
-    // 後唇/尾唇系列 (Rear Diffusers)
+    // === 後唇/尾唇系列 (Rear Diffusers) - 運費 $1600 HKD ===
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (V Style)', price: '$789 USD', image: 'https://i.imgur.com/mkbH1tR.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (PSM Style With LED Light)', price: '$1269 USD', image: 'https://i.imgur.com/Mg3BpAO.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (3D Style)', price: '$739 USD', image: 'https://i.imgur.com/3yXUq9r.png' },
@@ -189,37 +183,37 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (Varis Style)', price: '$1979 USD', image: 'https://i.imgur.com/z3on1NN.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (PSM Style)', price: '$1269 USD', image: 'https://i.imgur.com/2Wp3vLo.png' },
 
-    // 尾翼系列 (Rear Spoilers)
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Spoiler (CH Style)', price: '$1049 USD', image: 'https://i.imgur.com/uULyRUO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Wing (GTS Style)', price: '$1099 USD', image: 'https://i.imgur.com/yGpD4OE.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Wing (AP Style)', price: '$1979 USD', image: 'https://i.imgur.com/DjKiSnM.png' },
+    // === 尾翼系列 (Rear Spoilers) - 運費 $1600 HKD ===
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (CH Style)', price: '$1049 USD', image: 'https://i.imgur.com/uULyRUO.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (GTS Style)', price: '$1099 USD', image: 'https://i.imgur.com/yGpD4OE.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (AP Style)', price: '$1979 USD', image: 'https://i.imgur.com/DjKiSnM.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (PSM Style)', price: '$559 USD', image: 'https://i.imgur.com/59AHaeO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Spoiler (V Style)', price: '$789 USD', image: 'https://i.imgur.com/TEMJKsN.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (V Style)', price: '$789 USD', image: 'https://i.imgur.com/TEMJKsN.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (CS Style)', price: '$559 USD', image: 'https://i.imgur.com/eZgut4k.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (M4 Style)', price: '$559 USD', image: 'https://i.imgur.com/TwmQcsa.png' },
 
-    // 引擎蓋與尾箱蓋系列 (Hood & Trunk)
+    // === 引擎蓋與尾箱蓋系列 (Hood & Trunk) - 大件運費 $2800 HKD ===
     { brand: 'BMW', compat: ['F82'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (OEM Style)', price: '$1599 USD', image: 'https://i.imgur.com/7DCoR72.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Hood', title: 'BMW F8X Carbon Fiber Transparent Hood (Glass Style)', price: '$2049 USD', image: 'https://i.imgur.com/lzoObzG.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Hood', title: 'BMW F8X Carbon Fiber Hood (GTS Style)', price: '$1599 USD', image: 'https://i.imgur.com/HYcDgsl.png' },
     { brand: 'BMW', compat: ['F82'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (CSL Style)', price: '$2049 USD', image: 'https://i.imgur.com/LP5wTIr.png' },
 
-    // 葉子板/沙板系列 (Front Fender)
+    // === 葉子板/沙板系列 (Front Fender) - 小件運費 $800 HKD ===
     { brand: 'BMW', compat: ['F82'], category: 'Front Fender', title: 'BMW F82 M4 Lightweight Carbon Fiber Front Fenders', price: '$1879 USD', image: 'https://i.imgur.com/d51eFkh.png' },
     { brand: 'BMW', compat: ['F80'], category: 'Front Fender', title: 'BMW F80 M3 Lightweight Carbon Fiber Front Fenders', price: '$1879 USD', image: 'https://i.imgur.com/MulsV31.png' },
 
-    // 鏡殼系列 (Mirror Covers)
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Mirror Covers', title: 'BMW F8X Carbon Fiber Horn-Style Mirror Covers', price: '$369 USD', image: 'https://i.imgur.com/wQQt4zz.png' },
+    // === 鏡殼系列 (Mirror Covers) - 小件運費 $800 HKD ===
+    { brand: 'BMW', compat: ['All'], category: 'Mirror Covers', title: 'BMW Universal Carbon Fiber Horn-Style Mirror Covers', price: '$369 USD', image: 'https://i.imgur.com/wQQt4zz.png' },
 
-    // 雜項與其他外觀裝飾類 (Other / Accents)
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Fiber Canards (C Style)', price: '$369 USD', image: 'https://i.imgur.com/A26hT46.png' },
+    // === 雜項與其他外觀裝飾類 (Other / Accents) - 小件運費 $800 HKD ===
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Canards (C Style)', price: '$369 USD', image: 'https://i.imgur.com/A26hT46.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Front Bumper Splitters (CH Style)', price: '$549 USD', image: 'https://i.imgur.com/1ju5fcm.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Fiber Front Canards (CH Style)', price: '$369 USD', image: 'https://i.imgur.com/NwBBP29.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Customizable Carbon Fiber Exhaust Tips', price: '$459 USD', image: 'https://i.imgur.com/eBqLfC3.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Front Canards (CH Style)', price: '$369 USD', image: 'https://i.imgur.com/NwBBP29.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Customizable Carbon Fiber Exhaust Tips', price: '$459 USD', image: 'https://i.imgur.com/eBqLfC3.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Full Carbon Fiber Front Kidney Grilles', price: '$459 USD', image: 'https://i.imgur.com/8Q0W43Q.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Full Carbon Fiber Seat Back Panels', price: '$859 USD', image: 'https://i.imgur.com/FZMPLBY.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Bumper Canards (GT4 Style)', price: '$679 USD', image: 'https://i.imgur.com/rS2y3tE.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Fiber Canards (MAD Style)', price: '$459 USD', image: 'https://i.imgur.com/R6ar2YY.png' }
+    { brand: 'BMW', compat: ['All'], category: 'Other', title: 'Universal Carbon Fiber Canards (MAD Style)', price: '$459 USD', image: 'https://i.imgur.com/R6ar2YY.png' }
 ];
 
 const chassisMapping = {
@@ -234,7 +228,7 @@ let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
 
-function selectBrand(brand, isInit = false) {
+function selectBrand(brand) {
     currentBrand = brand;
     currentModel = 'All'; 
     
@@ -258,10 +252,6 @@ function selectBrand(brand, isInit = false) {
     }
 
     renderMatrix();
-    // 首次載入不觸發滾動動畫
-    if (!isInit) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
 }
 
 function selectModel(model) {
@@ -273,7 +263,6 @@ function selectModel(model) {
     if(activeBtn) activeBtn.classList.add('filter-active');
 
     renderMatrix();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function selectCategory(category) {
@@ -285,9 +274,9 @@ function selectCategory(category) {
     if(activeBtn) activeBtn.classList.add('filter-active');
 
     renderMatrix();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 交叉過濾與動態條件判定引擎
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const emptyState = document.getElementById('empty-state');
@@ -354,7 +343,7 @@ function renderMatrix() {
 }
 
 window.onload = function() {
-    selectBrand('All', true);
+    selectBrand('All');
 };
 </script>
 
