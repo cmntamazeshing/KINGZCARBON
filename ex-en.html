@@ -151,7 +151,6 @@ body {
 </div>
 
 <script>
-// 1. 確保 F5 重新整理時不會停留在之前的捲動位置，強制回到頂部
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
@@ -159,69 +158,73 @@ window.scrollTo(0, 0);
 
 /**
  * 🛠️ KINGZCARBON 核心外觀數據庫
- * - price: 單純代表商品本身淨價 (成本rmb x 3 換算美金尾數改9)
- * - shipping: 填裝折扣一半後的美金價格 (大件 $109, 小件 $59, 特大件 $179)
- * - saved: 填裝幫客省下一半的金額提示 ($110, $60, $180)
  */
 const exteriorDatabase = [
-    // === 側裙系列 (Side Skirts) - 大件 1600hkd 一半 -> 800hkd = $102usd -> 修正為 $109 ===
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (PSM Style)', price: '$499 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/qrnGuXy.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (R Style)', price: '$499 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/F3Hd0r2.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (3D Style)', price: '$499 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/CoCsiSq.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (Blade Style)', price: '$419 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/qEVNTeI.png' },
+    // === 全新追加 16 款「三廂車通用尾翼」系列 (運費大件 $109 USD) ===
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MAD Style)', price: '$499 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/fR7SeNc.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (V Style)', price: '$539 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/vFV5lxE.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V1)', price: '$539 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/ZVmHmeP.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style)', price: '$829 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/0klVC3p.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style V1)', price: '$629 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/XVhbNNW.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V2)', price: '$579 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/kpiLpBo.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Gen 2 Style)', price: '$749 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/zSVbO3j.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Gen 3 Style)', price: '$749 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/2DrL2yG.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (3D Style)', price: '$829 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/ivKopn7.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (PAK Style)', price: '$749 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/tidCxay.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (IMP Style)', price: '$749 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/ca5e5FT.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTC Style)', price: '$1249 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/45wbJ8B.png' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (AP Style)', price: '$1579 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/ImwNbve.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (Voltex Double Deck Style)', price: '$1459 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/dGUm4SW.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (Verus Style)', price: '$3749 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/jacxe3o.jpeg' },
+    { brand: 'BMW', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (CH Style)', price: '$3959 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/wBkLp0g.jpeg' },
 
-    // === 前唇/頭唇系列 (Front Lips) - 大件 1600hkd 一半 -> $109 ===
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (V Style)', price: '$459 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/t6UEZip.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (AC Style)', price: '$669 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/v9j4bly.png' },
+    // === 原有已校正之 M3/M4 專屬集群數據 ===
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (PSM Style)', price: '$589 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/qrnGuXy.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (R Style)', price: '$589 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/F3Hd0r2.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (3D Style)', price: '$589 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/CoCsiSq.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (Blade Style)', price: '$519 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/qEVNTeI.png' },
+
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (V Style)', price: '$559 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/t6UEZip.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (AC Style)', price: '$739 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/v9j4bly.png' },
     { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Splitters (AC Style Lite Edition)', price: '$249 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/twBj4wn.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (PSM Style)', price: '$459 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/pyEwfHG.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (PSM Dual-Layer Style)', price: '$829 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/45wbJ8B.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (CS Style)', price: '$459 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/6lnCcNx.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (MP Style)', price: '$549 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/L8Tt0vX.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (R Style)', price: '$419 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/aBCtbi6.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (Varis Style)', price: '$499 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/9scjvNX.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (Laptorr Style)', price: '$749 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/eCVCTCY.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (3D Style)', price: '$419 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/HMLHfl9.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (GT4 Style)', price: '$669 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/EaAeqv2.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (PSM Style)', price: '$559 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/pyEwfHG.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (PSM Dual-Layer Style)', price: '$879 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/45wbJ8B.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (CS Style)', price: '$559 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/6lnCcNx.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (MP Style)', price: '$629 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/L8Tt0vX.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (R Style)', price: '$519 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/aBCtbi6.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (Varis Style)', price: '$589 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/9scjvNX.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (Laptorr Style)', price: '$809 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/eCVCTCY.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (3D Style)', price: '$519 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/HMLHfl9.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Front Lips', title: 'BMW F80/F82 M3/M4 Carbon Front Lip (GT4 Style)', price: '$739 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/EaAeqv2.png' },
 
-    // === 後唇/尾唇系列 (Rear Diffusers) - 大件 1600hkd 一半 -> $109 ===
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (V Style)', price: '$549 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/mkbH1tR.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (PSM Style With LED Light)', price: '$1009 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/Mg3BpAO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (3D Style)', price: '$499 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/3yXUq9r.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (CH Style With LED Light)', price: '$549 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/rIPpydQ.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (Varis Style)', price: '$1679 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/z3on1NN.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (PSM Style)', price: '$1009 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/2Wp3vLo.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (V Style)', price: '$629 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/mkbH1tR.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (PSM Style With LED Light)', price: '$1019 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/Mg3BpAO.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (3D Style)', price: '$589 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/3yXUq9r.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (CH Style With LED Light)', price: '$629 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/rIPpydQ.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (Varis Style)', price: '$1579 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/z3on1NN.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Diffusers', title: 'BMW F80/F82 M3/M4 Carbon Rear Diffuser (PSM Style)', price: '$1019 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/2Wp3vLo.png' },
 
-    // === 尾翼系列 (Rear Spoilers) - 大件 1600hkd 一半 -> $109 ===
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Fiber Rear Spoiler (CH Style)', price: '$799 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/uULyRUO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Fiber Rear Wing (GTS Style)', price: '$839 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/yGpD4OE.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Fiber Rear Wing (AP Style)', price: '$1679 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/DjKiSnM.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Rear Spoiler (PSM Style)', price: '$339 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/59AHaeO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Fiber Rear Spoiler (V Style)', price: '$549 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/TEMJKsN.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Rear Spoiler (CS Style)', price: '$339 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/eZgut4k.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Rear Spoiler (M4 Style)', price: '$339 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/TwmQcsa.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Rear Spoiler (PSM Style)', price: '$449 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/59AHaeO.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Rear Spoiler (CS Style)', price: '$449 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/eZgut4k.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Rear Spoilers', title: 'BMW F80/F82 M3/M4 Carbon Rear Spoiler (M4 Style)', price: '$449 USD', shipping: '$109 USD', saved: '$110 USD', image: 'https://i.imgur.com/TwmQcsa.png' },
 
-    // === 引擎蓋與尾箱蓋系列 (Hood & Trunk) - 超大件 2800hkd 一半 -> 1400hkd = $179usd ===
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (OEM Style)', price: '$1179 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/7DCoR72.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Hood', title: 'BMW F80/F82 M3/M4 Carbon Fiber Transparent Hood (Glass Style)', price: '$1599 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/lzoObzG.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Hood', title: 'BMW F80/F82 M3/M4 Carbon Fiber Hood (GTS Style)', price: '$1179 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/HYcDgsl.png' },
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (CSL Style)', price: '$1599 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/LP5wTIr.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (OEM Style)', price: '$1279 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/7DCoR72.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Hood', title: 'BMW F80/F82 M3/M4 Carbon Fiber Transparent Hood (Glass Style)', price: '$1639 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/lzoObzG.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Hood', title: 'BMW F80/F82 M3/M4 Carbon Fiber Hood (GTS Style)', price: '$1279 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/HYcDgsl.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Trunk', title: 'BMW F82 M4 Carbon Fiber Trunk Lid (CSL Style)', price: '$1639 USD', shipping: '$179 USD', saved: '$180 USD', image: 'https://i.imgur.com/LP5wTIr.png' },
 
-    // === 葉子板/沙板系列 (Front Fender) - 小件運費 800hkd 一半 -> 400hkd = $51usd -> 修正為 $59 ===
-    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Front Fender', title: 'BMW F82 M4 Lightweight Carbon Fiber Front Fenders', price: '$1679 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/d51eFkh.png' },
-    { brand: 'BMW', compat: ['F80'], category: 'Front Fender', title: 'BMW F80 M3 Lightweight Carbon Fiber Front Fenders', price: '$1679 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/MulsV31.png' },
+    { brand: 'BMW', compat: ['F82', 'F83'], category: 'Front Fender', title: 'BMW F82 M4 Lightweight Carbon Fiber Front Fenders', price: '$1499 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/d51eFkh.png' },
+    { brand: 'BMW', compat: ['F80'], category: 'Front Fender', title: 'BMW F80 M3 Lightweight Carbon Fiber Front Fenders', price: '$1499 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/MulsV31.png' },
 
-    // === 鏡殼系列 (Mirror Covers) - 小件運費 $59 ===
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Mirror Covers', title: 'BMW F80/F82 M3/M4 Carbon Fiber Horn-Style Mirror Covers', price: '$279 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/wQQt4zz.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Mirror Covers', title: 'BMW F80/F82 M3/M4 Carbon Fiber Horn-Style Mirror Covers', price: '$299 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/wQQt4zz.png' },
 
-    // === 雜項與其他外觀裝飾類 (Other / Accents) - 小件運費 $59 ===
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Canards (C Style)', price: '$279 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/A26hT46.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Front Bumper Splitters (CH Style)', price: '$419 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/1ju5fcm.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Front Canards (CH Style)', price: '$279 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/NwBBP29.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Customizable Carbon Fiber Exhaust Tips', price: '$339 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/eBqLfC3.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Full Carbon Fiber Front Kidney Grilles', price: '$339 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/8Q0W43Q.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Full Carbon Fiber Seat Back Panels', price: '$719 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/FZMPLBY.png' },
-    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Bumper Canards (GT4 Style)', price: '$549 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/rS2y3tE.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Canards (C Style)', price: '$299 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/A26hT46.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Front Bumper Splitters (CH Style)', price: '$439 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/1ju5fcm.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Front Canards (CH Style)', price: '$299 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/NwBBP29.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Customizable Carbon Fiber Exhaust Tips', price: '$369 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/eBqLfC3.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Full Carbon Fiber Front Kidney Grilles', price: '$369 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/8Q0W43Q.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Full Carbon Fiber Seat Back Panels', price: '$689 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/FZMPLBY.png' },
+    { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Bumper Canards (GT4 Style)', price: '$539 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/rS2y3tE.png' },
     { brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Canards (MAD Style)', price: '$339 USD', shipping: '$59 USD', saved: '$60 USD', image: 'https://i.imgur.com/R6ar2YY.png' }
 ];
 
@@ -350,7 +353,7 @@ function renderMatrix() {
                                 </span>
                             </div>
                         </div>
-                        <div class="border-t border-gray-900 mt-5 pt-4 flex items-center justify-between">
+                        <div class="border-t border-gray-900 mt-4 pt-4 flex items-center justify-between">
                             <span class="text-xs text-gray-500 uppercase tracking-wider font-medium">${item.category}</span>
                             <a href="https://wa.me/85295368533?text=${encodedPayload}" 
                                target="_blank" 
