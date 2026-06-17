@@ -152,7 +152,9 @@ body {
 
 <script>
 /**
- * 🛠️ KINGZCARBON 核心外觀數據庫 (所有原 'All' 通用類別已全面修正為 'F80', 'F82' 專屬相容)
+ * 🛠️ KINGZCARBON 核心外觀數據庫
+ * - isUniversal flag 標記：代表未按篩選時對外全開，一旦按了詳細分類（例如點了特定的車型底盤代號），
+ * 它將只在專屬的 BMW F80/F82 目錄下露臉，絕不干擾其他非 BMW 廠牌。
  */
 const exteriorDatabase = [
     // 側裙系列 (Side Skirts)
@@ -183,12 +185,12 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (Varis Style)', image: 'https://i.imgur.com/z3on1NN.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Diffusers', title: 'BMW F8X Carbon Rear Diffuser (PSM Style)', image: 'https://i.imgur.com/2Wp3vLo.png' },
 
-    // 尾翼系列 (Rear Spoilers - 已全面修正為 F8X 專用相容)
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Spoiler (CH Style)', image: 'https://i.imgur.com/uULyRUO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Wing (GTS Style)', image: 'https://i.imgur.com/yGpD4OE.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Wing (AP Style)', image: 'https://i.imgur.com/DjKiSnM.png' },
+    // 尾翼系列 (Rear Spoilers - 注入 isUniversal 邏輯)
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (CH Style)', image: 'https://i.imgur.com/uULyRUO.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (GTS Style)', image: 'https://i.imgur.com/yGpD4OE.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Wing (AP Style)', image: 'https://i.imgur.com/DjKiSnM.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (PSM Style)', image: 'https://i.imgur.com/59AHaeO.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Fiber Rear Spoiler (V Style)', image: 'https://i.imgur.com/TEMJKsN.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Rear Spoilers', title: 'Universal Carbon Fiber Rear Spoiler (V Style)', image: 'https://i.imgur.com/TEMJKsN.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (CS Style)', image: 'https://i.imgur.com/eZgut4k.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Rear Spoilers', title: 'BMW F8X Carbon Rear Spoiler (M4 Style)', image: 'https://i.imgur.com/TwmQcsa.png' },
 
@@ -202,18 +204,24 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['F82'], category: 'Front Fender', title: 'BMW F82 M4 Lightweight Carbon Fiber Front Fenders', image: 'https://i.imgur.com/d51eFkh.png' },
     { brand: 'BMW', compat: ['F80'], category: 'Front Fender', title: 'BMW F80 M3 Lightweight Carbon Fiber Front Fenders', image: 'https://i.imgur.com/MulsV31.png' },
 
-    // 鏡殼系列 (Mirror Covers - 已修正為 F8X 專用相容)
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Mirror Covers', title: 'BMW F8X Carbon Fiber Horn-Style Mirror Covers', image: 'https://i.imgur.com/wQQt4zz.png' },
+    // 鏡殼系列 (Mirror Covers)
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Mirror Covers', title: 'BMW Universal Carbon Fiber Horn-Style Mirror Covers', image: 'https://i.imgur.com/wQQt4zz.png' },
 
-    // 雜項與其他外觀裝飾類 (Other / Accents - 已全面修正為 F8X 專用相容)
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Fiber Canards (C Style)', image: 'https://i.imgur.com/A26hT46.png' },
+    // 雜項與其他外觀裝飾類 (Other / Accents)
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Other', title: 'Universal Carbon Fiber Canards (C Style)', image: 'https://i.imgur.com/A26hT46.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Front Bumper Splitters (CH Style)', image: 'https://i.imgur.com/1ju5fcm.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Fiber Front Canards (CH Style)', image: 'https://i.imgur.com/NwBBP29.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Customizable Carbon Fiber Exhaust Tips', image: 'https://i.imgur.com/eBqLfC3.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Other', title: 'Universal Carbon Fiber Front Canards (CH Style)', image: 'https://i.imgur.com/NwBBP29.png' },
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Other', title: 'Universal Customizable Carbon Fiber Exhaust Tips', image: 'https://i.imgur.com/eBqLfC3.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Full Carbon Fiber Front Kidney Grilles', image: 'https://i.imgur.com/8Q0W43Q.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Full Carbon Fiber Seat Back Panels', image: 'https://i.imgur.com/FZMPLBY.png' },
     { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Bumper Canards (GT4 Style)', image: 'https://i.imgur.com/rS2y3tE.png' },
-    { brand: 'BMW', compat: ['F80', 'F82'], category: 'Other', title: 'BMW F8X Carbon Fiber Canards (MAD Style)', image: 'https://i.imgur.com/R6ar2YY.png' }
+    { brand: 'BMW', compat: ['F80', 'F82'], isUniversal: true, category: 'Other', title: 'Universal Carbon Fiber Canards (MAD Style)', image: 'https://i.imgur.com/R6ar2YY.png' },
+
+    // 預留非寶馬車廠的空位快取 (未按篩選時，在「All Brands」下依然會完全露出)
+    { brand: 'Mercedes-Benz', compat: ['W205'], category: 'Front Lips', title: 'Mercedes-Benz AMG Carbon Fiber Front Splitter (Bespoke Showcase)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Audi', compat: ['8V'], category: 'Rear Diffusers', title: 'Audi RS Performance Carbon Rear Diffuser (Bespoke Showcase)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Toyota', compat: ['A90'], category: 'Rear Spoilers', title: 'Toyota GR Supra Racing Carbon Wing (Bespoke Showcase)', image: 'https://i.imgur.com/DNeHanC.png' },
+    { brand: 'Nissan', compat: ['R35'], category: 'Front Lips', title: 'Nissan GTR R35 Aerodynamic Carbon Front Lip (Bespoke Showcase)', image: 'https://i.imgur.com/DNeHanC.png' }
 ];
 
 const chassisMapping = {
@@ -276,25 +284,39 @@ function selectCategory(category) {
     renderMatrix();
 }
 
+// 交叉過濾與動態條件判定引擎 (核心升級：全局無條件釋放 vs 局部 F8X 專屬收納)
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const emptyState = document.getElementById('empty-state');
     
     const filteredData = exteriorDatabase.filter(item => {
-        const matchBrand = (currentBrand === 'All' || item.brand === currentBrand);
+        // A. 配件大分類篩選阻流
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
         
+        // B. 全局模式：如果大按鈕停在 'All Brands'，無條件展示整個數據庫
+        if (currentBrand === 'All') {
+            return matchCat;
+        }
+        
+        // C. 品牌鎖定模式
+        const matchBrand = (item.brand === currentBrand);
+        
+        // D. 車型細緻篩選邏輯
         let matchModel = false;
         if (currentModel === 'All') {
+            // 在品牌分頁下（例如點了 BMW 但還沒點細分底盤），允許所有該牌項目露臉
             matchModel = true;
         } else {
+            // 切割出核心底盤代號 (如 "F82 M4" -> "F82")
             let coreChassis = currentModel.split(' ')[0]; 
-            if (item.compat && (item.compat.includes(coreChassis) || item.compat.includes('All'))) {
+            
+            // 關鍵改動：如果是通用項目 (isUniversal)，只要點了詳細分類，它現在被精準收納入 F8X 目錄 (F80/F82)
+            if (item.compat && item.compat.includes(coreChassis)) {
                 matchModel = true;
             }
         }
         
-        return matchBrand && matchModel && matchCat;
+        return matchCat && matchBrand && matchModel;
     });
 
     gridContainer.innerHTML = '';
