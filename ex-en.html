@@ -134,19 +134,19 @@ body {
 
 </div>
 
-<div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-85 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
+<div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
     <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative animate-scaleUp" onclick="event.stopPropagation()">
         <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
         
-        <div class="w-full h-auto max-h-[65vh] bg-black overflow-hidden flex items-center justify-center">
-            <img id="modal-img" src="" alt="Preview" class="w-full h-auto object-contain">
+        <div class="w-full p-2 bg-black flex items-center justify-center">
+            <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[75vh] w-auto mx-auto object-contain block">
         </div>
-        <div class="p-6 md:p-8 bg-black bg-opacity-90">
-            <h3 id="modal-title" class="text-xl md:text-2xl font-bold text-gray-100 tracking-wide"></h3>
+        <div class="p-6 md:p-8 bg-black bg-opacity-95">
+            <h3 id="modal-title" class="text-lg md:text-xl font-bold text-gray-100 tracking-wide"></h3>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 border-b border-gray-900 pb-5">
-                <span id="modal-price" class="text-2xl font-extrabold text-yellow-500"></span>
+                <span id="modal-price" class="text-xl md:text-2xl font-extrabold text-yellow-500"></span>
                 <span class="text-sm text-gray-400 font-medium">| &nbsp; + Shipping: <strong class="text-gray-100">FREE SHIPPING</strong></span>
-                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-500 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider gold-glow"></span>
+                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider gold-glow"></span>
             </div>
             <div class="mt-5 flex items-center justify-between">
                 <span id="modal-cat" class="text-xs text-gray-500 uppercase tracking-widest font-semibold"></span>
@@ -168,15 +168,16 @@ window.scrollTo(0, 0);
  * 🛠️ KINGZCARBON 核心外觀數據庫
  */
 const exteriorDatabase = [
-    // === 16 款「三廂車通用尾翼」系列 (已更正代表新舊款的代數標題為 V1 / V2) ===
+    // === 16 款「三廂車通用尾翼」系列 ===
     { id: 1, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MAD Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/fR7SeNc.jpeg' },
     { id: 2, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (V Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/vFV5lxE.jpeg' },
     { id: 3, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V1)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/ZVmHmeP.jpeg' },
     { id: 4, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style V2)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/0klVC3p.jpeg' },
     { id: 5, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style Camp V1)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/XVhbNNW.jpeg' },
     { id: 6, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V2)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/kpiLpBo.jpeg' },
-    { id: 7, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Gen 2 Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/zSVbO3j.jpeg' },
-    { id: 8, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Gen 3 Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/2DrL2yG.jpeg' },
+    { id: 7, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Style V1)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/zSVbO3j.jpeg' },
+    { id: 8, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Style V2)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/2DrL2yG.jpeg' },
+    { id: 9, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (3D Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/ivKopn7.jpeg' },
     { id: 10, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (PAK Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/tidCxay.jpeg' },
     { id: 11, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (IMP Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/ca5e5FT.jpeg' },
     { id: 12, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTC Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/4Lc2T9P.jpeg' },
@@ -268,7 +269,7 @@ const exteriorDatabase = [
     { id: 94, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 Pre-LCI Carbon Rear Diffuser With F1 LED Light (K Style - 2020-2022 M Sport Package Only)', price: '$549 USD', saved: '$205 USD', image: 'https://i.imgur.com/OByrF6v.jpeg' },
     { id: 95, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 Pre-LCI Carbon Rear Diffuser With F1 LED Light (CH Style - 2020-2022 M Sport Package Only)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/JXJxyFw.jpeg' },
     { id: 96, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 Pre-LCI Carbon Rear Diffuser (MP Style - 2020-2022 M Sport Package Only)', price: '$459 USD', saved: '$205 USD', image: 'https://i.imgur.com/ntTqekE.jpeg' },
-    { id: 97, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 LCI Carbon Rear Diffuser (V Style - Facelift 2023-2025)', price: '$779 USD', saved: '$205 USD', image: 'https://i.imgur.com/OJBi0r7.jpeg' },
+    { id: 97, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW려는 3-Series G20 / G28 LCI Carbon Rear Diffuser (V Style - Facelift 2023-2025)', price: '$779 USD', saved: '$205 USD', image: 'https://i.imgur.com/OJBi0r7.jpeg' },
     { id: 98, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 LCI Carbon Rear Diffuser With F1 LED Light (T Style - Facelift 2023-2025)', price: '$709 USD', saved: '$205 USD', image: 'https://i.imgur.com/TPsT4JY.jpeg' },
     { id: 99, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 LCI Carbon Rear Diffuser With F1 LED Light (MP Style - Facelift 2023-2025)', price: '$549 USD', saved: '$205 USD', image: 'https://i.imgur.com/8rXGorU.jpeg' },
     { id: 100, brand: 'BMW', compat: ['G20', 'G28'], category: 'Rear Diffusers', title: 'BMW 3-Series G20 / G28 LCI Carbon Rear Diffuser With F1 LED Light (F Style - Facelift 2023-2025)', price: '$779 USD', saved: '$205 USD', image: 'https://i.imgur.com/ruwYIJV.jpeg' },
@@ -383,7 +384,6 @@ function selectModel(model) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 修正結構
 function selectCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -454,7 +454,6 @@ function renderMatrix() {
         filteredData.forEach(item => {
             let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
             
-            // 完美優化：將 object-cover 改為 object-contain，確保格子內圖片百分之百完整呈現，絕不被上下裁剪截斷！
             let cardHtml = `
                 <div onclick="openLightbox(${item.id})" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between animate-fadeIn">
                     <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
@@ -471,7 +470,6 @@ function renderMatrix() {
     }
 }
 
-// 彈出層 Modal 開啟邏輯 (零延遲動態渲染內容)
 function openLightbox(productId) {
     const item = exteriorDatabase.find(p => p.id === productId);
     if (!item) return;
@@ -492,7 +490,6 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 點選空白處（背景遮罩）退回原位邏輯
 function closeLightbox(event) {
     const modalContainer = document.getElementById('product-lightbox-modal');
     if (event.target === modalContainer) {
@@ -500,7 +497,6 @@ function closeLightbox(event) {
     }
 }
 
-// 強制關閉並還原滾動
 function closeLightboxForce() {
     const modal = document.getElementById('product-lightbox-modal');
     modal.classList.add('opacity-0', 'pointer-events-none');
