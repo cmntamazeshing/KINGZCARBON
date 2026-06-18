@@ -38,13 +38,13 @@ body {
     border: 1px solid rgba(212,175,55,0.4);
 }
 
-/* 巨幕主圖展示槽：固定比例框架防跳動 */
+/* 巨幕主圖展示槽：大幅度擴大加高，並鎖定比例防跳動 */
 .hero-image-container {
     background: #050505;
     transition: box-shadow 0.5s ease;
-    height: 60vh;
-    min-height: 450px;
-    max-height: 600px;
+    height: 68vh;
+    min-height: 500px;
+    max-height: 700px;
 }
 .hero-image-container:hover {
     box-shadow: 0 0 40px rgba(212,175,55,0.15);
@@ -89,10 +89,10 @@ body {
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch max-w-6xl mx-auto w-full mb-16">
         
-        <div class="lg:col-span-7 flex flex-col justify-between">
+        <div class="lg:col-span-8 flex flex-col justify-between">
             <div class="hero-image-container w-full rounded-3xl border border-gray-900 overflow-hidden relative flex items-center justify-center p-4">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30 z-10 pointer-events-none"></div>
-                <img id="main-seating-img" src="https://i.imgur.com/IC3vd4E.jpeg" alt="The World's Most Luxurious Home Chair" class="max-h-[55vh] w-auto mx-auto object-contain z-0 block">
+                <img id="main-seating-img" src="https://i.imgur.com/IC3vd4E.jpeg" alt="The World's Most Luxurious Home Chair" class="max-h-[62vh] w-auto mx-auto object-contain z-0 block">
             </div>
             
             <div class="flex items-center justify-center gap-4 mt-6">
@@ -105,26 +105,26 @@ body {
             </div>
         </div>
 
-        <div class="lg:col-span-5 flex flex-col justify-between bg-black bg-opacity-50 rounded-3xl gold-border p-8 shadow-2xl">
+        <div class="lg:col-span-4 flex flex-col justify-between bg-black bg-opacity-50 rounded-3xl gold-border p-8 shadow-2xl">
             
-            <div>
+            <div class="text-left">
                 <span class="text-[10px] bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 px-2 py-0.5 rounded font-bold uppercase tracking-widest">
                     Sovereign Workspace Asset
                 </span>
-                <h2 class="text-xl md:text-2xl font-black text-gray-100 tracking-wide uppercase mt-3 leading-tight">
+                <h2 class="text-xl md:text-2xl font-black text-gray-100 tracking-wide uppercase mt-3 leading-tight text-left">
                     The World's Most Luxurious Home Chair
                 </h2>
-                <p class="mt-5 text-xs md:text-sm text-gray-400 leading-relaxed text-justify">
+                <p class="mt-5 text-xs md:text-sm text-gray-400 leading-relaxed text-left">
                     Engineered beyond conventional office standards, this masterpiece stands authoritatively beneath full-scale heavy medical lounges as the absolute pinnacle of home office furniture. Hand-adapted from the signature center-row VIP cabin of elite luxury MPVs, it brings uncompromising automotive-grade crash-test engineering into your interior landscape. Available strictly in signature Crimson / Sport Black or sleek Obsidian Black leather trims.
                 </p>
-                <p class="mt-3 text-xs md:text-sm text-gray-400 leading-relaxed text-justify">
+                <p class="mt-4 text-xs md:text-sm text-gray-400 leading-relaxed text-left">
                     A reinforced all-metal 5-star heavy duty chassis paired with synchronized dual-caster control wheels effortlessly anchors up to 200kg of gravitational mass. The entire tactile ecosystem is powered by a high-tier industrial Taiwan Mean Well™ power transformer grid, featuring native global plug configurations dispatched natively based on your destination country without requiring any external adapters. Equipped natively with multi-mode pneumatic massage, dual climate ventilation/heating matrices, high-output USB smart charging grids, an integrated motorized legrest ottoman, full-range electric recline adjustment, a 4-stage adjustable neck-support headrest, and a concealed fluid mechanical spring cup holder.
                 </p>
             </div>
 
-            <div class="border-t border-gray-900 mt-6 pt-5">
+            <div class="border-t border-gray-900 mt-6 pt-5 text-left">
                 <div class="flex items-baseline justify-between">
-                    <div>
+                    <div class="text-left">
                         <span class="text-[11px] text-gray-500 uppercase tracking-widest block font-medium">Flagship Acquisition</span>
                         <span class="text-3xl font-black text-yellow-500 mt-0.5 inline-block">$1,599 USD</span>
                     </div>
@@ -160,7 +160,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/YTEsQ9z.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-5 bg-black bg-opacity-40">
+                <div class="p-5 bg-black bg-opacity-40 text-left">
                     <h4 class="text-sm font-bold text-yellow-500 tracking-wide uppercase font-mono">I. Dual Climate: Vent & Heat</h4>
                     <p class="text-[11px] text-gray-400 mt-1 leading-normal">3-speed active suction ventilation grid paired with rapid intelligent thermodynamic heating sheets.</p>
                 </div>
@@ -170,7 +170,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/hTbQOzE.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-5 bg-black bg-opacity-40">
+                <div class="p-5 bg-black bg-opacity-40 text-left">
                     <h4 class="text-sm font-bold text-yellow-500 tracking-wide uppercase font-mono">II. Pneumatic Massage Matrix</h4>
                     <p class="text-[11px] text-gray-400 mt-1 leading-normal">Multi-zone tactical air pressure massage system relieving spinal stress and operational fatigue.</p>
                 </div>
@@ -180,7 +180,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/tRDcXNs.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-5 bg-black bg-opacity-40">
+                <div class="p-5 bg-black bg-opacity-40 text-left">
                     <h4 class="text-sm font-bold text-yellow-500 tracking-wide uppercase font-mono">III. Smart Power Grid</h4>
                     <p class="text-[11px] text-gray-400 mt-1 leading-normal">High-output dedicated USB charging ports hidden seamlessly within the architectural armrest panel.</p>
                 </div>
@@ -192,7 +192,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/ovHLHYj.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-4 bg-black bg-opacity-40">
+                <div class="p-4 bg-black bg-opacity-40 text-left">
                     <h4 class="text-xs font-bold text-gray-200 tracking-wide uppercase">Electric Legrest Ottoman</h4>
                     <p class="text-[11px] text-gray-500 mt-1 leading-tight">Motorized first-class style extension legrest.</p>
                 </div>
@@ -202,7 +202,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/96zxhCb.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-4 bg-black bg-opacity-40">
+                <div class="p-4 bg-black bg-opacity-40 text-left">
                     <h4 class="text-xs font-bold text-gray-200 tracking-wide uppercase">Motorized Backrest</h4>
                     <p class="text-[11px] text-gray-500 mt-1 leading-tight">Precision micro-adjusting cabin posture recline.</p>
                 </div>
@@ -212,7 +212,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/csU7X8f.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-4 bg-black bg-opacity-40">
+                <div class="p-4 bg-black bg-opacity-40 text-left">
                     <h4 class="text-xs font-bold text-gray-200 tracking-wide uppercase">In-Arm Cup Holder</h4>
                     <p class="text-[11px] text-gray-500 mt-1 leading-tight">Concealed fluid mechanical spring storage grid.</p>
                 </div>
@@ -222,7 +222,7 @@ body {
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/c6uxEkF.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
-                <div class="p-4 bg-black bg-opacity-40">
+                <div class="p-4 bg-black bg-opacity-40 text-left">
                     <h4 class="text-xs font-bold text-gray-200 tracking-wide uppercase">4-Stage Headrest</h4>
                     <p class="text-[11px] text-gray-500 mt-1 leading-tight">Quad-tier horizontal & vertical cervical spine support.</p>
                 </div>
@@ -280,7 +280,7 @@ body {
 
 <script>
 /**
- * 🎨 雙色大圖與按鈕動態狀態引擎 (已同步整合全新 Obsidan Black 去背新圖網址)
+ * 🎨 雙色大圖與按鈕動態狀態引擎
  */
 function switchColor(color) {
     const imgElement = document.getElementById('main-seating-img');
