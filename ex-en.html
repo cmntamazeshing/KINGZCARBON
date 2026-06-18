@@ -157,10 +157,10 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0);
 
 /**
- * 🛠️ KINGZCARBON 核心外觀數據庫 (已全面整合中端差價50%縮減與Free Shipping全額運費覆蓋邏輯)
+ * 🛠️ KINGZCARBON 核心外觀數據庫
  */
 const exteriorDatabase = [
-    // === 16 款「三廂車通用尾翼」系列 (全面相容任何品牌的 Sedan 入口，大件全額運費省 $205 USD) ===
+    // === 16 款「三廂車通用尾翼」系列 ===
     { brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MAD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/fR7SeNc.jpeg' },
     { brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (V Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/vFV5lxE.jpeg' },
     { brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V1)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/ZVmHmeP.jpeg' },
@@ -178,10 +178,10 @@ const exteriorDatabase = [
     { brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (Verus Style)', price: '$1919 USD', saved: '$205 USD', image: 'https://i.imgur.com/jacxe3o.jpeg' },
     { brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (CH Style)', price: '$1989 USD', saved: '$205 USD', image: 'https://i.imgur.com/wBkLp0g.jpeg' },
 
-    // === BMW G80 M3 / G82 M4 高性能集群 (已修正排他 F 世代分類，完美注入新利潤防線) ===
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (R44 Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/jigDsLH.jpeg' }, // 差價縮減50%
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (A Style)', price: '$1199 USD', saved: '$205 USD', image: 'https://i.imgur.com/KnTzjy0.jpeg' }, // 5000+公式
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Side Fender Vent Accents (CH Style)', price: '$359 USD', saved: '$105 USD', image: 'https://i.imgur.com/n5AEPtd.jpeg' }, // 999-小件公式
+    // === BMW G80 M3 / G82 M4 高性能集群 ===
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (R44 Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/jigDsLH.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (A Style)', price: '$1199 USD', saved: '$205 USD', image: 'https://i.imgur.com/KnTzjy0.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Side Fender Vent Accents (CH Style)', price: '$359 USD', saved: '$105 USD', image: 'https://i.imgur.com/n5AEPtd.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (MP Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/iiGKyb6.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (V Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/a5aBM5i.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (CSL Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/9AcReRW.jpeg' },
@@ -189,26 +189,26 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (CT Style)', price: '$1139 USD', saved: '$205 USD', image: 'https://i.imgur.com/vEYjveG.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Bonnet Hood Vent Accents', price: '$389 USD', saved: '$105 USD', image: 'https://i.imgur.com/tSTrM6q.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Engine Bay Full Carbon Fiber Cover', price: '$699 USD', saved: '$105 USD', image: 'https://i.imgur.com/orpeM2F.jpeg' },
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Heavy-Duty Underbody Oil Cooler Guard Panel', price: '$549 USD', saved: '$205 USD', image: 'https://i.imgur.com/UTzEdPU.jpeg' },
-    { brand: 'BMW', compat: ['G80'], category: 'Trunk', title: 'BMW G80 M3 Dedicated Carbon Fiber Trunk Lid (CSL Style)', price: '$1749 USD', saved: '$360 USD', image: 'https://i.imgur.com/ZpmJzpj.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Heavy-Duty Underbody Oil Cooler Guard Panel', price: '$399 USD', saved: '$205 USD', image: 'https://i.imgur.com/UTzEdPU.jpeg' },
+    { brand: 'BMW', compat: ['G80'], category: 'Trunk', title: 'BMW G80 M3 Dedicated Carbon Fiber Trunk Lid (CSL Style)', price: '$1469 USD', saved: '$360 USD', image: 'https://i.imgur.com/ZpmJzpj.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Fender', title: 'BMW G80 M3 / G82 M4 Lightweight Carbon Fiber Front Fenders', price: '$2209 USD', saved: '$105 USD', image: 'https://i.imgur.com/kXYhH7S.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Fender', title: 'BMW G80 M3 / G82 M4 Carbon Fiber Fenders with Cooling Vents', price: '$2109 USD', saved: '$105 USD', image: 'https://i.imgur.com/ihsn0vH.jpeg' },
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Hood', title: 'BMW G80 M3 / G82 M4 Lightweight Carbon Fiber Hood (CSL Style)', price: '$2129 USD', saved: '$360 USD', image: 'https://i.imgur.com/BtKvfx5.jpeg' },
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Hood', title: 'BMW G80 M3 / G82 M4 Carbon Fiber Transparent Hood (Glass Style)', price: '$2129 USD', saved: '$360 USD', image: 'https://i.imgur.com/idX3wMy.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Hood', title: 'BMW G80 M3 / G82 M4 Lightweight Carbon Fiber Hood (CSL Style)', price: '$1879 USD', saved: '$360 USD', image: 'https://i.imgur.com/BtKvfx5.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Hood', title: 'BMW G80 M3 / G82 M4 Carbon Fiber Transparent Hood (Glass Style)', price: '$1879 USD', saved: '$360 USD', image: 'https://i.imgur.com/idX3wMy.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Hood', title: 'BMW G80 M3 / G82 M4 Carbon Fiber Hood (ALP Style)', price: '$1139 USD', saved: '$360 USD', image: 'https://i.imgur.com/nfBDqcu.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Hood', title: 'BMW G80 M3 / G82 M4 High-Clearance Carbon Fiber Hood (Power Style)', price: '$2259 USD', saved: '$360 USD', image: 'https://i.imgur.com/kl6mQRr.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Mirror Covers', title: 'BMW G80 M3 / G82 M4 Carbon Fiber Side Mirror Covers', price: '$609 USD', saved: '$105 USD', image: 'https://i.imgur.com/XRVthP9.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Fiber Roof Antenna Overlay Cover', price: '$179 USD', saved: '$105 USD', image: 'https://i.imgur.com/bCGcpVd.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (ALP Style)', price: '$1139 USD', saved: '$105 USD', image: 'https://i.imgur.com/OFDFqg1.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (ST Style)', price: '$649 USD', saved: '$105 USD', image: 'https://i.imgur.com/ORFs7UH.jpeg' },
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (V Style)', price: '$649 USD', saved: '$105 USD', image: 'https://i.imgur.com/77Bs79b.jpeg' },
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (CSL Style)', price: '$739 USD', saved: '$105 USD', image: 'https://i.imgur.com/0J5Vefg.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (V Style)', price: '$499 USD', saved: '$105 USD', image: 'https://i.imgur.com/77Bs79b.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (CSL Style)', price: '$589 USD', saved: '$105 USD', image: 'https://i.imgur.com/0J5Vefg.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (PSM Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/Op8zNEZ.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (OEM Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/phEwENP.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Track-Spec Carbon Wing (Verus Style)', price: '$2499 USD', saved: '$205 USD', image: 'https://i.imgur.com/maHZBRt.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (Adro Style)', price: '$1339 USD', saved: '$205 USD', image: 'https://i.imgur.com/3Q1vnvf.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (B Style)', price: '$1669 USD', saved: '$205 USD', image: 'https://i.imgur.com/TTf8aSs.jpeg' },
-    { brand: 'BMW', compat: ['G20', 'G28', 'G80'], category: 'Rear Spoilers', title: 'BMW G Gen 3-Series & G80 M3 Carbon Rear Spoiler (M3 Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/9iAsTaX.jpeg' }, // 依照最新修正指示正名
+    { brand: 'BMW', compat: ['G20', 'G28', 'G80'], category: 'Rear Spoilers', title: 'BMW G Gen 3-Series & G80 M3 Carbon Rear Spoiler (M3 Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/9iAsTaX.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (V Style)', price: '$529 USD', saved: '$205 USD', image: 'https://i.imgur.com/0yd8I34.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Diffusers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Diffuser Center Trim (OEM Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/Hd1iBrU.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Diffusers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Bumper Side Splitters (OEM Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/XXCIPz2.jpeg' },
@@ -223,15 +223,15 @@ const exteriorDatabase = [
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Side Skirts', title: 'BMW G80 M3 / G82 M4 Carbon Side Skirts (MP Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/nxiIjdT.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Side Skirts', title: 'BMW G80 M3 / G82 M4 Carbon Side Skirts (R44 Style)', price: '$1029 USD', saved: '$205 USD', image: 'https://i.imgur.com/WolcNCI.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Side Fender Vent Accents (MP Style)', price: '$249 USD', saved: '$105 USD', image: 'https://i.imgur.com/lW5rPRF.jpeg' },
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Bumper Side Vent Inlets (R44 Style)', price: '$579 USD', saved: '$105 USD', image: 'https://i.imgur.com/HyD7HrL.jpeg' }, // 依照指示移入 G80/G82
-    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Bumper Side Vent Inlets (MP Style)', price: '$489 USD', saved: '$105 USD', image: 'https://i.imgur.com/5K4Ua4r.jpeg' }, // 依照指示移入 G80/G82
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Bumper Side Vent Inlets (R44 Style)', price: '$579 USD', saved: '$105 USD', image: 'https://i.imgur.com/HyD7HrL.jpeg' },
+    { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Bumper Side Vent Inlets (MP Style)', price: '$489 USD', saved: '$105 USD', image: 'https://i.imgur.com/5K4Ua4r.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Bumper Front Canards (AC Style)', price: '$529 USD', saved: '$105 USD', image: 'https://i.imgur.com/dcRet1W.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Bumper Front Canards (3D Style)', price: '$529 USD', saved: '$105 USD', image: 'https://i.imgur.com/cGNekA8.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Bumper Front Canards (GT Style)', price: '$529 USD', saved: '$105 USD', image: 'https://i.imgur.com/tvR6Zj1.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Bumper Front Canards (MP Style)', price: '$319 USD', saved: '$105 USD', image: 'https://i.imgur.com/bxBYUhW.jpeg' },
     { brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (3D Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/W4MqFSy.jpeg' },
 
-    // === BMW 3 Series G20 G28 底盤專屬集群 (新增，導入年份與 M Sport 判定) ===
+    // === BMW 3 Series G20 G28 底盤專屬集群 ===
     { brand: 'BMW', compat: ['G20', 'G28'], category: 'Front Lips', title: 'BMW 3-Series G20 / G28 Pre-LCI Carbon Front Lip (T Style - 2020-2022 M Sport Package Only)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/IC8cBeD.jpeg' },
     { brand: 'BMW', compat: ['G20', 'G28'], category: 'Front Lips', title: 'BMW 3-Series G20 / G28 LCI Carbon Front Lip (AO Style - Facelift 2023-2025)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/jPFPGY8.jpeg' },
     { brand: 'BMW', compat: ['G20', 'G28'], category: 'Trunk', title: 'BMW 3-Series G20 / G28 Carbon Fiber Trunk Lid (CSL Style - 2021-2023)', price: '$2009 USD', saved: '$360 USD', image: 'https://i.imgur.com/zuDUGl1.jpeg' },
@@ -392,38 +392,52 @@ function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const emptyState = document.getElementById('empty-state');
     
-    const filteredData = exteriorDatabase.filter(item => {
+    // 提取當前點選的核心底盤（例如從 "G20 / G28 3-Series" 中抓取底盤碼列表）
+    let currentChassisTokens = [];
+    if (currentModel !== 'All') {
+        currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
+    }
+
+    // 1. 執行核心物理條件過濾
+    let filteredData = exteriorDatabase.filter(item => {
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
         const isUniversal = (item.brand === 'All' && item.compat && item.compat.includes('All'));
         
         if (currentBrand === 'All') {
             return matchCat;
         }
-        
         if (isUniversal) {
             return matchCat;
         }
         
         const matchBrand = (item.brand === currentBrand);
-        
         let matchModel = false;
         if (currentModel === 'All') {
             matchModel = true;
         } else {
-            // 優化底盤對齊切割判定流
-            if (currentModel.includes('/')) {
-                let parts = currentModel.split(' / ');
-                let chassis1 = parts[0];
-                let chassis2 = parts[1].split(' ')[0];
-                matchModel = item.compat && (item.compat.includes(chassis1) || item.compat.includes(chassis2) || item.compat.includes('All'));
+            if (currentChassisTokens.length > 0) {
+                matchModel = item.compat && currentChassisTokens.some(token => item.compat.includes(t = token)) || (item.compat && item.compat.includes('All'));
             } else {
                 let coreChassis = currentModel.split(' ')[0];
                 matchModel = item.compat && (item.compat.includes(coreChassis) || item.compat.includes('All'));
             }
         }
-        
         return matchCat && matchBrand && matchModel;
     });
+
+    // 2. 智慧排序引擎：如果點選了特定車型底盤，將該車型專屬件權重設為高，通用型或跨車款件權重設為低，強制專屬件置頂
+    if (currentModel !== 'All' && currentChassisTokens.length > 0) {
+        filteredData.sort((a, b) => {
+            // 檢查 A 是否為純專屬件（不包含 All）
+            let aIsStrictExclusive = a.compat && !a.compat.includes('All') && currentChassisTokens.some(t => a.compat.includes(t));
+            // 檢查 B 是否為純專屬件（不包含 All）
+            let bIsStrictExclusive = b.compat && !b.compat.includes('All') && currentChassisTokens.some(t => b.compat.includes(t));
+
+            if (aIsStrictExclusive && !bIsStrictExclusive) return -1;
+            if (!aIsStrictExclusive && bIsStrictExclusive) return 1;
+            return 0;
+        });
+    }
 
     gridContainer.innerHTML = '';
 
@@ -439,6 +453,7 @@ function renderMatrix() {
             let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup (${item.title}).`;
             let encodedPayload = encodeURIComponent(dynamicPayload);
             
+            // 視覺優化：精簡化金色標籤，剔除冗長字眼，聚焦高亮顯示 [ Save $XX0 USD ]
             let cardHtml = `
                 <div class="product-card rounded-2xl overflow-hidden gold-border flex flex-col justify-between max-w-3xl mx-auto w-full animate-fadeIn">
                     <div class="w-full h-auto bg-gray-950 overflow-hidden flex items-center justify-center border-b border-gray-900 relative">
@@ -450,8 +465,8 @@ function renderMatrix() {
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2">
                                 <span class="text-xl font-bold text-yellow-500">Product: ${displayPrice}</span>
                                 <span class="text-xs text-gray-400 font-medium">| &nbsp; + Shipping: <strong class="text-gray-200">FREE SHIPPING</strong></span>
-                                <span class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 text-[10px] px-2 py-0.5 rounded font-semibold uppercase tracking-wider">
-                                    Complimentary Factory Logistics - Save ${item.saved}
+                                <span class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-500 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider gold-glow">
+                                    Save ${item.saved}
                                 </span>
                             </div>
                         </div>
