@@ -38,7 +38,7 @@ body {
     border: 1px solid rgba(212,175,55,0.4);
 }
 
-/* 巨幕主圖展示槽：全新修正為黃金垂直藝術比例，徹底向下大幅度拉長 */
+/* 巨幕主圖展示槽：固定最大框架，防像素不同影響 */
 .hero-image-container {
     background: #050505;
     transition: box-shadow 0.5s ease;
@@ -161,7 +161,7 @@ body {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/YTEsQ9z.mp4', 'Dual Climate: Vent & Heat')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/YTEsQ9z.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -171,7 +171,7 @@ body {
                 </div>
             </div>
 
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/hTbQOzE.mp4', 'Pneumatic Massage Matrix')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/hTbQOzE.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -181,7 +181,7 @@ body {
                 </div>
             </div>
 
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/tRDcXNs.mp4', 'Smart Power Grid')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/tRDcXNs.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -193,7 +193,7 @@ body {
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/ovHLHYj.mp4', 'Electric Legrest Ottoman')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/ovHLHYj.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -203,7 +203,7 @@ body {
                 </div>
             </div>
 
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/96zxhCb.mp4', 'Motorized Backrest adjustment')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/96zxhCb.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -213,7 +213,7 @@ body {
                 </div>
             </div>
 
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/csU7X8f.mp4', 'Mechanical In-Arm Cup Holder')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/csU7X8f.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -223,7 +223,7 @@ body {
                 </div>
             </div>
 
-            <div class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between">
+            <div onclick="openMediaModal('video', 'https://i.imgur.com/c6uxEkF.mp4', '4-Stage Adjustable Headrest')" class="video-tile rounded-2xl border border-gray-900 overflow-hidden bg-gray-950 flex flex-col justify-between cursor-pointer">
                 <div class="w-full aspect-[16/9] bg-black relative overflow-hidden">
                     <video src="https://i.imgur.com/c6uxEkF.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
@@ -242,40 +242,40 @@ body {
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div onclick="openImageModal('https://i.imgur.com/pedNAtR.jpeg', 'Sovereign Detail Masterpiece 01')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/pedNAtR.jpeg', 'Sovereign Detail Masterpiece 01')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/pedNAtR.jpeg" alt="Sovereign Detail 01" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/qaXdW5E.jpeg', 'Sovereign Detail Masterpiece 02')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/qaXdW5E.jpeg', 'Sovereign Detail Masterpiece 02')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/qaXdW5E.jpeg" alt="Sovereign Detail 02" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/BFcwEmr.jpeg', 'Sovereign Detail Masterpiece 03')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/BFcwEmr.jpeg', 'Sovereign Detail Masterpiece 03')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/BFcwEmr.jpeg" alt="Sovereign Detail 03" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/EMBXr38.jpeg', 'Sovereign Detail Masterpiece 04')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/EMBXr38.jpeg', 'Sovereign Detail Masterpiece 04')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/EMBXr38.jpeg" alt="Sovereign Detail 04" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/dgTcG9B.jpeg', 'Sovereign Detail Masterpiece 05')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/dgTcG9B.jpeg', 'Sovereign Detail Masterpiece 05')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/dgTcG9B.jpeg" alt="Sovereign Detail 05" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/6EnrLBK.jpeg', 'Sovereign Detail Masterpiece 06')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/6EnrLBK.jpeg', 'Sovereign Detail Masterpiece 06')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/6EnrLBK.jpeg" alt="Sovereign Detail 06" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/rIGo1TB.jpeg', 'Sovereign Detail Masterpiece 07')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/rIGo1TB.jpeg', 'Sovereign Detail Masterpiece 07')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/rIGo1TB.jpeg" alt="Sovereign Detail 07" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/9RDxII1.jpeg', 'Sovereign Detail Masterpiece 08')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/9RDxII1.jpeg', 'Sovereign Detail Masterpiece 08')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/9RDxII1.jpeg" alt="Sovereign Detail 08" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/V3jvRoY.jpeg', 'Sovereign Detail Masterpiece 09')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/V3jvRoY.jpeg', 'Sovereign Detail Masterpiece 09')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/V3jvRoY.jpeg" alt="Sovereign Detail 09" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/ePNuGQd.jpeg', 'Sovereign Detail Masterpiece 10')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/ePNuGQd.jpeg', 'Sovereign Detail Masterpiece 10')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/ePNuGQd.jpeg" alt="Sovereign Detail 10" class="w-full h-full object-contain">
             </div>
             <div onclick="openImageModal('https://i.imgur.com/hhVsNy5.jpeg', 'Sovereign Detail Masterpiece 11')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/hhVsNy5.jpeg" alt="Sovereign Detail 11" class="w-full h-full object-contain">
             </div>
-            <div onclick="openImageModal('https://i.imgur.com/2M4lSIp.jpeg', 'Sovereign Detail Masterpiece 12')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
+            <div onclick="openMediaModal('image', 'https://i.imgur.com/2M4lSIp.jpeg', 'Sovereign Detail Masterpiece 12')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/2M4lSIp.jpeg" alt="Sovereign Detail 12" class="w-full h-full object-contain">
             </div>
         </div>
@@ -286,9 +286,10 @@ body {
 <div id="global-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeGlobalLightbox(event)">
     <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
         <button onclick="closeGlobalLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
-        <div class="w-full p-2 bg-black flex items-center justify-center">
-            <img id="lightbox-modal-img" src="" alt="Showcase" class="max-h-[75vh] w-auto mx-auto object-contain block">
-        </div>
+        
+        <div id="lightbox-media-slot" class="w-full p-2 bg-black flex items-center justify-center min-h-[30vh]">
+            </div>
+        
         <div class="p-4 bg-black bg-opacity-95 border-t border-gray-900 text-center">
             <h3 id="lightbox-modal-title" class="text-sm font-bold text-gray-300 tracking-wide uppercase"></h3>
         </div>
@@ -321,10 +322,24 @@ function switchColor(color) {
 }
 
 /**
- * 放大鏡 Lightbox 動態控制核心
+ * 全能智能 Lightbox 控制中樞 (同時相容影片 .mp4 與相片 .jpeg/.png)
  */
-function openImageModal(imgSrc, titleText) {
-    document.getElementById('lightbox-modal-img').src = imgSrc;
+function openMediaModal(mediaType, srcUrl, titleText) {
+    const mediaSlot = document.getElementById('lightbox-media-slot');
+    mediaSlot.innerHTML = ''; // 每次開啟先清空，防止殘留
+
+    if (mediaType === 'video') {
+        // 動態注入大畫面循環快遞播放器
+        mediaSlot.innerHTML = `
+            <video src="${srcUrl}" controls autoplay loop muted playsinline class="max-h-[75vh] w-auto mx-auto block rounded-lg shadow-xl"></video>
+        `;
+    } else {
+        // 注入高清圖片
+        mediaSlot.innerHTML = `
+            <img src="${srcUrl}" alt="${titleText}" class="max-h-[75vh] w-auto mx-auto object-contain block">
+        `;
+    }
+    
     document.getElementById('lightbox-modal-title').innerText = titleText;
     
     const modal = document.getElementById('global-lightbox-modal');
@@ -341,6 +356,10 @@ function closeGlobalLightbox(event) {
 function closeGlobalLightboxForce() {
     const modal = document.getElementById('global-lightbox-modal');
     modal.classList.add('opacity-0', 'pointer-events-none');
+    
+    // 💡 關鍵修復：退出的同時完全銷毀播放器，杜絕關閉後後台殘留播放聲音的 Bug！
+    document.getElementById('lightbox-media-slot').innerHTML = '';
+    
     document.body.classList.remove('modal-open');
 }
 </script>
