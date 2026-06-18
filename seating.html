@@ -38,7 +38,7 @@ body {
     border: 1px solid rgba(212,175,55,0.4);
 }
 
-/* 巨幕主圖展示槽：大幅度擴大加高，並鎖定比例防跳動 */
+/* 巨幕主圖展示槽：固定最大框架，防像素不同影響 */
 .hero-image-container {
     background: #050505;
     transition: box-shadow 0.5s ease;
@@ -280,7 +280,7 @@ body {
 
 <script>
 /**
- * 🎨 雙色大圖與按鈕動態狀態引擎
+ * 🎨 雙色大圖與按鈕動態狀態引擎 (全黑版已替換為透明去背新圖網址)
  */
 function switchColor(color) {
     const imgElement = document.getElementById('main-seating-img');
