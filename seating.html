@@ -50,11 +50,11 @@ body {
     box-shadow: 0 0 40px rgba(212,175,55,0.15);
 }
 
-/* 影片活瓷磚高階懸停特效 */
-.video-tile {
+/* 影片與圖片活瓷磚高階懸停特效 */
+.video-tile, .gallery-tile {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.video-tile:hover {
+.video-tile:hover, .gallery-tile:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(212,175,55,0.15);
     border-color: rgba(212,175,55,0.6);
@@ -67,6 +67,11 @@ body {
 }
 .bounce-arrow {
     animation: bounceSlow 2s infinite ease-in-out;
+}
+
+/* 鎖定背景滾動 */
+.modal-open {
+    overflow: hidden;
 }
 </style>
 </head>
@@ -134,7 +139,7 @@ body {
                     </div>
                 </div>
 
-                <a id="seating-wa-btn" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20order%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Crimson%20and%20Black%20Edition)." target="_blank" class="w-full block py-4 text-center bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black rounded-xl text-xs tracking-widest uppercase font-black transition shadow-lg">
+                <a id="seating-wa-btn" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20order%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Crimson%20and%20Black%20Edition)." target="_blank" class="w-full block py-4 mt-6 text-center bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black rounded-xl text-xs tracking-widest uppercase font-black transition shadow-lg">
                     Acquire Flagship Masterpiece
                 </a>
             </div>
@@ -237,40 +242,40 @@ body {
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/pedNAtR.jpeg', 'Sovereign Detail Masterpiece 01')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/pedNAtR.jpeg" alt="Sovereign Detail 01" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/qaXdW5E.jpeg', 'Sovereign Detail Masterpiece 02')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/qaXdW5E.jpeg" alt="Sovereign Detail 02" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/BFcwEmr.jpeg', 'Sovereign Detail Masterpiece 03')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/BFcwEmr.jpeg" alt="Sovereign Detail 03" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/EMBXr38.jpeg', 'Sovereign Detail Masterpiece 04')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/EMBXr38.jpeg" alt="Sovereign Detail 04" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/dgTcG9B.jpeg', 'Sovereign Detail Masterpiece 05')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/dgTcG9B.jpeg" alt="Sovereign Detail 05" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/6EnrLBK.jpeg', 'Sovereign Detail Masterpiece 06')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/6EnrLBK.jpeg" alt="Sovereign Detail 06" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/rIGo1TB.jpeg', 'Sovereign Detail Masterpiece 07')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/rIGo1TB.jpeg" alt="Sovereign Detail 07" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/9RDxII1.jpeg', 'Sovereign Detail Masterpiece 08')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/9RDxII1.jpeg" alt="Sovereign Detail 08" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/V3jvRoY.jpeg', 'Sovereign Detail Masterpiece 09')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/V3jvRoY.jpeg" alt="Sovereign Detail 09" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/ePNuGQd.jpeg', 'Sovereign Detail Masterpiece 10')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/ePNuGQd.jpeg" alt="Sovereign Detail 10" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/hhVsNy5.jpeg', 'Sovereign Detail Masterpiece 11')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/hhVsNy5.jpeg" alt="Sovereign Detail 11" class="w-full h-full object-contain">
             </div>
-            <div class="rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition">
+            <div onclick="openImageModal('https://i.imgur.com/2M4lSIp.jpeg', 'Sovereign Detail Masterpiece 12')" class="gallery-tile rounded-xl overflow-hidden border border-gray-900 bg-black aspect-[4/3] p-2 flex items-center justify-center hover:border-yellow-600 transition cursor-pointer">
                 <img src="https://i.imgur.com/2M4lSIp.jpeg" alt="Sovereign Detail 12" class="w-full h-full object-contain">
             </div>
         </div>
@@ -278,9 +283,21 @@ body {
 
 </div>
 
+<div id="global-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeGlobalLightbox(event)">
+    <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+        <button onclick="closeGlobalLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
+        <div class="w-full p-2 bg-black flex items-center justify-center">
+            <img id="lightbox-modal-img" src="" alt="Showcase" class="max-h-[75vh] w-auto mx-auto object-contain block">
+        </div>
+        <div class="p-4 bg-black bg-opacity-95 border-t border-gray-900 text-center">
+            <h3 id="lightbox-modal-title" class="text-sm font-bold text-gray-300 tracking-wide uppercase"></h3>
+        </div>
+    </div>
+</div>
+
 <script>
 /**
- * 🎨 雙色大圖與按鈕動態狀態引擎 (全黑版已替換為透明去背新圖網址)
+ * 🎨 雙色大圖與按鈕動態狀態與 WhatsApp 訊息聯動引擎
  */
 function switchColor(color) {
     const imgElement = document.getElementById('main-seating-img');
@@ -292,15 +309,39 @@ function switchColor(color) {
         imgElement.src = 'https://i.imgur.com/8pgcagY.png';
         waBtn.href = "https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20order%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Pure%20Black%20Edition).";
         
-        btnBlack.className = "px-4 py-2 border border-yellow-600 text-white rounded-xl hover:border-yellow-600 transition flex items-center gap-2 bg-yellow-600 bg-opacity-10";
+        btnBlack.className = "px-4 py-2 border border-yellow-600 text-white rounded-xl hover:border-yellow-600 transition flex items-center gap-2 bg-yellow-600 bg-opacity-10 shadow-md";
         btnRedBlack.className = "px-4 py-2 border border-gray-800 text-xs uppercase tracking-widest text-gray-400 rounded-xl hover:border-yellow-600 transition flex items-center gap-2";
     } else if (color === 'red-black') {
         imgElement.src = 'https://i.imgur.com/IC3vd4E.jpeg';
         waBtn.href = "https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20order%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Crimson%20and%20Black%20Edition).";
         
-        btnRedBlack.className = "px-4 py-2 border border-yellow-600 text-white rounded-xl hover:border-yellow-600 transition flex items-center gap-2 bg-yellow-600 bg-opacity-10";
+        btnRedBlack.className = "px-4 py-2 border border-yellow-600 text-white rounded-xl hover:border-yellow-600 transition flex items-center gap-2 bg-yellow-600 bg-opacity-10 shadow-md";
         btnBlack.className = "px-4 py-2 border border-gray-800 text-xs uppercase tracking-widest text-gray-400 rounded-xl hover:border-yellow-600 transition flex items-center gap-2";
     }
+}
+
+/**
+ * 放大鏡 Lightbox 動態控制核心
+ */
+function openImageModal(imgSrc, titleText) {
+    document.getElementById('lightbox-modal-img').src = imgSrc;
+    document.getElementById('lightbox-modal-title').innerText = titleText;
+    
+    const modal = document.getElementById('global-lightbox-modal');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    document.body.classList.add('modal-open');
+}
+
+function closeGlobalLightbox(event) {
+    if (event.target === document.getElementById('global-lightbox-modal')) {
+        closeGlobalLightboxForce();
+    }
+}
+
+function closeGlobalLightboxForce() {
+    const modal = document.getElementById('global-lightbox-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    document.body.classList.remove('modal-open');
 }
 </script>
 
