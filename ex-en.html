@@ -168,16 +168,15 @@ window.scrollTo(0, 0);
  * 🛠️ KINGZCARBON 核心外觀數據庫
  */
 const exteriorDatabase = [
-    // === 16 款「三廂車通用尾翼」系列 ===
+    // === 16 款「三廂車通用尾翼」系列 (已更正代表新舊款的代數標題為 V1 / V2) ===
     { id: 1, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MAD Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/fR7SeNc.jpeg' },
     { id: 2, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (V Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/vFV5lxE.jpeg' },
     { id: 3, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V1)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/ZVmHmeP.jpeg' },
-    { id: 4, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/0klVC3p.jpeg' },
-    { id: 5, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style V1)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/XVhbNNW.jpeg' },
+    { id: 4, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style V2)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/0klVC3p.jpeg' },
+    { id: 5, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTS Style Camp V1)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/XVhbNNW.jpeg' },
     { id: 6, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MP Style V2)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/kpiLpBo.jpeg' },
     { id: 7, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Gen 2 Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/zSVbO3j.jpeg' },
     { id: 8, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (ADRO Gen 3 Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/2DrL2yG.jpeg' },
-    { id: 9, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (3D Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/ivKopn7.jpeg' },
     { id: 10, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (PAK Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/tidCxay.jpeg' },
     { id: 11, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (IMP Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/ca5e5FT.jpeg' },
     { id: 12, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (GTC Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/4Lc2T9P.jpeg' },
@@ -384,6 +383,7 @@ function selectModel(model) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 修正結構
 function selectCategory(category) {
     currentCategory = category;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
@@ -454,11 +454,11 @@ function renderMatrix() {
         filteredData.forEach(item => {
             let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
             
-            // 小圖卡片結構渲染（移除複雜的多欄運費展示，聚焦於清爽的網格矩陣）
+            // 完美優化：將 object-cover 改為 object-contain，確保格子內圖片百分之百完整呈現，絕不被上下裁剪截斷！
             let cardHtml = `
                 <div onclick="openLightbox(${item.id})" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between animate-fadeIn">
-                    <div class="w-full aspect-[4/3] bg-gray-950 overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
-                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+                    <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-contain transition duration-500">
                     </div>
                     <div class="flex-grow flex flex-col justify-between">
                         <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
