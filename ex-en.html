@@ -332,7 +332,7 @@ const exteriorDatabase = [
 ];
 
 const chassisMapping = {
-    'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series'],
+    'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT'],
     'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
     'Audi': ['8V RS3', '8Y RS3'],
     'Toyota': ['A90 Supra'],
@@ -402,6 +402,7 @@ function renderMatrix() {
     
     let currentChassisTokens = [];
     if (currentModel !== 'All') {
+        // 優化切換：提取前段核心底盤號碼以對齊 compat
         currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
     }
 
