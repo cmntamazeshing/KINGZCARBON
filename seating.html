@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sovereign Seating Portfolio | KINGZCARBON</title>
+<title>The Sovereign Seating | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-/* 完美繼承標誌性的碳纖維紋理背景 */
+/* 完美繼承並還原標誌性的碳纖維紋理背景 */
 body {
     background-color: #000;
     background-image:
@@ -24,7 +24,7 @@ body {
     animation: flow 6s linear infinite;
 }
 
-@pragma keyframes flow {
+@keyframes flow {
     0% { background-position: 0% }
     100% { background-position: 300% }
 }
@@ -38,21 +38,13 @@ body {
     border: 1px solid rgba(212,175,55,0.4);
 }
 
-/* 奢華畫廊卡片樣式優化 */
-.media-matrix-card {
-    background: rgba(0, 0, 0, 0.75);
-    transition: all 0.3s ease;
-    cursor: pointer;
+/* 靜態大圖展示槽 */
+.hero-image-container {
+    background: #050505;
+    transition: box-shadow 0.5s ease;
 }
-
-.media-matrix-card:hover {
-    box-shadow: 0 0 30px rgba(212,175,55,0.3);
-    border-color: #d4af37;
-}
-
-/* 鎖定背景滾動 */
-.modal-open {
-    overflow: hidden;
+.hero-image-container:hover {
+    box-shadow: 0 0 40px rgba(212,175,55,0.15);
 }
 </style>
 </head>
@@ -62,192 +54,106 @@ body {
 <div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6">
     <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a>
 </div>
-<div class="absolute top-6 right-6 z-50 text-sm tracking-widest text-gray-500 select-none">
-    Executive Lounge Edition
+<div class="absolute top-6 right-6 z-50 text-sm tracking-widest text-gray-500 select-none uppercase">
+    Sovereign Edition • 1 of 1 Commission
 </div>
 
-<div class="max-w-7xl mx-auto px-6 py-20">
+<div class="max-w-7xl mx-auto px-6 py-20 min-h-screen flex flex-col justify-center">
 
     <div class="text-center mb-16">
-        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Handcrafted Ergonomic Artwork</p>
-        <h1 class="text-3xl md:text-6xl font-extrabold tracking-widest gold-flow gold-glow uppercase">The Sovereign Seating</h1>
-        <p class="mt-4 text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
-            Where vacuum-infused autoclave carbon fiber masters fine leather craftsmanship. Active climate control, massage dynamics, and relentless luxury.
-        </p>
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">The Pinnacle of Workspace Ergonomics</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-widest gold-flow gold-glow uppercase">The Sovereign Seating</h1>
     </div>
 
-    <div class="bg-black bg-opacity-60 rounded-2xl gold-border p-6 mb-12 shadow-xl flex flex-wrap items-center justify-between gap-4 max-w-5xl mx-auto">
-        <div class="flex items-center gap-4">
-            <span class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
-            <p class="text-xs uppercase tracking-widest text-gray-300 font-semibold">Global Private Commission Open</p>
-        </div>
-        <div class="flex items-center gap-2">
-            <span class="text-xs uppercase text-gray-400 font-medium">Logistics Protocol:</span>
-            <span class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 text-xs px-3 py-1 rounded font-bold uppercase tracking-wider gold-glow">
-                FREE SHIPPING INCLUDED
-            </span>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto">
-        <div id="seating-matrix-grid" class="grid grid-cols-2 md:grid-cols-4 gap-5">
-            </div>
-    </div>
-
-</div>
-
-<div id="seating-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
-    <div class="max-w-4xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative animate-scaleUp" onclick="event.stopPropagation()">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch max-w-6xl mx-auto w-full">
         
-        <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-3xl font-bold transition z-50">&times;</button>
-        
-        <div id="modal-media-slot" class="w-full p-2 bg-black flex items-center justify-center min-h-[40vh]">
+        <div class="lg:col-span-7 flex flex-col justify-between">
+            <div class="hero-image-container w-full h-full min-h-[50vh] lg:min-h-[65vh] rounded-3xl border border-gray-900 overflow-hidden relative flex items-center justify-center p-4">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-40 z-10 pointer-events-none"></div>
+                <img id="main-seating-img" src="https://i.imgur.com/8ZVqOV3.jpeg" alt="The World's Most Luxurious Home Chair" class="w-full h-full object-contain z-0">
             </div>
-
-        <div class="p-6 md:p-8 bg-black bg-opacity-95 border-t border-gray-900">
-            <div class="flex items-center justify-between gap-4">
-                <h3 id="modal-title" class="text-lg md:text-2xl font-bold text-gray-100 tracking-wide"></h3>
-                <span class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 text-[10px] md:text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider gold-glow shrink-0">
-                    Free Shipping
-                </span>
-            </div>
-            <p id="modal-desc" class="mt-2 text-xs md:text-sm text-gray-400 leading-relaxed"></p>
             
-            <div class="mt-6 pt-5 border-t border-gray-900 flex flex-wrap items-center justify-between gap-4">
-                <div>
-                    <span class="text-xs text-gray-500 uppercase tracking-widest block font-medium">Commission Pricing</span>
-                    <span id="modal-price" class="text-xl md:text-2xl font-black text-yellow-500 mt-0.5 inline-block"></span>
+            <div class="flex items-center justify-center gap-4 mt-6">
+                <button onclick="switchColor('black')" class="px-4 py-2 border border-gray-800 text-xs uppercase tracking-widest text-gray-400 rounded-xl hover:border-yellow-600 transition flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-black border border-gray-700"></span> Pure Black
+                </button>
+                <button onclick="switchColor('red-black')" class="px-4 py-2 border border-gray-800 text-xs uppercase tracking-widest text-gray-400 rounded-xl hover:border-yellow-600 transition flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-gradient-to-r from-red-600 to-black border border-gray-700"></span> Crimson / Black
+                </button>
+            </div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col justify-between bg-black bg-opacity-50 rounded-3xl gold-border p-8 shadow-2xl">
+            
+            <div>
+                <span class="text-[10px] bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 px-2 py-0.5 rounded font-bold uppercase tracking-widest">
+                    Flagship Executive Masterpiece
+                </span>
+                <h2 class="text-xl md:text-2xl font-black text-gray-100 tracking-wide uppercase mt-3 leading-tight">
+                    The World's Most Luxurious Home Chair
+                </h2>
+                <p class="mt-4 text-xs md:text-sm text-gray-400 leading-relaxed text-justify">
+                    這不是一張普通的辦公椅，而是定位於正式全身按摩椅以下、地表最頂級的家用辦公電腦椅。本體源自亞洲頂奢豪華 MPV 的總裁中排 VIP 座椅，移植入室內環境，完美通過汽車級高強度衝擊測試，極致安全。整體底盤骨架抗重力高達不可思議的 200kg。
+                </p>
+                <p class="mt-3 text-xs md:text-sm text-gray-400 leading-relaxed text-justify">
+                    內心由台灣工業級明緯（Mean Well™）變壓器強力驅動，並提供全球電壓插頭腳無縫訂製。全面告別廉價氣壓桿，享受頭等艙級的電動奢華。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-x-4 gap-y-3 my-6 border-t border-b border-gray-900 py-5">
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Electric Ottoman</strong><br><span class="text-[11px] text-gray-500">電動一體式調教腳托</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Backrest Recline</strong><br><span class="text-[11px] text-gray-500">微調電動椅背傾斜</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Electric Massage</strong><br><span class="text-[11px] text-gray-500">內置多氣囊動態按摩</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• 3-Speed Ventilation</strong><br><span class="text-[11px] text-gray-500">吸風式三檔座椅通風</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Thermodynamic Heating</strong><br><span class="text-[11px] text-gray-500">寒冬恆溫加熱系統</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Grid Smart Power</strong><br><span class="text-[11px] text-gray-500">內置高輸出 USB 充電位</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Reinforced 5-Claw Base</strong><br><span class="text-[11px] text-gray-500">金屬五爪腳+每隻雙重輪</span></div>
+                <div class="text-xs text-gray-400"><strong class="text-gray-200">• Built-in Cup Holder</strong><br><span class="text-[11px] text-gray-500">隱藏式機械金屬杯架</span></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="flex items-baseline justify-between">
+                    <div>
+                        <span class="text-[11px] text-gray-500 uppercase tracking-widest block font-medium">Bespoke Price</span>
+                        <span class="text-3xl font-black text-yellow-500 mt-0.5 inline-block">$2,499 USD</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[11px] text-gray-400 font-medium block">Shipping: <strong class="text-gray-100 uppercase">FREE SHIPPING</strong></span>
+                        <span class="text-[11px] text-yellow-500 font-bold uppercase tracking-wider gold-glow">Save $360 USD</span>
+                    </div>
                 </div>
-                <a id="modal-wa-btn" href="" target="_blank" class="px-6 py-3 bg-d4af37 bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black rounded-xl text-xs tracking-widest uppercase font-black transition shadow-lg">
-                    Acquire Sovereign Commission
+                
+                <p class="text-[11px] text-gray-500 italic text-center border border-dashed border-gray-950 p-2 rounded">
+                    * Native plug custom fitted to your country's grid. No adapters required.
+                </p>
+
+                <a id="seating-wa-btn" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20place%20a%20private%20commission%20for%20The%20World%27s%20Most%20Luxurious%20Home%20Chair." target="_blank" class="w-full block py-4 text-center bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black rounded-xl text-xs tracking-widest uppercase font-black transition shadow-lg">
+                    Acquire Private Commission
                 </a>
             </div>
+
         </div>
+
     </div>
+
 </div>
 
 <script>
 /**
- * 🛠️ KINGZCARBON - SEATING 奢華數據庫
- * * 💡 Shing，你可以隨時喺下面新增、減少或更改商品！
- * - type: 寫 'image' 就會出圖；寫 'video' 就會出自動循環播放影片！
- * - price / saved: 只要填你要嘅美金價，系統會全自動對齊你的 Free Shipping 行銷流！
+ * 🎨 雙色大圖即時變換引擎
  */
-const seatingDatabase = [
-    {
-        id: 1,
-        type: 'image',
-        title: 'The Sovereign Carbon Lounge Chair (Signature Raw Weave)',
-        desc: '100% pre-preg carbon fiber shell finished with a 2K mirror-gloss clear coat. Upholstered in bespoke automotive-grade fine Nappa leather.',
-        price: '$5999 USD',
-        saved: '$360 USD',
-        image: 'https://i.imgur.com/8ZVqOV3.jpeg' // 示意圖，到時可以換成你的真圖
-    },
-    {
-        id: 2,
-        type: 'image',
-        title: 'Sovereign Ergonomic Base & Active Ventilation Grid',
-        desc: 'Close-up look at the intricate autoclave carbon structure integrated with active multi-zone climate ventilation and micro-massage actuators.',
-        price: '$6499 USD',
-        saved: '$360 USD',
-        image: 'https://i.imgur.com/BoTuxrK.jpeg'
-    }
-    /* 💡 提示範例：如果你想放影片，可以咁樣加：
-    {
-        id: 3,
-        type: 'video',
-        title: 'Autoclave Curing Process & Structural Dynamics',
-        desc: 'Cinematic preview of our carbon molding flow and stress-test performance benchmarks straight out of the facility.',
-        price: '$5999 USD',
-        saved: '$360 USD',
-        image: '你的影片第一幀網址.jpg',
-        videoUrl: '你的影片直鏈網址.mp4' // 支援 .mp4 直鏈
-    }
-    */
-];
-
-// 核心渲染引擎
-function renderSeatingMatrix() {
-    const gridContainer = document.getElementById('seating-matrix-grid');
-    gridContainer.innerHTML = '';
-
-    seatingDatabase.forEach(item => {
-        // 卡片預覽：完美採用 object-contain 確保小圖上下/左右絕不被裁剪截斷
-        let cardHtml = `
-            <div onclick="openSeatingLightbox(${item.id})" class="media-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between animate-fadeIn">
-                <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
-                    ${item.type === 'video' ? 
-                        `<div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center z-10">
-                            <svg class="w-8 h-8 text-yellow-500 opacity-80" fill="currentColor" viewBox="0 0 20 24"><path d="M4 3.722v16.556c0 .945 1.03 1.523 1.833 1.025l13.924-8.278c.758-.45.758-1.599 0-2.05L5.833 2.697C5.03 2.199 4 2.777 4 3.722z"/></svg>
-                         </div>` : ''
-                    }
-                    <img src="${item.image}" alt="${item.title}" class="w-full h-full object-contain transition duration-500">
-                </div>
-                <div class="flex-grow flex flex-col justify-between">
-                    <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
-                    <div class="text-sm font-extrabold text-yellow-500 mt-2">${item.price}</div>
-                </div>
-            </div>
-        `;
-        gridContainer.innerHTML += cardHtml;
-    });
-}
-
-// 彈出層無縫渲染邏輯
-function openSeatingLightbox(productId) {
-    const item = seatingDatabase.find(p => p.id === productId);
-    if (!item) return;
-
-    const mediaSlot = document.getElementById('modal-media-slot');
-    mediaSlot.innerHTML = '';
-
-    // 自動判定是影片還是圖片
-    if (item.type === 'video' && item.videoUrl) {
-        mediaSlot.innerHTML = `
-            <video src="${item.videoUrl}" controls autoplay loop muted playsinline class="max-h-[75vh] w-auto mx-auto block rounded-lg"></video>
-        `;
-    } else {
-        mediaSlot.innerHTML = `
-            <img src="${item.image}" alt="${item.title}" class="max-h-[75vh] w-auto mx-auto object-contain block">
-        `;
-    }
-
-    // 塞入文案
-    document.getElementById('modal-title').innerText = item.title;
-    document.getElementById('modal-desc').innerText = item.desc;
-    document.getElementById('modal-price').innerText = item.price;
+function switchColor(color) {
+    const imgElement = document.getElementById('main-seating-img');
+    const waBtn = document.getElementById('seating-wa-btn');
     
-    let dynamicPayload = `Hello Shing, I am highly interested in commissioning the Sovereign Seating Series (${item.title}).`;
-    document.getElementById('modal-wa-btn').href = `https://wa.me/85295368533?text=${encodeURIComponent(dynamicPayload)}`;
-
-    // 浮起視窗
-    const modal = document.getElementById('seating-lightbox-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.classList.add('modal-open');
-}
-
-// 點選空白背景遮罩退回原位
-function closeLightbox(event) {
-    const modalContainer = document.getElementById('seating-lightbox-modal');
-    if (event.target === modalContainer) {
-        closeLightboxForce();
+    if (color === 'black') {
+        imgElement.src = 'https://i.imgur.com/8ZVqOV3.jpeg'; // 更換為您的純黑真圖網址
+        waBtn.href = "https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20place%20a%20private%20commission%20for%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Pure%20Black%20Edition).";
+    } else if (color === 'red-black') {
+        imgElement.src = 'https://i.imgur.com/BoTuxrK.jpeg'; // 更換為您的紅黑真圖網址
+        waBtn.href = "https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20place%20a%20private%20commission%20for%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Crimson%20and%20Black%20Edition).";
     }
 }
-
-function closeLightboxForce() {
-    const modal = document.getElementById('seating-lightbox-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    
-    // 停止正在播放的影片防殘留聲音
-    document.getElementById('modal-media-slot').innerHTML = '';
-    
-    document.body.classList.remove('modal-open');
-}
-
-// 啟動加載
-window.onload = function() {
-    renderSeatingMatrix();
-};
 </script>
 
 </body>
