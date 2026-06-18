@@ -38,13 +38,13 @@ body {
     border: 1px solid rgba(212,175,55,0.4);
 }
 
-/* 巨幕主圖展示槽：固定最大框架，防像素不同影響 */
+/* 巨幕主圖展示槽：全新修正為黃金垂直藝術比例，徹底向下大幅度拉長 */
 .hero-image-container {
     background: #050505;
     transition: box-shadow 0.5s ease;
-    height: 68vh;
-    min-height: 500px;
-    max-height: 700px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-height: 75vh;
 }
 .hero-image-container:hover {
     box-shadow: 0 0 40px rgba(212,175,55,0.15);
@@ -89,10 +89,10 @@ body {
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch max-w-6xl mx-auto w-full mb-16">
         
-        <div class="lg:col-span-8 flex flex-col justify-between">
+        <div class="lg:col-span-7 flex flex-col justify-between">
             <div class="hero-image-container w-full rounded-3xl border border-gray-900 overflow-hidden relative flex items-center justify-center p-4">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30 z-10 pointer-events-none"></div>
-                <img id="main-seating-img" src="https://i.imgur.com/IC3vd4E.jpeg" alt="The World's Most Luxurious Home Chair" class="max-h-[62vh] w-auto mx-auto object-contain z-0 block">
+                <img id="main-seating-img" src="https://i.imgur.com/IC3vd4E.jpeg" alt="The World's Most Luxurious Home Chair" class="w-full h-full object-contain z-0 block">
             </div>
             
             <div class="flex items-center justify-center gap-4 mt-6">
@@ -105,7 +105,7 @@ body {
             </div>
         </div>
 
-        <div class="lg:col-span-4 flex flex-col justify-between bg-black bg-opacity-50 rounded-3xl gold-border p-8 shadow-2xl">
+        <div class="lg:col-span-5 flex flex-col justify-between bg-black bg-opacity-50 rounded-3xl gold-border p-8 shadow-2xl">
             
             <div class="text-left">
                 <span class="text-[10px] bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 px-2 py-0.5 rounded font-bold uppercase tracking-widest">
@@ -123,7 +123,7 @@ body {
             </div>
 
             <div class="border-t border-gray-900 mt-6 pt-5 text-left">
-                <div class="flex items-baseline justify-between">
+                <div class="flex items-center justify-between w-full mb-4">
                     <div class="text-left">
                         <span class="text-[11px] text-gray-500 uppercase tracking-widest block font-medium">Flagship Acquisition</span>
                         <span class="text-3xl font-black text-yellow-500 mt-0.5 inline-block">$1,599 USD</span>
@@ -134,7 +134,7 @@ body {
                     </div>
                 </div>
 
-                <a id="seating-wa-btn" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20order%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Crimson%20and%20Black%20Edition)." target="_blank" class="w-full block py-4 mt-6 text-center bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black rounded-xl text-xs tracking-widest uppercase font-black transition shadow-lg">
+                <a id="seating-wa-btn" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20I%20want%20to%20order%20The%20World%27s%20Most%20Luxurious%20Home%20Chair%20(Crimson%20and%20Black%20Edition)." target="_blank" class="w-full block py-4 text-center bg-gradient-to-r from-yellow-600 to-amber-700 hover:from-yellow-500 hover:to-amber-600 text-black rounded-xl text-xs tracking-widest uppercase font-black transition shadow-lg">
                     Acquire Flagship Masterpiece
                 </a>
             </div>
