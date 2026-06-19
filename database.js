@@ -1,6 +1,17 @@
 /**
- * 🛠️ KINGZCARBON 核心外觀數據庫 (已完全脫離主網頁，套用 1.8X 純淨黃金公式與 LCI 規範)
+ * 🛠️ KINGZCARBON 核心外觀數據庫 (最新標準分流外掛數據庫檔案)
  */
+
+// 1. 底盤代號與品牌自動綁定集群
+const chassisMapping = {
+    'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5'],
+    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
+    'Audi': ['8V RS3', '8Y RS3'],
+    'Toyota': ['A90 Supra'],
+    'Nissan': ['R35 GTR']
+};
+
+// 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤)
 const exteriorDatabase = [
     // === 16 款「三廂車通用尾翼」系列 ===
     { id: 1, brand: 'All', compat: ['All'], category: 'Rear Spoilers', title: 'Universal Sedan Carbon Rear Spoiler (MAD Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/fR7SeNc.jpeg' },
@@ -180,185 +191,47 @@ const exteriorDatabase = [
     { id: 167, brand: 'BMW', compat: ['F34'], category: 'Rear Diffusers', title: 'BMW 3-Series GT F34 Carbon Rear Diffuser (M5 Style - M Sport Only)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/db7TcET.jpeg' },
     { id: 168, brand: 'BMW', compat: ['F34'], category: 'Rear Diffusers', title: 'BMW 3-Series GT F34 Carbon Rear Diffuser (MP Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/YYYPekK.jpeg' },
     { id: 169, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (MP Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/u7K4OeW.jpeg' },
-    { id: 170, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (V Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/7lYwwA5.jpeg' }
+    { id: 170, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (V Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/7lYwwA5.jpeg' },
+
+    // === BMW F90 M5 高階碳纖維集群 ===
+    { id: 171, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (CS Style - 2021-2023 LCI)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/tFHchDh.jpeg' },
+    { id: 172, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (RPK Style - 2021-2023 LCI)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/r96qcpJ.jpeg' },
+    { id: 173, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (ML Style - 2021-2023 LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/fzP1jpU.jpeg' },
+    { id: 174, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (ST Style - 2021-2023 LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/OBBPP9w.jpeg' },
+    { id: 175, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (MT Style - 2021-2023 LCI)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/rTgFK3g.jpeg' },
+    { id: 176, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (RPK Style - 2018-2020 Pre-LCI)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/WPTMCJ1.jpeg' },
+    { id: 177, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (ML Style - 2018-2020 Pre-LCI)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/WTrhymT.jpeg' },
+    { id: 178, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (ST Style - 2018-2020 Pre-LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/kdMhLrU.jpeg' },
+    { id: 179, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (GTS Style - 2018-2020 Pre-LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/14y1YTq.jpeg' },
+    { id: 180, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Carbon Front Bumper Splitters (CH Style - 2018-2020 Pre-LCI)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/VkZXmf6.jpeg' },
+    { id: 181, brand: 'BMW', compat: ['F90'], category: 'Side Skirts', title: 'BMW F90 M5 Carbon Side Skirt Extensions (A Style - 2018-2020 Pre-LCI)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/ewakiuf.jpeg' },
+    { id: 182, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (C Style - 2018-2020 Pre-LCI)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/3pPus76.jpeg' },
+    { id: 183, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (A Style - 2018-2020 Pre-LCI)', price: '$919 USD', saved: '$205 USD', image: 'https://i.imgur.com/nYjkIBA.jpeg' },
+    { id: 184, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (M Style - 2018-2020 Pre-LCI)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/uyyduJ3.jpeg' },
+    { id: 185, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (3D Style - 2018-2020 Pre-LCI)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/enKJ0Vl.jpeg' },
+    { id: 186, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (CS Style - 2018-2020 Pre-LCI)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/kLLBkMl.jpeg' },
+    { id: 187, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (PRO Style - 2018-2020 Pre-LCI)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/TIYmlW2.jpeg' },
+    { id: 188, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (V Style - 2018-2020 Pre-LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/XlxcUb2.jpeg' },
+    { id: 189, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Roof Spoiler Extension (2018-2023 Universal)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/093hgWX.jpeg' },
+    { id: 190, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Full Carbon Front Kidney Grille Surround (2018-2020 Pre-LCI)', price: '$409 USD', saved: '$105 USD', image: 'https://i.imgur.com/pRY6U5L.jpeg' },
+    { id: 191, brand: 'BMW', compat: ['F90'], category: 'Mirror Covers', title: 'BMW F90 M5 Full Carbon Fiber Side Mirror Covers (2018-2020 Pre-LCI)', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/YxEwOET.jpeg' },
+    { id: 192, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Carbon Rear Bumper Side Splitters (FD Style - 2018-2023 Universal)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/Q17Gz6C.jpeg' },
+    { id: 193, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Carbon Rear Bumper Side Splitters (PSM Style - 2018-2023 Universal)', price: '$249 USD', saved: '$105 USD', image: 'https://i.imgur.com/Q17Gz6C.jpeg' },
+    { id: 194, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (GTS Style - 2021-2023 LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/goNURzx.jpeg' },
+    { id: 195, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (P Style - 2021-2023 LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/BBlAbNn.jpeg' },
+    { id: 196, brand: 'BMW', compat: ['F90'], category: 'Hood', title: 'BMW F90 M5 Motorsport Transparent Glass Carbon Fiber Hood (2018-2023 Universal)', price: '$2609 USD', saved: '$360 USD', image: 'https://i.imgur.com/zbNygtH.jpeg' },
+    { id: 197, brand: 'BMW', compat: ['F90'], category: 'Hood', title: 'BMW F90 M5 Carbon Fiber Ventilated GT Style Hood (2018-2023 Universal)', price: '$2609 USD', saved: '$360 USD', image: 'https://i.imgur.com/V8oJLoN.jpeg' },
+    { id: 198, brand: 'BMW', compat: ['F90'], category: 'Hood', title: 'BMW F90 M5 Lightweight CS Style Carbon Fiber Hood (2018-2023 Universal)', price: '$2609 USD', saved: '$360 USD', image: 'https://i.imgur.com/GrDAPGe.jpeg' },
+    { id: 199, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Front Bumper Foglight Canard Wings (2018-2020 Pre-LCI)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/Y9gmWEx.jpeg' },
+    { id: 200, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Front Bumper Foglight Air Vent Inserts (2021-2023 LCI)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/e6xAqzP.jpeg' },
+    { id: 201, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Full Carbon Front Kidney Grille (2018-2023 Universal)', price: '$279 USD', saved: '$105 USD', image: 'https://i.imgur.com/mNFNJDl.jpeg' },
+    { id: 202, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (3D Style - 2018-2020 Pre-LCI)', price: '$619 USD', saved: '$205 USD', image: 'https://i.imgur.com/dTv62IQ.jpeg' },
+    { id: 203, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (CH Style - 2018-2020 Pre-LCI)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/Bb9wxj5.jpeg' },
+    { id: 204, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (Mode Style - 2018-2020 Pre-LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/7RKq1hO.jpeg' },
+    { id: 205, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (MP Style - 2018-2020 Pre-LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/wk7nE2q.jpeg' },
+    { id: 206, brand: 'BMW', compat: ['F90'], category: 'Side Skirts', title: 'BMW F90 M5 Carbon Side Skirt Extensions (MP Style - 2018-2020 Pre-LCI)', price: '$359 USD', saved: '$105 USD', image: 'https://i.imgur.com/95j1OPw.jpeg' },
+    { id: 207, brand: 'BMW', compat: ['F90'], category: 'Side Skirts', title: 'BMW F90 M5 Carbon Side Skirt Extensions (3D Style - 2018-2020 Pre-LCI)', price: '$409 USD', saved: '$105 USD', image: 'https://i.imgur.com/Rw9eFCR.jpeg' },
+    { id: 208, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (A Style - 2018-2020 Pre-LCI)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/AuFwhXX.jpeg' },
+    { id: 209, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (A Style - 2021-2023 LCI)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/xjSweSy.jpeg' },
+    { id: 210, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (3D Style - 2021-2023 LCI)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/dFE67jy.jpeg' }
 ];
-
-const chassisMapping = {
-    'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT'],
-    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
-    'Audi': ['8V RS3', '8Y RS3'],
-    'Toyota': ['A90 Supra'],
-    'Nissan': ['R35 GTR']
-};
-
-let currentBrand = 'All';
-let currentModel = 'All';
-let currentCategory = 'All';
-
-function selectBrand(brand, isInit = false) {
-    currentBrand = brand;
-    currentModel = 'All'; 
-    
-    document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('filter-active'));
-    let targetId = 'brand-' + (brand === 'Mercedes-Benz' ? 'Benz' : brand);
-    const activeBtn = document.getElementById(targetId);
-    if(activeBtn) activeBtn.classList.add('filter-active');
-
-    const modelListDiv = document.getElementById('model-list');
-    if (brand === 'All') {
-        modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
-    } else {
-        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
-        if (chassisMapping[brand]) {
-            chassisMapping[brand].forEach(chassis => {
-                let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
-                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-900 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
-            });
-        }
-        modelListDiv.innerHTML = listHtml;
-    }
-
-    renderMatrix();
-    if (!isInit) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-}
-
-function selectModel(model) {
-    currentModel = model;
-    document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
-    
-    let cleanId = model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, '');
-    const activeBtn = document.getElementById('model-' + cleanId);
-    if(activeBtn) activeBtn.classList.add('filter-active');
-
-    renderMatrix();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function selectCategory(category) {
-    currentCategory = category;
-    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
-    
-    let cleanId = category === 'All' ? 'All' : category.replace(/[^a-zA-Z0-9]/g, '');
-    const activeBtn = document.getElementById('cat-' + cleanId);
-    if(activeBtn) activeBtn.classList.add('filter-active');
-
-    renderMatrix();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function renderMatrix() {
-    const gridContainer = document.getElementById('exterior-matrix-grid');
-    const emptyState = document.getElementById('empty-state');
-    
-    let currentChassisTokens = [];
-    if (currentModel !== 'All') {
-        currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
-    }
-
-    let filteredData = exteriorDatabase.filter(item => {
-        const matchCat = (currentCategory === 'All' || item.category === currentCategory);
-        const isUniversal = (item.brand === 'All' && item.compat && item.compat.includes('All'));
-        
-        if (currentBrand === 'All') {
-            return matchCat;
-        }
-        if (isUniversal) {
-            return matchCat;
-        }
-        
-        const matchBrand = (item.brand === currentBrand);
-        let matchModel = false;
-        if (currentModel === 'All') {
-            matchModel = true;
-        } else {
-            if (currentChassisTokens.length > 0) {
-                matchModel = item.compat && currentChassisTokens.some(token => item.compat.includes(token)) || (item.compat && item.compat.includes('All'));
-            } else {
-                let coreChassis = currentModel.split(' ')[0];
-                matchModel = item.compat && (item.compat.includes(coreChassis) || item.compat.includes('All'));
-            }
-        }
-        return matchCat && matchBrand && matchModel;
-    });
-
-    if (currentModel !== 'All' && currentChassisTokens.length > 0) {
-        filteredData.sort((a, b) => {
-            let aIsStrictExclusive = a.compat && !a.compat.includes('All') && currentChassisTokens.some(t => a.compat.includes(t));
-            let bIsStrictExclusive = b.compat && !b.compat.includes('All') && currentChassisTokens.some(t => b.compat.includes(t));
-
-            if (aIsStrictExclusive && !bIsStrictExclusive) return -1;
-            if (!aIsStrictExclusive && bIsStrictExclusive) return 1;
-            return 0;
-        });
-    }
-
-    gridContainer.innerHTML = '';
-
-    if (filteredData.length === 0) {
-        gridContainer.classList.add('hidden');
-        emptyState.classList.remove('hidden');
-    } else {
-        emptyState.classList.add('hidden');
-        gridContainer.classList.remove('hidden');
-
-        filteredData.forEach(item => {
-            let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
-            
-            let cardHtml = `
-                <div onclick="openLightbox(${item.id})" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between animate-fadeIn">
-                    <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
-                        <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain transition duration-500">
-                    </div>
-                    <div class="flex-grow flex flex-col justify-between">
-                        <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
-                        <div class="text-sm font-extrabold text-yellow-500 mt-2">${displayPrice}</div>
-                    </div>
-                </div>
-            `;
-            gridContainer.innerHTML += cardHtml;
-        });
-    }
-}
-
-function openLightbox(productId) {
-    const item = exteriorDatabase.find(p => p.id === productId);
-    if (!item) return;
-
-    let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
-    let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup (${item.title}).`;
-    let encodedPayload = encodeURIComponent(dynamicPayload);
-
-    document.getElementById('modal-img').src = item.image;
-    document.getElementById('modal-title').innerText = item.title;
-    document.getElementById('modal-price').innerText = `Product: ${displayPrice}`;
-    document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
-    document.getElementById('modal-cat').innerText = item.category;
-    document.getElementById('modal-wa-btn').href = `https://wa.me/85295368533?text=${encodedPayload}`;
-
-    const modal = document.getElementById('product-lightbox-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.classList.add('modal-open');
-}
-
-function closeLightbox(event) {
-    const modalContainer = document.getElementById('product-lightbox-modal');
-    if (event.target === modalContainer) {
-        closeLightboxForce();
-    }
-}
-
-function closeLightboxForce() {
-    const modal = document.getElementById('product-lightbox-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    document.body.classList.remove('modal-open');
-}
-
-window.onload = function() {
-    selectBrand('All', true);
-};
-</script>
-
-</body>
-</html>
