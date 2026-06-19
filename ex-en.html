@@ -165,7 +165,7 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0);
 
 /**
- * 🛠️ KINGZCARBON 核心外觀數據庫
+ * 🛠️ KINGZCARBON 核心外觀數據庫 (已全面整合 16 款 BMW F34 3-Series GT 專屬改裝套件)
  */
 const exteriorDatabase = [
     // === 16 款「三廂車通用尾翼」系列 ===
@@ -328,7 +328,25 @@ const exteriorDatabase = [
     { id: 151, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Full Carbon Fiber Front Kidney Grilles', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/8Q0W43Q.png' },
     { id: 152, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Full Carbon Fiber Seat Back Panels', price: '$499 USD', saved: '$105 USD', image: 'https://i.imgur.com/FZMPLBY.png' },
     { id: 153, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Bumper Canards (GT4 Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/rS2y3tE.png' },
-    { id: 154, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Canards (MAD Style)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/R6ar2YY.png' }
+    { id: 154, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Canards (MAD Style)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/R6ar2YY.png' },
+
+    // === 🌟 NEW RELEASE: BMW F34 3-Series GT 專屬高性能改裝集群 ===
+    { id: 155, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (H Style - M Sport Only)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/2Sjg728.jpeg' },
+    { id: 156, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (KB Style - M Sport Only)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/rF60O4Q.jpeg' },
+    { id: 157, brand: 'BMW', compat: ['F34'], category: 'Side Skirts', title: 'BMW 3-Series GT F34 Carbon Side Skirt Extensions (Blade Style - M Sport Only)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/oBDNsWL.jpeg' },
+    { id: 158, brand: 'BMW', compat: ['F34'], category: 'Other', title: 'BMW 3-Series GT F34 Full Carbon Front Kidney Grille (Gloss Finish)', price: '$269 USD', saved: '$105 USD', image: 'https://i.imgur.com/Z6pbdS5.jpeg' },
+    { id: 159, brand: 'BMW', compat: ['F34'], category: 'Rear Spoilers', title: 'BMW 3-Series GT F34 Carbon Fiber Rear Spoiler (CH Style)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/7Xs9uvt.jpeg' },
+    { id: 160, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (PSM Style - Only for M4 Bumper Setup)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/UPJm10i.jpeg' },
+    { id: 161, brand: 'BMW', compat: ['F34'], category: 'Other', title: 'BMW 3-Series GT F34 M4 Conversion Style Front & Rear Bumper Kit', price: '$1339 USD', saved: '$460 USD', image: 'https://i.imgur.com/WFObYaj.jpeg' },
+    { id: 162, brand: 'BMW', compat: ['F34'], category: 'Other', title: 'BMW 3-Series GT F34 M-Tech Aero Full Body Kit Expansion Set', price: '$2109 USD', saved: '$460 USD', image: 'https://i.imgur.com/VEAnEuv.jpeg' },
+    { id: 163, brand: 'BMW', compat: ['F34'], category: 'Rear Spoilers', title: 'BMW 3-Series GT F34 Carbon Fiber Rear Spoiler (3D Style)', price: '$409 USD', saved: '$205 USD', image: 'https://i.imgur.com/SrvUanj.jpeg' },
+    { id: 164, brand: 'BMW', compat: ['F34'], category: 'Mirror Covers', title: 'BMW F34 GT Carbon Fiber M-Horn Style Side Mirror Covers', price: '$219 USD', saved: '$105 USD', image: 'https://i.imgur.com/gu2C4tm.jpeg' },
+    { id: 165, brand: 'BMW', compat: ['F34'], category: 'Side Skirts', title: 'BMW 3-Series GT F34 Carbon Side Skirt Extensions (MP Style - M Sport Only)', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/ZGeeSH4.jpeg' },
+    { id: 166, brand: 'BMW', compat: ['F34'], category: 'Rear Diffusers', title: 'BMW 3-Series GT F34 Carbon Rear Diffuser (KB Style - M Sport Only)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/A101CGQ.jpeg' },
+    { id: 167, brand: 'BMW', compat: ['F34'], category: 'Rear Diffusers', title: 'BMW 3-Series GT F34 Carbon Rear Diffuser (M5 Style - M Sport Only)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/db7TcET.jpeg' },
+    { id: 168, brand: 'BMW', compat: ['F34'], category: 'Rear Diffusers', title: 'BMW 3-Series GT F34 Carbon Rear Diffuser (MP Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/YYYPekK.jpeg' },
+    { id: 169, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (MP Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/u7K4OeW.jpeg' },
+    { id: 170, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (V Style - M Sport Only)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/7lYwwA5.jpeg' }
 ];
 
 const chassisMapping = {
@@ -402,7 +420,6 @@ function renderMatrix() {
     
     let currentChassisTokens = [];
     if (currentModel !== 'All') {
-        // 優化切換：提取前段核心底盤號碼以對齊 compat
         currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
     }
 
