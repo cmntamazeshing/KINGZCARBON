@@ -63,10 +63,10 @@ body {
     overflow: hidden;
 }
 
-/* 迎賓巨幕動畫 */
+/* 迎賓字體呼吸動畫 */
 @keyframes pulseGlow {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
 }
 .pulse-text {
     animation: pulseGlow 2.5s infinite ease-in-out;
@@ -130,13 +130,25 @@ body {
 
         <div class="md:col-span-3 relative min-h-[50vh]">
             
-            <div id="welcome-hero-screen" class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center transition-all duration-500 min-h-[55vh] relative">
+            <div id="welcome-hero-screen" class="w-full max-w-3xl mx-auto transition-all duration-500 relative pb-10">
                 
-                <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-xl border border-gray-900">&larr;</button>
-                
-                <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-xl border border-gray-900">&rarr;</button>
+                <div class="text-center mb-4 select-none">
+                    <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow">KINGZCARBON SHOWCASE</span>
+                </div>
 
-                <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-full min-h-[55vh] object-cover block select-none pointer-events-none transition-all duration-500">
+                <div class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[50vh] relative shadow-2xl">
+                    <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
+                    
+                    <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
+
+                    <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto min-h-[50vh] object-cover block select-none pointer-events-none transition-all duration-500">
+                </div>
+
+                <div class="text-center mt-6 px-4 select-none">
+                    <p class="text-[11px] text-gray-400 font-bold tracking-wider pulse-text uppercase leading-relaxed">
+                        ← Please select your Brand and Chassis configuration above to explore your custom assets.
+                    </p>
+                </div>
             </div>
 
             <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -188,14 +200,10 @@ let currentModel = 'All';
 let currentCategory = 'All';
 let initialLoad = true;
 
-// 🎬 迎賓大圖奢華輪播集 (純淨無字版本，補入全新前兩張實體大圖)
+// 🎬 迎賓大圖奢華輪播集 (依吩咐：精簡至僅留下你提供網址的頭兩張神圖)
 const heroShowcaseSlides = [
     { image: 'https://i.imgur.com/NZtQRfC.jpeg' },
-    { image: 'https://i.imgur.com/cwFuwUe.jpeg' },
-    { image: 'https://i.imgur.com/ecsJVDD.png' },
-    { image: 'https://i.imgur.com/WFObYaj.jpeg' },
-    { image: 'https://i.imgur.com/zbNygtH.jpeg' },
-    { image: 'https://i.imgur.com/nYjkIBA.jpeg' }
+    { image: 'https://i.imgur.com/cwFuwUe.jpeg' }
 ];
 let currentHeroIndex = 0;
 
@@ -347,7 +355,7 @@ function renderMatrix() {
         gridContainer.classList.add('hidden');
         emptyState.classList.remove('hidden');
     } else {
-        emptyState.classList.add('hidden');
+        emptyState.className = "hidden";
         gridContainer.classList.remove('hidden');
 
         filteredData.forEach((item, loopIndex) => {
