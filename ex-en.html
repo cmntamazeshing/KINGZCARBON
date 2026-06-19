@@ -130,19 +130,13 @@ body {
 
         <div class="md:col-span-3 relative min-h-[50vh]">
             
-            <div id="welcome-hero-screen" class="w-full rounded-2xl gold-border overflow-hidden bg-gray-950 bg-opacity-80 p-8 flex flex-col items-center justify-center text-center transition-all duration-500 min-h-[55vh] relative">
+            <div id="welcome-hero-screen" class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center transition-all duration-500 min-h-[55vh] relative">
                 
                 <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-xl border border-gray-900">&larr;</button>
                 
                 <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-xl border border-gray-900">&rarr;</button>
 
-                <div class="max-w-xl mx-auto z-10 pointer-events-none">
-                    <img id="hero-showcase-img" src="https://i.imgur.com/ecsJVDD.png" alt="KINGZCARBON Works" class="max-h-[35vh] mx-auto opacity-50 mb-6 object-contain filter select-none transition-all duration-500">
-                    <h3 id="hero-showcase-title" class="text-sm font-bold text-yellow-500 uppercase tracking-widest gold-glow mb-2">Bespoke Production Matrix</h3>
-                    <p class="text-xs text-gray-400 leading-relaxed pulse-text uppercase tracking-wider">
-                        ← Please select your Brand and Chassis configuration above to decode professional-tier component templates.
-                    </p>
-                </div>
+                <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-full min-h-[55vh] object-cover block select-none pointer-events-none transition-all duration-500">
             </div>
 
             <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -192,27 +186,26 @@ body {
 let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
-let initialLoad = true; // 捕捉客人是否需要顯示迎賓巨幕
+let initialLoad = true;
 
-// 🎬 迎賓大圖奢華輪播集（已完美補入最新兩張 M5/M2c 實車大圖）
+// 🎬 迎賓大圖奢華輪播集 (純淨無字版本，補入全新前兩張實體大圖)
 const heroShowcaseSlides = [
-    { image: 'https://i.imgur.com/NZtQRfC.jpeg', title: 'Bespoke Carbon fiber Aero Works' },
-    { image: 'https://i.imgur.com/cwFuwUe.jpeg', title: 'KINGZCARBON High-Performance Aesthetics' },
-    { image: 'https://i.imgur.com/ecsJVDD.png', title: 'KINGZCARBON Tailoring Laboratory' },
-    { image: 'https://i.imgur.com/WFObYaj.jpeg', title: 'Bespoke M4 Aero Conversion Works' },
-    { image: 'https://i.imgur.com/zbNygtH.jpeg', title: 'Motorsport Vacuum Infusion Full Carbon Hood' },
-    { image: 'https://i.imgur.com/nYjkIBA.jpeg', title: 'Sovereign Edition High-Gloss Rear Diffuser Matrix' }
+    { image: 'https://i.imgur.com/NZtQRfC.jpeg' },
+    { image: 'https://i.imgur.com/cwFuwUe.jpeg' },
+    { image: 'https://i.imgur.com/ecsJVDD.png' },
+    { image: 'https://i.imgur.com/WFObYaj.jpeg' },
+    { image: 'https://i.imgur.com/zbNygtH.jpeg' },
+    { image: 'https://i.imgur.com/nYjkIBA.jpeg' }
 ];
 let currentHeroIndex = 0;
 
 function updateHeroSlide() {
     const slide = heroShowcaseSlides[currentHeroIndex];
     document.getElementById('hero-showcase-img').src = slide.image;
-    document.getElementById('hero-showcase-title').innerText = slide.title;
 }
 
 function nextHeroImg(event) {
-    event.stopPropagation(); // 防止觸發前台點擊
+    event.stopPropagation();
     currentHeroIndex = (currentHeroIndex + 1) % heroShowcaseSlides.length;
     updateHeroSlide();
 }
@@ -227,7 +220,6 @@ function selectBrand(brand, isInit = false) {
     currentBrand = brand;
     currentModel = 'All'; 
     
-    // 🚀 精準修正：如果點擊「All Brands」，重新強行彈出迎賓巨幕；點擊其他品牌則加載卡片
     if (brand === 'All') {
         initialLoad = true;
     } else if (!isInit) {
@@ -296,7 +288,7 @@ function renderMatrix() {
         gridContainer.classList.add('hidden');
         emptyState.classList.add('hidden');
         welcomeHero.classList.remove('hidden');
-        updateHeroSlide(); // 確保重新展現時讀取最新大圖索引
+        updateHeroSlide();
         return;
     }
     
