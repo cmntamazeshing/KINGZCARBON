@@ -4,8 +4,9 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6'],
-   'Audi': ['8V RS3', '8Y RS3'],
+    'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6'],
+    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
+    'Audi': ['8V RS3', '8Y RS3'],
     'Toyota': ['A90 Supra'],
     'Nissan': ['R35 GTR']
 };
@@ -57,7 +58,6 @@ const exteriorDatabase = [
     { id: 40, brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Front Kidney Grilles (CSL Style)', price: '$589 USD', saved: '$105 USD', image: 'https://i.imgur.com/0J5Vefg.jpeg' },
     { id: 41, brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (PSM Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/Op8zNEZ.jpeg' },
     { id: 42, brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (OEM Style)', price: '$369 USD', saved: '$205 USD', image: 'https://i.imgur.com/phEwENP.jpeg' },
-    { id: 43, brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Track-Spec Carbon Wing (Verus Style)', price: '$2299 USD', saved: '$205 USD', image: 'https://i.imgur.com/maHZBRt.jpeg' },
     { id: 44, brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (Adro Style)', price: '$1309 USD', saved: '$205 USD', image: 'https://i.imgur.com/3Q1vnvf.jpeg' },
     { id: 45, brand: 'BMW', compat: ['G80', 'G82'], category: 'Rear Spoilers', title: 'BMW G80 M3 / G82 M4 Carbon Rear Spoiler (B Style)', price: '$1339 USD', saved: '$205 USD', image: 'https://i.imgur.com/TTf8aSs.jpeg' },
     { id: 46, brand: 'BMW', compat: ['G20', 'G28', 'G80'], category: 'Rear Spoilers', title: 'BMW G Gen 3-Series & G80 M3 Carbon Rear Spoiler (M3 Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/9iAsTaX.jpeg' },
@@ -233,63 +233,64 @@ const exteriorDatabase = [
     { id: 208, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (A Style - 2018-2020 Pre-LCI)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/AuFwhXX.jpeg' },
     { id: 209, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (A Style - 2021-2023 LCI)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/xjSweSy.jpeg' },
     { id: 210, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (3D Style - 2021-2023 LCI)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/dFE67jy.jpeg' },
-// === 🌟 NEW AUDIT: BMW F87 M2 / M2C 高性能碳纖維集群 ===
-    { id: 211, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Splitters (MP Style - Pre-LCI & LCI Universal)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/Ny07GSd.png' }, // 600*1.8+1600
-    { id: 212, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (MP Style - Pre-LCI & LCI Universal)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/afytYVv.png' }, // 1000*1.8+1600
-    { id: 213, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Competition Carbon Front Lip (3D Style - M2C Exclusive)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/XWupjPZ.png' }, // 1100*1.8+1600
-    { id: 214, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (BP Style - Base M2 Exclusive)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/BV8YPLQ.png' }, // 1200*1.8+1600
+
+    // === BMW F87 M2 / M2C 高性能碳纖維集群 ===
+    { id: 211, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Splitters (MP Style - Pre-LCI & LCI Universal)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/Ny07GSd.png' },
+    { id: 212, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (MP Style - Pre-LCI & LCI Universal)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/afytYVv.png' },
+    { id: 213, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Competition Carbon Front Lip (3D Style - M2C Exclusive)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/XWupjPZ.png' },
+    { id: 214, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (BP Style - Base M2 Exclusive)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/BV8YPLQ.png' },
     { id: 215, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (ST Style - Pre-LCI & LCI Universal)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/BV8YPLQ.png' },
     { id: 216, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (C Style - Pre-LCI & LCI Universal)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/p5CMFMP.png' },
     { id: 217, brand: 'BMW', compat: ['F87'], category: 'Side Skirts', title: 'BMW F87 M2 / M2C Carbon Rear Side Splitters (MP Style)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/JCXAOv7.png' },
     { id: 218, brand: 'BMW', compat: ['F87'], category: 'Side Skirts', title: 'BMW F87 M2 / M2C Carbon Side Skirt Extensions (Blade Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/Qmwmpvm.jpeg' },
     { id: 219, brand: 'BMW', compat: ['F87'], category: 'Side Skirts', title: 'BMW F87 M2 / M2C Carbon Side Skirt Extensions (MTC Style)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/Q5C6CT9.png' },
-    { id: 220, brand: 'BMW', compat: ['F87'], category: 'Side Skirts', title: 'BMW F87 M2 / M2C Carbon Side Skirt Extensions (CH Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/zx9pWHg.jpeg' }, // 1400*1.8+1600
+    { id: 220, brand: 'BMW', compat: ['F87'], category: 'Side Skirts', title: 'BMW F87 M2 / M2C Carbon Side Skirt Extensions (CH Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/zx9pWHg.jpeg' },
     { id: 221, brand: 'BMW', compat: ['F87'], category: 'Side Skirts', title: 'BMW F87 M2 / M2C Carbon Side Skirt Extensions (3D Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/rOiLJki.png' },
     { id: 222, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser (MP Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/zX8nxNw.jpeg' },
     { id: 223, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser (AK Style)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/y90SlsZ.jpeg' },
-    { id: 224, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser With LED F1 Brake Light (K Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/dYZLdM6.jpeg' }, // 1300*1.8+1600
+    { id: 224, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser With LED F1 Brake Light (K Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/dYZLdM6.jpeg' },
     { id: 225, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser With LED F1 Brake Light (V Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/ttSh9vG.jpeg' },
-    { id: 226, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (MP Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/xohdGJ9.png' }, // 500*1.8+1600
+    { id: 226, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (MP Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/xohdGJ9.png' },
     { id: 227, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (M4 Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/ceoIcva.jpeg' },
     { id: 228, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (CS Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/gQlMUiB.jpeg' },
-    { id: 229, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (PSM Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/7pGx6re.jpeg' }, // 600*1.8+1600
-    { id: 230, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Motorsport High-Downforce Carbon Wing (MAD Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/WCmZnCm.jpeg' }, // 1300*1.8+1600
+    { id: 229, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (PSM Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/7pGx6re.jpeg' },
+    { id: 230, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Motorsport High-Downforce Carbon Wing (MAD Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/WCmZnCm.jpeg' },
     { id: 231, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Track-Spec Carbon GT Wing (MP Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/EC8vaCO.png' },
     { id: 232, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Racing Carbon GT Wing (V Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/9EX2toR.jpeg' },
-    { id: 233, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Front Bumper Side Aero Canard Accents (AC Style)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/BtS3hLa.png' }, // 650*1.8+800
-    { id: 234, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 Carbon Kidney Grilles Trim Set (Base M2 Exclusive)', price: '$269 USD', saved: '$105 USD', image: 'https://i.imgur.com/BRTr42C.jpeg' }, // 700*1.8+800
-    { id: 235, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Carbon Side Fender Emblem Badges Cover', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/JMZmAvX.jpeg' }, // 800*1.8+800
+    { id: 233, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Front Bumper Side Aero Canard Accents (AC Style)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/BtS3hLa.png' },
+    { id: 234, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 Carbon Kidney Grilles Trim Set (Base M2 Exclusive)', price: '$269 USD', saved: '$105 USD', image: 'https://i.imgur.com/BRTr42C.jpeg' },
+    { id: 235, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Carbon Side Fender Emblem Badges Cover', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/JMZmAvX.jpeg' },
     { id: 236, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Quad Exhaust Carbon Fiber Tips Tailpipe Set (MP Style)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/1VcuXq3.jpeg' },
-    { id: 237, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Front Grille Full Carbon Surround Shell Cover', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/xu4VPRU.jpeg' }, // 1600*1.8+800
-    { id: 238, brand: 'BMW', compat: ['F87'], category: 'Hood', title: 'BMW F87 M2 / M2C Aggressive Ventilated Carbon Fiber Hood (GTS Style)', price: '$2609 USD', saved: '$360 USD', image: 'https://i.imgur.com/IAEtawk.png' }, // 9800*1.8+2800 -> $2609
-    { id: 239, brand: 'BMW', compat: ['F87'], category: 'Trunk', title: 'BMW F87 M2 / M2C Lightweight Full Carbon Fiber Trunk Lid (MP Style)', price: '$1739 USD', saved: '$360 USD', image: 'https://i.imgur.com/ecsJVDD.png' }, // 6000*1.8+2800 -> 13600 -> $1739
-    { id: 240, brand: 'BMW', compat: ['F87'], category: 'Mirror Covers', title: 'BMW F87 M2 / M2C Carbon Fiber M-Horn Style Side Mirror Covers', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/wgjsqEd.jpeg' }, // 600*1.8+800
+    { id: 237, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Front Grille Full Carbon Surround Shell Cover', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/xu4VPRU.jpeg' },
+    { id: 238, brand: 'BMW', compat: ['F87'], category: 'Hood', title: 'BMW F87 M2 / M2C Aggressive Ventilated Carbon Fiber Hood (GTS Style)', price: '$2609 USD', saved: '$360 USD', image: 'https://i.imgur.com/IAEtawk.png' },
+    { id: 239, brand: 'BMW', compat: ['F87'], category: 'Trunk', title: 'BMW F87 M2 / M2C Lightweight Full Carbon Fiber Trunk Lid (MP Style)', price: '$1739 USD', saved: '$360 USD', image: 'https://i.imgur.com/ecsJVDD.png' },
+    { id: 240, brand: 'BMW', compat: ['F87'], category: 'Mirror Covers', title: 'BMW F87 M2 / M2C Carbon Fiber M-Horn Style Side Mirror Covers', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/wgjsqEd.jpeg' },
     { id: 241, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 / M2C Full Carbon Performance Bucket Seat Back Shell Covers', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/nbq1B41.jpeg' },
     { id: 242, brand: 'BMW', compat: ['F87'], category: 'Hood', title: 'BMW F87 M2 / M2C Performance Carbon Fiber Hood (MP Style)', price: '$2609 USD', saved: '$360 USD', image: 'https://i.imgur.com/EHGrFiF.png' },
-    { id: 243, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 M2C-Look Front Bumper Conversion Upgrade Kit', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/6VRSdqR.jpeg' }, // 1500*1.8+1600
+    { id: 243, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 M2C-Look Front Bumper Conversion Upgrade Kit', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/6VRSdqR.jpeg' },
     { id: 244, brand: 'BMW', compat: ['F87'], category: 'Other', title: 'BMW F87 M2 Front Bumper Foglight Splitter Aero Canards (Base M2 Exclusive)', price: '$269 USD', saved: '$105 USD', image: 'https://i.imgur.com/xYbD2c7.jpeg' },
     { id: 245, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (MTC Style - Pre-LCI & LCI Universal)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/cpmRAiq.png' },
     { id: 246, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (CS Style - Pre-LCI & LCI Universal)', price: '$539 USD', saved: '$205 USD', image: 'https://i.imgur.com/4rJ830V.png' },
     { id: 247, brand: 'BMW', compat: ['F87'], category: 'Rear Spoilers', title: 'BMW F87 M2 / M2C Carbon Rear Spoiler (MTC Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/1Km71gQ.jpeg' },
     { id: 248, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser (MTC Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/pEnQt7J.jpeg' },
     { id: 249, brand: 'BMW', compat: ['F87'], category: 'Rear Diffusers', title: 'BMW F87 M2 / M2C Carbon Rear Diffuser (V Style)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/RIwtxWF.jpeg' },
-    { id: 250, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Competition Carbon Front Lip (V Style - M2C Exclusive)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/tFLu71R.jpeg' }, // 1800*1.8+1600
+    { id: 250, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Competition Carbon Front Lip (V Style - M2C Exclusive)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/tFLu71R.jpeg' },
     { id: 251, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (V Style - Base M2 Exclusive)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/9uXA05n.jpeg' },
-   // === 🌟 NEW AUDIT: BMW M6 (F06 / F12 / F13) 高階碳纖維集群 ===
-    { id: 252, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Other', title: 'BMW F06 / F12 / F13 M6 Full Carbon Front Kidney Grilles', price: '$249 USD', saved: '$105 USD', image: 'https://i.imgur.com/9IRBnUx.jpeg' }, // 650*1.8+800
-    { id: 253, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Mirror Covers', title: 'BMW F06 / F12 / F13 M6 Carbon Fiber Horn-Style Side Mirror Covers', price: '$229 USD', saved: '$105 USD', image: 'https://i.imgur.com/SK0my1I.jpeg' }, // 550*1.8+800
-    { id: 254, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (V Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/vouoTh1.jpeg' }, // 600*1.8+1600
-    { id: 255, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (MP Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/R6mer8u.jpeg' }, // 500*1.8+1600
-    { id: 256, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (PSM Style Heavy Work)', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/h4lNVeO.jpeg' }, // 特大重件物流 4000*1.8+3600
-    { id: 257, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (FD Style Aero Spec)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/tyFMQ1I.jpeg' }, // 2200*1.8+1600
-    { id: 258, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (V Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/joh6zct.jpeg' }, // 1500*1.8+1600
-    { id: 259, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (MP Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/h3dp2PB.jpeg' }, // 1100*1.8+1600
-    { id: 260, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Side Skirts', title: 'BMW F06 / F12 / F13 M6 Carbon Side Skirt Extensions (V Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/3l623si.jpeg' }, // 1200*1.8+1600
-    { id: 261, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (3D Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/dX7qmVa.png' }, // 1500*1.8+1600
-    { id: 262, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (RPK Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/LeQOgzU.jpeg' }, // 1600*1.8+1600
-    { id: 263, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V1 Spec)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/nV7zHgU.jpeg' }, // 1100*1.8+1600
+
+    // === BMW M6 (F06 / F12 / F13) 高階碳纖維集群 ===
+    { id: 252, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Other', title: 'BMW F06 / F12 / F13 M6 Full Carbon Front Kidney Grilles', price: '$249 USD', saved: '$105 USD', image: 'https://i.imgur.com/9IRBnUx.jpeg' },
+    { id: 253, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Mirror Covers', title: 'BMW F06 / F12 / F13 M6 Carbon Fiber Horn-Style Side Mirror Covers', price: '$229 USD', saved: '$105 USD', image: 'https://i.imgur.com/SK0my1I.jpeg' },
+    { id: 254, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (V Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/vouoTh1.jpeg' },
+    { id: 255, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (MP Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/R6mer8u.jpeg' },
+    { id: 256, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (PSM Style Heavy Work)', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/h4lNVeO.jpeg' },
+    { id: 257, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (FD Style Aero Spec)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/tyFMQ1I.jpeg' },
+    { id: 258, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (V Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/joh6zct.jpeg' },
+    { id: 259, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (MP Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/h3dp2PB.jpeg' },
+    { id: 260, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Side Skirts', title: 'BMW F06 / F12 / F13 M6 Carbon Side Skirt Extensions (V Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/3l623si.jpeg' },
+    { id: 261, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (3D Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/dX7qmVa.png' },
+    { id: 262, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (RPK Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/LeQOgzU.jpeg' },
+    { id: 263, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V1 Spec)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/nV7zHgU.jpeg' },
     { id: 264, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V2 Spec)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/oFvbqi3.jpeg' },
-    { id: 265, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (MP Style)', price: '$619 USD', saved: '$205 USD', image: 'https://i.imgur.com/fqPHyl7.jpeg' }, // 1800*1.8+1600
+    { id: 265, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (MP Style)', price: '$619 USD', saved: '$205 USD', image: 'https://i.imgur.com/fqPHyl7.jpeg' },
     { id: 266, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (H Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/Z9XYXPk.jpeg' }
 ];
-]; // 👈 確保最尾是以 中括號 加上 分號 結尾
