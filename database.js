@@ -4,8 +4,8 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-   'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5'],    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
-    'Audi': ['8V RS3', '8Y RS3'],
+'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'F2X 2-Series', 'F3X 3/4-Series', 'G80 M3', 'G82 M4', 'G87 M2', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6'],
+   'Audi': ['8V RS3', '8Y RS3'],
     'Toyota': ['A90 Supra'],
     'Nissan': ['R35 GTR']
 };
