@@ -4,7 +4,7 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series'],
+'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series', 'G30 / G38 5-Series'],
   'Toyota': ['A90 Supra'],
     'Nissan': ['R35 GTR']
 };
@@ -373,5 +373,26 @@ const exteriorDatabase = [
     { id: 343, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Rear Trunk Spoiler (M4 Heritage Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/Yq3MTgB.jpeg' },
     { id: 344, brand: 'BMW', compat: ['F10', 'F18'], category: 'Side Skirts', title: 'BMW F10 / F18 5-Series Carbon Side Skirt Extensions (Blade Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/LRW3jU0.jpeg' }, // 1000*1.8+1600
     { id: 345, brand: 'BMW', compat: ['F10', 'F18'], category: 'Side Skirts', title: 'BMW F10 / F18 5-Series Carbon Side Skirt Extensions (PSM Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/TlUHSua.jpeg' }, // 1500*1.8+1600
-    { id: 346, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser (3D Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/DQIWDab.jpeg' }  // 1200*1.8+1600
+    { id: 346, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser (3D Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/DQIWDab.jpeg' },// 1200*1.8+1600
+// === 🌟 NEW AUDIT: BMW G30 / G38 5-Series 高階集群 ===
+    { id: 347, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (MP Style)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/geqqaKF.jpeg' }, // (1200*1.8+1600)/7.8
+    { id: 348, brand: 'BMW', compat: ['G30', 'G38'], category: 'Exhaust Tips', title: 'BMW G30 / G38 5-Series Custom Exhaust Muffler Tips (Customizable)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/CIofpHy.jpeg' }, // (800*1.8+800)/7.8
+    { id: 349, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series Full Carbon Front Kidney Grille Surround', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/J92MKJn.jpeg' }, // (800*1.8+800)/7.8
+    { id: 350, brand: 'BMW', compat: ['G30', 'G38'], category: 'Mirror Covers', title: 'BMW G30 / G38 5-Series Carbon Fiber M-Horn Style Side Mirror Covers', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/58DUv2I.jpeg' }, // (600*1.8+800)/7.8
+    { id: 351, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Spoilers', title: 'BMW G30 / G38 5-Series Carbon Rear Trunk Spoiler (PSM Style)', price: '$409 USD', saved: '$205 USD', image: 'https://i.imgur.com/g4uADK2.jpeg' }, // (600*1.8+1600)/7.8
+    { id: 352, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Spoilers', title: 'BMW G30 / G38 5-Series Carbon Rear Trunk Spoiler (CS Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/3RJY9Hv.jpeg' }, // (500*1.8+1600)/7.8
+    { id: 353, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Spoilers', title: 'BMW G30 / G38 5-Series Carbon Rear Trunk Spoiler (M4 Heritage Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/SOWni2l.jpeg' },
+    { id: 354, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Spoilers', title: 'BMW G30 / G38 5-Series Carbon Rear Trunk Spoiler (M Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/RU6F3Ph.jpeg' },
+    { id: 355, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Spoilers', title: 'BMW G30 / G38 5-Series Carbon Rear Trunk Spoiler (MP Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/5PejpO6.jpeg' },
+    { id: 356, brand: 'BMW', compat: ['G30', 'G38'], category: 'Side Skirts', title: 'BMW G30 / G38 5-Series Carbon Side Skirt Extensions (Blade Style)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/iin8x2O.jpeg' }, // (1000*1.8+1600)/7.8
+    { id: 357, brand: 'BMW', compat: ['G30', 'G38'], category: 'Side Skirts', title: 'BMW G30 / G38 5-Series Carbon Side Skirt Extensions (MP Style)', price: '$459 USD', saved: '$205 USD', image: 'https://i.imgur.com/Algh4RE.jpeg' }, // (1100*1.8+1600)/7.8
+    { id: 358, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (C Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/R9A3PIl.jpeg' }, // (1300*1.8+1600)/7.8
+    { id: 359, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (3D Style)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/MfJpqFG.jpeg' }, // (2200*1.8+1600)/7.8
+    { id: 360, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (FD Style)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/tQY4blL.jpeg' }, // (1200*1.8+1600)/7.8
+    { id: 361, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (MP Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/FBCDble.jpeg' }, // (2000*1.8+1600)/7.8
+    { id: 362, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (H Style)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/asgDNe7.jpeg' }, // (1000*1.8+1600)/7.8
+    { id: 363, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (CC Style)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/Ewn4eVU.jpeg' },
+    { id: 364, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (AC Style)', price: '$529 USD', saved: '$205 USD', image: 'https://i.imgur.com/EjcYdpW.jpeg' }, // (1400*1.8+1600)/7.8
+    { id: 365, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (3D Style)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/yl0nWo9.jpeg' },
+    { id: 366, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (FD Style)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/mRf8v8v.jpeg' }   // (1000*1.8+1600)/7.8
 ];
