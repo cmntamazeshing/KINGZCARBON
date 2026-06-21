@@ -4,8 +4,7 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-   'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2'],    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
-    'Audi': ['8V RS3', '8Y RS3'],
+  'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M'],    'Audi': ['8V RS3', '8Y RS3'],
     'Toyota': ['A90 Supra'],
     'Nissan': ['R35 GTR']
 };
@@ -331,6 +330,25 @@ const exteriorDatabase = [
     { id: 302, brand: 'BMW', compat: ['G87'], category: 'Side Skirts', title: 'BMW G87 M2 Carbon Side Skirt Extensions (R44 Aero Design)', price: '$1009 USD', saved: '$205 USD', image: 'https://i.imgur.com/Va84zJf.jpeg' }, // 3500*1.8+1600
     { id: 303, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Engine Bay Full Carbon Fiber Engine Cover Overlay Trim', price: '$659 USD', saved: '$105 USD', image: 'https://i.imgur.com/IRQYqJ2.jpeg' },
     { id: 304, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (TAKD Style Premium Aero)', price: '$1029 USD', saved: '$205 USD', image: 'https://i.imgur.com/GEuNQqf.jpeg' }, // 3600*1.8+1600
-    { id: 305, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (R44 Aero Design)', price: '$1079 USD', saved: '$205 USD', image: 'https://i.imgur.com/cTTXChh.jpeg' } // 3800*1.8+1600
-];
-];
+    { id: 305, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (R44 Aero Design)', price: '$1079 USD', saved: '$205 USD', image: 'https://i.imgur.com/cTTXChh.jpeg' }, // 3800*1.8+1600
+// === 🌟 NEW AUDIT: BMW F97 X3M / F98 X4M 高階高性能集群 ===
+    { id: 306, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (E Style V1)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/Qp26Ucs.png' }, // 1500*1.8+1600
+    { id: 307, brand: 'BMW', compat: ['F97'], category: 'Rear Diffusers', title: 'BMW F97 X3M Carbon Rear Diffuser With LED F1 Brake Light (CH Style - X3M Exclusive)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/mJHGEgL.png' }, // 2600*1.8+1600
+    { id: 308, brand: 'BMW', compat: ['F98'], category: 'Rear Diffusers', title: 'BMW F98 X4M Carbon Rear Diffuser (3D Style - X4M Exclusive)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/7ybk6Gs.png' }, // 2800*1.8+1600
+    { id: 309, brand: 'BMW', compat: ['F97', 'F98'], category: 'Mirror Covers', title: 'BMW F97 X3M / F98 X4M Carbon Fiber M-Horn Style Side Mirror Covers', price: '$219 USD', saved: '$105 USD', image: 'https://i.imgur.com/J4OJoPq.png' }, // 500*1.8+800
+    { id: 310, brand: 'BMW', compat: ['F97'], category: 'Rear Spoilers', title: 'BMW F97 X3M Carbon Mid Roof Spoiler (C Style - X3M Exclusive)', price: '$409 USD', saved: '$205 USD', image: 'https://i.imgur.com/IkXjzUG.png' }, // 600*1.8+1600
+    { id: 311, brand: 'BMW', compat: ['F98'], category: 'Rear Spoilers', title: 'BMW F98 X4M Carbon Rear Trunk Spoiler (E Style - X4M Exclusive)', price: '$409 USD', saved: '$205 USD', image: 'https://i.imgur.com/SC4AiAX.png' },
+    { id: 312, brand: 'BMW', compat: ['F98'], category: 'Rear Spoilers', title: 'BMW F98 X4M Carbon Rear Trunk Spoiler (PSM Style - X4M Exclusive)', price: '$409 USD', saved: '$205 USD', image: 'https://i.imgur.com/PfPGQ0i.png' },
+    { id: 313, brand: 'BMW', compat: ['F97', 'F98'], category: 'Hood', title: 'BMW F97 X3M / F98 X4M Aggressive Carbon Fiber Hood (CS Style)', price: '$1709 USD', saved: '$360 USD', image: 'https://i.imgur.com/fMKG5ic.png' }, // 5000*1.8+2800 = 11800 -> $1709
+    { id: 314, brand: 'BMW', compat: ['F97', 'F98'], category: 'Other', title: 'BMW F97 X3M / F98 X4M Full Carbon Front Kidney Grille Surround', price: '$409 USD', saved: '$105 USD', image: 'https://i.imgur.com/t06JjcD.png' }, // 750*1.8+800
+    { id: 315, brand: 'BMW', compat: ['F98'], category: 'Rear Spoilers', title: 'BMW F98 X4M Carbon Rear Trunk Spoiler (CS Style - X4M Exclusive)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/psd2Vo6.png' }, // 500*1.8+1600
+    { id: 316, brand: 'BMW', compat: ['F97'], category: 'Rear Spoilers', title: 'BMW F97 X3M Carbon Upper Roof Wing Extension (MP Style - X3M Exclusive)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/M3dVnX2.png' }, // 1000*1.8+1600
+    { id: 317, brand: 'BMW', compat: ['F98'], category: 'Rear Diffusers', title: 'BMW F98 X4M Carbon Rear Diffuser With LED F1 Brake Light (CH Style - X4M Exclusive)', price: '$589 USD', saved: '$205 USD', image: 'https://i.imgur.com/xmKhwNR.png' }, // 2000*1.8+1600
+    { id: 318, brand: 'BMW', compat: ['F97'], category: 'Rear Diffusers', title: 'BMW F97 X3M Carbon Rear Diffuser (E Style - X3M Exclusive)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/MXBlH46.png' }, // 1800*1.8+1600
+    { id: 319, brand: 'BMW', compat: ['F97'], category: 'Rear Diffusers', title: 'BMW F97 X3M Carbon Rear Diffuser (3D Style - X3M Exclusive)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/6KOfURl.png' }, // 2800*1.8+1600
+    { id: 320, brand: 'BMW', compat: ['F97', 'F98'], category: 'Side Skirts', title: 'BMW F97 X3M / F98 X4M Carbon Side Skirt Extensions (3D Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/dkc4UrY.png' }, // 1500*1.8+1600
+    { id: 321, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (E Style V2)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/NmwTI2A.png' }, // 1600*1.8+1600
+    { id: 322, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (JC Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/QligR0x.png' }, // 2800*1.8+1600
+    { id: 323, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (ST Style)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/8S8Rv5d.png' }, // 1100*1.8+1600
+    { id: 324, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (3D Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/PbQ7BUn.png' }  // 1800*1.8+1600
+]; // 👈 確保最尾端以此符號閉合
