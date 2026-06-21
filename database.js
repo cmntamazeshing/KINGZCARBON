@@ -4,8 +4,7 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-    'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6'],
-    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
+   'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2'],    'Mercedes-Benz': ['W205 C63', 'W206 C-Class'],
     'Audi': ['8V RS3', '8Y RS3'],
     'Toyota': ['A90 Supra'],
     'Nissan': ['R35 GTR']
@@ -292,5 +291,46 @@ const exteriorDatabase = [
     { id: 263, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V1 Spec)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/nV7zHgU.jpeg' },
     { id: 264, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V2 Spec)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/oFvbqi3.jpeg' },
     { id: 265, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (MP Style)', price: '$619 USD', saved: '$205 USD', image: 'https://i.imgur.com/fqPHyl7.jpeg' },
-    { id: 266, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (H Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/Z9XYXPk.jpeg' }
+    { id: 266, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (H Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/Z9XYXPk.jpeg' },
+    // === 🌟 NEW AUDIT: BMW G87 M2 專屬高端外觀集群 ===
+    { id: 267, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Fiber Rear Diffuser (V Style Spec)', price: '$1929 USD', saved: '$205 USD', image: 'https://i.imgur.com/ecQWmUG.jpeg' }, // 7500*1.8+1600
+    { id: 268, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Full Carbon Fiber Underbody Protection Guard Shield', price: '$909 USD', saved: '$105 USD', image: 'https://i.imgur.com/D1RTfsR.jpeg' }, // 3500*1.8+800
+    { id: 269, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (R44 Spec)', price: '$779 USD', saved: '$205 USD', image: 'https://i.imgur.com/iMhXN72.jpeg' }, // 2500*1.8+1600
+    { id: 270, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (AD Style Premium)', price: '$1469 USD', saved: '$205 USD', image: 'https://i.imgur.com/0sAyHYF.jpeg' }, // 5500*1.8+1600
+    { id: 271, brand: 'BMW', compat: ['G87'], category: 'Side Skirts', title: 'BMW G87 M2 Carbon Side Skirt Extensions (MP Style Side Splitters)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/sERjlZE.jpeg' }, // 2600*1.8+1600
+    { id: 272, brand: 'BMW', compat: ['G87'], category: 'Side Skirts', title: 'BMW G87 M2 Carbon Side Skirt Extensions (TAKD Style Aero)', price: '$1309 USD', saved: '$205 USD', image: 'https://i.imgur.com/LjMsluP.jpeg' }, // 4800*1.8+1600
+    { id: 273, brand: 'BMW', compat: ['G87'], category: 'Side Skirts', title: 'BMW G87 M2 Carbon Side Skirt Extensions (V Style Premium)', price: '$1589 USD', saved: '$205 USD', image: 'https://i.imgur.com/lwOSimple.jpeg' }, // 6000*1.8+1600
+    { id: 274, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (OEM Style)', price: '$849 USD', saved: '$205 USD', image: 'https://i.imgur.com/x8D3tHi.png' }, // 2800*1.8+1600
+    { id: 275, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (TAKD Style)', price: '$1309 USD', saved: '$205 USD', image: 'https://i.imgur.com/yJeMbve.jpeg' },
+    { id: 276, brand: 'BMW', compat: ['G87'], category: 'Rear Spoilers', title: 'BMW G87 M2 Carbon Rear Spoiler (MP Style Small V1)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/24LpsnD.jpeg' }, // 800*1.8+1600
+    { id: 277, brand: 'BMW', compat: ['G87'], category: 'Rear Spoilers', title: 'BMW G87 M2 Track-Spec Motorsport Carbon Wing With Integrated LED Light (GT Style)', price: '$3209 USD', saved: '$360 USD', image: 'https://i.imgur.com/mjndrQw.jpeg' }, // 12000*1.8+3600
+    { id: 278, brand: 'BMW', compat: ['G87'], category: 'Rear Spoilers', title: 'BMW G87 M2 Carbon Roof Spoiler Extension Wing', price: '$849 USD', saved: '$205 USD', image: 'https://i.imgur.com/t8vtvJv.jpeg' },
+    { id: 279, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Front Bumper Foglight Vent Aero Canards (SQ Style)', price: '$749 USD', saved: '$105 USD', image: 'https://i.imgur.com/nZOUqnB.jpeg' }, // 2800*1.8+800
+    { id: 280, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Carbon Front Grille Center Mesh (MP Style)', price: '$619 USD', saved: '$105 USD', image: 'https://i.imgur.com/kIckmNs.jpeg' }, // 2200*1.8+800
+    { id: 281, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Carbon Front Grille Center Mesh (S Style Performance)', price: '$749 USD', saved: '$105 USD', image: 'https://i.imgur.com/MRcJZCa.jpeg' },
+    { id: 282, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Front Bumper Side Aero Canard Accents (MP Style)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/VsvOLgn.jpeg' }, // 1500*1.8+800
+    { id: 283, brand: 'BMW', compat: ['G87'], category: 'Mirror Covers', title: 'BMW G87 M2 Full Carbon Fiber Side Mirror Covers (OEM Plus Spec)', price: '$519 USD', saved: '$105 USD', image: 'https://i.imgur.com/O8EkXwy.jpeg' }, // 1800*1.8+800
+    { id: 284, brand: 'BMW', compat: ['G87'], category: 'Front Fender', title: 'BMW G87 M2 Lightweight Carbon Fiber Fenders Side Panel Set (V Style)', price: '$1919 USD', saved: '$360 USD', image: 'https://i.imgur.com/WRIPi8i.jpeg' }, // 特大件超重物流 6800*1.8+3600
+    { id: 285, brand: 'BMW', compat: ['G87'], category: 'Hood', title: 'BMW G87 M2 Aggressive Ventilated Carbon Fiber Hood Panel (V Style)', price: '$2469 USD', saved: '$360 USD', image: 'https://i.imgur.com/LTNNyce.jpeg' }, // 9200*1.8+2800 = 19360 -> $2469
+    { id: 286, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Carbon Fiber Roof Antenna Fin Overlay Cover', price: '$219 USD', saved: '$105 USD', image: 'https://i.imgur.com/g7nS68W.jpeg' }, // 500*1.8+800
+    { id: 287, brand: 'BMW', compat: ['G87'], category: 'Rear Spoilers', title: 'BMW G87 M2 Executive Carbon Fiber Trunk Racing Wing (MP Style Large V2)', price: '$1049 USD', saved: '$205 USD', image: 'https://i.imgur.com/hVzDOc7.jpeg' }, // 3000*1.8+1600
+    { id: 288, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (MP Style Performance Aero)', price: '$849 USD', saved: '$205 USD', image: 'https://i.imgur.com/yFTJjof.jpeg' }, // 2800*1.8+1600
+    { id: 289, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (V Style Spec High-Gloss)', price: '$1359 USD', saved: '$205 USD', image: 'https://i.imgur.com/WtIw3cs.jpeg' }, // 5000*1.8+1600
+    { id: 290, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Full Carbon Fiber Performance Bucket Seat Back Shell Covers', price: '$979 USD', saved: '$105 USD', image: 'https://i.imgur.com/bkA7j0G.jpeg' }, // 3800*1.8+800
+    { id: 291, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Rear Bumper Side Aero Canard Accents (MP Style)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/dfZlsSX.jpeg' },
+    { id: 292, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Front Bumper Lower Side Splitter Canards (TAKD Style)', price: '$409 USD', saved: '$105 USD', image: 'https://i.imgur.com/aZ1hTbT.jpeg' }, // 1300*1.8+800
+    { id: 293, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Carbon Grille Center Trim (CSL Heritage Style)', price: '$519 USD', saved: '$105 USD', image: 'https://i.imgur.com/oqlKta6.jpeg' }, // 1800*1.8+800
+    { id: 294, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Rear Bumper Wheel Vent Accents Inserts (MP Style Cover)', price: '$519 USD', saved: '$105 USD', image: 'https://i.imgur.com/oAykQQg.jpeg' },
+    { id: 295, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Front Bumper Side Mesh Intakes Air Vent Grille Trim (MP Style)', price: '$659 USD', saved: '$105 USD', image: 'https://i.imgur.com/f2789UJ.jpeg' }, // 2400*1.8+800
+    { id: 296, brand: 'BMW', compat: ['G87'], category: 'Rear Spoilers', title: 'BMW G87 M2 Elite Carbon Fiber Trunk Racing Wing (CH Style High-Downforce)', price: '$1999 USD', saved: '$205 USD', image: 'https://i.imgur.com/aZU5nMF.jpeg' }, // 7800*1.8+1600 -> 15640 -> $1999
+    { id: 297, brand: 'BMW', compat: ['G87'], category: 'Rear Spoilers', title: 'BMW G87 M2 Carbon Rear Spoiler (VS Style Aerodynamics)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/nOPJrY2.jpeg' },
+    { id: 298, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (CH Style Spec)', price: '$1589 USD', saved: '$205 USD', image: 'https://i.imgur.com/qqyLiNa.jpeg' }, // 6000*1.8+1600
+    { id: 299, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Center-Exhaust Upgrade Carbon Rear Diffuser (MP Special Center-Exit Setup Only)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/jaCIzaI.png' }, // 3000*1.8+1600
+    { id: 300, brand: 'BMW', compat: ['G87'], category: 'Side Skirts', title: 'BMW G87 M2 Carbon Side Skirt Extensions (ADRO Style Track Edition)', price: '$1129 USD', saved: '$205 USD', image: 'https://i.imgur.com/LRWYtpE.jpeg' }, // 4000*1.8+1600
+    { id: 301, brand: 'BMW', compat: ['G87'], category: 'Front Fender', title: 'BMW G87 M2 Lightweight Carbon Fiber Fenders Side Panel Set (N Carbon Racing)', price: '$1919 USD', saved: '$360 USD', image: 'https://i.imgur.com/MAedKMC.jpeg' },
+    { id: 302, brand: 'BMW', compat: ['G87'], category: 'Side Skirts', title: 'BMW G87 M2 Carbon Side Skirt Extensions (R44 Aero Design)', price: '$1009 USD', saved: '$205 USD', image: 'https://i.imgur.com/Va84zJf.jpeg' }, // 3500*1.8+1600
+    { id: 303, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Engine Bay Full Carbon Fiber Engine Cover Overlay Trim', price: '$659 USD', saved: '$105 USD', image: 'https://i.imgur.com/IRQYqJ2.jpeg' },
+    { id: 304, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (TAKD Style Premium Aero)', price: '$1029 USD', saved: '$205 USD', image: 'https://i.imgur.com/GEuNQqf.jpeg' }, // 3600*1.8+1600
+    { id: 305, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (R44 Aero Design)', price: '$1079 USD', saved: '$205 USD', image: 'https://i.imgur.com/cTTXChh.jpeg' } // 3800*1.8+1600
+];
 ];
