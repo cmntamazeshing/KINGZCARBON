@@ -4,8 +4,8 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-  'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M'],    'Audi': ['8V RS3', '8Y RS3'],
-    'Toyota': ['A90 Supra'],
+'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series'],
+  'Toyota': ['A90 Supra'],
     'Nissan': ['R35 GTR']
 };
 
@@ -350,5 +350,28 @@ const exteriorDatabase = [
     { id: 321, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (E Style V2)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/NmwTI2A.png' }, // 1600*1.8+1600
     { id: 322, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (JC Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/QligR0x.png' }, // 2800*1.8+1600
     { id: 323, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (ST Style)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/8S8Rv5d.png' }, // 1100*1.8+1600
-    { id: 324, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (3D Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/PbQ7BUn.png' }  // 1800*1.8+1600
+    { id: 324, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (3D Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/PbQ7BUn.png' },  // 1800*1.8+1600
+// === 🌟 NEW AUDIT: BMW F10 / F18 5-Series 改 M5 外觀專屬集群 ===
+    { id: 325, brand: 'BMW', compat: ['F10', 'F18'], category: 'Front Lips', title: 'BMW F10 / F18 5-Series Carbon Front Lip (RPK Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/4SRymQj.jpeg' }, // 1000*1.8+1600
+    { id: 326, brand: 'BMW', compat: ['F10', 'F18'], category: 'Front Lips', title: 'BMW F10 / F18 5-Series Carbon Front Lip (H Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/lzytOUY.jpeg' }, // 1200*1.8+1600
+    { id: 327, brand: 'BMW', compat: ['F10', 'F18'], category: 'Front Lips', title: 'BMW F10 / F18 5-Series Carbon Front Lip (3D Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/fyPRxyy.jpeg' },
+    { id: 328, brand: 'BMW', compat: ['F10', 'F18'], category: 'Front Lips', title: 'BMW F10 / F18 5-Series Carbon Front Lip (V Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/ntNW6GA.jpeg' },
+    { id: 329, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser With LED F1 Brake Light (CH Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/Bo04AKu.jpeg' }, // 1300*1.8+1600
+    { id: 330, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser (PSM Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/8ynBi4Y.jpeg' }, // 1900*1.8+1600
+    { id: 331, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Rear Trunk Spoiler (M Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/parN0u2.jpeg' }, // 500*1.8+1600
+    { id: 332, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Rear Trunk Spoiler (P Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/lZ0sMTT.jpeg' },
+    { id: 333, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Rear Trunk Spoiler (V Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/Dwx9nol.jpeg' }, // 1400*1.8+1600
+    { id: 334, brand: 'BMW', compat: ['F10', 'F18'], category: 'Mirror Covers', title: 'BMW F10 / F18 5-Series Carbon Fiber M-Horn Style Side Mirror Covers', price: '$249 USD', saved: '$105 USD', image: 'https://i.imgur.com/1Je7sdm.jpeg' }, // 650*1.8+800
+    { id: 335, brand: 'BMW', compat: ['F10', 'F18'], category: 'Other', title: 'BMW F10 / F18 5-Series M5 Look Front Bumper Conversion Kit (Narrow Body Facelift Setup - Without Foglight Option / Perfect Base Match)', price: '$3759 USD', saved: '$460 USD', image: 'https://i.imgur.com/DGvZdp5.jpeg' }, // 特大重件物流 12000*1.8+3600
+    { id: 336, brand: 'BMW', compat: ['F10', 'F18'], category: 'Other', title: 'BMW F10 / F18 5-Series M5 Look Rear Bumper Conversion Kit (Narrow Body Facelift Setup / Perfect Base Match)', price: '$3759 USD', saved: '$460 USD', image: 'https://i.imgur.com/uFHZtyy.jpeg' },
+    { id: 337, brand: 'BMW', compat: ['F10', 'F18'], category: 'Side Skirts', title: 'BMW F10 / F18 5-Series Carbon Side Skirt Extensions (3D Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/o55JUMo.jpeg' }, // 1200*1.8+1600
+    { id: 338, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser (V Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/wzIoDPJ.jpeg' },
+    { id: 339, brand: 'BMW', compat: ['F10', 'F18'], category: 'Other', title: 'BMW F10 / F18 5-Series M5 Look Front Bumper Conversion Kit (Narrow Body Facelift Setup - With Foglight Option / Perfect Base Match)', price: '$3779 USD', saved: '$460 USD', image: 'https://i.imgur.com/oeV1SHO.jpeg' }, // 已修正為 1300 成本計算: 13000*1.8+3600 -> $3779
+    { id: 340, brand: 'BMW', compat: ['F10', 'F18'], category: 'Other', title: 'BMW F10 / F18 5-Series Full Carbon Front Kidney Grilles (M5 Conversion Bumper Dedicated Only)', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/AvLLdWY.jpeg' }, // 800*1.8+800
+    { id: 341, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Fiber Upper Roof Wing Extension', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/fliGTZs.jpeg' }, // 500*1.8+1600
+    { id: 342, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Rear Trunk Spoiler (PSM Style)', price: '$409 USD', saved: '$205 USD', image: 'https://i.imgur.com/9P9KMOa.jpeg' }, // 600*1.8+1600
+    { id: 343, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Spoilers', title: 'BMW F10 / F18 5-Series Carbon Rear Trunk Spoiler (M4 Heritage Style)', price: '$389 USD', saved: '$205 USD', image: 'https://i.imgur.com/Yq3MTgB.jpeg' },
+    { id: 344, brand: 'BMW', compat: ['F10', 'F18'], category: 'Side Skirts', title: 'BMW F10 / F18 5-Series Carbon Side Skirt Extensions (Blade Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$439 USD', saved: '$205 USD', image: 'https://i.imgur.com/LRW3jU0.jpeg' }, // 1000*1.8+1600
+    { id: 345, brand: 'BMW', compat: ['F10', 'F18'], category: 'Side Skirts', title: 'BMW F10 / F18 5-Series Carbon Side Skirt Extensions (PSM Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/TlUHSua.jpeg' }, // 1500*1.8+1600
+    { id: 346, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser (3D Style - Only For M5 Aftermarket Narrow Body Bumper Setup)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/DQIWDab.jpeg' }  // 1200*1.8+1600
 ];
