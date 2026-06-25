@@ -109,24 +109,36 @@ body {
         </div>
     </div>
 
+    <div class="md:hidden mb-6">
+        <button onclick="toggleMobileSidebar()" class="w-full py-3 bg-black bg-opacity-80 rounded-xl border gold-border text-xs tracking-widest uppercase font-bold text-yellow-400 transition hover:bg-yellow-600 hover:text-black flex items-center justify-center gap-2 shadow-lg">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+            Filter Components
+        </button>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
         
-        <div class="md:col-span-1 bg-black bg-opacity-60 rounded-2xl gold-border p-5 sticky top-6 space-y-2.5 shadow-xl z-10">
-            <span class="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-4 border-b border-gray-900 pb-2 text-center md:text-left">
-                Categories
-            </span>
-            <button onclick="selectCategory('All')" id="cat-All" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">All Components</button>
-            <button onclick="selectCategory('Front Lips')" id="cat-FrontLips" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Lips</button>
-            <button onclick="selectCategory('Side Skirts')" id="cat-SideSkirts" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Side Skirts</button>
-            <button onclick="selectCategory('Rear Diffusers')" id="cat-RearDiffusers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Rear Diffusers</button>
-            <button onclick="selectCategory('Rear Spoilers')" id="cat-RearSpoilers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Rear Spoilers</button>
-            <button onclick="selectCategory('Mirror Covers')" id="cat-MirrorCovers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Mirror Covers</button>
-            <button onclick="selectCategory('Front Fender')" id="cat-FrontFender" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Fender</button>
-            <button onclick="selectCategory('Hood')" id="cat-Hood" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Hood</button>
-            <button onclick="selectCategory('Trunk')" id="cat-Trunk" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Trunk</button>
-            <button onclick="selectCategory('Badges')" id="cat-Badges" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Badges</button>
-            <button onclick="selectCategory('Other')" id="cat-Other" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Other (Accents)</button>
+        <div id="category-sidebar" class="fixed inset-y-0 left-0 w-72 bg-black bg-opacity-95 md:bg-opacity-60 p-6 md:p-5 md:static md:w-auto md:h-auto md:rounded-2xl gold-border space-y-2.5 shadow-2xl md:shadow-xl transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-[90] md:sticky md:top-6">
+            <div class="flex items-center justify-between border-b border-gray-900 pb-3 mb-4 md:mb-2">
+                <span class="text-xs text-gray-500 uppercase tracking-widest font-bold">
+                    Categories
+                </span>
+                <button onclick="toggleMobileSidebar()" class="md:hidden text-gray-400 hover:text-yellow-400 text-xl font-bold">&times;</button>
+            </div>
+            <button onclick="selectCategoryCloseMobile('All')" id="cat-All" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">All Components</button>
+            <button onclick="selectCategoryCloseMobile('Front Lips')" id="cat-FrontLips" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Lips</button>
+            <button onclick="selectCategoryCloseMobile('Side Skirts')" id="cat-SideSkirts" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Side Skirts</button>
+            <button onclick="selectCategoryCloseMobile('Rear Diffusers')" id="cat-RearDiffusers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Rear Diffusers</button>
+            <button onclick="selectCategoryCloseMobile('Rear Spoilers')" id="cat-RearSpoilers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Rear Spoilers</button>
+            <button onclick="selectCategoryCloseMobile('Mirror Covers')" id="cat-MirrorCovers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Mirror Covers</button>
+            <button onclick="selectCategoryCloseMobile('Front Fender')" id="cat-FrontFender" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Fender</button>
+            <button onclick="selectCategoryCloseMobile('Hood')" id="cat-Hood" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Hood</button>
+            <button onclick="selectCategoryCloseMobile('Trunk')" id="cat-Trunk" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Trunk</button>
+            <button onclick="selectCategoryCloseMobile('Badges')" id="cat-Badges" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Badges</button>
+            <button onclick="selectCategoryCloseMobile('Other')" id="cat-Other" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Other (Accents)</button>
         </div>
+
+        <div id="sidebar-overlay" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-xs hidden z-[80]"></div>
 
         <div class="md:col-span-3 relative min-h-[50vh]">
             
@@ -173,6 +185,7 @@ body {
                         </div>
                     </div>
                 </div>
+
                 <div class="text-center mb-5 select-none">
                     <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow">KINGZCARBON SHOWCASE</span>
                 </div>
@@ -187,13 +200,13 @@ body {
 
                 <div class="text-center mt-6 px-4 select-none">
                     <p class="text-[11px] text-gray-400 font-bold tracking-wider pulse-text uppercase leading-relaxed">
-                        ← Please select your Brand and Chassis configuration above to explore your custom assets.
+                        &larr; Please select your Brand and Chassis configuration above to explore your custom assets.
                     </p>
                 </div>
             </div>
 
             <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
-                </div>
+            </div>
             
             <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
                 <p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found matching the criteria.</p>
@@ -241,12 +254,10 @@ let currentModel = 'All';
 let currentCategory = 'All';
 let initialLoad = true;
 
-// 🎬 迎賓大圖奢華輪播集
 const heroShowcaseSlides = [
     { image: 'https://i.imgur.com/NZtQRfC.jpeg' },    
     { image: 'https://i.imgur.com/0StnhdP.jpeg' },
     { image: 'https://i.imgur.com/MshTVDg.jpeg' }
-
 ];
 let currentHeroIndex = 0;
 
@@ -265,6 +276,31 @@ function prevHeroImg(event) {
     event.stopPropagation();
     currentHeroIndex = (currentHeroIndex - 1 + heroShowcaseSlides.length) % heroShowcaseSlides.length;
     updateHeroSlide();
+}
+
+/* 📱 手機版側欄抽屜開關邏輯 */
+function toggleMobileSidebar() {
+    const sidebar = document.getElementById('category-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    
+    if (sidebar.classList.contains('-translate-x-full')) {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+        document.body.classList.add('modal-open');
+    } else {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+    }
+}
+
+/* 📱 手機版揀完分類自動收返埋側欄 */
+function selectCategoryCloseMobile(category) {
+    selectCategory(category);
+    // 如果係手機畫面，揀完就自動收埋
+    if (window.innerWidth < 768) {
+        toggleMobileSidebar();
+    }
 }
 
 function selectBrand(brand, isInit = false) {
@@ -385,7 +421,7 @@ function renderMatrix() {
 
     if (currentModel !== 'All' && currentChassisTokens.length > 0) {
         filteredData.sort((a, b) => {
-            let aIsStrictExclusive = a.compat && !a.compat.includes('All') && currentChassisTokens.some(t => a.compat.includes(t));
+            let aIsStrictExclusive = a.compat && !a.compat.includes('All偏') && currentChassisTokens.some(t => a.compat.includes(t));
             let bIsStrictExclusive = b.compat && !b.compat.includes('All') && currentChassisTokens.some(t => b.compat.includes(t));
 
             if (aIsStrictExclusive && !bIsStrictExclusive) return -1;
