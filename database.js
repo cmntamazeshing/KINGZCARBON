@@ -5,7 +5,7 @@
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-  'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series', 'G30 / G38 5-Series', 'F30 / F35 3-Series'],
+  'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series', 'G30 / G38 5-Series', 'F30 / F35 3-Series', 'F32 / F33 / F36 4-Series'],
   'Toyota': ['A90 Supra'],
   'Nissan': ['R35 GTR']
 };
@@ -417,5 +417,29 @@ const exteriorDatabase = [
     { id: 381, brand: 'BMW', compat: ['F30', 'F35'], category: 'Mirror Covers', title: 'BMW F30 / F35 3-Series Carbon Side Mirror Covers (M4 Horn Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/6x7onN8.jpeg' },
     { id: 382, brand: 'BMW', compat: ['F30'], category: 'Rear Spoilers', title: 'BMW F30 3-Series Carbon Rear Trunk Spoiler (M4 Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/1mV3C7e.jpeg' },
     { id: 383, brand: 'BMW', compat: ['F30'], category: 'Rear Spoilers', title: 'BMW F30 3-Series Carbon Rear Trunk Spoiler (CS Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/H16Ivb2.jpeg' },
-    { id: 384, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series M3 Look Full Aerodynamic Narrow Body Kit Conversion Package (Perfect Base Match Setup)', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/WcfxAX8.jpeg' }
+    { id: 384, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series M3 Look Full Aerodynamic Narrow Body Kit Conversion Package (Perfect Base Match Setup)', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/WcfxAX8.jpeg' },
+
+  
+// === BMW F32 / F33 / F36 4-Series M Sport 專屬集群 (V2 FORMULA) ===
+    { id: 385, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Front Lips', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Lip (CC Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/2fOZRLk.jpeg' },
+    { id: 386, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Front Lips', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Lip (MAD Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/WbVuSAv.jpeg' },
+    { id: 387, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Side Skirts', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Skirt Extensions (MP Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/LhDtuIl.jpeg' },
+    { id: 388, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Side Skirts', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Skirt Extensions (FD Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/BYFpi65.jpeg' },
+    { id: 389, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Rear Diffusers', title: 'BMW F32 / F33 / F36 4-Series Carbon Rear Diffuser With LED F1 Brake Light (CH Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/rUHFdqB.jpeg' },
+    { id: 390, brand: 'BMW', compat: ['F32'], category: 'Rear Spoilers', title: 'BMW F32 4-Series Carbon Rear Trunk Spoiler (M4 Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/JILTPvJ.jpeg' },
+    { id: 391, brand: 'BMW', compat: ['F32'], category: 'Rear Spoilers', title: 'BMW F32 4-Series Carbon Rear Trunk Spoiler (MP Style Spec)', price: '$629 USD', saved: '$105 USD', image: 'https://i.imgur.com/XoibaAj.jpeg' },
+    { id: 392, brand: 'BMW', compat: ['F32'], category: 'Rear Spoilers', title: 'BMW F32 4-Series Carbon Rear Trunk Spoiler (MAD Style Spec)', price: '$629 USD', saved: '$105 USD', image: 'https://i.imgur.com/x72kJXv.jpeg' },
+    { id: 393, brand: 'BMW', compat: ['F32'], category: 'Rear Spoilers', title: 'BMW F32 4-Series Carbon Rear Trunk Spoiler (V Style Spec)', price: '$629 USD', saved: '$105 USD', image: 'https://i.imgur.com/jB1MOYZ.jpeg' },
+    { id: 394, brand: 'BMW', compat: ['F32'], category: 'Rear Spoilers', title: 'BMW F32 4-Series Carbon Rear Trunk Spoiler (PSM Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/CF4eYa1.jpeg' },
+    { id: 395, brand: 'BMW', compat: ['F32'], category: 'Rear Spoilers', title: 'BMW F32 4-Series Carbon Rear Trunk Spoiler (CS Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/30HBpxD.jpeg' },
+    { id: 396, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Other', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Kidney Grilles', price: '$299 USD', saved: '$105 USD', image: 'https://i.imgur.com/sn1i3em.jpeg' },
+    { id: 397, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Mirror Covers', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Mirror Covers (M4 Horn Style)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/WWVochA.jpeg' },
+    { id: 398, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Mirror Covers', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Mirror Covers (OEM Style)', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/VsrdmEy.jpeg' },
+    { id: 399, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Other', title: 'BMW F32 / F33 / F36 4-Series Carbon Rear Bumper Side Splitters (MP Style)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/DjXD2EG.jpeg' },
+    { id: 400, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Other', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Bumper Canards (CC Style)', price: '$279 USD', saved: '$105 USD', image: 'https://i.imgur.com/fKL8bgW.jpeg' },
+    { id: 401, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Rear Diffusers', title: 'BMW F32 / F33 / F36 4-Series Carbon Rear Diffuser (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/RXcBNp8.jpeg' },
+    { id: 402, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Side Skirts', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Skirt Extensions (OT Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/Mt1Xh3W.jpeg' },
+    { id: 403, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Side Skirts', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Skirt Extensions (Blade Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/UBZ0sfJ.jpeg' },
+    { id: 404, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Front Lips', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Lip (MP Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/3u1HDtH.jpeg' },
+    { id: 405, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Front Lips', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Lip (FD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/mhBE4G7.jpeg' }
 ];
