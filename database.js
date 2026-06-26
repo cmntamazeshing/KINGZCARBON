@@ -3,9 +3,32 @@
  * 🛠️ KINGZCARBON 核心外觀數據庫 (最新標準分流外掛數據庫檔案)
  */ 
 
-// 1. 底盤代號與品牌自動綁定集群
+// 1. 底盤代號與品牌自動綁定集群 (已按 E -> F(小到大) -> F(M) -> G(小到大) -> G(M) 完美排序)
 const chassisMapping = {
-  'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series', 'G30 / G38 5-Series', 'F30 / F35 3-Series', 'F32 / F33 / F36 4-Series'],
+  'BMW': [
+    // F 世代標準車系 (從小到大)
+    'F30 / F35 3-Series', 
+    'F32 / F33 / F36 4-Series',
+    'F34 3-Series GT', 
+    'F10 / F18 5-Series',
+    
+    // F 世代 M Power 集群
+    'F87 M2 / M2C', 
+    'F80 M3', 
+    'F82 / F83 M4', 
+    'F90 M5', 
+    'F06 / F12 / F13 M6', 
+    'F97 X3M / F98 X4M',
+    
+    // G 世代標準車系 (從小到大)
+    'G20 / G28 3-Series', 
+    'G30 / G38 5-Series',
+    
+    // G 世代 M Power 集群
+    'G87 M2', 
+    'G80 M3', 
+    'G82 M4'
+  ],
   'Toyota': ['A90 Supra'],
   'Nissan': ['R35 GTR']
 };
