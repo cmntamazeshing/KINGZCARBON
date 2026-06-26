@@ -1,12 +1,13 @@
 /**
+/**
  * 🛠️ KINGZCARBON 核心外觀數據庫 (最新標準分流外掛數據庫檔案)
  */ 
 
 // 1. 底盤代號與品牌自動綁定集群
 const chassisMapping = {
-'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series', 'G30 / G38 5-Series'],
+  'BMW': ['F80 M3', 'F82 / F83 M4', 'F87 M2 / M2C', 'G80 M3', 'G82 M4', 'G20 / G28 3-Series', 'F34 3-Series GT', 'F90 M5', 'F06 / F12 / F13 M6', 'G87 M2', 'F97 X3M / F98 X4M', 'F10 / F18 5-Series', 'G30 / G38 5-Series', 'F30 / F35 3-Series (M3 Conversion Bumper Setup)'],
   'Toyota': ['A90 Supra'],
-    'Nissan': ['R35 GTR']
+  'Nissan': ['R35 GTR']
 };
 
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤)
@@ -393,6 +394,26 @@ const exteriorDatabase = [
     { id: 362, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (H Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/asgDNe7.jpeg' }, // 大件: (1000*1.8+1600)/7.8 + 120 = $555 -> $559
     { id: 363, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (CC Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/Ewn4eVU.jpeg' }, // 大件: (1200*1.8+1600)/7.8 + 120 = $640 -> $599 (對齊尾數9下調)
     { id: 364, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (AC Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/EjcYdpW.jpeg' }, // 大件: (1400*1.8+1600)/7.8 + 120 = $648 -> $649
-    { id: 365, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (3D Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/yl0nWo9.jpeg' }, // 大件
-    { id: 366, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (FD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/mRf8v8v.jpeg' }  // 大件: (1000*1.8+1600)/7.8 + 120 = $555 -> $559
+{ id: 365, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (3D Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/yl0nWo9.jpeg' }, // 大件
+    { id: 366, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (FD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/mRf8v8v.jpeg' }, // 大件: (1000*1.8+1600)/7.8 + 120 = $555 -> $559
+
+    // === 🌟 NEW AUDIT (V2 FORMULA): BMW F30 / F35 3-Series 改 M3 外觀專屬集群 ===
+    { id: 367, brand: 'BMW', compat: ['F30', 'F35'], category: 'Rear Diffusers', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Rear Diffuser (CH Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/0eZimKn.jpeg' }, // 大件: (1300*1.8+1600)/7.8 + 120 = $625 -> $629
+    { id: 368, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series Aerospace-Grade GTS Style Hood (Premium Aluminum)', price: '$999 USD', saved: '$360 USD', image: 'https://i.imgur.com/yizkVdA.jpeg' }, // 特大重件: (1600*1.8+3600)/7.8 + 160 = $990 -> $999
+    { id: 369, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series GTS Style Hood (Heavy Duty Pressed Steel)', price: '$929 USD', saved: '$360 USD', image: 'https://i.imgur.com/yizkVdA.jpeg' }, // 特大重件: (1300*1.8+3600)/7.8 + 160 = $921 -> $929
+    { id: 370, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber GTS Style Hood', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/CUKsRx8.jpeg' }, // 特大重件: (2800*1.8+3600)/7.8 + 160 = $1267 -> $1269
+    { id: 371, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series Automotive-Grade Gloss Black Front Kidney Grille (Dual Slat M3 Style)', price: '$219 USD', saved: '$105 USD', image: 'https://i.imgur.com/OLMf1FM.jpeg' }, // 小件: (300*1.8+800)/7.8 + 40 = $211 -> $219
+    { id: 372, brand: 'BMW', compat: ['F30', 'F35'], category: 'Front Lips', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Front Lip Splitter (MP Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/fEFHJbr.jpeg' }, // 大件: (1300*1.8+1600)/7.8 + 120 = $625 -> $629
+    { id: 373, brand: 'BMW', compat: ['F30', 'F35'], category: 'Front Lips', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Front Lip Splitter (V Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/DIyBRec.jpeg' }, // 大件: (1000*1.8+1600)/7.8 + 120 = $555 -> $559
+    { id: 374, brand: 'BMW', compat: ['F30', 'F35'], category: 'Front Lips', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Front Lip Splitter (PSM Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/mNCvSxe.jpeg' }, // 大件
+    { id: 375, brand: 'BMW', compat: ['F30', 'F35'], category: 'Front Lips', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Front Lip Splitter (3D Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/WEPpuVE.jpeg' }, // 大件
+    { id: 376, brand: 'BMW', compat: ['F30', 'F35'], category: 'Front Lips', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Front Lip Splitter (R Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/JwXesh9.jpeg' }, // 大件
+    { id: 377, brand: 'BMW', compat: ['F30', 'F35'], category: 'Front Lips', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Front Lip Splitter (Varis Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/m6oVv51.jpeg' }, // 大件
+    { id: 378, brand: 'BMW', compat: ['F30', 'F35'], category: 'Rear Diffusers', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Rear Diffuser (V Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/iiOdCbc.jpeg' }, // 大件: (1300*1.8+1600)/7.8 + 120 = $625 -> $629
+    { id: 379, brand: 'BMW', compat: ['F30', 'F35'], category: 'Side Skirts', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Side Skirt Extensions (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/lo4ipjL.jpeg' }, // 大件: (1200*1.8+1600)/7.8 + 120 = $602 -> $599 (對齊尾數9下調)
+    { id: 380, brand: 'BMW', compat: ['F30', 'F35'], category: 'Side Skirts', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Side Skirt Extensions (R Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/kLygxl9.jpeg' }, // 大件: (1300*1.8+1600)/7.8 + 120 = $625 -> $629
+    { id: 381, brand: 'BMW', compat: ['F30', 'F35'], category: 'Mirror Covers', title: 'BMW F30 / F35 3-Series Genuine Hand-Laid Carbon Fiber Side Mirror Covers (M4 Horn Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/6x7onN8.jpeg' }, // 小件: (500*1.8+800)/7.8 + 40 = $257 -> $259
+    { id: 382, brand: 'BMW', compat: ['F30'], category: 'Rear Spoilers', title: 'BMW F30 3-Series Genuine Hand-Laid Carbon Fiber Rear Trunk Spoiler (M4 Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/1mV3C7e.jpeg' }, // 小件 (僅限 F30 房車)
+    { id: 383, brand: 'BMW', compat: ['F30'], category: 'Rear Spoilers', title: 'BMW F30 3-Series Genuine Hand-Laid Carbon Fiber Rear Trunk Spoiler (CS Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/H16Ivb2.jpeg' }, // 小件 (僅限 F30 房車)
+    { id: 384, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series M3 Look Full Aerodynamic Narrow Body Kit Conversion Package (Perfect Base Match Setup)', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/WcfxAX8.jpeg' } // 特大重件: (6500*1.8+3600)/7.8 + 160 = $2121 -> $2129
 ];
