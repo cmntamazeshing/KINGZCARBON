@@ -372,10 +372,10 @@ async function loadChassisDatabase(targetGroup, callback) {
             let fileTarget = '';
             const upper = targetGroup.toUpperCase();
             
-            // 🚀 【核心邏輯修正】：如果使用者點擊的是 G30 或 G38，強行導流讀取 bmwf.js
-            if (upper.includes('G30') || upper.includes('G38')) {
+            // 🚀 【核心路由大修正】：只要點選字串包含 G30, G38, 或是 X6 相關底盤，精準做分流導向
+            if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) {
                 fileTarget = 'bmwf.js';
-            } else if (upper.startsWith('E')) {
+            } else if (upper.startsWith('E') || upper.includes('E90') || upper.includes('E92') || upper.includes('E93')) {
                 fileTarget = 'bmwe.js';
             } else if (upper.startsWith('G')) {
                 fileTarget = 'bmwg.js';
