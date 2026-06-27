@@ -311,4 +311,4 @@ const exteriorDatabase = [
   { id: 497, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (M Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/vNhnUoq.jpeg' },
   { id: 498, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (PSM Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/AjlizkU.jpeg' },
   { id: 499, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Upper Roof Wing Spoiler (H Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/YmMOQ5a.jpeg' }
-],
+];
