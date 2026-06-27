@@ -97,7 +97,7 @@ body {
             <button onclick="selectBrand('BMW')" id="brand-BMW" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">BMW</button>
             <button onclick="selectBrand('Mercedes-Benz')" id="brand-Benz" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Mercedes-Benz</button>
             <button onclick="selectBrand('Audi')" id="brand-Audi" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Audi</button>
-            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition tracking-wider transition hover:border-yellow-600">Toyota</button>
+            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Toyota</button>
             <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
         </div>
 
@@ -223,8 +223,12 @@ body {
     <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
         <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
         
-        <div class="w-full p-2 bg-black flex items-center justify-center">
+        <div class="w-full p-2 bg-black flex items-center justify-center relative select-none">
+            <button onclick="prevLightboxImg()" class="absolute left-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&larr;</button>
+            
             <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[75vh] w-auto mx-auto object-contain block">
+            
+            <button onclick="nextLightboxImg()" class="absolute right-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&rarr;</button>
         </div>
         <div class="p-6 md:p-8 bg-black bg-opacity-95">
             <h3 id="modal-title" class="text-lg md:text-xl font-bold text-gray-100 tracking-wide"></h3>
@@ -245,12 +249,19 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (完全體：跨庫聚合 + 跨代碼定向導流)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體：串行聚合 + Lightbox 左右切換)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
 let initialLoad = true;
+
+// 全局儲存當前篩選出的商品列表矩陣，供 Lightbox 左右切換讀取
+let activeFilteredData = [];
+let currentLightboxIndex = 0;
+
+// 全局唯一的外觀數據緩存（由動態加載的 bmwe.js / bmwf.js / bmwg.js 寫入）
+let exteriorDatabase = []; 
 
 // 1. 內置車型選單配置矩陣 (嚴格執行 E -> F車系 -> F(M) -> G車系 -> G(M) 排序 Rules)
 const chassisMapping = {
@@ -277,9 +288,6 @@ const chassisMapping = {
   'Toyota': ['A90 Supra'],
   'Nissan': ['R35 GTR']
 };
-
-// 全局唯一的外觀數據緩存（由動態加載的 bmwe.js / bmwf.js / bmwg.js 聚合與改寫）
-let exteriorDatabase = []; 
 
 const heroShowcaseSlides = [
     { image: 'https://i.imgur.com/NZtQRfC.jpeg' },    
@@ -338,29 +346,26 @@ function fetchScript(src) {
         const script = document.createElement('script');
         script.className = 'dynamic-db-script';
         script.src = src;
-        script.async = false; // 💡 使用同步阻塞加載，確保執行順序不丟失
+        script.async = false; // 💡 使用同步阻塞加載，確保串行執行順序
         script.onload = () => resolve();
-        script.onerror = () => resolve(); // 即使報錯也放行，防止 Promise.all 癱瘓
+        script.onerror = () => resolve(); // 報錯亦放行，防止 Promise 掛起
         document.body.appendChild(script);
     });
 }
 
 /**
- * 🚀 動態路由核心：串行安全加載與全庫跨庫聚起動態加載 (解決變數污染白屏問題)
+ * 🚀 動態路由核心：串行安全加載與全局 window 作用域接收
  */
 async function loadChassisDatabase(targetGroup, callback) {
-    // 1. 清除殘留標籤
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
 
-    // 2. 清空全局主陣列
     exteriorDatabase = [];
-
     const upper = targetGroup.toUpperCase();
 
     try {
         if (upper === 'ALL_BMW') {
-            // 💡 串行讀取加載，並在讀取的瞬間捕獲資料，防止陣列變數被同名覆蓋
+            // 💡 串行依序加載各大分流模組，並在 onload 的瞬間捕獲 window 物件內的數據
             await fetchScript('bmwe.js?v=' + Date.now());
             const eData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             
@@ -370,18 +375,16 @@ async function loadChassisDatabase(targetGroup, callback) {
             await fetchScript('bmwg.js?v=' + Date.now());
             const gData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
 
-            // 合併全庫數據
             exteriorDatabase = [...eData, ...fData, ...gData];
         } else {
-            // 💡 針對單一底盤進行精準路由導流
             let fileTarget = '';
             
-            // 🚀 特殊導流：G30, G38, F90, F10, F18, F16 統一導往 bmwf.js
+            // 🚀 精準路由攔截：G30, G38, F90, F10, F18, F16 導向 bmwf.js
             if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) {
                 fileTarget = 'bmwf.js';
             } else if (upper.includes('G22')) {
                 fileTarget = 'bmwg.js';
-            } else if (upper.startsWith('E')) {
+            } else if (upper.startsWith('E') || upper.includes('E90') || upper.includes('E92') || upper.includes('E93')) {
                 fileTarget = 'bmwe.js';
             } else if (upper.startsWith('G')) {
                 fileTarget = 'bmwg.js';
@@ -391,7 +394,6 @@ async function loadChassisDatabase(targetGroup, callback) {
 
             if (fileTarget) {
                 await fetchScript(fileTarget + '?v=' + Date.now());
-                // 讀取檔案寫入的變數
                 if (Array.isArray(window.exteriorDatabase)) {
                     exteriorDatabase = [...window.exteriorDatabase];
                 }
@@ -504,7 +506,8 @@ function renderMatrix() {
         currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
     }
 
-    let filteredData = exteriorDatabase.filter(item => {
+    // 將篩選結果同步存入全局變數 activeFilteredData 矩陣，供 Lightbox 讀取上下張次序
+    activeFilteredData = exteriorDatabase.filter(item => {
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
         const isUniversal = (item.brand === 'All' && item.compat && item.compat.includes('All'));
         
@@ -531,7 +534,7 @@ function renderMatrix() {
     });
 
     if (currentModel !== 'All' && currentChassisTokens.length > 0) {
-        filteredData.sort((a, b) => {
+        activeFilteredData.sort((a, b) => {
             let aIsStrictExclusive = a.compat && !a.compat.includes('All') && currentChassisTokens.some(t => a.compat.includes(t));
             let bIsStrictExclusive = b.compat && !b.compat.includes('All') && currentChassisTokens.some(t => b.compat.includes(t));
 
@@ -541,18 +544,18 @@ function renderMatrix() {
         });
     }
 
-    if (filteredData.length === 0) {
+    if (activeFilteredData.length === 0) {
         gridContainer.classList.add('hidden');
         emptyState.classList.remove('hidden');
     } else {
         emptyState.className = "hidden";
         gridContainer.classList.remove('hidden');
 
-        filteredData.forEach((item, loopIndex) => {
+        activeFilteredData.forEach((item, loopIndex) => {
             let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
             
             let cardHtml = `
-                <div onclick="openLightboxByIndex(${item.id || 0}, ${loopIndex}, '${item.title.replace(/'/g, "\\'")}')" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between">
+                <div onclick="openLightbox(${loopIndex})" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between">
                     <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
                         <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain transition duration-500">
                     </div>
@@ -567,12 +570,11 @@ function renderMatrix() {
     }
 }
 
-function openLightboxByIndex(productId, fallbackIndex, fallbackTitle) {
-    let item = exteriorDatabase.find(p => p.id === productId && p.title === fallbackTitle);
-    if (!item) {
-        item = exteriorDatabase.find(p => p.title === fallbackTitle);
-    }
-    if (!item) return;
+// 💡 根據篩選後的當前矩陣索引打開 Lightbox
+function openLightbox(index) {
+    if (index < 0 || index >= activeFilteredData.length) return;
+    currentLightboxIndex = index;
+    const item = activeFilteredData[index];
 
     let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
     let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup (${item.title}).`;
@@ -588,6 +590,34 @@ function openLightboxByIndex(productId, fallbackIndex, fallbackTitle) {
     const modal = document.getElementById('product-lightbox-modal');
     modal.classList.remove('opacity-0', 'pointer-events-none');
     document.body.classList.add('modal-open');
+}
+
+// 💡 鍵盤監聽：點擊左右方向鍵也能直接切換
+window.addEventListener('keydown', function(e) {
+    const modal = document.getElementById('product-lightbox-modal');
+    if (modal.classList.contains('opacity-0')) return;
+
+    if (e.key === 'ArrowRight') {
+        nextLightboxImg();
+    } else if (e.key === 'ArrowLeft') {
+        prevLightboxImg();
+    } else if (e.key === 'Escape') {
+        closeLightboxForce();
+    }
+});
+
+// 💡 切換下一張商品
+function nextLightboxImg() {
+    if (activeFilteredData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex + 1) % activeFilteredData.length;
+    openLightbox(currentLightboxIndex);
+}
+
+// 💡 切換上一張商品
+function prevLightboxImg() {
+    if (activeFilteredData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex - 1 + activeFilteredData.length) % activeFilteredData.length;
+    openLightbox(currentLightboxIndex);
 }
 
 function closeLightbox(event) {
@@ -610,4 +640,3 @@ window.onload = function() {
 
 </body>
 </html>
-
