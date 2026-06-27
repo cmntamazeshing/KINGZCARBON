@@ -290,5 +290,25 @@ const exteriorDatabase = [
   { id: 483, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Fenders', title: 'BMW F32 / F33 / F36 4-Series To M4 Style Front Fenders (Pair)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/FiHlbz2.jpeg' },
   { id: 484, brand: 'BMW', compat: ['F32', 'F33'], category: 'Side Skirts', title: 'BMW F32 / F33 4-Series M4 Style Side Skirt Rocker Panels (Pair)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/QXjXuZl.jpeg' },
   { id: 485, brand: 'BMW', compat: ['F32', 'F33'], category: 'Body Kits', title: 'BMW F32 / F33 4-Series M4 Style Rear Bumper Assembly', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/XxmYOAN.jpeg' },
-  { id: 486, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Body Kits', title: 'BMW F32 / F33 / F36 4-Series M4 Style Front Bumper Assembly', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/FK8YtSo.jpeg' }
-];
+  { id: 486, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Body Kits', title: 'BMW F32 / F33 / F36 4-Series M4 Style Front Bumper Assembly', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/FK8YtSo.jpeg' },
+
+  // === BMW X6 (F16) 高階外觀集群 (2015-2018) ===
+  // --- Base Models / Standard Bumper 專屬分流 ---
+  { id: 487, brand: 'BMW', compat: ['F16'], category: 'Front Lips', title: 'BMW X6 F16 Front Bumper Lip Spoiler (P Style - For Base Models Only)', price: '$769 USD', saved: '$205 USD', image: 'https://i.imgur.com/sUtPJXI.jpeg' },
+  { id: 488, brand: 'BMW', compat: ['F16'], category: 'Rear Diffusers', title: 'BMW X6 F16 Rear Bumper Diffuser Lip (P Style - For Base Models Only)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/i5d8mhT.jpeg' },
+  { id: 489, brand: 'BMW', compat: ['F16'], category: 'Other', title: 'BMW X6 F16 Rear Bumper Side Apron Splitters (P Style - For Base Models Only)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/OssdIE9.jpeg' },
+
+  // --- M Sport Models / M-Tech Bumper 專屬分流 ---
+  { id: 490, brand: 'BMW', compat: ['F16'], category: 'Front Lips', title: 'BMW X6 F16 Front Bumper Lip Spoiler (P Style - For M Sport Models Only)', price: '$769 USD', saved: '$205 USD', image: 'https://i.imgur.com/vGpli2U.jpeg' },
+  { id: 491, brand: 'BMW', compat: ['F16'], category: 'Rear Diffusers', title: 'BMW X6 F16 Rear Bumper Diffuser Lip (P Style - For M Sport Models Only)', price: '$819 USD', saved: '$205 USD', image: 'https://i.imgur.com/gcp33Ex.jpeg' },
+  { id: 492, brand: 'BMW', compat: ['F16'], category: 'Other', title: 'BMW X6 F16 Rear Bumper Side Apron Splitters (P Style - For M Sport Models Only)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/5Wc49Zx.jpeg' },
+
+  // --- Universal Fit (All F16 X6 Models) 全通用集群 ---
+  { id: 493, brand: 'BMW', compat: ['F16'], category: 'Other', title: 'BMW X6 F16 Side Fender Air Vent Duct Covers (Universal Fit)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/1KaRNLq.jpeg' },
+  { id: 494, brand: 'BMW', compat: ['F16'], category: 'Other', title: 'BMW X6 F16 Front Headlight Eyelids Brows Cover (Universal Fit)', price: '$219 USD', saved: '$105 USD', image: 'https://i.imgur.com/Pxpq7hb.jpeg' },
+  { id: 495, brand: 'BMW', compat: ['F16'], category: 'Mirror Covers', title: 'BMW X6 F16 Side Mirror Covers (Horn Style - Universal Fit)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/NG22fJn.jpeg' },
+  { id: 496, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (P Style - Universal Fit)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/ml8sAPL.jpeg' },
+  { id: 497, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (M Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/vNhnUoq.jpeg' },
+  { id: 498, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (PSM Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/AjlizkU.jpeg' },
+  { id: 499, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Upper Roof Wing Spoiler (H Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/YmMOQ5a.jpeg' }
+],
