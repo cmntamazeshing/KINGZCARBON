@@ -245,7 +245,7 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (修復完畢完全體)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (完全體：跨庫聚合 + 跨代碼定向導流)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
@@ -281,7 +281,7 @@ let exteriorDatabase = [];
 
 const heroShowcaseSlides = [
     { image: 'https://i.imgur.com/NZtQRfC.jpeg' },    
-     { image: 'https://i.imgur.com/w4oKKL3.jpeg' },    
+    { image: 'https://i.imgur.com/w4oKKL3.jpeg' },    
     { image: 'https://i.imgur.com/0StnhdP.jpeg' },
     { image: 'https://i.imgur.com/MshTVDg.jpeg' }
 ];
@@ -334,6 +334,7 @@ function selectCategoryCloseMobile(category) {
 function fetchScript(src) {
     return new Promise((resolve, reject) => {
         const script = document.createElement('script');
+        script.className = 'dynamic-db-script';
         script.src = src;
         script.async = true;
         script.onload = () => resolve();
@@ -343,7 +344,7 @@ function fetchScript(src) {
 }
 
 /**
- * 🚀 全新優化：支援單一加載與全庫跨庫聚起動態加載 (解決 All 狀態白屏問題)
+ * 🚀 動態路由核心：支援單一加載與全庫跨庫聚起動態加載 (完美處理 G30/G38 通用 F90 導流問題)
  */
 async function loadChassisDatabase(targetGroup, callback) {
     // 1. 清除可能殘留的舊動態標籤
@@ -355,11 +356,7 @@ async function loadChassisDatabase(targetGroup, callback) {
 
     try {
         if (targetGroup === 'ALL_BMW') {
-            // 💡 當在首頁或點選 All Brands 時，利用 Promise.all 併發讀取三網，快如閃電且資料齊全
-            // 建立臨時沙盒變數防止變數污染
-            window.exteriorDatabase = [];
-            
-            // 依次讀取加載，並在讀取的瞬間捕獲資料塞入主庫
+            // 💡 點選 All Brands / All BMW Chassis 時，併發聚合三網
             await fetchScript('bmwe.js?v=' + Date.now());
             const eData = [...exteriorDatabase];
             
@@ -369,22 +366,29 @@ async function loadChassisDatabase(targetGroup, callback) {
             await fetchScript('bmwg.js?v=' + Date.now());
             const gData = [...exteriorDatabase];
 
-            // 最終完美聚合成全庫陣列
             exteriorDatabase = [...eData, ...fData, ...gData];
         } else {
-            // 💡 單一世代精準流向加載
+            // 💡 針對單一底盤進行精準路由導流
             let fileTarget = '';
             const upper = targetGroup.toUpperCase();
-            if (upper.startsWith('E')) fileTarget = 'bmwe.js';
-            else if (upper.startsWith('G')) fileTarget = 'bmwg.js';
-            else if (upper.startsWith('F')) fileTarget = 'bmwf.js';
+            
+            // 🚀 【核心邏輯修正】：如果使用者點擊的是 G30 或 G38，強行導流讀取 bmwf.js
+            if (upper.includes('G30') || upper.includes('G38')) {
+                fileTarget = 'bmwf.js';
+            } else if (upper.startsWith('E')) {
+                fileTarget = 'bmwe.js';
+            } else if (upper.startsWith('G')) {
+                fileTarget = 'bmwg.js';
+            } else if (upper.startsWith('F')) {
+                fileTarget = 'bmwf.js';
+            }
 
             if (fileTarget) {
                 await fetchScript(fileTarget + '?v=' + Date.now());
             }
         }
     } catch (err) {
-        console.warn('[KINGZCARBON Engine] Cross-origin fetch script optimization context handled.', err);
+        console.warn('[KINGZCARBON Engine] Error loading database script:', err);
     }
 
     if (callback) callback();
@@ -420,7 +424,6 @@ function selectBrand(brand, isInit = false) {
         }
         modelListDiv.innerHTML = listHtml;
         
-        // 💡 當點選 BMW 且為 All Chassis 時，全自動觸發跨庫數據聚合
         if (brand === 'BMW') {
             loadChassisDatabase('ALL_BMW', () => {
                 renderMatrix();
@@ -445,7 +448,6 @@ function selectModel(model) {
     const activeBtn = document.getElementById('model-' + cleanId);
     if(activeBtn) activeBtn.classList.add('filter-active');
 
-    // 當客戶點擊具體底盤時，觸發動態加載對應的檔案 (例如點擊 E90/E92/E93 M3 讀取 bmwe.js)
     if (currentBrand === 'BMW') {
         let loadTarget = model === 'All' ? 'ALL_BMW' : model;
         loadChassisDatabase(loadTarget, () => {
