@@ -243,8 +243,6 @@ body {
     </div>
 </div>
 
-<script src="database.js"></script>
-
 <script>
 /**
  * 🕹️ KINGZCARBON 異步動態數據分流控制引擎
@@ -253,6 +251,30 @@ let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
 let initialLoad = true;
+
+// 1. 內置車型選單配置矩陣 (嚴格執行 E -> F車系 -> F(M) -> G車系 -> G(M) 排序 Rules)
+const chassisMapping = {
+  'BMW': [
+    'E90 / E92 / E93 M3',
+    'F30 / F35 3-Series', 
+    'F32 / F33 / F36 4-Series',
+    'F34 3-Series GT', 
+    'F10 / F18 5-Series',
+    'F87 M2 / M2C', 
+    'F80 M3', 
+    'F82 / F83 M4', 
+    'F90 M5', 
+    'F06 / F12 / F13 M6', 
+    'F97 X3M / F98 X4M',
+    'G20 / G28 3-Series', 
+    'G30 / G38 5-Series',
+    'G87 M2', 
+    'G80 M3', 
+    'G82 M4'
+  ],
+  'Toyota': ['A90 Supra'],
+  'Nissan': ['R35 GTR']
+};
 
 // 全局唯一的外觀數據緩存（由動態加載的 bmwe.js / bmwf.js / bmwg.js 寫入）
 let exteriorDatabase = []; 
@@ -306,20 +328,18 @@ function selectCategoryCloseMobile(category) {
 }
 
 /**
- * 🚀 核心優化：動態加載底盤數據庫檔案 (防止內存過載)
+ * 🚀 核心優化：動態加載底盤數據庫檔案 (防止記憶體與渲染過載)
  */
 function loadChassisDatabase(chassis, callback) {
-    // 1. 清理舊的加載標籤，防止 DOM 樹殘留垃圾
     const oldScript = document.getElementById('dynamic-chassis-db');
     if (oldScript) oldScript.remove();
 
-    // 2. 初始化重置當前數據庫緩存
     exteriorDatabase = [];
 
-    // 3. 根據底盤首字母，動態精準匹配你創建的分流檔案
     let scriptSrc = '';
     const upperChassis = chassis.toUpperCase();
 
+    // 根據點選的底盤字串首字母精準分流
     if (upperChassis.startsWith('E')) {
         scriptSrc = 'bmwe.js';
     } else if (upperChassis.startsWith('G')) {
@@ -327,11 +347,14 @@ function loadChassisDatabase(chassis, callback) {
     } else if (upperChassis.startsWith('F')) {
         scriptSrc = 'bmwf.js';
     } else {
-        // 如果是其餘非 BMW 品牌或未分流數據，可默認加載通用 database.js
-        scriptSrc = 'database.js'; 
+        scriptSrc = ''; 
     }
 
-    // 4. 動態注入 Script 標籤並監聽加載狀態
+    if (!scriptSrc) {
+        if (callback) callback();
+        return;
+    }
+
     const script = document.createElement('script');
     script.id = 'dynamic-chassis-db';
     script.src = scriptSrc;
@@ -365,20 +388,27 @@ function selectBrand(brand, isInit = false) {
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
+        exteriorDatabase = [];
         renderMatrix();
     } else {
-        // 先動態載入基礎對齊 Mapping 結構（確保外掛配置不丟失）
-        loadChassisDatabase(brand === 'BMW' ? 'F' : 'All', () => {
-            let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
-            if (typeof chassisMapping !== 'undefined' && chassisMapping[brand]) {
-                chassisMapping[brand].forEach(chassis => {
-                    let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
-                    listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
-                });
-            }
-            modelListDiv.innerHTML = listHtml;
+        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
+        if (chassisMapping[brand]) {
+            chassisMapping[brand].forEach(chassis => {
+                let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
+                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
+            });
+        }
+        modelListDiv.innerHTML = listHtml;
+        
+        // 如果選 BMW 且是 All Chassis 狀態，先預載 F 世代作為預設資料
+        if (brand === 'BMW') {
+            loadChassisDatabase('F', () => {
+                renderMatrix();
+            });
+        } else {
+            exteriorDatabase = [];
             renderMatrix();
-        });
+        }
     }
 
     if (!isInit) {
@@ -395,9 +425,10 @@ function selectModel(model) {
     const activeBtn = document.getElementById('model-' + cleanId);
     if(activeBtn) activeBtn.classList.add('filter-active');
 
-    // 🚀 當客戶點擊具體底盤時，觸發動態加載對應的檔案 (例如點擊 E92 載入 bmwe.js)
-    if (currentBrand === 'BMW' && model !== 'All') {
-        loadChassisDatabase(model, () => {
+    // 當客戶點擊具體底盤時，觸發動態加載對應的檔案 (例如點擊 E90/E92/E93 M3 載入 bmwe.js)
+    if (currentBrand === 'BMW') {
+        let loadTarget = model === 'All' ? 'F' : model;
+        loadChassisDatabase(loadTarget, () => {
             renderMatrix();
         });
     } else {
@@ -470,7 +501,7 @@ function renderMatrix() {
 
     if (currentModel !== 'All' && currentChassisTokens.length > 0) {
         filteredData.sort((a, b) => {
-            let aIsStrictExclusive = a.compat && !a.compat.includes('All偏') && currentChassisTokens.some(t => a.compat.includes(t));
+            let aIsStrictExclusive = a.compat && !a.compat.includes('All') && currentChassisTokens.some(t => a.compat.includes(t));
             let bIsStrictExclusive = b.compat && !b.compat.includes('All') && currentChassisTokens.some(t => b.compat.includes(t));
 
             if (aIsStrictExclusive && !bIsStrictExclusive) return -1;
@@ -545,3 +576,6 @@ window.onload = function() {
     selectBrand('All', true);
 };
 </script>
+
+</body>
+</html>
