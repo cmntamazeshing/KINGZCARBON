@@ -1,14 +1,16 @@
 /**
  * 🛠️ KINGZCARBON 核心外觀數據庫 (F 世代專屬分流數據庫檔案 - 2026 完全體 V3)
+ * 💡 技術提示：變數必須直接掛載至 window 物件，確保前台跨域引擎完美讀取、絕不白屏！
  */ 
 
-// 1. 底盤代號與品牌自動綁定集群 (F 世代專屬 - 已整合 G30/G38 跨模組相容指引)
-const chassisMapping = {
+// 1. 底盤代號與品牌自動綁定集群 (F 世代專屬)
+window.chassisMapping = {
   'BMW': [
     'F30 / F35 3-Series', 
     'F32 / F33 / F36 4-Series',
     'F34 3-Series GT', 
     'F10 / F18 5-Series',
+    'F16 X6',
     'F87 M2 / M2C', 
     'F80 M3', 
     'F82 / F83 M4', 
@@ -21,8 +23,8 @@ const chassisMapping = {
 };
 
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤 • 內嵌 Carbon)
-const exteriorDatabase = [
-  // === 原有 F80/F82/F83 M3/M4 專屬集群數據 (V2 FORMULA UPDATED) ===
+window.exteriorDatabase = [
+  // === 原有 F80/F82/F83 M3/M4 專屬集群數據 ===
   { id: 115, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (PSM Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/qrnGuXy.png' },
   { id: 116, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (R Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/F3Hd0r2.png' },
   { id: 117, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Side Skirts', title: 'BMW F80/F82 M3/M4 Carbon Side Skirts (3D Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/CoCsiSq.png' },
@@ -64,7 +66,7 @@ const exteriorDatabase = [
   { id: 153, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Bumper Canards (GT4 Style)', price: '$519 USD', saved: '$105 USD', image: 'https://i.imgur.com/rS2y3tE.png' },
   { id: 154, brand: 'BMW', compat: ['F80', 'F82', 'F83'], category: 'Other', title: 'BMW F80/F82 M3/M4 Carbon Fiber Canards (MAD Style)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/R6ar2YY.png' },
 
-  // === BMW F34 3-Series GT 專屬高性能改裝集群 (V2 FORMULA UPDATED) ===
+  // === BMW F34 3-Series GT 專屬高性能改裝集群 ===
   { id: 155, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (H Style - M Sport Only)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/2Sjg728.jpeg' },
   { id: 156, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (KB Style - M Sport Only)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/rF60O4Q.jpeg' },
   { id: 157, brand: 'BMW', compat: ['F34'], category: 'Side Skirts', title: 'BMW 3-Series GT F34 Carbon Side Skirt Extensions (Blade Style - M Sport Only)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/oBDNsWL.jpeg' },
@@ -82,7 +84,7 @@ const exteriorDatabase = [
   { id: 169, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (MP Style - M Sport Only)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/u7K4OeW.jpeg' },
   { id: 170, brand: 'BMW', compat: ['F34'], category: 'Front Lips', title: 'BMW 3-Series GT F34 Carbon Front Lip (V Style - M Sport Only)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/7lYwwA5.jpeg' },
 
-  // === BMW F90 M5 高階碳纖維集群 (V2 FORMULA UPDATED - 已更新融合原廠拍攝大圖) ===
+  // === BMW F90 M5 高階碳纖維集群 (已打通 G30/G38 5系列通用導流) ===
   { id: 171, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (CS Style - 2021-2023 LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/tFHchDh.jpeg' },
   { id: 172, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (RPK Style - 2021-2023 LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/r96qcpJ.jpeg' },
   { id: 173, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (ML Style - 2021-2023 LCI)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/fzP1jpU.jpeg' },
@@ -96,14 +98,14 @@ const exteriorDatabase = [
   { id: 181, brand: 'BMW', compat: ['F90'], category: 'Side Skirts', title: 'BMW F90 M5 Carbon Side Skirt Extensions (A Style - 2018-2020 Pre-LCI)', price: '$759 USD', saved: '$205 USD', image: 'https://i.imgur.com/ewakiuf.jpeg' },
   { id: 182, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (C Style - 2018-2020 Pre-LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/3pPus76.jpeg' },
   { id: 183, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (A Style - 2018-2020 Pre-LCI)', price: '$959 USD', saved: '$205 USD', image: 'https://i.imgur.com/nYjkIBA.jpeg' },
-  { id: 184, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Rear Spoilers', title: 'BMW 5-Series & F90 M5 Carbon Rear Trunk Spoiler (M Style)', price: '$399 USD', saved: '$205 USD', image: 'https://i.imgur.com/IYbv9bR.jpeg' }, // 💡 已動態整合你提供的高清5系通用實車圖
-  { id: 185, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Rear Diffusers', title: 'BMW 5-Series & F90 M5 Carbon Rear Diffuser (3D Style)', price: '$879 USD', saved: '$205 USD', image: 'https://i.imgur.com/1k058Pd.jpeg' }, // 💡 已動態整合你提供的高清通用圖
+  { id: 184, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Rear Spoilers', title: 'BMW 5-Series & F90 M5 Carbon Rear Trunk Spoiler (M Style)', price: '$399 USD', saved: '$205 USD', image: 'https://i.imgur.com/IYbv9bR.jpeg' },
+  { id: 185, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Rear Diffusers', title: 'BMW 5-Series & F90 M5 Carbon Rear Diffuser (3D Style)', price: '$879 USD', saved: '$205 USD', image: 'https://i.imgur.com/1k058Pd.jpeg' },
   { id: 186, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (CS Style - 2018-2020 Pre-LCI)', price: '$429 USD', saved: '$205 USD', image: 'https://i.imgur.com/kLLBkMl.jpeg' },
-  { id: 187, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Rear Spoilers', title: 'BMW 5-Series & F90 M5 Carbon Rear Spoiler (PRO Style)', price: '$429 USD', saved: '$205 USD', image: 'https://i.imgur.com/8athyxb.jpeg' }, // 💡 已動態整合你提供的高清通用圖
+  { id: 187, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Rear Spoilers', title: 'BMW 5-Series & F90 M5 Carbon Rear Spoiler (PRO Style)', price: '$429 USD', saved: '$205 USD', image: 'https://i.imgur.com/8athyxb.jpeg' },
   { id: 188, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Rear Spoiler (V Style - 2018-2020 Pre-LCI)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/XlxcUb2.jpeg' },
   { id: 189, brand: 'BMW', compat: ['F90'], category: 'Rear Spoilers', title: 'BMW F90 M5 Carbon Roof Spoiler Extension (2018-2023 Universal)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/093hgWX.jpeg' },
   { id: 190, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Full Carbon Front Kidney Grille Surround (2018-2020 Pre-LCI)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/pRY6U5L.jpeg' },
-  { id: 191, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Mirror Covers', title: 'BMW 5-Series & F90 M5 Carbon Fiber Side Mirror Covers', price: '$279 USD', saved: '$105 USD', image: 'https://i.imgur.com/xivvHyV.jpeg' }, // 💡 已動態整合你提供的高清全通用圖
+  { id: 191, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Mirror Covers', title: 'BMW 5-Series & F90 M5 Carbon Fiber Side Mirror Covers', price: '$279 USD', saved: '$105 USD', image: 'https://i.imgur.com/xivvHyV.jpeg' },
   { id: 192, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Carbon Rear Bumper Side Splitters (FD Style - 2018-2023 Universal)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/Q17Gz6C.jpeg' },
   { id: 193, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Carbon Rear Bumper Side Splitters (PSM Style - 2018-2023 Universal)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/MCSODjq.jpeg' },
   { id: 194, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (GTS Style - 2021-2023 LCI)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/goNURzx.jpeg' },
@@ -113,16 +115,28 @@ const exteriorDatabase = [
   { id: 198, brand: 'BMW', compat: ['F90'], category: 'Hood', title: 'BMW F90 M5 Lightweight CS Style Carbon Fiber Hood (2018-2023 Universal)', price: '$2879 USD', saved: '$360 USD', image: 'https://i.imgur.com/GrDAPGe.jpeg' },
   { id: 199, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Front Bumper Foglight Canard Wings (2018-2020 Pre-LCI)', price: '$359 USD', saved: '$105 USD', image: 'https://i.imgur.com/Y9gmWEx.jpeg' },
   { id: 200, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Front Bumper Foglight Air Vent Inserts (2021-2023 LCI)', price: '$519 USD', saved: '$105 USD', image: 'https://i.imgur.com/e6xAqzP.jpeg' },
-  { id: 201, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Other', title: 'BMW 5-Series & F90 M5 Full Carbon Front Kidney Grille (Gloss Finish)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/xDEQt9W.jpeg' }, // 💡 已動態整合你提供的高清全通用中網
+  { id: 201, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Other', title: 'BMW 5-Series & F90 M5 Full Carbon Front Kidney Grille (Gloss Finish)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/xDEQt9W.jpeg' },
   { id: 202, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (3D Style - 2018-2020 Pre-LCI)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/dTv62IQ.jpeg' },
   { id: 203, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (CH Style - 2018-2020 Pre-LCI)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/Bb9wxj5.jpeg' },
   { id: 204, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (Mode Style - 2018-2020 Pre-LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/7RKq1hO.jpeg' },
   { id: 205, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser (MP Style - 2018-2020 Pre-LCI)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/wk7nE2q.jpeg' },
-  { id: 206, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Side Skirts', title: 'BMW 5-Series & F90 M5 Carbon Side Skirt Extensions (MP Style)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/Dab1KUg.jpeg' }, // 💡 已動態整合你提供的高清全通用裙邊
+  { id: 206, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Side Skirts', title: 'BMW 5-Series & F90 M5 Carbon Side Skirt Extensions (MP Style)', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/Dab1KUg.jpeg' },
   { id: 207, brand: 'BMW', compat: ['F90'], category: 'Side Skirts', title: 'BMW F90 M5 Carbon Side Skirt Extensions (3D Style - 2018-2020 Pre-LCI)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/Rw9eFCR.jpeg' },
   { id: 208, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (A Style - 2018-2020 Pre-LCI)', price: '$829 USD', saved: '$205 USD', image: 'https://i.imgur.com/N9iitqs.jpeg' },
   { id: 209, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (A Style - 2021-2023 LCI)', price: '$829 USD', saved: '$205 USD', image: 'https://i.imgur.com/xjSweSy.jpeg' },
   { id: 210, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 Carbon Front Lip (3D Style - 2021-2023 LCI)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/dFE67jy.jpeg' },
+
+  // === F90 M5 跨代新增空力組件與 5 系窄體/闊體轉換套件 ===
+  { id: 257, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser Assembly (CH Style - Universal Fit)', price: '$1159 USD', saved: '$205 USD', image: 'https://i.imgur.com/890ayqX.jpeg' },
+  { id: 258, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Customizable Muffler Exhaust Quad Tips Set', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/BGiLdBO.jpeg' },
+  { id: 259, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 Pre-LCI Narrow Body Conversion Front Bumper Assembly', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/dS68gju.jpeg' },
+  { id: 260, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Side Fender Air Vent Matte Accent Trims', price: '$349 USD', saved: '$105 USD', image: 'https://i.imgur.com/giq9285.jpeg' },
+  { id: 261, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 Pre-LCI Wide Body Conversion Kit (Front Bumper & Front Fenders)', price: '$1729 USD', saved: '$360 USD', image: 'https://i.imgur.com/1FcKxky.jpeg' },
+  { id: 262, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 LCI Narrow Body Conversion Front Bumper Assembly', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/g5F0Qe4.jpeg' },
+  { id: 263, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 LCI Carbon Front Lip Spoiler (MP Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/evvWH80.jpeg' },
+  { id: 264, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 LCI Wide Body Conversion Kit (Front Bumper & Front Fenders)', price: '$1729 USD', saved: '$360 USD', image: 'https://i.imgur.com/wuv5xBf.jpeg' },
+  { id: 265, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 Pre-LCI Carbon Front Lip Center Section (MP Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/ExrCQCv.jpeg' },
+  { id: 266, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 Pre-LCI Carbon Front Lip Spoiler (RKP Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/jtqihUN.jpeg' },
 
   // === BMW F87 M2 / M2C 高性能碳纖維集群 (V2 FORMULA UPDATED) ===
   { id: 211, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Splitters (MP Style - Pre-LCI & LCI Universal)', price: '$479 USD', saved: '$205 USD', image: 'https://i.imgur.com/Ny07GSd.png' },
@@ -167,7 +181,7 @@ const exteriorDatabase = [
   { id: 250, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Competition Carbon Front Lip (V Style - M2C Exclusive)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/tFLu71R.jpeg' },
   { id: 251, brand: 'BMW', compat: ['F87'], category: 'Front Lips', title: 'BMW F87 M2 Carbon Front Lip (V Style - Base M2 Exclusive)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/9uXA05n.jpeg' },
 
-  // === BMW M6 (F06 / F12 / F13) 高階碳纖維集群 (V2 FORMULA UPDATED) ===
+  // === BMW M6 (F06 / F12 / F13) 高階碳纖維集群 ===
   { id: 252, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Other', title: 'BMW F06 / F12 / F13 M6 Carbon Front Kidney Grilles', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/9IRBnUx.jpeg' },
   { id: 253, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Mirror Covers', title: 'BMW F06 / F12 / F13 M6 Carbon Horn-Style Side Mirror Covers', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/SK0my1I.jpeg' },
   { id: 254, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (V Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/vouoTh1.jpeg' },
@@ -184,7 +198,7 @@ const exteriorDatabase = [
   { id: 265, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (MP Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/fqPHyl7.jpeg' },
   { id: 266, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (H Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/Z9XYXPk.jpeg' },
 
-  // === BMW F97 X3M / F98 X4M 高階高性能集群 (V2 FORMULA UPDATED) ===
+  // === BMW F97 X3M / F98 X4M 高階高性能集群 ===
   { id: 306, brand: 'BMW', compat: ['F97', 'F98'], category: 'Front Lips', title: 'BMW F97 X3M / F98 X4M Carbon Front Lip (E Style V1)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/Qp26Ucs.png' },
   { id: 307, brand: 'BMW', compat: ['F97'], category: 'Rear Diffusers', title: 'BMW F97 X3M Carbon Rear Diffuser With LED F1 Brake Light (CH Style - X3M Exclusive)', price: '$919 USD', saved: '$205 USD', image: 'https://i.imgur.com/mJHGEgL.png' },
   { id: 308, brand: 'BMW', compat: ['F98'], category: 'Rear Diffusers', title: 'BMW F98 X4M Carbon Rear Diffuser (3D Style - X4M Exclusive)', price: '$969 USD', saved: '$205 USD', image: 'https://i.imgur.com/7ybk6Gs.png' },
@@ -229,7 +243,7 @@ const exteriorDatabase = [
   { id: 345, brand: 'BMW', compat: ['F10', 'F18'], category: 'Side Skirts', title: 'BMW F10 / F18 5-Series Carbon Side Skirt Extensions (PSM Style - Only For M5 Aftermarket Narrow Body)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/TlUHSua.jpeg' },
   { id: 346, brand: 'BMW', compat: ['F10', 'F18'], category: 'Rear Diffusers', title: 'BMW F10 / F18 5-Series Carbon Rear Diffuser (3D Style - Only For M5 Aftermarket Narrow Body)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/DQIWDab.jpeg' },
 
-  // === BMW F30 / F35 3-Series 高階改裝集群 (V2 FORMULA) ===
+  // === BMW F30 / F35 3-Series 高階改裝集群 ===
   { id: 367, brand: 'BMW', compat: ['F30', 'F35'], category: 'Rear Diffusers', title: 'BMW F30 / F35 3-Series Carbon Rear Diffuser (CH Style - Only For M3 Aftermarket Narrow Body Bumper Setup)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/0eZimKn.jpeg' },
   { id: 368, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series GTS Style Hood (Premium Aluminum)', price: '$999 USD', saved: '$360 USD', image: 'https://i.imgur.com/yizkVdA.jpeg' },
   { id: 369, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series GTS Style Hood (Heavy Duty Pressed Steel)', price: '$929 USD', saved: '$360 USD', image: 'https://i.imgur.com/yizkVdA.jpeg' },
@@ -249,7 +263,7 @@ const exteriorDatabase = [
   { id: 383, brand: 'BMW', compat: ['F30'], category: 'Rear Spoilers', title: 'BMW F30 3-Series Carbon Rear Trunk Spoiler (CS Style Spec)', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/H16Ivb2.jpeg' },
   { id: 384, brand: 'BMW', compat: ['F30', 'F35'], category: 'Other', title: 'BMW F30 / F35 3-Series M3 Look Full Aerodynamic Narrow Body Kit Conversion Package (Perfect Base Match Setup)', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/WcfxAX8.jpeg' },
 
-  // === BMW F32 / F33 / F36 4-Series 改 M4 外觀專屬集群 (V2 FORMULA / AUTO-CARBON) ===
+  // === BMW F32 / F33 / F36 4-Series 改 M4 外觀專屬集群 ===
   { id: 385, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Front Lips', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Lip (CC Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/2fOZRLk.jpeg' },
   { id: 386, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Front Lips', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Lip (MAD Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/WbVuSAv.jpeg' },
   { id: 387, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Side Skirts', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Skirt Extensions (MP Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/LhDtuIl.jpeg' },
@@ -286,13 +300,46 @@ const exteriorDatabase = [
   { id: 479, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Mirror Covers', title: 'BMW F32 / F33 / F36 4-Series Carbon Side Mirror Covers (M4 Horn Style)', price: '$239 USD', saved: '$105 USD', image: 'https://i.imgur.com/XFj5Cgv.jpeg' },
   { id: 480, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Other', title: 'BMW F32 / F33 / F36 4-Series Carbon Front Kidney Grilles (M4 Style)', price: '$299 USD', saved: '$105 USD', image: 'https://i.imgur.com/J83Gflb.jpeg' },
   { id: 481, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Hoods', title: 'BMW F32 / F33 / F36 4-Series Carbon Fiber Custom Engine Hood (GTS Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/LO5wGKt.jpeg' },
-  { id: 482, brand: 'BMW', compat: ['F32', 'F33'], category: 'Body Kits', title: 'BMW F32 / F33 4-Series To M4 Narrow Body Conversion Full Set (Front & Rear Bumpers, Fenders, Side Skirts)', price: '$1429 USD', saved: '$360 USD', image: 'https://i.imgur.com/Sp9XcU9.jpeg' },
+  { id: 482, brand: 'BMW', compat: ['F32', 'F33'], category: 'Body Kits', title: 'BMW F32 / F33 4-Series To M4 Narrow Body Conversion Full Set (Front & Rear Bumpers, Fenders, Side Skirts)', price: '$1429 USD', saved: '$360 USD', image: 'https://i.imgur.com/Sp9X常組.jpeg' },
   { id: 483, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Fenders', title: 'BMW F32 / F33 / F36 4-Series To M4 Style Front Fenders (Pair)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/FiHlbz2.jpeg' },
   { id: 484, brand: 'BMW', compat: ['F32', 'F33'], category: 'Side Skirts', title: 'BMW F32 / F33 4-Series M4 Style Side Skirt Rocker Panels (Pair)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/QXjXuZl.jpeg' },
   { id: 485, brand: 'BMW', compat: ['F32', 'F33'], category: 'Body Kits', title: 'BMW F32 / F33 4-Series M4 Style Rear Bumper Assembly', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/XxmYOAN.jpeg' },
   { id: 486, brand: 'BMW', compat: ['F32', 'F33', 'F36'], category: 'Body Kits', title: 'BMW F32 / F33 / F36 4-Series M4 Style Front Bumper Assembly', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/FK8YtSo.jpeg' },
 
-  // === BMW X6 (F16) 高階外觀集群 (2015-2018) ===
+  // === BMW F90 M5 跨代新增空力組件與 5 系窄體/闊體轉換套件 ===
+  { id: 469, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser Assembly (CH Style - Universal Fit)', price: '$1159 USD', saved: '$205 USD', image: 'https://i.imgur.com/890ayqX.jpeg' },
+  { id: 470, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Customizable Muffler Exhaust Quad Tips Set', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/BGiLdBO.jpeg' },
+  { id: 471, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 Pre-LCI Narrow Body Conversion Front Bumper Assembly', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/dS68gju.jpeg' },
+  { id: 472, brand: 'BMW', compat: ['F90'], category: 'Other', title: 'BMW F90 M5 Side Fender Air Vent Matte Accent Trims', price: '$349 USD', saved: '$105 USD', image: 'https://i.imgur.com/giq9285.jpeg' },
+  { id: 473, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 Pre-LCI Wide Body Conversion Kit (Front Bumper & Front Fenders)', price: '$1729 USD', saved: '$360 USD', image: 'https://i.imgur.com/1FcKxky.jpeg' },
+  { id: 474, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 LCI Narrow Body Conversion Front Bumper Assembly', price: '$1269 USD', saved: '$360 USD', image: 'https://i.imgur.com/g5F0Qe4.jpeg' },
+  { id: 263, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 M5 LCI Carbon Front Lip Spoiler (MP Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/evvWH80.jpeg' },
+  { id: 264, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series To M5 LCI Wide Body Conversion Kit (Front Bumper & Front Fenders)', price: '$1729 USD', saved: '$360 USD', image: 'https://i.imgur.com/wuv5xBf.jpeg' },
+  { id: 265, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 Pre-LCI Carbon Front Lip Center Section (MP Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/ExrCQCv.jpeg' },
+  { id: 266, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 Pre-LCI Carbon Front Lip Spoiler (RKP Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/jtqihUN.jpeg' },
+  { id: 500, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser Center Section (M5 Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/Zj7OUah.jpeg' },
+  { id: 501, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Front Lips', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Lip Spoiler (AC Style)', price: '$1129 USD', saved: '$205 USD', image: 'https://i.imgur.com/dEwV9iK.jpeg' },
+  { id: 502, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Front Lips', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Lip Spoiler (3D Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/LorZBPN.jpeg' },
+  { id: 503, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Other', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Bumper Splitters (MP Style)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/R1F2vUY.jpeg' },
+
+  // === BMW M6 (F06 / F12 / F13) 高階碳纖維集群 ===
+  { id: 252, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Other', title: 'BMW F06 / F12 / F13 M6 Carbon Front Kidney Grilles', price: '$329 USD', saved: '$105 USD', image: 'https://i.imgur.com/9IRBnUx.jpeg' },
+  { id: 253, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Mirror Covers', title: 'BMW F06 / F12 / F13 M6 Carbon Horn-Style Side Mirror Covers', price: '$289 USD', saved: '$105 USD', image: 'https://i.imgur.com/SK0my1I.jpeg' },
+  { id: 254, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (V Style)', price: '$419 USD', saved: '$205 USD', image: 'https://i.imgur.com/vouoTh1.jpeg' },
+  { id: 255, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Spoilers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Spoiler (MP Style)', price: '$399 USD', saved: '$205 USD', image: 'https://i.imgur.com/R6mer8u.jpeg' },
+  { id: 256, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (PSM Style Heavy Work)', price: '$1249 USD', saved: '$360 USD', image: 'https://i.imgur.com/h4lNVeO.jpeg' },
+  { id: 257, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (FD Style Aero Spec)', price: '$829 USD', saved: '$205 USD', image: 'https://i.imgur.com/tyFMQ1I.jpeg' },
+  { id: 258, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (V Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/joh6zct.jpeg' },
+  { id: 259, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Rear Diffusers', title: 'BMW F06 / F12 / F13 M6 Carbon Rear Diffuser (MP Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/h3dp2PB.jpeg' },
+  { id: 260, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Side Skirts', title: 'BMW F06 / F12 / F13 M6 Carbon Side Skirt Extensions (V Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/3l623si.jpeg' },
+  { id: 261, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (3D Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/dX7qmVa.png' },
+  { id: 262, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (RPK Style)', price: '$689 USD', saved: '$205 USD', image: 'https://i.imgur.com/LeQOgzU.jpeg' },
+  { id: 263, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V1 Spec)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/nV7zHgU.jpeg' },
+  { id: 264, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (V2 Spec)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/oFvbqi3.jpeg' },
+  { id: 265, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (MP Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/fqPHyl7.jpeg' },
+  { id: 266, brand: 'BMW', compat: ['F06', 'F12', 'F13'], category: 'Front Lips', title: 'BMW F06 / F12 / F13 M6 Carbon Front Lip (H Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/Z9XYXPk.jpeg' },
+
+  // === BMW F16 X6 高階外觀集群 (2015-2018) ===
   // --- Base Models / Standard Bumper 專屬分流 ---
   { id: 487, brand: 'BMW', compat: ['F16'], category: 'Front Lips', title: 'BMW X6 F16 Front Bumper Lip Spoiler (P Style - For Base Models Only)', price: '$769 USD', saved: '$205 USD', image: 'https://i.imgur.com/sUtPJXI.jpeg' },
   { id: 488, brand: 'BMW', compat: ['F16'], category: 'Rear Diffusers', title: 'BMW X6 F16 Rear Bumper Diffuser Lip (P Style - For Base Models Only)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/i5d8mhT.jpeg' },
