@@ -1,23 +1,24 @@
 /**
  * 🛠️ KINGZCARBON 核心外觀數據庫 (G 世代專屬分流數據庫檔案)
+ * 💡 技術提示：變數必須直接掛載至 window 物件，確保前台跨域引擎完美讀取、絕不白屏！
  */ 
 
 // 1. 底盤代號與品牌自動綁定集群 (G 世代專屬)
-const chassisMapping = {
+window.chassisMapping = {
   'BMW': [
     'G20 / G28 3-Series', 
-    'G30 / G38 5-Series',
+    'G22 4-Series',
     'G87 M2', 
     'G80 M3', 
     'G82 M4'
   ],
-  'Toyota': [],
-  'Nissan': []
+  'Toyota': ['A90 Supra'],
+  'Nissan': ['R35 GTR']
 };
 
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤 • 內嵌 Carbon)
-const exteriorDatabase = [
-  // === BMW G80 M3 / G82 M4 高性能集群 (V2 FORMULA UPDATED) ===
+window.exteriorDatabase = [
+  // === BMW G80 M3 / G82 M4 高性能集群 ===
   { id: 17, brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (R44 Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/jigDsLH.jpeg' },
   { id: 18, brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (A Style)', price: '$939 USD', saved: '$205 USD', image: 'https://i.imgur.com/KnTzjy0.jpeg' },
   { id: 19, brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Side Fender Vent Accents (CH Style)', price: '$359 USD', saved: '$105 USD', image: 'https://i.imgur.com/n5AEPtd.jpeg' },
@@ -69,7 +70,7 @@ const exteriorDatabase = [
   { id: 66, brand: 'BMW', compat: ['G80', 'G82'], category: 'Other', title: 'BMW G80 M3 / G82 M4 Carbon Bumper Front Canards (MP Style)', price: '$319 USD', saved: '$105 USD', image: 'https://i.imgur.com/bxBYUhW.jpeg' },
   { id: 67, brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (3D Style)', price: '$829 USD', saved: '$205 USD', image: 'https://i.imgur.com/W4MqFSy.jpeg' },
 
-  // === BMW G20 / G28 3-Series 底盤專屬集群 (V2 FORMULA UPDATED) ===
+  // === BMW G20 / G28 3-Series 底盤專屬集群 ===
   { id: 68, brand: 'BMW', compat: ['G20', 'G28'], category: 'Front Lips', title: 'BMW G20 / G28 3-Series Pre-LCI Carbon Front Lip (T Style - 2020-2022 M Sport Package Only)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/IC8cBeD.jpeg' },
   { id: 69, brand: 'BMW', compat: ['G20', 'G28'], category: 'Front Lips', title: 'BMW G20 / G28 3-Series LCI Carbon Front Lip (AO Style - Facelift 2023-2025)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/jPFPGY8.jpeg' },
   { id: 70, brand: 'BMW', compat: ['G20', 'G28'], category: 'Trunk', title: 'BMW G20 / G28 3-Series Carbon Fiber Trunk Lid (CSL Style - 2021-2023)', price: '$2779 USD', saved: '$360 USD', image: 'https://i.imgur.com/zuDUGl1.jpeg' },
@@ -118,7 +119,7 @@ const exteriorDatabase = [
   { id: 113, brand: 'BMW', compat: ['G20', 'G28'], category: 'Front Lips', title: 'BMW G20 / G28 3-Series LCI Carbon Front Lip (MP Style - Facelift 2023-2025)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/iLY6zUA.jpeg' },
   { id: 114, brand: 'BMW', compat: ['G20', 'G28'], category: 'Front Lips', title: 'BMW G20 / G28 3-Series LCI Carbon Front Lip (3D Style - Facelift 2023-2025)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/DnW9hY4.jpeg' },
 
-  // === BMW G87 M2 專屬高端外觀集群 (V2 FORMULA UPDATED) ===
+  // === BMW G87 M2 專屬高端外觀集群 ===
   { id: 267, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (V Style Spec)', price: '$1979 USD', saved: '$205 USD', image: 'https://i.imgur.com/ecQWmUG.jpeg' },
   { id: 268, brand: 'BMW', compat: ['G87'], category: 'Other', title: 'BMW G87 M2 Carbon Underbody Protection Guard Shield', price: '$979 USD', saved: '$105 USD', image: 'https://i.imgur.com/D1RTfsR.jpeg' },
   { id: 269, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (R44 Spec)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/iMhXN72.jpeg' },
@@ -159,7 +160,7 @@ const exteriorDatabase = [
   { id: 304, brand: 'BMW', compat: ['G87'], category: 'Front Lips', title: 'BMW G87 M2 Carbon Front Lip (TAKD Style Premium)', price: '$1159 USD', saved: '$205 USD', image: 'https://i.imgur.com/GEuNQqf.jpeg' },
   { id: 305, brand: 'BMW', compat: ['G87'], category: 'Rear Diffusers', title: 'BMW G87 M2 Carbon Rear Diffuser (R44 Design)', price: '$1129 USD', saved: '$205 USD', image: 'https://i.imgur.com/cTTXChh.jpeg' },
 
-  // === BMW G30 / G38 5-Series M Sport 專屬集群 (V2 FORMULA / AUTO-CARBON) ===
+  // === BMW G30 / G38 5-Series M Sport 專屬集群 ===
   { id: 431, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (ED Style - Pre-LCI 2018-2020)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/tZlhmvr.jpeg' },
   { id: 432, brand: 'BMW', compat: ['G30', 'G38'], category: 'Front Lips', title: 'BMW G30 / G38 5-Series Carbon Front Lip (3D Style - LCI 2021+)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/uA2u2IC.jpeg' },
   { id: 433, brand: 'BMW', compat: ['G30', 'G38'], category: 'Side Skirts', title: 'BMW G30 / G38 5-Series Carbon Side Skirt Extensions (3D Style)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/Kk3QyNG.jpeg' },
@@ -199,13 +200,10 @@ const exteriorDatabase = [
   { id: 467, brand: 'BMW', compat: ['G30', 'G38'], category: 'Mirror Covers', title: 'BMW G30 / G38 5-Series Carbon Horn-Style Side Mirror Covers (Pre-LCI 2018-2020)', price: '$299 USD', saved: '$105 USD', image: 'https://i.imgur.com/23mril1.jpeg' },
   { id: 468, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (FD Style - Pre-LCI 2018-2020)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/FJcr9gB.jpeg' },
 
-  // === BMW G22 4-Series 專屬集群 (V2 FORMULA / AUTO-CARBON) ===
-    { id: 473, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/jYplbKa.jpeg' },
-    { id: 474, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (FD Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/4gWlH5K.jpeg' },
-    { id: 475, brand: 'BMW', compat: ['G22'], category: 'Side Skirts', title: 'BMW G22 4-Series Carbon Side Skirt Extensions (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/5kbuNbJ.jpeg' },
-    { id: 476, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Spoiler (PSM Style)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/MER5062.jpeg' },
-    { id: 477, brand: 'BMW', compat: ['G22'], category: 'Mirror Covers', title: 'BMW G22 4-Series Carbon Horn-Style Side Mirror Covers', price: '$299 USD', saved: '$105 USD', image: 'https://i.imgur.com/cJpcIzp.jpeg' },
-    { id: 478, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Spoiler (CS Style)', price: '$429 USD', saved: '$105 USD', image: 'https://i.imgur.com/OQcAive.jpeg' },
-    { id: 479, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Spoiler (M4 Style)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/XvbrSu3.jpeg' },
-    { id: 480, brand: 'BMW', compat: ['G22'], category: 'Rear Diffusers', title: 'BMW G22 4-Series Carbon Rear Diffuser & Side Splitters Kit (CH Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/iRVVIUh.jpeg' }
+  // === BMW G22 4-Series 專屬集群 ===
+  { id: 473, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/jYplbKa.jpeg' },
+  { id: 474, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (FD Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/1mWx6Kc.jpeg' },
+  { id: 475, brand: 'BMW', compat: ['G22'], category: 'Side Skirts', title: 'BMW G22 4-Series Carbon Side Skirt Extensions (MP Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/Algh4RE.jpeg' },
+  { id: 476, brand: 'BMW', compat: ['G22'], category: 'Rear Diffusers', title: 'BMW G22 4-Series Carbon Rear Diffuser Assembly (MP Style)', price: '$789 USD', saved: '$205 USD', image: 'https://i.imgur.com/FBCDble.jpeg' },
+  { id: 477, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Trunk Spoiler (M4 Style Spec)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/hNvb9bQ.jpeg' }
 ];
