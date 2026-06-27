@@ -247,12 +247,15 @@ body {
 
 <script>
 /**
- * 🕹️ 前台自適應渲染核心控制引擎
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎
  */
 let currentBrand = 'All';
 let currentModel = 'All';
 let currentCategory = 'All';
 let initialLoad = true;
+
+// 全局唯一的外觀數據緩存（由動態加載的 bmwe.js / bmwf.js / bmwg.js 寫入）
+let exteriorDatabase = []; 
 
 const heroShowcaseSlides = [
     { image: 'https://i.imgur.com/NZtQRfC.jpeg' },    
@@ -297,10 +300,51 @@ function toggleMobileSidebar() {
 /* 📱 手機版揀完分類自動收返埋側欄 */
 function selectCategoryCloseMobile(category) {
     selectCategory(category);
-    // 如果係手機畫面，揀完就自動收埋
     if (window.innerWidth < 768) {
         toggleMobileSidebar();
     }
+}
+
+/**
+ * 🚀 核心優化：動態加載底盤數據庫檔案 (防止內存過載)
+ */
+function loadChassisDatabase(chassis, callback) {
+    // 1. 清理舊的加載標籤，防止 DOM 樹殘留垃圾
+    const oldScript = document.getElementById('dynamic-chassis-db');
+    if (oldScript) oldScript.remove();
+
+    // 2. 初始化重置當前數據庫緩存
+    exteriorDatabase = [];
+
+    // 3. 根據底盤首字母，動態精準匹配你創建的分流檔案
+    let scriptSrc = '';
+    const upperChassis = chassis.toUpperCase();
+
+    if (upperChassis.startsWith('E')) {
+        scriptSrc = 'bmwe.js';
+    } else if (upperChassis.startsWith('G')) {
+        scriptSrc = 'bmwg.js';
+    } else if (upperChassis.startsWith('F')) {
+        scriptSrc = 'bmwf.js';
+    } else {
+        // 如果是其餘非 BMW 品牌或未分流數據，可默認加載通用 database.js
+        scriptSrc = 'database.js'; 
+    }
+
+    // 4. 動態注入 Script 標籤並監聽加載狀態
+    const script = document.createElement('script');
+    script.id = 'dynamic-chassis-db';
+    script.src = scriptSrc;
+    script.async = true;
+    script.onload = () => {
+        console.log(`[KINGZCARBON Engine] ${scriptSrc} Loaded Successfully.`);
+        if (callback) callback();
+    };
+    script.onerror = () => {
+        console.error(`[KINGZCARBON Engine] Failed to load ${scriptSrc}`);
+        if (callback) callback();
+    };
+    document.body.appendChild(script);
 }
 
 function selectBrand(brand, isInit = false) {
@@ -321,18 +365,22 @@ function selectBrand(brand, isInit = false) {
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
+        renderMatrix();
     } else {
-        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
-        if (typeof chassisMapping !== 'undefined' && chassisMapping[brand]) {
-            chassisMapping[brand].forEach(chassis => {
-                let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
-                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
-            });
-        }
-        modelListDiv.innerHTML = listHtml;
+        // 先動態載入基礎對齊 Mapping 結構（確保外掛配置不丟失）
+        loadChassisDatabase(brand === 'BMW' ? 'F' : 'All', () => {
+            let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
+            if (typeof chassisMapping !== 'undefined' && chassisMapping[brand]) {
+                chassisMapping[brand].forEach(chassis => {
+                    let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
+                    listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
+                });
+            }
+            modelListDiv.innerHTML = listHtml;
+            renderMatrix();
+        });
     }
 
-    renderMatrix();
     if (!isInit) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -347,7 +395,14 @@ function selectModel(model) {
     const activeBtn = document.getElementById('model-' + cleanId);
     if(activeBtn) activeBtn.classList.add('filter-active');
 
-    renderMatrix();
+    // 🚀 當客戶點擊具體底盤時，觸發動態加載對應的檔案 (例如點擊 E92 載入 bmwe.js)
+    if (currentBrand === 'BMW' && model !== 'All') {
+        loadChassisDatabase(model, () => {
+            renderMatrix();
+        });
+    } else {
+        renderMatrix();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -381,12 +436,6 @@ function renderMatrix() {
     
     welcomeHero.classList.add('hidden');
     gridContainer.innerHTML = '';
-    
-    if (typeof exteriorDatabase === 'undefined') {
-        gridContainer.classList.add('hidden');
-        emptyState.classList.remove('hidden');
-        return;
-    }
 
     let currentChassisTokens = [];
     if (currentModel !== 'All') {
@@ -496,6 +545,3 @@ window.onload = function() {
     selectBrand('All', true);
 };
 </script>
-
-</body>
-</html>
