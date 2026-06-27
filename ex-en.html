@@ -97,7 +97,7 @@ body {
             <button onclick="selectBrand('BMW')" id="brand-BMW" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">BMW</button>
             <button onclick="selectBrand('Mercedes-Benz')" id="brand-Benz" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Mercedes-Benz</button>
             <button onclick="selectBrand('Audi')" id="brand-Audi" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Audi</button>
-            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Toyota</button>
+            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition tracking-wider transition hover:border-yellow-600">Toyota</button>
             <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
         </div>
 
@@ -260,6 +260,7 @@ const chassisMapping = {
     'F32 / F33 / F36 4-Series',
     'F34 3-Series GT', 
     'F10 / F18 5-Series',
+    'F16 X6',
     'F87 M2 / M2C', 
     'F80 M3', 
     'F82 / F83 M4', 
@@ -268,6 +269,7 @@ const chassisMapping = {
     'F97 X3M / F98 X4M',
     'G20 / G28 3-Series', 
     'G30 / G38 5-Series',
+    'G22 4-Series',
     'G87 M2', 
     'G80 M3', 
     'G82 M4'
@@ -332,50 +334,54 @@ function selectCategoryCloseMobile(category) {
  * 🚀 核心動態指令碼加載器
  */
 function fetchScript(src) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const script = document.createElement('script');
         script.className = 'dynamic-db-script';
         script.src = src;
-        script.async = true;
+        script.async = false; // 💡 使用同步阻塞加載，確保執行順序不丟失
         script.onload = () => resolve();
-        script.onerror = () => reject(new Error(`Load error for ${src}`));
+        script.onerror = () => resolve(); // 即使報錯也放行，防止 Promise.all 癱瘓
         document.body.appendChild(script);
     });
 }
 
 /**
- * 🚀 動態路由核心：支援單一加載與全庫跨庫聚起動態加載 (完美處理 G30/G38 通用 F90 導流問題)
+ * 🚀 動態路由核心：串行安全加載與全庫跨庫聚起動態加載 (解決變數污染白屏問題)
  */
 async function loadChassisDatabase(targetGroup, callback) {
-    // 1. 清除可能殘留的舊動態標籤
+    // 1. 清除殘留標籤
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
 
-    // 2. 重置全局數據庫容器
+    // 2. 清空全局主陣列
     exteriorDatabase = [];
 
+    const upper = targetGroup.toUpperCase();
+
     try {
-        if (targetGroup === 'ALL_BMW') {
-            // 💡 點選 All Brands / All BMW Chassis 時，併發聚合三網
+        if (upper === 'ALL_BMW') {
+            // 💡 串行讀取加載，並在讀取的瞬間捕獲資料，防止陣列變數被同名覆蓋
             await fetchScript('bmwe.js?v=' + Date.now());
-            const eData = [...exteriorDatabase];
+            const eData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             
             await fetchScript('bmwf.js?v=' + Date.now());
-            const fData = [...exteriorDatabase];
+            const fData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             
             await fetchScript('bmwg.js?v=' + Date.now());
-            const gData = [...exteriorDatabase];
+            const gData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
 
+            // 合併全庫數據
             exteriorDatabase = [...eData, ...fData, ...gData];
         } else {
             // 💡 針對單一底盤進行精準路由導流
             let fileTarget = '';
-            const upper = targetGroup.toUpperCase();
             
-            // 🚀 【核心路由大修正】：只要點選字串包含 G30, G38, 或是 X6 相關底盤，精準做分流導向
+            // 🚀 特殊導流：G30, G38, F90, F10, F18, F16 統一導往 bmwf.js
             if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) {
                 fileTarget = 'bmwf.js';
-            } else if (upper.startsWith('E') || upper.includes('E90') || upper.includes('E92') || upper.includes('E93')) {
+            } else if (upper.includes('G22')) {
+                fileTarget = 'bmwg.js';
+            } else if (upper.startsWith('E')) {
                 fileTarget = 'bmwe.js';
             } else if (upper.startsWith('G')) {
                 fileTarget = 'bmwg.js';
@@ -385,10 +391,14 @@ async function loadChassisDatabase(targetGroup, callback) {
 
             if (fileTarget) {
                 await fetchScript(fileTarget + '?v=' + Date.now());
+                // 讀取檔案寫入的變數
+                if (Array.isArray(window.exteriorDatabase)) {
+                    exteriorDatabase = [...window.exteriorDatabase];
+                }
             }
         }
     } catch (err) {
-        console.warn('[KINGZCARBON Engine] Error loading database script:', err);
+        console.error('[KINGZCARBON Engine] Error parsing matrix data streams:', err);
     }
 
     if (callback) callback();
@@ -421,8 +431,7 @@ function selectBrand(brand, isInit = false) {
                 let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
                 listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
             });
-        }
-        modelListDiv.innerHTML = listHtml;
+        } modelListDiv.innerHTML = listHtml;
         
         if (brand === 'BMW') {
             loadChassisDatabase('ALL_BMW', () => {
@@ -601,3 +610,4 @@ window.onload = function() {
 
 </body>
 </html>
+
