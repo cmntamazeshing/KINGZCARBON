@@ -197,5 +197,15 @@ const exteriorDatabase = [
   { id: 465, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Spoilers', title: 'BMW G30 / G38 5-Series Carbon Rear Spoiler (MP Style)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/ezNjFAh.jpeg' },
   { id: 466, brand: 'BMW', compat: ['G30', 'G38'], category: 'Other', title: 'BMW G30 / G38 5-Series Carbon Front Bumper Foglight Canard Accents', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/gJuOlKO.jpeg' },
   { id: 467, brand: 'BMW', compat: ['G30', 'G38'], category: 'Mirror Covers', title: 'BMW G30 / G38 5-Series Carbon Horn-Style Side Mirror Covers (Pre-LCI 2018-2020)', price: '$299 USD', saved: '$105 USD', image: 'https://i.imgur.com/23mril1.jpeg' },
-  { id: 468, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (FD Style - Pre-LCI 2018-2020)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/FJcr9gB.jpeg' }
+  { id: 468, brand: 'BMW', compat: ['G30', 'G38'], category: 'Rear Diffusers', title: 'BMW G30 / G38 5-Series Carbon Rear Diffuser (FD Style - Pre-LCI 2018-2020)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/FJcr9gB.jpeg' },
+
+  // === BMW G22 4-Series 專屬集群 (V2 FORMULA / AUTO-CARBON) ===
+    { id: 473, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/jYplbKa.jpeg' },
+    { id: 474, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (FD Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/4gWlH5K.jpeg' },
+    { id: 475, brand: 'BMW', compat: ['G22'], category: 'Side Skirts', title: 'BMW G22 4-Series Carbon Side Skirt Extensions (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/5kbuNbJ.jpeg' },
+    { id: 476, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Spoiler (PSM Style)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/MER5062.jpeg' },
+    { id: 477, brand: 'BMW', compat: ['G22'], category: 'Mirror Covers', title: 'BMW G22 4-Series Carbon Horn-Style Side Mirror Covers', price: '$299 USD', saved: '$105 USD', image: 'https://i.imgur.com/cJpcIzp.jpeg' },
+    { id: 478, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Spoiler (CS Style)', price: '$429 USD', saved: '$105 USD', image: 'https://i.imgur.com/OQcAive.jpeg' },
+    { id: 479, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Spoiler (M4 Style)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/XvbrSu3.jpeg' },
+    { id: 480, brand: 'BMW', compat: ['G22'], category: 'Rear Diffusers', title: 'BMW G22 4-Series Carbon Rear Diffuser & Side Splitters Kit (CH Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/iRVVIUh.jpeg' }
 ];
