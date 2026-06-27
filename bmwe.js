@@ -1,9 +1,10 @@
 /**
  * 🛠️ KINGZCARBON 核心外觀數據庫 (E 世代專屬分流數據庫檔案)
+ * 💡 技術提示：變數必須直接掛載至 window 物件，確保前台跨域引擎完美讀取、絕不白屏！
  */ 
 
 // 1. 底盤代號與品牌自動綁定集群 (E 世代專屬)
-const chassisMapping = {
+window.chassisMapping = {
   'BMW': [
     'E90 / E92 / E93 M3'
   ],
@@ -12,7 +13,7 @@ const chassisMapping = {
 };
 
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤 • 內嵌 Carbon)
-const exteriorDatabase = [
+window.exteriorDatabase = [
   // === BMW E90 / E92 / E93 M3 專屬集群 (V2 FORMULA / AUTO-CARBON) ===
   { id: 406, brand: 'BMW', compat: ['E90', 'E92'], category: 'Rear Spoilers', title: 'BMW E90 / E92 M3 Carbon Rear Roof Spoiler', price: '$259 USD', saved: '$105 USD', image: 'https://i.imgur.com/gS1NH3x.jpeg' },
   { id: 407, brand: 'BMW', compat: ['E90', 'E92', 'E93'], category: 'Fenders', title: 'BMW E90 / E92 / E93 M3 Carbon Front Fenders (OEM Style)', price: '$1539 USD', saved: '$360 USD', image: 'https://i.imgur.com/9t2uX0J.png' },
