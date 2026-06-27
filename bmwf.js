@@ -319,7 +319,7 @@ window.exteriorDatabase = [
   { id: 266, brand: 'BMW', compat: ['F90'], category: 'Front Lips', title: 'BMW F90 Pre-LCI Carbon Front Lip Spoiler (RKP Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/jtqihUN.jpeg' },
   { id: 500, brand: 'BMW', compat: ['F90'], category: 'Rear Diffusers', title: 'BMW F90 M5 Carbon Rear Diffuser Center Section (M5 Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/Zj7OUah.jpeg' },
   { id: 501, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Front Lips', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Lip Spoiler (AC Style)', price: '$1129 USD', saved: '$205 USD', image: 'https://i.imgur.com/dEwV9iK.jpeg' },
-  { id: 502, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Front Lips', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Lip Spoiler (3D Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/LorZBPN.jpeg' },
+  { id: 502, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Front Lips', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Lip Spoiler (3D Style)', price: '$649 USD', saved: '$205 USD', image: 'https://i.imgur.com/vFkO3bQ.jpeg' },
   { id: 503, brand: 'BMW', compat: ['F90', 'G30', 'G38'], category: 'Other', title: 'BMW 5-Series & F90 M5 Pre-LCI Carbon Front Bumper Splitters (MP Style)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/R1F2vUY.jpeg' },
 
   // === BMW M6 (F06 / F12 / F13) 高階碳纖維集群 ===
