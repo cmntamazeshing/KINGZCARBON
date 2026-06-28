@@ -357,5 +357,22 @@ window.exteriorDatabase = [
   { id: 496, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (P Style - Universal Fit)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/ml8sAPL.jpeg' },
   { id: 497, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (M Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/vNhnUoq.jpeg' },
   { id: 498, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Trunk Spoiler Wing (PSM Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/AjlizkU.jpeg' },
-  { id: 499, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Upper Roof Wing Spoiler (H Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/YmMOQ5a.jpeg' }
-];
+  { id: 499, brand: 'BMW', compat: ['F16'], category: 'Rear Spoilers', title: 'BMW X6 F16 Rear Upper Roof Wing Spoiler (H Style - Universal Fit)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/YmMOQ5a.jpeg' },
+
+  // === BMW F85 X5M / F86 X6M 高性能 SUV 全通用集群 (供應商相容性對齊完全體) ===
+  { id: 504, brand: 'BMW', compat: ['F85', 'F86'], category: 'Front Lips', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Front Bumper Lip Spoiler (3D Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/mUKFohS.jpeg' },
+  { id: 505, brand: 'BMW', compat: ['F85', 'F86'], category: 'Front Lips', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Front Bumper Lip Spoiler (H Style)', price: '$459 USD', saved: '$105 USD', image: 'https://i.imgur.com/37AmcUs.jpeg' },
+  { id: 506, brand: 'BMW', compat: ['F85', 'F86'], category: 'Front Lips', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Front Bumper Lip Spoiler (RPK Style)', price: '$759 USD', saved: '$205 USD', image: 'https://i.imgur.com/2j9iBFA.jpeg' },
+  { id: 507, brand: 'BMW', compat: ['F85', 'F86'], category: 'Front Lips', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Front Bumper Lip Spoiler (V Style)', price: '$939 USD', saved: '$205 USD', image: 'https://i.imgur.com/e4aGMm8.jpeg' },
+  { id: 508, brand: 'BMW', compat: ['F85', 'F86'], category: 'Side Skirts', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Side Skirt Extensions (MP Style)', price: '$829 USD', saved: '$205 USD', image: 'https://i.imgur.com/w3bmEud.jpeg' },
+  { id: 509, brand: 'BMW', compat: ['F85', 'F86'], category: 'Side Skirts', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Side Skirt Extensions (3D Style)', price: '$699 USD', saved: '$205 USD', image: 'https://i.imgur.com/tQUCkv6.jpeg' },
+  { id: 510, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Diffusers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Rear Bumper Diffuser Lip (3D Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/LdX44Uz.jpeg' },
+  { id: 511, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Diffusers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Rear Bumper Diffuser Lip (V Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/NoC9zaC.jpeg' },
+  { id: 512, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Diffusers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Rear Bumper Diffuser Lip (MP Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/B8RQpkb.jpeg' },
+  { id: 513, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Diffusers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Rear Bumper Diffuser Lip (RPK Style)', price: '$519 USD', saved: '$205 USD', image: 'https://i.imgur.com/YWeMtZ0.jpeg' },
+  { id: 514, brand: 'BMW', compat: ['F85', 'F86'], category: 'Mirror Covers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Side Mirror Covers (M Style)', price: '$159 USD', saved: '$45 USD', image: 'https://i.imgur.com/8P1xogD.jpeg' },
+  { id: 515, brand: 'BMW', compat: ['F85', 'F86'], category: 'Other', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Front Bumper Side Air Vent Shrouds', price: '$319 USD', saved: '$105 USD', image: 'https://i.imgur.com/3iYZf8L.jpeg' },
+  { id: 516, brand: 'BMW', compat: ['F85', 'F86'], category: 'Other', title: 'BMW F85 X5M / F86 X6M Gloss Black Center Kidney Grilles', price: '$119 USD', saved: '$45 USD', image: 'https://i.imgur.com/9PKppHJ.jpeg' },
+  { id: 517, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Spoilers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Roof Spoiler Wing (RGD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/pOENPVN.jpeg' }
+
+  ];
