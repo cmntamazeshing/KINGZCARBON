@@ -8,6 +8,7 @@ window.chassisMapping = {
   'BMW': [
     'G20 / G28 3-Series', 
     'G22 4-Series',
+    'G05 X5',
     'G30 / G38 5-Series',
     'G01 X3 / G02 X4',
     'F97 X3M / F98 X4M',
@@ -208,5 +209,15 @@ window.exteriorDatabase = [
   { id: 474, brand: 'BMW', compat: ['G22'], category: 'Front Lips', title: 'BMW G22 4-Series Carbon Front Lip (FD Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/1mWx6Kc.jpeg' },
   { id: 475, brand: 'BMW', compat: ['G22'], category: 'Side Skirts', title: 'BMW G22 4-Series Carbon Side Skirt Extensions (MP Style)', price: '$579 USD', saved: '$205 USD', image: 'https://i.imgur.com/Algh4RE.jpeg' },
   { id: 476, brand: 'BMW', compat: ['G22'], category: 'Rear Diffusers', title: 'BMW G22 4-Series Carbon Rear Diffuser Assembly (MP Style)', price: '$789 USD', saved: '$205 USD', image: 'https://i.imgur.com/FBCDble.jpeg' },
-  { id: 477, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Trunk Spoiler (M4 Style Spec)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/hNvb9bQ.jpeg' }
-];
+  { id: 477, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Trunk Spoiler (M4 Style Spec)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/hNvb9bQ.jpeg' },
+
+  // === BMW X5 (G05) 高端 LD Style 空力集群 (2019+) ===
+  { id: 478, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Premium LD Style Full Widebody Aerodynamic Conversion Kit', price: '$6129 USD', saved: '$460 USD', image: 'https://i.imgur.com/sAdkXoL.jpeg' },
+  { id: 479, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Gloss Black Center Kidney Grilles (LD Style)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/xABZWqH.jpeg' },
+  { id: 480, brand: 'BMW', compat: ['G05'], category: 'Mirror Covers', title: 'BMW X5 G05 Carbon Fiber Side Mirror Covers (LD Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/l3ATcGE.jpeg' },
+  { id: 481, brand: 'BMW', compat: ['G05'], category: 'Rear Spoilers', title: 'BMW X5 G05 Carbon Fiber Rear Roof Spoiler Wing (LD Style)', price: '$1029 USD', saved: '$205 USD', image: 'https://i.imgur.com/C7I5y1x.jpeg' },
+  { id: 482, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Carbon Fiber Trunk Mid-Wing Spoiler (LD Style)', price: '$629 USD', saved: '$105 USD', image: 'https://i.imgur.com/PoiU4Id.jpeg' },
+  { id: 483, brand: 'BMW', compat: ['G05'], category: 'Hood', title: 'BMW X5 G05 Custom Carbon Fiber Engine Hood Panel (LD Style)', price: '$1729 USD', saved: '$360 USD', image: 'https://i.imgur.com/VXTZofR.jpeg' },
+  { id: 484, brand: 'BMW', compat: ['G05'], category: 'Side Skirts', title: 'BMW X5 G05 Carbon Fiber Side Skirt Extensions Set (LD Style)', price: '$1729 USD', saved: '$205 USD', image: 'https://i.imgur.com/QdVcOYt.jpeg' },
+  { id: 485, brand: 'BMW', compat: ['G05'], category: 'Front Lips', title: 'BMW X5 G05 Carbon Fiber Front Bumper Lip Spoiler (LD Style)', price: '$1899 USD', saved: '$205 USD', image: 'https://i.imgur.com/HXmiPzy.jpeg' },
+  { id: 486, brand: 'BMW', compat: ['G05'], category: 'Rear Diffusers', title: 'BMW X5 G05 Carbon Fiber Rear Bumper Diffuser Lip Assembly (LD Style)', price: '$2829 USD', saved: '$360 USD', image: 'https://i.imgur.com/t951QSZ.jpeg' }
