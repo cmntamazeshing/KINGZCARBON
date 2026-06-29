@@ -8,6 +8,7 @@ window.chassisMapping = {
   'BMW': [
     'G20 / G28 3-Series', 
     'G22 4-Series',
+    'G42 2-Series',
     'G05 X5',
     'G30 / G38 5-Series',
     'G01 X3 / G02 X4',
@@ -220,4 +221,15 @@ window.exteriorDatabase = [
   { id: 483, brand: 'BMW', compat: ['G05'], category: 'Hood', title: 'BMW X5 G05 Custom Carbon Fiber Engine Hood Panel (LD Style)', price: '$1729 USD', saved: '$360 USD', image: 'https://i.imgur.com/VXTZofR.jpeg' },
   { id: 484, brand: 'BMW', compat: ['G05'], category: 'Side Skirts', title: 'BMW X5 G05 Carbon Fiber Side Skirt Extensions Set (LD Style)', price: '$1729 USD', saved: '$205 USD', image: 'https://i.imgur.com/QdVcOYt.jpeg' },
   { id: 485, brand: 'BMW', compat: ['G05'], category: 'Front Lips', title: 'BMW X5 G05 Carbon Fiber Front Bumper Lip Spoiler (LD Style)', price: '$1899 USD', saved: '$205 USD', image: 'https://i.imgur.com/HXmiPzy.jpeg' },
-  { id: 486, brand: 'BMW', compat: ['G05'], category: 'Rear Diffusers', title: 'BMW X5 G05 Carbon Fiber Rear Bumper Diffuser Lip Assembly (LD Style)', price: '$2829 USD', saved: '$360 USD', image: 'https://i.imgur.com/t951QSZ.jpeg' }
+  { id: 486, brand: 'BMW', compat: ['G05'], category: 'Rear Diffusers', title: 'BMW X5 G05 Carbon Fiber Rear Bumper Diffuser Lip Assembly (LD Style)', price: '$2829 USD', saved: '$360 USD', image: 'https://i.imgur.com/t951QSZ.jpeg' },
+
+  // === BMW 2-Series (G42) 高端 MP Style 空力集群 ===
+  { id: 487, brand: 'BMW', compat: ['G42'], category: 'Front Lips', title: 'BMW 2-Series G42 M-Sport Carbon Fiber Front Bumper Lip Spoiler (MP Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/r3lM2q5.png' },
+  { id: 488, brand: 'BMW', compat: ['G42'], category: 'Side Skirts', title: 'BMW 2-Series G42 M-Sport Carbon Fiber Side Skirt Extensions (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/u1pZ5m3.png' },
+  { id: 489, brand: 'BMW', compat: ['G42'], category: 'Rear Diffusers', title: 'BMW 2-Series G42 M-Sport Carbon Fiber Rear Bumper Diffuser Lip (MP Style)', price: '$629 USD', saved: '$205 USD', image: 'https://i.imgur.com/D3ijydV.png' },
+  { id: 490, brand: 'BMW', compat: ['G42'], category: 'Rear Spoilers', title: 'BMW 2-Series G42 Carbon Fiber Rear Trunk Spoiler Wing (MP Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/VbceBPP.png' },
+  { id: 491, brand: 'BMW', compat: ['G42'], category: 'Mirror Covers', title: 'BMW 2-Series G42 Carbon Fiber Side Mirror Covers (OEM Style)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/cl9rMj8.png' },
+  { id: 492, brand: 'BMW', compat: ['G42'], category: 'Other', title: 'BMW 2-Series G42 Full Carbon Fiber Seat Back Shell Covers Set (MP Style)', price: '$579 USD', saved: '$105 USD', image: 'https://i.imgur.com/tBgaY9N.png' },
+  { id: 493, brand: 'BMW', compat: ['G42'], category: 'Mirror Covers', title: 'BMW 2-Series G42 Carbon Fiber M-Look Horn Style Side Mirror Covers', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/NXOB9qY.png' }
+
+  ];
