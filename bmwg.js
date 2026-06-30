@@ -230,6 +230,17 @@ window.exteriorDatabase = [
   { id: 490, brand: 'BMW', compat: ['G42'], category: 'Rear Spoilers', title: 'BMW 2-Series G42 Carbon Fiber Rear Trunk Spoiler Wing (MP Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/VbceBPP.png' },
   { id: 491, brand: 'BMW', compat: ['G42'], category: 'Mirror Covers', title: 'BMW 2-Series G42 Carbon Fiber Side Mirror Covers (OEM Style)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/cl9rMj8.png' },
   { id: 492, brand: 'BMW', compat: ['G42'], category: 'Other', title: 'BMW 2-Series G42 Full Carbon Fiber Seat Back Shell Covers Set (MP Style)', price: '$579 USD', saved: '$105 USD', image: 'https://i.imgur.com/tBgaY9N.png' },
-  { id: 493, brand: 'BMW', compat: ['G42'], category: 'Mirror Covers', title: 'BMW 2-Series G42 Carbon Fiber M-Look Horn Style Side Mirror Covers', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/NXOB9qY.png' }
+  { id: 493, brand: 'BMW', compat: ['G42'], category: 'Mirror Covers', title: 'BMW 2-Series G42 Carbon Fiber M-Look Horn Style Side Mirror Covers', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/NXOB9qY.png' },
 
-  ];
+// === BMW X5 (G05) 高端碳纖改裝集群 ===
+  { id: 494, brand: 'BMW', compat: ['G05'], category: 'Mirror Covers', title: 'BMW X5 G05 Carbon Fiber Side Mirror Covers (M-Horn Style Spec)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/JI0enbP.jpeg' },
+  { id: 495, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Premium Full Carbon Fiber Aerodynamic Body Kit Package (MP Style)', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/OgCoVGr.jpeg' },
+  { id: 496, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 To X5M Look Full Aerodynamic Conversion Bumper Body Kit Package', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/qnxYLzW.jpeg' },
+  { id: 497, brand: 'BMW', compat: ['G05'], category: 'Front Lips', title: 'BMW X5 G05 Carbon Fiber Front Bumper Lip Spoiler (CH Style - Only For X5M Look Aftermarket Bumper Setup)', price: '$679 USD', saved: '$205 USD', image: 'https://i.imgur.com/phZCCGq.jpeg' },
+  { id: 498, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Gloss Black Front Center Kidney Grille (Dual Slat Sport Style)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/VnGDFcY.jpeg' },
+  { id: 499, brand: 'BMW', compat: ['G05'], category: 'Rear Spoilers', title: 'BMW X5 G05 Carbon Fiber Roof Spoiler Wing (CH Style)', price: '$499 USD', saved: '$105 USD', image: 'https://i.imgur.com/rr86o7N.jpeg' },
+  { id: 500, brand: 'BMW', compat: ['G05'], category: 'Rear Spoilers', title: 'BMW X5 G05 Carbon Fiber Mid-Trunk Spoiler Wing (CH Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/K1yPODD.jpeg' },
+  { id: 501, brand: 'BMW', compat: ['G05'], category: 'Rear Diffusers', title: 'BMW X5 G05 Carbon Fiber Rear Bumper Diffuser Lip (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/mMKj9VF.jpeg' },
+  { id: 502, brand: 'BMW', compat: ['G05'], category: 'Side Skirts', title: 'BMW X5 G05 Carbon Fiber Side Skirt Extensions (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/7YPBO5i.jpeg' },
+  { id: 503, brand: 'BMW', compat: ['G05'], category: 'Front Lips', title: 'BMW X5 G05 Carbon Fiber Double-Layer Front Bumper Lip Spoiler (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/M4i0s8k.jpeg' }
+];
