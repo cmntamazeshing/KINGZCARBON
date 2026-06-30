@@ -213,7 +213,7 @@ window.exteriorDatabase = [
   { id: 477, brand: 'BMW', compat: ['G22'], category: 'Rear Spoilers', title: 'BMW G22 4-Series Carbon Rear Trunk Spoiler (M4 Style Spec)', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/hNvb9bQ.jpeg' },
 
   // === BMW X5 (G05) 高端 LD Style 空力集群 (2019+) ===
-  { id: 478, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Premium LD Style Full Widebody Aerodynamic Conversion Kit', price: '$6129 USD', saved: '$460 USD', image: 'https://i.imgur.com/sAdkXoL.jpeg' },
+  { id: 478, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Premium LD Style Full Widebody Aerodynamic Conversion Kit', price: '$6129 USD', saved: '$460 USD', image: 'https://i.imgur.com/dFcvBvU.jpeg' },
   { id: 479, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Gloss Black Center Kidney Grilles (LD Style)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/xABZWqH.jpeg' },
   { id: 480, brand: 'BMW', compat: ['G05'], category: 'Mirror Covers', title: 'BMW X5 G05 Carbon Fiber Side Mirror Covers (LD Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/l3ATcGE.jpeg' },
   { id: 481, brand: 'BMW', compat: ['G05'], category: 'Rear Spoilers', title: 'BMW X5 G05 Carbon Fiber Rear Roof Spoiler Wing (LD Style)', price: '$1029 USD', saved: '$205 USD', image: 'https://i.imgur.com/C7I5y1x.jpeg' },
