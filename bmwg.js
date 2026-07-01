@@ -24,6 +24,7 @@ const chassisMapping = {
     'G30 / G38 5-Series',
     'G05 X5',
     'G07 X7',
+    'G06 X6',
     'G87 M2', 
     'G80 M3', 
     'G82 M4'
@@ -31,7 +32,6 @@ const chassisMapping = {
   'Toyota': ['A90 Supra'],
   'Nissan': ['R35 GTR']
 };
-
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤 • 內嵌 Carbon)
 window.exteriorDatabase = [
   // === BMW G80 M3 / G82 M4 高性能集群 ===
@@ -263,5 +263,16 @@ window.exteriorDatabase = [
   { id: 508, brand: 'BMW', compat: ['G07'], category: 'Other', title: 'BMW X7 G07 Black Shadow Style Full Aerodynamic Body Kit Conversion Package (Includes Front Lip, Rear Diffuser, Side Skirts, Grille, Mirror Covers)', price: '$3049 USD', saved: '$650 USD', image: 'https://i.imgur.com/jJe73da.jpeg' },
   { id: 509, brand: 'BMW', compat: ['G07'], category: 'Mirror Covers', title: 'BMW X7 G07 Carbon Fiber Side Mirror Covers (M-Horn Style Spec)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/Z9eH3ii.jpeg' },
   { id: 510, brand: 'BMW', compat: ['G07'], category: 'Other', title: 'BMW X7 G07 Gloss Black Front Center Kidney Grille (Shadow Stealth Edition)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/1cy3XMr.jpeg' },
-  { id: 511, brand: 'BMW', compat: ['G07'], category: 'Rear Spoilers', title: 'BMW X7 G07 Carbon Fiber Roof Spoiler Wing (Black Shadow Style)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/5iUOQjC.jpeg' }
+  { id: 511, brand: 'BMW', compat: ['G07'], category: 'Rear Spoilers', title: 'BMW X7 G07 Carbon Fiber Roof Spoiler Wing (Black Shadow Style)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/5iUOQjC.jpeg' },
+
+  // === BMW X6 (G06) 頂級 LD Style 改裝集群 ===
+  { id: 512, brand: 'BMW', compat: ['G06'], category: 'Other', title: 'BMW X6 G06 Gloss Black Front Center Kidney Grille (LD Style)', price: '$609 USD', saved: '$205 USD', image: 'https://i.imgur.com/TS4p0a1.png' },
+  { id: 513, brand: 'BMW', compat: ['G06'], category: 'Other', title: 'BMW X6 G06 Carbon Fiber Fender Vent Air Outlet Trim Covers (LD Style)', price: '$749 USD', saved: '$205 USD', image: 'https://i.imgur.com/ryD0WFD.png' },
+  { id: 514, brand: 'BMW', compat: ['G06'], category: 'Mirror Covers', title: 'BMW X6 G06 Carbon Fiber Side Mirror Covers (M-Horn Style Spec)', price: '$469 USD', saved: '$105 USD', image: 'https://i.imgur.com/ohFemUT.png' },
+  { id: 515, brand: 'BMW', compat: ['G06'], category: 'Hood', title: 'BMW X6 G06 Custom Carbon Fiber Engine Hood Bonnet (LD Style)', price: '$2199 USD', saved: '$550 USD', image: 'https://i.imgur.com/T6n3aCL.png' },
+  { id: 516, brand: 'BMW', compat: ['G06'], category: 'Rear Spoilers', title: 'BMW X6 G06 Carbon Fiber Roof Spoiler Wing (LD Style)', price: '$909 USD', saved: '$205 USD', image: 'https://i.imgur.com/zoK23xn.png' },
+  { id: 517, brand: 'BMW', compat: ['G06'], category: 'Rear Spoilers', title: 'BMW X6 G06 Carbon Fiber Mid-Trunk Spoiler Wing (PSM Style)', price: '$499 USD', saved: '$105 USD', image: 'https://i.imgur.com/jE4lHLP.png' },
+  { id: 518, brand: 'BMW', compat: ['G06'], category: 'Side Skirts', title: 'BMW X6 G06 Carbon Fiber Side Skirt Extensions (LD Style Panels)', price: '$1669 USD', saved: '$360 USD', image: 'https://i.imgur.com/i3xepTM.png' },
+  { id: 519, brand: 'BMW', compat: ['G06'], category: 'Rear Diffusers', title: 'BMW X6 G06 Carbon Fiber Rear Bumper Diffuser Lip With LED Brake Light & Exhaust Muffler Tips Conversion Setup (LD Style)', price: '$2709 USD', saved: '$650 USD', image: 'https://i.imgur.com/XHKw7ho.png' },
+  { id: 520, brand: 'BMW', compat: ['G06'], category: 'Front Lips', title: 'BMW X6 G06 Carbon Fiber Front Bumper Lip Spoiler (LD Style)', price: '$1669 USD', saved: '$360 USD', image: 'https://i.imgur.com/qeQznoB.png' }
 ];
