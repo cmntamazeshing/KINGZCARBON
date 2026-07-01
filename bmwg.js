@@ -3,16 +3,27 @@
  * 💡 技術提示：變數必須直接掛載至 window 物件，確保前台跨域引擎完美讀取、絕不白屏！
  */ 
 
-// 1. 底盤代號與品牌自動綁定集群 (G 世代專屬 - 納入 X3/X4 SUV 高端集群)
-window.chassisMapping = {
+// 1. 內置車型選單配置矩陣 (嚴格執行 E -> F車系 -> F(M) -> G車系 -> G(M) 排序 Rules)
+const chassisMapping = {
   'BMW': [
+    'E90 / E92 / E93 M3',
+    'F30 / F35 3-Series', 
+    'F32 / F33 / F36 4-Series',
+    'F34 3-Series GT', 
+    'F10 / F18 5-Series',
+    'F16 X6',
+    'F87 M2 / M2C', 
+    'F80 M3', 
+    'F82 / F83 M4', 
+    'F90 M5', 
+    'F06 / F12 / F13 M6', 
+    'F97 X3M / F98 X4M',
+    'G42 2-Series',
     'G20 / G28 3-Series', 
     'G22 4-Series',
-    'G42 2-Series',
-    'G05 X5',
     'G30 / G38 5-Series',
-    'G01 X3 / G02 X4',
-    'F97 X3M / F98 X4M',
+    'G05 X5',
+    'G07 X7',
     'G87 M2', 
     'G80 M3', 
     'G82 M4'
@@ -242,5 +253,15 @@ window.exteriorDatabase = [
   { id: 500, brand: 'BMW', compat: ['G05'], category: 'Rear Spoilers', title: 'BMW X5 G05 Carbon Fiber Mid-Trunk Spoiler Wing (CH Style)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/K1yPODD.jpeg' },
   { id: 501, brand: 'BMW', compat: ['G05'], category: 'Rear Diffusers', title: 'BMW X5 G05 Carbon Fiber Rear Bumper Diffuser Lip (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/mMKj9VF.jpeg' },
   { id: 502, brand: 'BMW', compat: ['G05'], category: 'Side Skirts', title: 'BMW X5 G05 Carbon Fiber Side Skirt Extensions (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/7YPBO5i.jpeg' },
-  { id: 503, brand: 'BMW', compat: ['G05'], category: 'Front Lips', title: 'BMW X5 G05 Carbon Fiber Double-Layer Front Bumper Lip Spoiler (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/M4i0s8k.jpeg' }
+  { id: 503, brand: 'BMW', compat: ['G05'], category: 'Front Lips', title: 'BMW X5 G05 Carbon Fiber Double-Layer Front Bumper Lip Spoiler (CH Style)', price: '$729 USD', saved: '$205 USD', image: 'https://i.imgur.com/M4i0s8k.jpeg' },
+
+  // === BMW X7 (G07) 奢華黑武士改裝集群 ===
+  { id: 504, brand: 'BMW', compat: ['G07'], category: 'Front Lips', title: 'BMW X7 G07 Carbon Fiber Double-Layer Front Bumper Lip Spoiler (Black Shadow Style)', price: '$799 USD', saved: '$205 USD', image: 'https://i.imgur.com/ilzJa4U.jpeg' },
+  { id: 505, brand: 'BMW', compat: ['G07'], category: 'Side Skirts', title: 'BMW X7 G07 Carbon Fiber Side Skirt Extensions (Black Shadow Style)', price: '$849 USD', saved: '$205 USD', image: 'https://i.imgur.com/Zdo9v4q.jpeg' },
+  { id: 506, brand: 'BMW', compat: ['G07'], category: 'Rear Diffusers', title: 'BMW X7 G07 Carbon Fiber Rear Bumper Diffuser Lip (Black Shadow Style)', price: '$799 USD', saved: '$205 USD', image: 'https://i.imgur.com/BFc4xtr.jpeg' },
+  { id: 507, brand: 'BMW', compat: ['G07'], category: 'Front Lips', title: 'BMW X7 G07 Carbon Fiber Front Bumper Lip Spoiler (Black Shadow Style)', price: '$799 USD', saved: '$205 USD', image: 'https://i.imgur.com/fqqOpFL.jpeg' },
+  { id: 508, brand: 'BMW', compat: ['G07'], category: 'Other', title: 'BMW X7 G07 Black Shadow Style Full Aerodynamic Body Kit Conversion Package (Includes Front Lip, Rear Diffuser, Side Skirts, Grille, Mirror Covers)', price: '$3049 USD', saved: '$650 USD', image: 'https://i.imgur.com/jJe73da.jpeg' },
+  { id: 509, brand: 'BMW', compat: ['G07'], category: 'Mirror Covers', title: 'BMW X7 G07 Carbon Fiber Side Mirror Covers (M-Horn Style Spec)', price: '$449 USD', saved: '$105 USD', image: 'https://i.imgur.com/Z9eH3ii.jpeg' },
+  { id: 510, brand: 'BMW', compat: ['G07'], category: 'Other', title: 'BMW X7 G07 Gloss Black Front Center Kidney Grille (Shadow Stealth Edition)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/1cy3XMr.jpeg' },
+  { id: 511, brand: 'BMW', compat: ['G07'], category: 'Rear Spoilers', title: 'BMW X7 G07 Carbon Fiber Roof Spoiler Wing (Black Shadow Style)', price: '$719 USD', saved: '$205 USD', image: 'https://i.imgur.com/5iUOQjC.jpeg' }
 ];
