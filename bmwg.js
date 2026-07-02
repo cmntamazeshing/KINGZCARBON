@@ -4,7 +4,7 @@
  */ 
 
 // 1. 內置車型選單配置矩陣 (嚴格執行 E -> F車系 -> F(M) -> G車系 -> G(M) 排序 Rules)
-const chassisMapping = {
+window.chassisMapping = {
   'BMW': [
     'E90 / E92 / E93 M3',
     'F30 / F35 3-Series', 
@@ -32,6 +32,7 @@ const chassisMapping = {
   'Toyota': ['A90 Supra'],
   'Nissan': ['R35 GTR']
 };
+
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤 • 內嵌 Carbon)
 window.exteriorDatabase = [
   // === BMW G80 M3 / G82 M4 高性能集群 ===
@@ -243,7 +244,7 @@ window.exteriorDatabase = [
   { id: 492, brand: 'BMW', compat: ['G42'], category: 'Other', title: 'BMW 2-Series G42 Full Carbon Fiber Seat Back Shell Covers Set (MP Style)', price: '$579 USD', saved: '$105 USD', image: 'https://i.imgur.com/tBgaY9N.png' },
   { id: 493, brand: 'BMW', compat: ['G42'], category: 'Mirror Covers', title: 'BMW 2-Series G42 Carbon Fiber M-Look Horn Style Side Mirror Covers', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/NXOB9qY.png' },
 
-// === BMW X5 (G05) 高端碳纖改裝集群 ===
+  // === BMW X5 (G05) 高端碳纖改裝集群 ===
   { id: 494, brand: 'BMW', compat: ['G05'], category: 'Mirror Covers', title: 'BMW X5 G05 Carbon Fiber Side Mirror Covers (M-Horn Style Spec)', price: '$419 USD', saved: '$105 USD', image: 'https://i.imgur.com/JI0enbP.jpeg' },
   { id: 495, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 Premium Full Carbon Fiber Aerodynamic Body Kit Package (MP Style)', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/OgCoVGr.jpeg' },
   { id: 496, brand: 'BMW', compat: ['G05'], category: 'Other', title: 'BMW X5 G05 To X5M Look Full Aerodynamic Conversion Bumper Body Kit Package', price: '$2129 USD', saved: '$460 USD', image: 'https://i.imgur.com/qnxYLzW.jpeg' },
