@@ -311,9 +311,9 @@ window.exteriorDatabase = [
   { id: 520, brand: 'BMW', compat: ['G06'], category: 'Front Lips', title: 'BMW X6 G06 Carbon Fiber Front Bumper Lip Spoiler (LD Style)', price: '$1669 USD', saved: '$360 USD', image: 'https://i.imgur.com/qeQznoB.png' },
 
   // === BMW 4 Series Gran Coupe (G26) Carbon Fiber MP Style Aerodynamics ===
-  { id: 521, brand: 'BMW', compat: ['G26'], category: 'Front Lips', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Front Lip Spoiler (MP Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/ldw5BBm.jpeg' },
-  { id: 522, brand: 'BMW', compat: ['G26'], category: 'Rear Spoilers', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Trunk Spoiler (MP Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/F3pOYIv.jpeg' },
-  { id: 523, brand: 'BMW', compat: ['G26'], category: 'Rear Diffusers', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Rear Diffuser Lip (MP Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/HIr9I4M.jpeg' },
-  { id: 524, brand: 'BMW', compat: ['G26'], category: 'Side Skirts', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Side Skirt Extensions (MP Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/wlnU5C8.jpeg' }
+  { id: 521, brand: 'BMW', compat: ['G26'], category: 'Front Lips', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Front Lip Spoiler (3D Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/ldw5BBm.jpeg' },
+  { id: 522, brand: 'BMW', compat: ['G26'], category: 'Rear Spoilers', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Trunk Spoiler (3D Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/F3pOYIv.jpeg' },
+  { id: 523, brand: 'BMW', compat: ['G26'], category: 'Rear Diffusers', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Rear Diffuser Lip (3D Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/HIr9I4M.jpeg' },
+  { id: 524, brand: 'BMW', compat: ['G26'], category: 'Side Skirts', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Side Skirt Extensions (3D Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/wlnU5C8.jpeg' }
 
   ];
