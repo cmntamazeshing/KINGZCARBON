@@ -366,5 +366,27 @@ window.exteriorDatabase = [
   { id: 514, brand: 'BMW', compat: ['F85', 'F86'], category: 'Mirror Covers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Side Mirror Covers (M Style)', price: '$159 USD', saved: '$45 USD', image: 'https://i.imgur.com/8P1xogD.jpeg' },
   { id: 515, brand: 'BMW', compat: ['F85', 'F86'], category: 'Other', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Front Bumper Side Air Vent Shrouds', price: '$319 USD', saved: '$105 USD', image: 'https://i.imgur.com/3iYZf8L.jpeg' },
   { id: 516, brand: 'BMW', compat: ['F85', 'F86'], category: 'Other', title: 'BMW F85 X5M / F86 X6M Gloss Black Center Kidney Grilles', price: '$119 USD', saved: '$45 USD', image: 'https://i.imgur.com/9PKppHJ.jpeg' },
-  { id: 517, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Spoilers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Roof Spoiler Wing (RGD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/pOENPVN.jpeg' }
+  { id: 517, brand: 'BMW', compat: ['F85', 'F86'], category: 'Rear Spoilers', title: 'BMW F85 X5M / F86 X6M Carbon Fiber Roof Spoiler Wing (RGD Style)', price: '$559 USD', saved: '$205 USD', image: 'https://i.imgur.com/pOENPVN.jpeg' },
+
+// === BMW X5 (F15) 高階外觀與碳纖維空力集群 ===
+  { id: 274, brand: 'BMW', compat: ['F15'], category: 'Front Lips', title: 'BMW X5 F15 Carbon Fiber Front Lip Spoiler (LD Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/ksSA7mZ.jpeg' },
+  { id: 275, brand: 'BMW', compat: ['F15'], category: 'Side Skirts', title: 'BMW X5 F15 Carbon Fiber Side Skirt Extensions (LD Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/qNEQAsj.jpeg' },
+  { id: 276, brand: 'BMW', compat: ['F15'], category: 'Rear Diffusers', title: 'BMW X5 F15 Carbon Fiber Rear Diffuser Lip (LD Style)', price: '$739 USD', saved: '$205 USD', image: 'https://i.imgur.com/EHju5mC.jpeg' },
+  { id: 277, brand: 'BMW', compat: ['F15'], category: 'Front Lips', title: 'BMW X5 F15 Carbon Fiber Front Lip Spoiler (MP Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/Q0JQoHP.jpeg' },
+  { id: 278, brand: 'BMW', compat: ['F15'], category: 'Rear Diffusers', title: 'BMW X5 F15 Carbon Fiber Rear Diffuser Lip (MP Style)', price: '$689 USD', saved: '$205 USD', image: 'https://i.imgur.com/O2EBp3q.jpeg' },
+  { id: 279, brand: 'BMW', compat: ['F15'], category: 'Side Skirts', title: 'BMW X5 F15 Carbon Fiber Side Skirt Extensions (3D Style)', price: '$669 USD', saved: '$205 USD', image: 'https://i.imgur.com/zaN6yru.jpeg' },
+  { id: 280, brand: 'BMW', compat: ['F15'], category: 'Mirror Covers', title: 'BMW X5 F15 Carbon Fiber Horn-Style Side Mirror Covers', price: '$399 USD', saved: '$105 USD', image: 'https://i.imgur.com/NdBVRVP.jpeg' },
+  { id: 281, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 Carbon Fiber Trunk Mid-Wing Spoiler', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/TKAHqXG.jpeg' },
+  { id: 282, brand: 'BMW', compat: ['F15'], category: 'Hood', title: 'BMW X5 F15 Custom Carbon Fiber Engine Hood Panel (H Style)', price: '$1169 USD', saved: '$360 USD', image: 'https://i.imgur.com/NTgtO79.jpeg' },
+  { id: 283, brand: 'BMW', compat: ['F15'], category: 'Hood', title: 'BMW X5 F15 Custom Carbon Fiber Engine Hood Panel (V Style)', price: '$1169 USD', saved: '$360 USD', image: 'https://i.imgur.com/yyeBr9p.jpeg' },
+  { id: 284, brand: 'BMW', compat: ['F15'], category: 'Rear Spoilers', title: 'BMW X5 F15 Carbon Fiber Rear Roof Spoiler Wing (RGD Style)', price: '$689 USD', saved: '$205 USD', image: 'https://i.imgur.com/415jjzH.jpeg' },
+  { id: 285, brand: 'BMW', compat: ['F15'], category: 'Rear Spoilers', title: 'BMW X5 F15 Carbon Fiber Rear Roof Spoiler Wing (H Style)', price: '$489 USD', saved: '$105 USD', image: 'https://i.imgur.com/Ji5egV8.jpeg' },
+  { id: 286, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 MT Style Front Bumper (For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$899 USD', saved: '$460 USD', image: 'https://i.imgur.com/ysYefS2.jpeg' },
+  { id: 287, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 MT Style Full Body Kit (Front Bumper + Side Skirts + Rear Bumper - For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$1549 USD', saved: '$460 USD', image: 'https://i.imgur.com/jpa9fyP.jpeg' },
+  { id: 288, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 MT Style Side Skirts (For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/BBYgfeX.jpeg' },
+  { id: 289, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 X5M Style Front Bumper (For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$1199 USD', saved: '$460 USD', image: 'https://i.imgur.com/9vQx2co.jpeg' },
+  { id: 290, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 X5M Style Rear Bumper with Exhaust Tips Conversion Kit (For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$1329 USD', saved: '$460 USD', image: 'https://i.imgur.com/UxY6Lv1.jpeg' },
+  { id: 291, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 X5M Style Full Body Kit with Exhaust Tips Conversion Kit (For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$1969 USD', saved: '$460 USD', image: 'https://i.imgur.com/5KxvpnZ.jpeg' },
+  { id: 292, brand: 'BMW', compat: ['F15'], category: 'Other', title: 'BMW X5 F15 X5M Style Side Skirts (For Standard X5 F15 Only / Does NOT Fit Genuine X5M)', price: '$529 USD', saved: '$205 USD', image: 'https://i.imgur.com/kwM13Rc.jpeg' },
+
 ];
