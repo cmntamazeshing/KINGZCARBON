@@ -3,28 +3,42 @@
  * 💡 技術提示：變數必須直接掛載至 window 物件，確保前台跨域引擎完美讀取、絕不白屏！
  */ 
 
-// 1. 內置車型選單配置矩陣 (嚴格執行 E -> F車系 -> F(M) -> G車系 -> G(M) 排序 Rules)
+// ==========================================================================
+// KINGZCARBON 全局統一車型選單配置矩陣 (跨檔案通用完全體)
+// 排序鐵律：E 世代 -> F 普通 -> F M-Power -> G 普通 -> G M-Power -> 其他品牌
+// ==========================================================================
 window.chassisMapping = {
   'BMW': [
+    // === E 世代性能集群 ===
     'E90 / E92 / E93 M3',
+
+    // === F 世代普通車系集群 ===
     'F30 / F35 3-Series', 
     'F32 / F33 / F36 4-Series',
     'F34 3-Series GT', 
     'F10 / F18 5-Series',
+    'F15 X5', 
     'F16 X6',
+
+    // === F 世代頂級 M-Power 集群 ===
     'F87 M2 / M2C', 
     'F80 M3', 
     'F82 / F83 M4', 
     'F90 M5', 
     'F06 / F12 / F13 M6', 
     'F97 X3M / F98 X4M',
+
+    // === G 世代普通車系集群 ===
     'G42 2-Series',
     'G20 / G28 3-Series', 
     'G22 4-Series',
+    'G26 4-Series Gran Coupe', 
     'G30 / G38 5-Series',
     'G05 X5',
-    'G07 X7',
     'G06 X6',
+    'G07 X7',
+
+    // === G 世代頂級 M-Power 集群 ===
     'G87 M2', 
     'G80 M3', 
     'G82 M4'
@@ -32,6 +46,7 @@ window.chassisMapping = {
   'Toyota': ['A90 Supra'],
   'Nissan': ['R35 GTR']
 };
+
 
 // 2. 核心商品全庫存陣列 (1.8X倍率精算售價 + 免運優惠標籤 • 內嵌 Carbon)
 window.exteriorDatabase = [
@@ -293,5 +308,12 @@ window.exteriorDatabase = [
   { id: 517, brand: 'BMW', compat: ['G06'], category: 'Rear Spoilers', title: 'BMW X6 G06 Carbon Fiber Mid-Trunk Spoiler Wing (PSM Style)', price: '$499 USD', saved: '$105 USD', image: 'https://i.imgur.com/jE4lHLP.png' },
   { id: 518, brand: 'BMW', compat: ['G06'], category: 'Side Skirts', title: 'BMW X6 G06 Carbon Fiber Side Skirt Extensions (LD Style Panels)', price: '$1669 USD', saved: '$360 USD', image: 'https://i.imgur.com/i3xepTM.png' },
   { id: 519, brand: 'BMW', compat: ['G06'], category: 'Rear Diffusers', title: 'BMW X6 G06 Carbon Fiber Rear Bumper Diffuser Lip With LED Brake Light & Exhaust Muffler Tips Conversion Setup (LD Style)', price: '$2709 USD', saved: '$650 USD', image: 'https://i.imgur.com/XHKw7ho.png' },
-  { id: 520, brand: 'BMW', compat: ['G06'], category: 'Front Lips', title: 'BMW X6 G06 Carbon Fiber Front Bumper Lip Spoiler (LD Style)', price: '$1669 USD', saved: '$360 USD', image: 'https://i.imgur.com/qeQznoB.png' }
-];
+  { id: 520, brand: 'BMW', compat: ['G06'], category: 'Front Lips', title: 'BMW X6 G06 Carbon Fiber Front Bumper Lip Spoiler (LD Style)', price: '$1669 USD', saved: '$360 USD', image: 'https://i.imgur.com/qeQznoB.png' },
+
+  // === BMW 4 Series Gran Coupe (G26) Carbon Fiber MP Style Aerodynamics ===
+  { id: 521, brand: 'BMW', compat: ['G26'], category: 'Front Lips', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Front Lip Spoiler (MP Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/ldw5BBm.jpeg' },
+  { id: 522, brand: 'BMW', compat: ['G26'], category: 'Rear Spoilers', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Trunk Spoiler (MP Style)', price: '$499 USD', saved: '$205 USD', image: 'https://i.imgur.com/F3pOYIv.jpeg' },
+  { id: 523, brand: 'BMW', compat: ['G26'], category: 'Rear Diffusers', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Rear Diffuser Lip (MP Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/HIr9I4M.jpeg' },
+  { id: 524, brand: 'BMW', compat: ['G26'], category: 'Side Skirts', title: 'BMW 4 Series Gran Coupe G26 Carbon Fiber Side Skirt Extensions (MP Style)', price: '$899 USD', saved: '$205 USD', image: 'https://i.imgur.com/wlnU5C8.jpeg' }
+
+  ];
