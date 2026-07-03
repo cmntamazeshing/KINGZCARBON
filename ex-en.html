@@ -263,28 +263,42 @@ let currentLightboxIndex = 0;
 // 全局唯一的外觀數據緩存（由動態加載的 bmwe.js / bmwf.js / bmwg.js 寫入）
 let exteriorDatabase = []; 
 
-// 1. 內置車型選單配置矩陣 (嚴格執行 E -> F車系 -> F(M) -> G車系 -> G(M) 排序 Rules)
-const chassisMapping = {
+// ==========================================================================
+// KINGZCARBON 全局統一車型選單配置矩陣 (跨檔案通用完全體)
+// 排序鐵律：E 世代 -> F 普通 -> F M-Power -> G 普通 -> G M-Power -> 其他品牌
+// ==========================================================================
+window.chassisMapping = {
   'BMW': [
+    // === E 世代性能集群 ===
     'E90 / E92 / E93 M3',
+
+    // === F 世代普通車系集群 ===
     'F30 / F35 3-Series', 
     'F32 / F33 / F36 4-Series',
     'F34 3-Series GT', 
     'F10 / F18 5-Series',
+    'F15 X5', 
     'F16 X6',
+
+    // === F 世代頂級 M-Power 集群 ===
     'F87 M2 / M2C', 
     'F80 M3', 
     'F82 / F83 M4', 
     'F90 M5', 
     'F06 / F12 / F13 M6', 
     'F97 X3M / F98 X4M',
+
+    // === G 世代普通車系集群 ===
     'G42 2-Series',
     'G20 / G28 3-Series', 
     'G22 4-Series',
+    'G26 4-Series Gran Coupe', 
     'G30 / G38 5-Series',
     'G05 X5',
-    'G07 X7',
     'G06 X6',
+    'G07 X7',
+
+    // === G 世代頂級 M-Power 集群 ===
     'G87 M2', 
     'G80 M3', 
     'G82 M4'
