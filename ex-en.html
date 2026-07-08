@@ -272,7 +272,7 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - ID 零衝突優化版)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
@@ -569,7 +569,6 @@ function renderMatrix() {
         activeFilteredData.forEach((item, loopIndex) => {
             let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
             
-            // 💡 核心修改點：onclick 代入改為唯一的 item.id，不要再傳不穩定的局部 loopIndex 
             let cardHtml = `
                 <div onclick="openLightbox(${item.id})" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between">
                     <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
@@ -586,23 +585,16 @@ function renderMatrix() {
     }
 }
 
-// 全局緩存當前彈出視窗正在瀏覽的商品對象物件
-let currentActiveItem = null;
-
-// 🕹️ Lightbox 打開邏輯：改用全庫 ID 搜索定位法，100% 滿血回歸 Review 大圖
+// 🕹 Extractor: 基於絕對不重複 ID 追蹤與全局 Modal 安全解鎖
 function openLightbox(productId) {
-    // 💡 從整合完畢的商品庫中直接精準追蹤 ID
     const item = exteriorDatabase.find(x => x.id === productId);
     if (!item) {
-        console.error("[KINGZCARBON Cart] System mismatched parameter ID: " + productId);
+        console.error("[KINGZCARBON Matrix] Broken Reference ID Pipeline: " + productId);
         return;
     }
     
     currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
     if (currentLightboxIndex === -1) currentLightboxIndex = 0;
-    
-    // 鎖定當前對象到全局緩存
-    window.currentActiveItem = item;
 
     let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
 
@@ -612,7 +604,6 @@ function openLightbox(productId) {
     document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
     document.getElementById('modal-cat').innerText = item.category;
 
-    // 清空重置適配框
     document.getElementById('fitment-text-input').value = '';
 
     const modal = document.getElementById('product-lightbox-modal');
@@ -620,14 +611,11 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 🚀 隱形表單發射器：100% 正確攜帶參數發射至 PayPal 購物車
+// 🚀 動態隱形表單發射器 (100% 成功連動購物車)
 function submitToPayPalCart() {
-    const item = window.activeFilteredData[currentLightboxIndex] || exteriorDatabase.find(x => x.id === activeFilteredData[currentLightboxIndex]?.id);
-    const targetItem = item ? item : exteriorDatabase.find(x => x.title === document.getElementById('modal-title').innerText);
-    
-    if (!targetStringMatchCheck(targetItem)) return;
+    const targetItem = activeFilteredData[currentLightboxIndex];
+    if (!targetItem) return;
 
-    // 驗證適配車型
     const fitmentInput = document.getElementById('fitment-text-input').value.trim();
     if (fitmentInput.length < 5) {
         alert("Please specify your exact car year, model, or VIN to proceed with our fitment guarantee.");
@@ -666,16 +654,6 @@ function submitToPayPalCart() {
     document.body.removeChild(form); 
 }
 
-function typeofTargetItem(id) {
-    return exteriorDatabase.find(x => x.id === id) || null;
-}
-
-function activeLightboxByID(id) {
-    const matched = exteriorDatabase.find(x => x.id === id);
-    if(matched) openLightbox(matched.id);
-}
-
-// 🚀 View My Cart 發射器協定（徹底防 404）
 function triggerPayPalViewCart() {
     const form = document.createElement('form');
     form.method = 'POST';
@@ -701,12 +679,6 @@ function triggerPayPalViewCart() {
     document.body.removeChild(form);
 }
 
-// 輔助安全判定
-function activeFilteredDataDataGuard(idx) {
-    if (activeFilteredData[idx]) return activeFilteredData[index];
-    return exteriorDatabase.find(x => x.title === document.getElementById('modal-title').innerText);
-}
-
 window.addEventListener('keydown', function(e) {
     const modal = document.getElementById('product-lightbox-modal');
     if (modal.classList.contains('opacity-0')) return;
@@ -724,7 +696,7 @@ function nextLightboxImg() {
     if (activeFilteredData.length <= 1) return;
     currentLightboxIndex = (currentLightboxIndex + 1) % activeFilteredData.length;
     const targetItem = activeFilteredData[currentLightboxIndex];
-    if(targetItem) openLightbox(targetTargetId捕獲(targetItem.id));
+    if(targetItem) openLightbox(targetItem.id);
 }
 
 function prevLightboxImg() {
@@ -732,11 +704,6 @@ function prevLightboxImg() {
     currentLightboxIndex = (currentLightboxIndex - 1 + activeFilteredData.length) % activeFilteredData.length;
     const targetItem = activeFilteredData[currentLightboxIndex];
     if(targetItem) openLightbox(targetItem.id);
-}
-
-function itemFieldDecoder(index) {
-    if(activeFilteredData[index]) return activeFilteredData[index];
-    return exteriorDatabase.find(x => x.title === document.getElementById('modal-title').innerText);
 }
 
 function closeLightbox(event) {
@@ -755,11 +722,7 @@ function closeLightboxForce() {
 window.onload = function() {
     selectBrand('All', true);
 };
-
-// 💡 輔助對齊引擎輔助控制塊
-function activeFilteredDataRecovery() { try { return activeFilteredData[currentLightboxIndex]; } catch(e){ return null; } }
-function validateFitmentInput() { return true; }
 </script>
-
+    
 </body>
 </html>
