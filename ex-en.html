@@ -282,7 +282,7 @@ let initialLoad = true;
 let activeFilteredData = [];
 let currentLightboxIndex = 0;
 
-// 全域唯一宿主
+// 💡 修正鐵律：將整個數據庫死死錨定在全域 window 節點，防堵生命週期真空
 window.exteriorDatabase = []; 
 
 // 全局統一車型選單配置矩陣
@@ -377,7 +377,7 @@ function fetchScript(src) {
     });
 }
 
-// 💡 修正 1：完美拼接抓取全站 bmw*.js 數據並融合，解決 undefined is not iterable 報錯
+// 💡 修正 1：改用局部變數獨立緩存，最後才合流至 window.exteriorDatabase，徹底修復 undefined error 造成的代碼死鎖
 async function loadChassisDatabase(targetGroup, callback) {
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
@@ -503,7 +503,7 @@ function selectCategory(category) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 💡 修正 2：用實體 DOM Component 附加法，100% 留存卡片點擊觸發指針！
+// 💡 修正 2：改用安全可靠的實體 DOM Component 附加法，100% 留存卡片點擊觸發指針，拒絕 HTML 字串拼接引起的指針洗滅 bug
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const welcomeHero = document.getElementById('welcome-hero-screen');
@@ -575,7 +575,7 @@ function renderMatrix() {
             const cardElement = document.createElement('div');
             cardElement.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
             
-            // 💡 表綁定點擊，傳入唯一的商品 ID
+            // 💡 實體物件事件綁定，注入唯一商品 ID
             cardElement.onclick = function() {
                 openLightbox(item.id);
             };
@@ -594,7 +594,7 @@ function renderMatrix() {
     }
 }
 
-// 🕹️ 核心對齊：基於 window 全域數據認證，大圖 100% 彈出
+// 🕹️ 修正 3：認準 window 全域變數節點，100% 成功填充大圖數據，解除遮罩！
 function openLightbox(productId) {
     const item = window.exteriorDatabase.find(x => x.id === productId);
     if (!item) {
