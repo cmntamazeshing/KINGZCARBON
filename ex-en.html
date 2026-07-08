@@ -146,8 +146,6 @@ body {
             </div>
         </div>
 
-        <div id="sidebar-overlay" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-xs hidden z-[80]"></div>
-
         <div class="md:col-span-3 relative min-h-[50vh]">
             
             <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
@@ -272,7 +270,7 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 全線大 Debug 完美版)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 終極修復穩定版)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
@@ -281,7 +279,7 @@ let initialLoad = true;
 
 let activeFilteredData = [];
 let currentLightboxIndex = 0;
-let exteriorDatabase = []; 
+window.exteriorDatabase = []; // 💡 將基礎庫強制綁定在 window 全域作用域，防堵生命週期真空
 
 // 全局統一車型選單配置矩陣
 window.chassisMapping = {
@@ -379,7 +377,7 @@ async function loadChassisDatabase(targetGroup, callback) {
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
 
-    window.exteriorDatabase = []; // 💡 修正：清空全域 window 緩存
+    window.exteriorDatabase = []; 
     const upper = targetGroup.toUpperCase();
 
     try {
@@ -393,7 +391,7 @@ async function loadChassisDatabase(targetGroup, callback) {
             await fetchScript('bmwg.js?v=' + Date.now());
             const gData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
 
-            exteriorDatabase = [...eData, ...fData, ...gData];
+            window.exteriorDatabase = [...eData, ...fData, ...gData];
         } else {
             let fileTarget = '';
             if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) {
@@ -410,9 +408,6 @@ async function loadChassisDatabase(targetGroup, callback) {
 
             if (fileTarget) {
                 await fetchScript(fileTarget + '?v=' + Date.now());
-                if (Array.isArray(window.exteriorDatabase)) {
-                    exteriorDatabase = [...window.exteriorDatabase];
-                }
             }
         }
     } catch (err) {
@@ -440,7 +435,7 @@ function selectBrand(brand, isInit = false) {
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
-        exteriorDatabase = [];
+        window.exteriorDatabase = [];
         renderMatrix();
     } else {
         let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
@@ -456,7 +451,7 @@ function selectBrand(brand, isInit = false) {
                 renderMatrix();
             });
         } else {
-            exteriorDatabase = [];
+            window.exteriorDatabase = [];
             renderMatrix();
         }
     }
@@ -522,7 +517,7 @@ function renderMatrix() {
         currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
     }
 
-    activeFilteredData = exteriorDatabase.filter(item => {
+    activeFilteredData = window.exteriorDatabase.filter(item => {
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
         const isUniversal = (item.brand === 'All' && item.compat && item.compat.includes('All'));
         
@@ -585,15 +580,14 @@ function renderMatrix() {
     }
 }
 
-// 🕹 核心修復：基於 ID 精準鎖定。不論是單獨加載還是串行加載，100% 捕獲商品對象
+// 🕹 基於 window 全域數據庫精準定位
 function openLightbox(productId) {
-    const item = exteriorDatabase.find(x => x.id === productId);
+    const item = window.exteriorDatabase.find(x => x.id === productId);
     if (!item) {
         console.error("[KINGZCARBON Matrix] Broken Reference ID Pipeline: " + productId);
         return;
     }
     
-    // 💡 核心對齊：精準更新當前 Lightbox 的全域索引，供左右箭頭切換使用
     currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
     if (currentLightboxIndex === -1) currentLightboxIndex = 0;
 
@@ -612,7 +606,7 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 🚀 動態隱形表單發射器 (100% 成功連動購物車)
+// 🚀 動態隱形表單發射器
 function submitToPayPalCart() {
     const targetItem = activeFilteredData[currentLightboxIndex];
     if (!targetItem) return;
