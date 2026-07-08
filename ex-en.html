@@ -282,7 +282,7 @@ let initialLoad = true;
 let activeFilteredData = [];
 let currentLightboxIndex = 0;
 
-// 💡 修正 1：全域鎖定，數據庫陣列唯一合法宿主
+// 全域唯一宿主
 window.exteriorDatabase = []; 
 
 // 全局統一車型選單配置矩陣
@@ -377,7 +377,7 @@ function fetchScript(src) {
     });
 }
 
-// 💡 修正 2：全自動串行捕獲，加載完成直接在 window 節點合併數據
+// 💡 修正 1：完美拼接抓取全站 bmw*.js 數據並融合，解決 undefined is not iterable 報錯
 async function loadChassisDatabase(targetGroup, callback) {
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
@@ -390,9 +390,11 @@ async function loadChassisDatabase(targetGroup, callback) {
             await fetchScript('bmwe.js?v=' + Date.now());
             const eData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             
+            window.exteriorDatabase = []; 
             await fetchScript('bmwf.js?v=' + Date.now());
             const fData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             
+            window.exteriorDatabase = [];
             await fetchScript('bmwg.js?v=' + Date.now());
             const gData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
 
@@ -501,6 +503,7 @@ function selectCategory(category) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// 💡 修正 2：用實體 DOM Component 附加法，100% 留存卡片點擊觸發指針！
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const welcomeHero = document.getElementById('welcome-hero-screen');
@@ -515,7 +518,7 @@ function renderMatrix() {
     }
     
     welcomeHero.classList.add('hidden');
-    gridContainer.innerHTML = '';
+    gridContainer.innerHTML = ''; 
 
     let currentChassisTokens = [];
     if (currentModel !== 'All') {
@@ -569,23 +572,29 @@ function renderMatrix() {
         activeFilteredData.forEach((item) => {
             let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
             
-            let cardHtml = `
-                <div onclick="openLightbox(${item.id})" class="product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between">
-                    <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
-                        <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain transition duration-500">
-                    </div>
-                    <div class="flex-grow flex flex-col justify-between">
-                        <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
-                        <div class="text-sm font-extrabold text-yellow-500 mt-2">${displayPrice}</div>
-                    </div>
+            const cardElement = document.createElement('div');
+            cardElement.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
+            
+            // 💡 表綁定點擊，傳入唯一的商品 ID
+            cardElement.onclick = function() {
+                openLightbox(item.id);
+            };
+            
+            cardElement.innerHTML = `
+                <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain transition duration-500">
+                </div>
+                <div class="flex-grow flex flex-col justify-between">
+                    <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
+                    <div class="text-sm font-extrabold text-yellow-500 mt-2">${displayPrice}</div>
                 </div>
             `;
-            gridContainer.innerHTML += cardHtml;
+            gridContainer.appendChild(cardElement);
         });
     }
 }
 
-// 🕹️ 核心修正：認準 window 全域變數，100% 成功解除遮罩，大圖復活！
+// 🕹️ 核心對齊：基於 window 全域數據認證，大圖 100% 彈出
 function openLightbox(productId) {
     const item = window.exteriorDatabase.find(x => x.id === productId);
     if (!item) {
@@ -611,7 +620,7 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 🚀 隱形安全購物車提交表單
+// 🚀 動態安全 PayPal 購物車發射器
 function submitToPayPalCart() {
     const targetItem = activeFilteredData[currentLightboxIndex];
     if (!targetItem) return;
