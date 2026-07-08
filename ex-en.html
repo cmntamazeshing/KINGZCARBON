@@ -272,7 +272,7 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - ID 零衝突優化版)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 全線大 Debug 完美版)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
@@ -379,7 +379,7 @@ async function loadChassisDatabase(targetGroup, callback) {
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
 
-    exteriorDatabase = [];
+    window.exteriorDatabase = []; // 💡 修正：清空全域 window 緩存
     const upper = targetGroup.toUpperCase();
 
     try {
@@ -566,7 +566,7 @@ function renderMatrix() {
         emptyState.className = "hidden";
         gridContainer.classList.remove('hidden');
 
-        activeFilteredData.forEach((item, loopIndex) => {
+        activeFilteredData.forEach((item) => {
             let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
             
             let cardHtml = `
@@ -585,7 +585,7 @@ function renderMatrix() {
     }
 }
 
-// 🕹 Extractor: 基於絕對不重複 ID 追蹤與全局 Modal 安全解鎖
+// 🕹 核心修復：基於 ID 精準鎖定。不論是單獨加載還是串行加載，100% 捕獲商品對象
 function openLightbox(productId) {
     const item = exteriorDatabase.find(x => x.id === productId);
     if (!item) {
@@ -593,6 +593,7 @@ function openLightbox(productId) {
         return;
     }
     
+    // 💡 核心對齊：精準更新當前 Lightbox 的全域索引，供左右箭頭切換使用
     currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
     if (currentLightboxIndex === -1) currentLightboxIndex = 0;
 
