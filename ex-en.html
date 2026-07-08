@@ -272,7 +272,7 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 終極修復穩定版)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 終極修復版本)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
@@ -282,8 +282,8 @@ let initialLoad = true;
 let activeFilteredData = [];
 let currentLightboxIndex = 0;
 
-// 💡 修正鐵律：將整個數據庫死死錨定在全域 window 節點，防堵生命週期真空
-window.exteriorDatabase = []; 
+// 💡 修正 1：建立一個永不被子檔案覆蓋沖刷嘅「前台最終主大腦數據庫」
+let masterExteriorDatabase = []; 
 
 // 全局統一車型選單配置矩陣
 window.chassisMapping = {
@@ -377,16 +377,17 @@ function fetchScript(src) {
     });
 }
 
-// 💡 修正 1：改用局部變數獨立緩存，最後才合流至 window.exteriorDatabase，徹底修復 undefined error 造成的代碼死鎖
+// 💡 修正 2：用「沙盒隔離法」加載數據，抓出臨時數組後再合流，避免 window.exteriorDatabase 中途自相殘殺被洗空！
 async function loadChassisDatabase(targetGroup, callback) {
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
 
-    window.exteriorDatabase = []; 
+    masterExteriorDatabase = []; // 清空主數據庫準備接收
     const upper = targetGroup.toUpperCase();
 
     try {
         if (upper === 'ALL_BMW') {
+            window.exteriorDatabase = [];
             await fetchScript('bmwe.js?v=' + Date.now());
             const eData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             
@@ -398,7 +399,7 @@ async function loadChassisDatabase(targetGroup, callback) {
             await fetchScript('bmwg.js?v=' + Date.now());
             const gData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
 
-            window.exteriorDatabase = [...eData, ...fData, ...gData];
+            masterExteriorDatabase = [...eData, ...fData, ...gData];
         } else {
             let fileTarget = '';
             if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) {
@@ -414,11 +415,13 @@ async function loadChassisDatabase(targetGroup, callback) {
             }
 
             if (fileTarget) {
+                window.exteriorDatabase = [];
                 await fetchScript(fileTarget + '?v=' + Date.now());
+                masterExteriorDatabase = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
             }
         }
     } catch (err) {
-        console.error('[KINGZCARBON Engine] Data streaming fatal anomaly:', err);
+        console.error('[KINGZCARBON Engine] Data streaming connection error:', err);
     }
 
     if (callback) callback();
@@ -442,7 +445,7 @@ function selectBrand(brand, isInit = false) {
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
-        window.exteriorDatabase = [];
+        masterExteriorDatabase = [];
         renderMatrix();
     } else {
         let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
@@ -458,7 +461,7 @@ function selectBrand(brand, isInit = false) {
                 renderMatrix();
             });
         } else {
-            window.exteriorDatabase = [];
+            masterExteriorDatabase = [];
             renderMatrix();
         }
     }
@@ -503,7 +506,6 @@ function selectCategory(category) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 💡 修正 2：改用安全可靠的實體 DOM Component 附加法，100% 留存卡片點擊觸發指針，拒絕 HTML 字串拼接引起的指針洗滅 bug
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const welcomeHero = document.getElementById('welcome-hero-screen');
@@ -525,7 +527,7 @@ function renderMatrix() {
         currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
     }
 
-    activeFilteredData = window.exteriorDatabase.filter(item => {
+    activeFilteredData = masterExteriorDatabase.filter(item => {
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
         const isUniversal = (item.brand === 'All' && item.compat && item.compat.includes('All'));
         
@@ -575,7 +577,7 @@ function renderMatrix() {
             const cardElement = document.createElement('div');
             cardElement.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
             
-            // 💡 實體物件事件綁定，注入唯一商品 ID
+            // 💡 修正 3：綁定實體 DOM 物件點擊，避免 innerHTML += 把指標洗掉
             cardElement.onclick = function() {
                 openLightbox(item.id);
             };
@@ -594,9 +596,9 @@ function renderMatrix() {
     }
 }
 
-// 🕹️ 修正 3：認準 window 全域變數節點，100% 成功填充大圖數據，解除遮罩！
+// 🕹️ 核心對齊認證：從獨立的 master 緩存點中抓取 ID，100% 成功激活彈窗 Review 大圖！
 function openLightbox(productId) {
-    const item = window.exteriorDatabase.find(x => x.id === productId);
+    const item = masterExteriorDatabase.find(x => x.id === productId);
     if (!item) {
         console.error("[KINGZCARBON Matrix] Broken Reference ID Pipeline: " + productId);
         return;
