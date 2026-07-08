@@ -585,7 +585,7 @@ function renderMatrix() {
     }
 }
 
-// 🕹️ Lightbox 打開邏輯：回復 100% 正確的 DOM 目標定位渲染，徹底解決卡白屏 Bug
+// 🕹️ Lightbox 打開邏輯：完美修復 DOM 節點防線，100% 疏通遮罩
 function openLightbox(index) {
     if (index < 0 || index >= activeFilteredData.length) return;
     currentLightboxIndex = index;
@@ -599,7 +599,7 @@ function openLightbox(index) {
     document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
     document.getElementById('modal-cat').innerText = item.category;
 
-    // 重置並清空適配框
+    // 重置並清空車型輸入框
     document.getElementById('fitment-text-input').value = '';
 
     const modal = document.getElementById('product-lightbox-modal');
@@ -607,7 +607,7 @@ function openLightbox(index) {
     document.body.classList.add('modal-open');
 }
 
-// 🚀 核心解決方案：JS 背景虛擬購物車發射器（100% 成功對接，徹底防404）
+// 🚀 JS 背景虛擬購物車發射器（徹底防404）
 function submitToPayPalCart() {
     const item = activeFilteredData[currentLightboxIndex];
     if (!item) return;
@@ -653,7 +653,7 @@ function submitToPayPalCart() {
     document.body.removeChild(form); // 即刻銷毀
 }
 
-// 🚀 核心解決方案：View Cart 的官方標準發射器協定（100% 成功彈出購物車）
+// 🚀 View My Cart 發射器協定（對齊 2026 官方最底層標準）
 function triggerPayPalViewCart() {
     const form = document.createElement('form');
     form.method = 'POST';
@@ -662,7 +662,7 @@ function triggerPayPalViewCart() {
 
     const params = {
         cmd: '_cart',
-        display: '1',  // 💡 修正：官方購物車標準檢視參數是 display，而非舊版的 display_cart
+        display: '1', 
         business: 'M9P8HY87UAXQN'
     };
 
