@@ -146,6 +146,8 @@ body {
             </div>
         </div>
 
+        <div id="sidebar-overlay" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-xs hidden z-[80]"></div>
+
         <div class="md:col-span-3 relative min-h-[50vh]">
             
             <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
@@ -270,7 +272,7 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 終極修復穩定版)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 終極穩定修復版)
  */
 let currentBrand = 'All';
 let currentModel = 'All';
@@ -279,7 +281,9 @@ let initialLoad = true;
 
 let activeFilteredData = [];
 let currentLightboxIndex = 0;
-window.exteriorDatabase = []; // 💡 將基礎庫強制綁定在 window 全域作用域，防堵生命週期真空
+
+// 💡 修正宣告：強制掛載至全域作用域，杜絕異步生命週期真空
+window.exteriorDatabase = []; 
 
 // 全局統一車型選單配置矩陣
 window.chassisMapping = {
@@ -373,6 +377,7 @@ function fetchScript(src) {
     });
 }
 
+// 🕹️ 核心修正：捕獲外部動態外觀數據庫流，並寫入全域 window
 async function loadChassisDatabase(targetGroup, callback) {
     const oldScripts = document.querySelectorAll('.dynamic-db-script');
     oldScripts.forEach(el => el.remove());
@@ -580,7 +585,7 @@ function renderMatrix() {
     }
 }
 
-// 🕹 基於 window 全域數據庫精準定位
+// 🕹️ 基於 window 全域物件進行獵頭式定位，大圖 Review 100% 歸位！
 function openLightbox(productId) {
     const item = window.exteriorDatabase.find(x => x.id === productId);
     if (!item) {
@@ -606,7 +611,7 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 🚀 動態隱形表單發射器
+// 🚀 隱形安全購物車提交表單
 function submitToPayPalCart() {
     const targetItem = activeFilteredData[currentLightboxIndex];
     if (!targetItem) return;
