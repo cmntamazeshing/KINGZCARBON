@@ -5,17 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bespoke Exterior Matrix | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
-    
 <style>
-/* 完美修復並還原標誌性的碳纖維紋理背景 */
 body {
     background-color: #000;
     background-image:
         repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px),
         repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px);
 }
- 
-/* 金色流光動畫 */
 .gold-flow {
     background: linear-gradient(90deg, #b8892e, #f5e6a8, #d4af37, #f5e6a8, #b8892e);
     background-size: 300% 100%;
@@ -23,73 +19,25 @@ body {
     -webkit-text-fill-color: transparent;
     animation: flow 6s linear infinite;
 }
-
-@keyframes flow {
-    0% { background-position: 0% }
-    100% { background-position: 300% }
-}
-
-/* 金色字體發光 */
-.gold-glow {
-    text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3);
-}
-
-.gold-border {
-    border: 1px solid rgba(212,175,55,0.4);
-}
-
-/* 小圖卡片樣式優化 */
-.product-matrix-card {
-    background: rgba(0, 0, 0, 0.75);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.product-matrix-card:hover {
-    box-shadow: 0 0 25px rgba(212,175,55,0.25);
-    border-color: #d4af37;
-}
-
-/* 篩選按鈕激活狀態 */
-.filter-active {
-    border-color: #d4af37 !important;
-    color: #fff !important;
-    background-color: rgba(212, 175, 55, 0.15) !important;
-    text-shadow: 0 0 8px rgba(212,175,55,0.6);
-}
-
-/* 鎖定背景滾動 */
-.modal-open {
-    overflow: hidden;
-}
-
-/* 迎賓字體呼吸動畫 */
-@keyframes pulseGlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.9; }
-}
-.pulse-text {
-    animation: pulseGlow 2.5s infinite ease-in-out;
-}
+@keyframes flow { 0% { background-position: 0% } 100% { background-position: 300% } }
+.gold-glow { text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3); }
+.gold-border { border: 1px solid rgba(212,175,55,0.4); }
+.product-matrix-card { background: rgba(0, 0, 0, 0.75); transition: all 0.3s ease; cursor: pointer; }
+.product-matrix-card:hover { box-shadow: 0 0 25px rgba(212,175,55,0.25); border-color: #d4af37; }
+.filter-active { border-color: #d4af37 !important; color: #fff !important; background-color: rgba(212, 175, 55, 0.15) !important; text-shadow: 0 0 8px rgba(212,175,55,0.6); }
+.modal-open { overflow: hidden; }
+.pulse-text { animation: pulseGlow 2.5s infinite ease-in-out; }
+@keyframes pulseGlow { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.9; } }
 </style>
 </head>
-
 <body class="text-gray-200">
-
-<div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6">
-    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a>
-</div>
-<div class="absolute top-6 right-6 z-50 text-sm tracking-widest text-gray-500 select-none">
-    English USD
-</div>
-
+<div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6"><a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a></div>
+<div class="absolute top-6 right-6 z-50 text-sm tracking-widest text-gray-500 select-none">English USD</div>
 <div class="max-w-7xl mx-auto px-6 py-20">
-
     <div class="text-center mb-12">
         <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Modular Matrix Configurator</p>
         <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Bespoke Exterior Works</h1>
     </div>
-
     <div class="bg-black bg-opacity-60 rounded-2xl gold-border p-6 mb-10 shadow-xl">
         <div class="flex flex-wrap items-center gap-3 border-b border-gray-900 pb-4 mb-4">
             <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Brand:</span>
@@ -100,31 +48,14 @@ body {
             <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Toyota</button>
             <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
         </div>
-
         <div id="model-container" class="flex flex-wrap items-center gap-3">
             <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Chassis:</span>
-            <div id="model-list" class="flex flex-wrap gap-2">
-                <span class="text-xs text-gray-600 italic">Select a brand above to decode bespoke asset allocations.</span>
-            </div>
+            <div id="model-list" class="flex flex-wrap gap-2"><span class="text-xs text-gray-600 italic">Select a brand above to decode bespoke asset allocations.</span></div>
         </div>
     </div>
-
-    <div class="md:hidden mb-6">
-        <button onclick="toggleMobileSidebar()" class="w-full py-3 bg-black bg-opacity-80 rounded-xl border gold-border text-xs tracking-widest uppercase font-bold text-yellow-400 transition hover:bg-yellow-600 hover:text-black flex items-center justify-center gap-2 shadow-lg">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
-            Filter Components
-        </button>
-    </div>
-
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
-        
-        <div id="category-sidebar" class="fixed inset-y-0 left-0 w-72 bg-black bg-opacity-95 md:bg-opacity-60 p-6 md:p-5 md:static md:w-auto md:h-auto md:rounded-2xl gold-border space-y-2.5 shadow-2xl md:shadow-xl transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-[90] md:sticky md:top-6">
-            <div class="flex items-center justify-between border-b border-gray-900 pb-3 mb-4 md:mb-2">
-                <span class="text-xs text-gray-500 uppercase tracking-widest font-bold">
-                    Categories
-                </span>
-                <button onclick="toggleMobileSidebar()" class="md:hidden text-gray-400 hover:text-yellow-400 text-xl font-bold">&times;</button>
-            </div>
+        <div id="category-sidebar" class="fixed inset-y-0 left-0 w-72 bg-black bg-opacity-95 md:bg-opacity-60 p-6 md:p-5 md:static md:w-auto md:h-auto md:rounded-2xl gold-border space-y-2.5 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-[90] md:sticky md:top-6">
+            <div class="flex items-center justify-between border-b border-gray-900 pb-3 mb-4 md:mb-2"><span class="text-xs text-gray-500 uppercase tracking-widest font-bold">Categories</span><button onclick="toggleMobileSidebar()" class="md:hidden text-gray-400 hover:text-yellow-400 text-xl font-bold">&times;</button></div>
             <button onclick="selectCategoryCloseMobile('All')" id="cat-All" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">All Components</button>
             <button onclick="selectCategoryCloseMobile('Body Kit')" id="cat-BodyKit" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-yellow-500 transition hover:border-yellow-600 block font-bold">Body Kits (Full Conversion)</button>
             <button onclick="selectCategoryCloseMobile('Front Lips')" id="cat-FrontLips" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Lips</button>
@@ -137,484 +68,200 @@ body {
             <button onclick="selectCategoryCloseMobile('Trunk')" id="cat-Trunk" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Trunk</button>
             <button onclick="selectCategoryCloseMobile('Badges')" id="cat-Badges" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Badges</button>
             <button onclick="selectCategoryCloseMobile('Other')" id="cat-Other" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Other (Accents)</button>
-            
             <div class="border-t border-zinc-900 pt-4 mt-4">
                 <button onclick="triggerPayPalViewCart()" class="w-full bg-transparent border border-yellow-500 hover:bg-yellow-500/10 text-yellow-500 font-bold py-2.5 px-4 rounded-xl text-[11px] tracking-widest uppercase transition flex items-center justify-center gap-2">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path></svg>
                     View Cart / Checkout
                 </button>
             </div>
         </div>
-
         <div id="sidebar-overlay" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-xs hidden z-[80]"></div>
-
         <div class="md:col-span-3 relative min-h-[50vh]">
-            
             <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
-                
-                <div class="mb-14">
-                    <div class="text-center mb-8 select-none">
-                        <h2 class="text-xl md:text-2xl font-black uppercase tracking-widest gold-flow gold-glow mb-3">The KINGZCARBON Standard: Beyond The Mold</h2>
-                        <p class="text-xs md:text-sm text-gray-400 tracking-wider max-w-2xl mx-auto leading-relaxed">
-                            Don't settle for mass-market compromises. We deliver bespoke, show-quality carbon fiber parts directly to your door—without the US middleman markups.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                        <div class="bg-black bg-opacity-70 p-6 rounded-xl gold-border hover:border-yellow-500 hover:shadow-[0_0_15px_rgba(212,175,55,0.2)] transition duration-300">
-                            <div class="mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-yellow-500"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
-                            </div>
-                            <h3 class="text-[13px] font-bold text-gray-100 uppercase tracking-widest mb-3 border-b border-gray-800 pb-2">Premium 2K Clear Coat</h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed">
-                                <span class="text-gray-500 block mb-1"><strong class="text-gray-300">The Flaw:</strong> Standard mold-release gel coats fade & yellow easily.</span>
-                                <strong class="text-yellow-600 block">Our Standard:</strong> Every piece is hand-sanded and sealed with professional automotive-grade 2K Clear Coat for mirror-like depth and ultimate UV defense.
-                            </p>
-                        </div>
-
-                        <div class="bg-black bg-opacity-70 p-6 rounded-xl gold-border hover:border-yellow-500 hover:shadow-[0_0_15px_rgba(212,175,55,0.2)] transition duration-300">
-                            <div class="mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-yellow-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <h3 class="text-[13px] font-bold text-gray-100 uppercase tracking-widest mb-3 border-b border-gray-800 pb-2">Factory-Direct Pricing</h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed">
-                                Why pay a premium for US-based distributors' warehousing and marketing costs? Get authentic, custom-finished aerodynamic upgrades for hundreds of dollars less, shipped directly from our workshop to you.
-                            </p>
-                        </div>
-
-                        <div class="bg-black bg-opacity-70 p-6 rounded-xl gold-border hover:border-yellow-500 hover:shadow-[0_0_15px_rgba(212,175,55,0.2)] transition duration-300">
-                            <div class="mb-4">
-                                <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-yellow-500"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"></path></svg>
-                            </div>
-                            <h3 class="text-[13px] font-bold text-gray-100 uppercase tracking-widest mb-3 border-b border-gray-800 pb-2">100% Free Global Shipping</h3>
-                            <p class="text-[11px] text-gray-400 leading-relaxed">
-                                Oversized shipping fees for diffusers and lips can easily add $100–$200 at checkout elsewhere. With us, the price you see is the price you pay. Enjoy fully covered, international shipping with zero hidden fees.
-                            </p>
-                        </div>
-                    </div>
+                <div class="mb-14 text-center">
+                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-widest gold-flow gold-glow mb-3">The KINGZCARBON Standard: Beyond The Mold</h2>
+                    <p class="text-xs md:text-sm text-gray-400 tracking-wider max-w-2xl mx-auto leading-relaxed">Direct workshop-to-door aerodynamic upgrades without middleman markups.</p>
                 </div>
-
-                <div class="text-center mb-5 select-none">
-                    <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow">KINGZCARBON SHOWCASE</span>
-                </div>
-
                 <div class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[50vh] relative shadow-2xl">
-                    <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
-                    
-                    <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
-
-                    <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto min-h-[50vh] object-cover block select-none pointer-events-none transition-all duration-500">
-                </div>
-
-                <div class="text-center mt-6 px-4 select-none">
-                    <p class="text-[11px] text-gray-400 font-bold tracking-wider pulse-text uppercase leading-relaxed">
-                        &larr; Please select your Brand and Chassis configuration above to explore your custom assets.
-                    </p>
+                    <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON" class="w-full h-auto min-h-[50vh] object-cover">
                 </div>
             </div>
-
-            <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
-            </div>
-            
-            <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
-                <p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found matching the criteria.</p>
-                <p class="text-xs text-gray-600 mt-2">Our facility templates are fully adaptive. Tap below to commission parameters directly.</p>
-                <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20order%20special%20carbon%20parts." target="_blank" class="inline-block mt-6 px-6 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs uppercase tracking-widest font-semibold transition hover:bg-yellow-600 hover:text-black">Direct Inquiry</a>
-            </div>
+            <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+            <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800"><p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found.</p></div>
         </div>
-
     </div>
-
 </div>
 
 <div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
     <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
         <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
-        
         <div class="w-full p-2 bg-black flex items-center justify-center relative select-none">
             <button onclick="prevLightboxImg()" class="absolute left-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&larr;</button>
-            
-            <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[75vh] w-auto mx-auto object-contain block">
-            
+            <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[60vh] w-auto mx-auto object-contain block">
             <button onclick="nextLightboxImg()" class="absolute right-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&rarr;</button>
         </div>
         <div class="p-6 md:p-8 bg-black bg-opacity-95">
             <h3 id="modal-title" class="text-lg md:text-xl font-bold text-gray-100 tracking-wide"></h3>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 border-b border-gray-900 pb-5">
                 <span id="modal-price" class="text-xl md:text-2xl font-extrabold text-yellow-500"></span>
-                <span class="text-sm text-gray-400 font-medium">| &nbsp; + Shipping: <strong class="text-gray-100">FREE SHIPPING</strong></span>
-                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 border-opacity-40 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider gold-glow"></span>
+                <span class="text-sm text-gray-400 font-medium">| &nbsp; Shipping: <strong class="text-gray-100">FREE SHIPPING</strong></span>
+                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider"></span>
             </div>
-            
-            <div class="mt-6 pt-4 border-t border-gray-900">
+            <div class="mt-6 pt-4">
                 <div class="mb-5 text-left">
-                    <label class="block text-[11px] text-gray-400 uppercase tracking-widest font-bold mb-2">
-                        Car Year, Model & VIN <span class="text-yellow-600">* Required for Fitment Guarantee</span>
-                    </label>
-                    <input type="text" id="fitment-text-input" required
-                           class="w-full bg-zinc-950 border border-gray-800 focus:border-yellow-600 text-gray-200 rounded-xl px-4 py-3 text-xs tracking-wider transition outline-none" 
-                           placeholder="e.g., 2024 BMW G26 430i Gran Coupe (VIN: WBA...)">
+                    <label class="block text-[11px] text-gray-400 uppercase tracking-widest font-bold mb-2">Car Year, Model & VIN <span class="text-yellow-600">* Required</span></label>
+                    <input type="text" id="fitment-text-input" class="w-full bg-zinc-950 border border-gray-800 focus:border-yellow-600 text-gray-200 rounded-xl px-4 py-3 text-xs outline-none" placeholder="e.g., 2024 BMW G26 430i (VIN: WBA...)">
                 </div>
-                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg flex items-center justify-center gap-2">
-                        🛒 Add to Cart (PayPal)
-                    </button>
-                    <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40 flex items-center justify-center gap-2">
-                        💳 Credit Card (Stripe - Soon)
-                    </button>
+                    <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart (PayPal)</button>
+                    <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">💳 Credit Card (Stripe)</button>
                 </div>
+                <div id="modal-cat" class="text-left text-[10px] text-zinc-600 uppercase mt-4"></div>
             </div>
-            
         </div>
     </div>
 </div>
 
 <script>
-/**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 終極穩定修復版)
- */
-let currentBrand = 'All';
-let currentModel = 'All';
-let currentCategory = 'All';
-let initialLoad = true;
+let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
+let activeFilteredData = []; let currentLightboxIndex = 0;
+window.masterExteriorDatabase = []; // 💡 終極修復點：全站唯一、永不被中途洗空的資料主宿主
 
-let activeFilteredData = [];
-let currentLightboxIndex = 0;
-
-// 💡 修正 1：建立一個永不被子檔案覆蓋沖刷嘅「前台最終主大腦數據庫」
-let masterExteriorDatabase = []; 
-
-// 全局統一車型選單配置矩陣
 window.chassisMapping = {
-  'BMW': [
-    'E90 / E92 / E93 M3',
-    'F30 / F35 3-Series', 
-    'F32 / F33 / F36 4-Series',
-    'F34 3-Series GT', 
-    'F10 / F18 5-Series',
-    'F15 X5', 
-    'F16 X6',
-    'F87 M2 / M2C', 
-    'F80 M3', 
-    'F82 / F83 M4', 
-    'F90 M5', 
-    'F06 / F12 / F13 M6', 
-    'F97 X3M / F98 X4M',
-    'G42 2-Series',
-    'G20 / G28 3-Series', 
-    'G22 4-Series',
-    'G26 4-Series Gran Coupe', 
-    'G30 / G38 5-Series',
-    'G05 X5',
-    'G06 X6',
-    'G07 X7',
-    'G87 M2', 
-    'G80 M3', 
-    'G82 M4'
-  ],
-  'Toyota': ['A90 Supra'],
-  'Nissan': ['R35 GTR']
+  'BMW': ['E90 / E92 / E93 M3', 'F30 / F35 3-Series', 'F32 / F33 / F36 4-Series', 'F34 3-Series GT', 'F10 / F18 5-Series', 'F15 X5', 'F16 X6', 'F87 M2 / M2C', 'F80 M3', 'F82 / F83 M4', 'F90 M5', 'F06 / F12 / F13 M6', 'F97 X3M / F98 X4M', 'G42 2-Series', 'G20 / G28 3-Series', 'G22 4-Series', 'G26 4-Series Gran Coupe', 'G30 / G38 5-Series', 'G05 X5', 'G06 X6', 'G07 X7', 'G87 M2', 'G80 M3', 'G82 M4'],
+  'Toyota': ['A90 Supra'], 'Nissan': ['R35 GTR']
 };
-
-const heroShowcaseSlides = [
-    { image: 'https://i.imgur.com/NZtQRfC.jpeg' },    
-    { image: 'https://i.imgur.com/w4oKKL3.jpeg' },    
-    { image: 'https://i.imgur.com/4dMcqJf.jpeg' },   
-    { image: 'https://i.imgur.com/0StnhdP.jpeg' },
-    { image: 'https://i.imgur.com/MshTVDg.jpeg' }
-];
-let currentHeroIndex = 0;
-
-function updateHeroSlide() {
-    const slide = heroShowcaseSlides[currentHeroIndex];
-    document.getElementById('hero-showcase-img').src = slide.image;
-}
-
-function nextHeroImg(event) {
-    event.stopPropagation();
-    currentHeroIndex = (currentHeroIndex + 1) % heroShowcaseSlides.length;
-    updateHeroSlide();
-}
-
-function prevHeroImg(event) {
-    event.stopPropagation();
-    currentHeroIndex = (currentHeroIndex - 1 + heroShowcaseSlides.length) % heroShowcaseSlides.length;
-    updateHeroSlide();
-}
-
-function toggleMobileSidebar() {
-    const sidebar = document.getElementById('category-sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-    
-    if (sidebar.classList.contains('-translate-x-full')) {
-        sidebar.classList.remove('-translate-x-full');
-        overlay.classList.remove('hidden');
-        document.body.classList.add('modal-open');
-    } else {
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
-        document.body.classList.remove('modal-open');
-    }
-}
-
-function selectCategoryCloseMobile(category) {
-    selectCategory(category);
-    if (window.innerWidth < 768) {
-        toggleMobileSidebar();
-    }
-}
 
 function fetchScript(src) {
     return new Promise((resolve) => {
         const script = document.createElement('script');
-        script.className = 'dynamic-db-script';
-        script.src = src;
-        script.async = false;
-        script.onload = () => resolve();
-        script.onerror = () => resolve();
+        script.src = src; script.async = false;
+        script.onload = () => {
+            const data = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
+            resolve(data);
+        };
+        script.onerror = () => resolve([]);
         document.body.appendChild(script);
     });
 }
 
-// 💡 修正 2：用「沙盒隔離法」加載數據，抓出臨時數組後再合流，避免 window.exteriorDatabase 中途自相殘殺被洗空！
 async function loadChassisDatabase(targetGroup, callback) {
-    const oldScripts = document.querySelectorAll('.dynamic-db-script');
-    oldScripts.forEach(el => el.remove());
-
-    masterExteriorDatabase = []; // 清空主數據庫準備接收
+    document.querySelectorAll('.dynamic-db-script').forEach(el => el.remove());
+    window.masterExteriorDatabase = [];
     const upper = targetGroup.toUpperCase();
 
     try {
         if (upper === 'ALL_BMW') {
-            window.exteriorDatabase = [];
-            await fetchScript('bmwe.js?v=' + Date.now());
-            const eData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
-            
-            window.exteriorDatabase = []; 
-            await fetchScript('bmwf.js?v=' + Date.now());
-            const fData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
-            
-            window.exteriorDatabase = [];
-            await fetchScript('bmwg.js?v=' + Date.now());
-            const gData = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
-
-            masterExteriorDatabase = [...eData, ...fData, ...gData];
+            window.exteriorDatabase = []; const e = await fetchScript('bmwe.js?v=' + Date.now());
+            window.exteriorDatabase = []; const f = await fetchScript('bmwf.js?v=' + Date.now());
+            window.exteriorDatabase = []; const g = await fetchScript('bmwg.js?v=' + Date.now());
+            window.masterExteriorDatabase = [...e, ...f, ...g];
         } else {
-            let fileTarget = '';
-            if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) {
-                fileTarget = 'bmwf.js';
-            } else if (upper.includes('G22')) {
-                fileTarget = 'bmwg.js';
-            } else if (upper.startsWith('E') || upper.includes('E90') || upper.includes('E92') || upper.includes('E93')) {
-                fileTarget = 'bmwe.js';
-            } else if (upper.startsWith('G')) {
-                fileTarget = 'bmwg.js';
-            } else if (upper.startsWith('F')) {
-                fileTarget = 'bmwf.js';
-            }
+            let target = '';
+            if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) target = 'bmwf.js';
+            else if (upper.includes('G22') || upper.includes('G26')) target = 'bmwg.js';
+            else if (upper.startsWith('E')) target = 'bmwe.js';
+            else if (upper.startsWith('G')) target = 'bmwg.js';
+            else if (upper.startsWith('F')) target = 'bmwf.js';
 
-            if (fileTarget) {
+            if (target) {
                 window.exteriorDatabase = [];
-                await fetchScript(fileTarget + '?v=' + Date.now());
-                masterExteriorDatabase = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
+                const data = await fetchScript(target + '?v=' + Date.now());
+                window.masterExteriorDatabase = data;
             }
         }
-    } catch (err) {
-        console.error('[KINGZCARBON Engine] Data streaming connection error:', err);
-    }
-
+    } catch (err) { console.error(err); }
     if (callback) callback();
 }
 
 function selectBrand(brand, isInit = false) {
-    currentBrand = brand;
-    currentModel = 'All'; 
-    
-    if (brand === 'All') {
-        initialLoad = true;
-    } else if (!isInit) {
-        initialLoad = false;
-    }
-    
+    currentBrand = brand; currentModel = 'All'; initialLoad = brand === 'All';
     document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('filter-active'));
-    let targetId = 'brand-' + (brand === 'Mercedes-Benz' ? 'Benz' : brand);
-    const activeBtn = document.getElementById(targetId);
+    const activeBtn = document.getElementById('brand-' + (brand === 'Mercedes-Benz' ? 'Benz' : brand));
     if(activeBtn) activeBtn.classList.add('filter-active');
 
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
-        masterExteriorDatabase = [];
-        renderMatrix();
+        window.masterExteriorDatabase = []; renderMatrix();
     } else {
-        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600 filter-active">All ${brand} Chassis</button>`;
+        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide filter-active">All ${brand}</button>`;
         if (chassisMapping[brand]) {
             chassisMapping[brand].forEach(chassis => {
                 let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
-                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide transition hover:border-yellow-600">${chassis}</button>`;
+                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide">${chassis}</button>`;
             });
         } modelListDiv.innerHTML = listHtml;
-        
-        if (brand === 'BMW') {
-            loadChassisDatabase('ALL_BMW', () => {
-                renderMatrix();
-            });
-        } else {
-            masterExteriorDatabase = [];
-            renderMatrix();
-        }
-    }
-
-    if (!isInit) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (brand === 'BMW') { loadChassisDatabase('ALL_BMW', renderMatrix); } 
+        else { window.masterExteriorDatabase = []; renderMatrix(); }
     }
 }
 
 function selectModel(model) {
-    currentModel = model;
-    initialLoad = false; 
-    
+    currentModel = model; initialLoad = false;
     document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
-    let cleanId = model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, '');
-    const activeBtn = document.getElementById('model-' + cleanId);
+    const activeBtn = document.getElementById('model-' + (model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, '')));
     if(activeBtn) activeBtn.classList.add('filter-active');
-
-    if (currentBrand === 'BMW') {
-        let loadTarget = model === 'All' ? 'ALL_BMW' : model;
-        loadChassisDatabase(loadTarget, () => {
-            renderMatrix();
-        });
-    } else {
-        renderMatrix();
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (currentBrand === 'BMW') { loadChassisDatabase(model === 'All' ? 'ALL_BMW' : model, renderMatrix); } 
+    else { renderMatrix(); }
 }
 
 function selectCategory(category) {
-    currentCategory = category;
-    if (currentBrand !== 'All') {
-        initialLoad = false;
-    }
-    
+    currentCategory = category; if (currentBrand !== 'All') initialLoad = false;
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
-    let cleanId = category === 'All' ? 'All' : category.replace(/[^a-zA-Z0-9]/g, '');
-    const activeBtn = document.getElementById('cat-' + cleanId);
+    const activeBtn = document.getElementById('cat-' + category.replace(/[^a-zA-Z0-9]/g, ''));
     if(activeBtn) activeBtn.classList.add('filter-active');
-
     renderMatrix();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function selectCategoryCloseMobile(cat) { selectCategory(cat); if (window.innerWidth < 768) toggleMobileSidebar(); }
 
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const welcomeHero = document.getElementById('welcome-hero-screen');
     const emptyState = document.getElementById('empty-state');
+    if (initialLoad) { gridContainer.classList.add('hidden'); emptyState.classList.add('hidden'); welcomeHero.classList.remove('hidden'); return; }
     
-    if (initialLoad) {
-        gridContainer.classList.add('hidden');
-        emptyState.classList.add('hidden');
-        welcomeHero.classList.remove('hidden');
-        updateHeroSlide();
-        return;
-    }
-    
-    welcomeHero.classList.add('hidden');
-    gridContainer.innerHTML = ''; 
+    welcomeHero.classList.add('hidden'); gridContainer.innerHTML = '';
+    let currentChassisTokens = currentModel !== 'All' ? currentModel.split(' / ').map(t => t.split(' ')[0]) : [];
 
-    let currentChassisTokens = [];
-    if (currentModel !== 'All') {
-        currentChassisTokens = currentModel.split(' / ').map(t => t.split(' ')[0]);
-    }
-
-    activeFilteredData = masterExteriorDatabase.filter(item => {
+    activeFilteredData = window.masterExteriorDatabase.filter(item => {
         const matchCat = (currentCategory === 'All' || item.category === currentCategory);
-        const isUniversal = (item.brand === 'All' && item.compat && item.compat.includes('All'));
-        
-        if (currentBrand === 'All') {
-            return matchCat;
-        }
-        if (isUniversal) {
-            return matchCat;
-        }
-        
+        if (currentBrand === 'All') return matchCat;
         const matchBrand = (item.brand === currentBrand);
-        let matchModel = false;
-        if (currentModel === 'All') {
-            matchModel = true;
-        } else {
-            if (currentChassisTokens.length > 0) {
-                matchModel = item.compat && currentChassisTokens.some(token => item.compat.includes(token)) || (item.compat && item.compat.includes('All'));
-            } else {
-                let coreChassis = currentModel.split(' ')[0];
-                matchModel = item.compat && (item.compat.includes(coreChassis) || item.compat.includes('All'));
-            }
-        }
+        let matchModel = currentModel === 'All' || (item.compat && currentChassisTokens.some(token => item.compat.includes(token))) || (item.compat && item.compat.includes('All'));
         return matchCat && matchBrand && matchModel;
     });
 
-    if (currentModel !== 'All' && currentChassisTokens.length > 0) {
-        activeFilteredData.sort((a, b) => {
-            let aIsStrictExclusive = a.compat && !a.compat.includes('All') && currentChassisTokens.some(t => a.compat.includes(t));
-            let bIsStrictExclusive = b.compat && !b.compat.includes('All') && currentChassisTokens.some(t => b.compat.includes(t));
-
-            if (aIsStrictExclusive && !bIsStrictExclusive) return -1;
-            if (!aIsStrictExclusive && bIsStrictExclusive) return 1;
-            return 0;
-        });
-    }
-
-    if (activeFilteredData.length === 0) {
-        gridContainer.classList.add('hidden');
-        emptyState.classList.remove('hidden');
-    } else {
-        emptyState.className = "hidden";
-        gridContainer.classList.remove('hidden');
-
+    if (activeFilteredData.length === 0) { gridContainer.classList.add('hidden'); emptyState.classList.remove('hidden'); } 
+    else {
+        emptyState.classList.add('hidden'); gridContainer.classList.remove('hidden');
         activeFilteredData.forEach((item) => {
-            let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
-            
-            const cardElement = document.createElement('div');
-            cardElement.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
-            
-            // 💡 修正 3：綁定實體 DOM 物件點擊，避免 innerHTML += 把指標洗掉
-            cardElement.onclick = function() {
-                openLightbox(item.id);
-            };
-            
-            cardElement.innerHTML = `
+            const card = document.createElement('div');
+            card.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
+            card.onclick = () => openLightbox(item.id);
+            card.innerHTML = `
                 <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
-                    <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain transition duration-500">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain">
                 </div>
                 <div class="flex-grow flex flex-col justify-between">
                     <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
-                    <div class="text-sm font-extrabold text-yellow-500 mt-2">${displayPrice}</div>
-                </div>
-            `;
-            gridContainer.appendChild(cardElement);
+                    <div class="text-sm font-extrabold text-yellow-500 mt-2">${item.price}</div>
+                </div>`;
+            gridContainer.appendChild(card);
         });
     }
 }
 
-// 🕹️ 核心對齊認證：從獨立的 master 緩存點中抓取 ID，100% 成功激活彈窗 Review 大圖！
 function openLightbox(productId) {
-    const item = masterExteriorDatabase.find(x => x.id === productId);
-    if (!item) {
-        console.error("[KINGZCARBON Matrix] Broken Reference ID Pipeline: " + productId);
-        return;
-    }
-    
+    const item = window.masterExteriorDatabase.find(x => x.id === productId);
+    if (!item) return;
     currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
-    if (currentLightboxIndex === -1) currentLightboxIndex = 0;
-
-    let displayPrice = item.price.includes('USD') ? item.price : `$${item.price} USD`;
-
+    
     document.getElementById('modal-img').src = item.image;
     document.getElementById('modal-title').innerText = item.title;
-    document.getElementById('modal-price').innerText = `Product: ${displayPrice}`;
+    document.getElementById('modal-price').innerText = `Product: ${item.price}`;
     document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
-    document.getElementById('modal-cat').innerText = item.category;
-
+    document.getElementById('modal-cat').innerText = `Category: ${item.category} | Asset ID: ${item.id}`;
     document.getElementById('fitment-text-input').value = '';
 
     const modal = document.getElementById('product-lightbox-modal');
@@ -622,118 +269,43 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 🚀 動態安全 PayPal 購物車發射器
 function submitToPayPalCart() {
     const targetItem = activeFilteredData[currentLightboxIndex];
     if (!targetItem) return;
-
-    const fitmentInput = document.getElementById('fitment-text-input').value.trim();
-    if (fitmentInput.length < 5) {
-        alert("Please specify your exact car year, model, or VIN to proceed with our fitment guarantee.");
-        return;
-    }
-
-    let cleanPriceNumber = targetItem.price.replace(/[^0-9.]/g, '');
+    const fitment = document.getElementById('fitment-text-input').value.trim();
+    if (fitment.length < 5) { alert("Please specify your exact car year, model, or VIN."); return; }
 
     const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://www.paypal.com/cgi-bin/webscr';
-    form.target = 'paypal';
-
+    form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
     const params = {
-        cmd: '_cart',
-        add: '1',
-        business: 'M9P8HY87UAXQN', 
-        currency_code: 'USD',
-        item_name: targetItem.title,
-        amount: cleanPriceNumber,
-        item_number: `ID-${targetItem.id}`,
-        on0: 'Car Fitment Details',
-        os0: fitmentInput
+        cmd: '_cart', add: '1', business: 'M9P8HY87UAXQN', currency_code: 'USD',
+        item_name: targetItem.title, amount: targetItem.price.replace(/[^0-9.]/g, ''),
+        item_number: `ID-${targetItem.id}`, on0: 'Car Fitment Details', os0: fitment
     };
-
     for (const [key, val] of Object.entries(params)) {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = val;
+        const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
         form.appendChild(input);
     }
-
-    document.body.appendChild(form);
-    form.submit(); 
-    document.body.removeChild(form); 
+    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
 }
 
 function triggerPayPalViewCart() {
     const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://www.paypal.com/cgi-bin/webscr';
-    form.target = 'paypal';
-
-    const params = {
-        cmd: '_cart',
-        display: '1', 
-        business: 'M9P8HY87UAXQN'
-    };
-
+    form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
+    const params = { cmd: '_cart', display: '1', business: 'M9P8HY87UAXQN' };
     for (const [key, val] of Object.entries(params)) {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = val;
+        const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
         form.appendChild(input);
     }
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
+    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
 }
 
-window.addEventListener('keydown', function(e) {
-    const modal = document.getElementById('product-lightbox-modal');
-    if (modal.classList.contains('opacity-0')) return;
-
-    if (e.key === 'ArrowRight') {
-        nextLightboxImg();
-    } else if (e.key === 'ArrowLeft') {
-        prevLightboxImg();
-    } else if (e.key === 'Escape') {
-        closeLightboxForce();
-    }
-});
-
-function nextLightboxImg() {
-    if (activeFilteredData.length <= 1) return;
-    currentLightboxIndex = (currentLightboxIndex + 1) % activeFilteredData.length;
-    const targetItem = activeFilteredData[currentLightboxIndex];
-    if(targetItem) openLightbox(targetItem.id);
-}
-
-function prevLightboxImg() {
-    if (activeFilteredData.length <= 1) return;
-    currentLightboxIndex = (currentLightboxIndex - 1 + activeFilteredData.length) % activeFilteredData.length;
-    const targetItem = activeFilteredData[currentLightboxIndex];
-    if(targetItem) openLightbox(targetItem.id);
-}
-
-function closeLightbox(event) {
-    const modalContainer = document.getElementById('product-lightbox-modal');
-    if (event.target === modalContainer) {
-        closeLightboxForce();
-    }
-}
-
+function closeLightbox(event) { if (event.target === document.getElementById('product-lightbox-modal')) closeLightboxForce(); }
 function closeLightboxForce() {
     const modal = document.getElementById('product-lightbox-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    document.body.classList.remove('modal-open');
+    modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
 }
-
-window.onload = function() {
-    selectBrand('All', true);
-};
+window.onload = () => selectBrand('All', true);
 </script>
-
 </body>
 </html>
