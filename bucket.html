@@ -127,7 +127,7 @@ body {
             <div class="border-t border-zinc-900 pt-6 mt-6">
                 <div class="flex items-baseline justify-between">
                     <span class="text-xs uppercase tracking-widest text-zinc-400">Total Configured Amount</span>
-                    <span id="realtime-price-tag" class="text-3xl font-black text-yellow-500 gold-glow">$799 USD</span>
+                    <span id="realtime-price-tag" class="text-3xl font-black text-yellow-500 gold-glow">$899 USD</span>
                 </div>
                 <p class="text-[10px] text-zinc-500 uppercase tracking-wider mt-1 text-right">+ Global Shipping: <strong class="text-gray-200">FREE SHIPPING</strong></p>
             </div>
@@ -142,45 +142,45 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 硬核桶椅動態數據矩陣引擎 (椅背共通同步完美版)
+ * 🕹️ KINGZCARBON 硬核桶椅動態數據矩陣引擎 (基價更新與 Custom 加價完全體)
  */
 let chosenModel = 'GK100';
 let chosenTrimIndex = 0;
 let chosenCarbon = 'none';
 
-// 📚 修正：精準移除 "Signature Cover"，並完成兩款椅背 Carbon Shell 共通對齊
+// 📚 修正：更新 GK100 基價為 899，CS 基價為 699，並在 Custom Order 註明 +699
 const bucketDatabase = {
     GK100: {
         title: "RECARO Cross Sportster GK100",
-        basePrice: 799,
+        basePrice: 899,
         trims: [
             { name: "Gray Mesh Element", img: "https://i.imgur.com/iOkzacH.jpeg" },
             { name: "Red Crimson Mesh", img: "https://i.imgur.com/YSxATh1.jpeg" },
             { name: "Blue Cobalt Mesh", img: "https://i.imgur.com/YBDn6eS.jpeg" },
             { name: "Black Shadow Mesh", img: "https://i.imgur.com/utz3upH.jpeg" },
-            { name: "Bespoke Custom Order", img: "https://i.imgur.com/6PLbuQt.png", isCustom: true }
+            { name: "Bespoke Custom (+699)", img: "https://i.imgur.com/6PLbuQt.png", isCustom: true }
         ],
         extraThumbs: [
-            "https://i.imgur.com/RFQSnFn.jpeg", // carbon shell gloss
-            "https://i.imgur.com/aTfYehs.jpeg", // details
-            "https://i.imgur.com/ZZxmJam.jpeg", // back details
-            "https://i.imgur.com/W1tcHel.jpeg", // matte back
-            "https://i.imgur.com/IcM7djV.jpeg", // extra shell
-            "https://i.imgur.com/LctI5HE.jpeg"  // gloss back
+            "https://i.imgur.com/RFQSnFn.jpeg", 
+            "https://i.imgur.com/aTfYehs.jpeg", 
+            "https://i.imgur.com/ZZxmJam.jpeg", 
+            "https://i.imgur.com/W1tcHel.jpeg", 
+            "https://i.imgur.com/IcM7djV.jpeg", 
+            "https://i.imgur.com/LctI5HE.jpeg"  
         ]
     },
     CS: {
         title: "RECARO Sportster CS Classic",
-        basePrice: 599,
+        basePrice: 699,
         trims: [
             { name: "Grid Plaid Sport", img: "https://i.imgur.com/6lhWf6C.jpeg" },
             { name: "Houndstooth Pattern", img: "https://i.imgur.com/wBco8qr.jpeg" },
             { name: "Full Premium Leather", img: "https://i.imgur.com/RKkeOcY.jpeg" },
             { name: "Leather + Velvet Suede", img: "https://i.imgur.com/oisoSqa.jpeg" },
-            { name: "Bespoke Custom Order", img: "https://i.imgur.com/hAbo8kb.png", isCustom: true }
+            { name: "Bespoke Custom (+699)", img: "https://i.imgur.com/hAbo8kb.png", isCustom: true }
         ],
         extraThumbs: [
-            "https://i.imgur.com/MOiC9qS.jpeg"  // 例子圖
+            "https://i.imgur.com/MOiC9qS.jpeg"  
         ]
     }
 };
@@ -207,7 +207,6 @@ function selectTrim(index) {
         document.getElementById('trim-btn-' + index).classList.add('option-btn-active');
     }
 
-    // 當換 Trim 時，自動將椅背選回 None 狀態防止視覺衝突
     chosenCarbon = 'none';
     document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
     document.getElementById('cc-none').classList.add('option-btn-active');
@@ -215,7 +214,6 @@ function selectTrim(index) {
     calculateMatrixPrice();
 }
 
-// 💡 修正 2：核心對齊！無論係 GK100 還是 CS，點擊 Gloss / Matte 都能同步調用並顯示最精準嘅椅背殼高精圖片
 function selectCarbonCover(type) {
     chosenCarbon = type;
     document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
@@ -223,14 +221,13 @@ function selectCarbonCover(type) {
 
     const modelData = bucketDatabase[chosenModel];
     
-    // 如果客人選取嘅不是 Custom 模式，直接觸發椅背圖片同步展示（兩款共通）
     if (modelData.trims[chosenTrimIndex].isCustom !== true) {
         if (type === 'gloss') {
-            document.getElementById('seat-main-view').src = "https://i.imgur.com/LctI5HE.jpeg"; // 亮面共通椅背圖
+            document.getElementById('seat-main-view').src = "https://i.imgur.com/LctI5HE.jpeg"; 
         } else if (type === 'matte') {
-            document.getElementById('seat-main-view').src = "https://i.imgur.com/W1tcHel.jpeg"; // 啞面共通椅背圖
+            document.getElementById('seat-main-view').src = "https://i.imgur.com/W1tcHel.jpeg"; 
         } else {
-            document.getElementById('seat-main-view').src = modelData.trims[chosenTrimIndex].img; // 還原正面款式圖
+            document.getElementById('seat-main-view').src = modelData.trims[chosenTrimIndex].img; 
         }
     }
 
@@ -240,27 +237,39 @@ function selectCarbonCover(type) {
 function calculateMatrixPrice() {
     const modelData = bucketDatabase[chosenModel];
     let totalPrice = modelData.basePrice;
+    const currentTrim = modelData.trims[chosenTrimIndex];
     
+    // 💡 修正 1：若點選 Custom Order，全自動加算 $699 USD 進入總價
+    if (currentTrim.isCustom === true) {
+        totalPrice += 699;
+    }
+
     if (chosenCarbon !== 'none') {
         totalPrice += 799;
     }
 
     document.getElementById('realtime-price-tag').innerText = `$${totalPrice} USD`;
 
-    const currentTrim = modelData.trims[chosenTrimIndex];
     const gatewayZone = document.getElementById('checkout-gateway-zone');
 
     if (currentTrim.isCustom === true) {
-        let WaPayload = `Hello Shing, I want to place a Bespoke Custom Order for ${modelData.title}. Please guide me through custom leather textures and stitch options.`;
+        // 💡 修正 2：Custom Order 位強制提醒機制，強迫客人點擊直連 WhatsApp
+        let carbonSpec = chosenCarbon === 'none' ? 'Standard Back' : `with Autoclave ${chosenCarbon.toUpperCase()} Carbon Shell`;
+        let WaPayload = `Hello Shing, I want to commission a Bespoke Custom Layout for ${modelData.title} (Custom Setup / ${carbonSpec}). Please guide me through specialized leather textures and custom embroidery stitching.`;
         gatewayZone.innerHTML = `
             <div class="text-left bg-yellow-600 bg-opacity-10 border border-yellow-500/30 p-4 rounded-xl mb-4">
                 <p class="text-xs text-yellow-500 leading-relaxed font-medium">
-                    🎨 <strong>Bespoke Custom Interface:</strong> Customized leather/ Houndstooth stitches require manual pattern continuity checkout. Click below to verify details directly with us.
+                    🎨 <strong>Bespoke Custom Plan Activated (+$699 Included):</strong> Specialized fabric patterns, custom leather stitching, and personalized headrest embroideries require manual verification. <strong>You must contact us via WhatsApp below to lock in your custom specifications.</strong>
                 </p>
             </div>
-            <a href="https://wa.me/85295368533?text=${encodeURIComponent(WaPayload)}" target="_blank" class="w-full block text-center py-4 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 font-black tracking-widest uppercase text-xs rounded-xl transition shadow-lg">
-                💬 Inquire Bespoke Custom Layout Via WhatsApp
-            </a>`;
+            <div class="flex flex-col gap-2">
+                <a href="https://wa.me/85295368533?text=${encodeURIComponent(WaPayload)}" target="_blank" class="w-full block text-center py-4 bg-yellow-600 hover:bg-yellow-500 text-black font-black tracking-widest uppercase text-xs rounded-xl transition shadow-lg">
+                    💬 Contact Shing via WhatsApp to Finalize Options
+                </a>
+                <button onclick="launchPayPalSeatCheckout(${totalPrice})" class="w-full py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-400 text-[11px] uppercase tracking-widest font-bold rounded-xl transition shadow-md">
+                    🛒 Secure Deposit Checkout ($${totalPrice})
+                </button>
+            </div>`;
     } else {
         let carbonLabel = chosenCarbon === 'none' ? 'Standard Cover' : `with Autoclave ${chosenCarbon.toUpperCase()} Carbon Shell`;
         gatewayZone.innerHTML = `
@@ -279,13 +288,14 @@ function launchPayPalSeatCheckout(finalPrice) {
     const modelData = bucketDatabase[chosenModel];
     const currentTrim = modelData.trims[chosenTrimIndex];
     let carbonText = chosenCarbon === 'none' ? 'Standard Back' : `With ${chosenCarbon.toUpperCase()} Carbon Back Cover`;
+    let customStatus = currentTrim.isCustom ? 'CUSTOM SPEC' : 'PRESET SPEC';
 
     const form = document.createElement('form');
     form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
     
     const params = {
         cmd: '_cart', add: '1', business: 'M9P8HY87UAXQN', currency_code: 'USD',
-        item_name: `${modelData.title} - ${currentTrim.name} (${carbonText})`,
+        item_name: `${modelData.title} - ${currentTrim.name} (${carbonText}) [${customStatus}]`,
         amount: finalPrice, item_number: `BUCKET-${chosenModel}-${chosenTrimIndex}`,
         on0: 'Carbon Shell Specification', os0: carbonText
     };
@@ -331,7 +341,6 @@ function initMatrixEngine() {
         });
     }
 
-    // 預設將 Carbon 設回 None 狀態
     chosenCarbon = 'none';
     document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
     document.getElementById('cc-none').classList.add('option-btn-active');
