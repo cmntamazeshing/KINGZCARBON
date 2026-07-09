@@ -63,15 +63,6 @@ body {
     overflow: hidden;
 }
 
-/* 迎賓字體呼吸動畫 */
-@keyframes pulseGlow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.9; }
-}
-.pulse-text {
-    animation: pulseGlow 2.5s infinite ease-in-out;
-}
-
 /* 📥 來自原精選 Showcase 的高亮樣式 */
 .active-thumb {
     border-color: #d4af37 !important;
@@ -157,7 +148,7 @@ body {
                     <label class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-2 font-black text-center md:text-left">
                         ⭐ KingzCarbon Premium Showcase Profile
                     </label>
-                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
                         <div onclick="switchBodyKitsViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
                             <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
                             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -206,17 +197,6 @@ body {
                             Inquire This Custom Kit Configuration
                         </a>
                     </div>
-                </div>
-            </div>
-
-            <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
-                <div class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[50vh] relative shadow-2xl">
-                    <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto min-h-[50vh] object-cover block select-none pointer-events-none transition-all duration-500">
-                </div>
-                <div class="text-center mt-6 px-4 select-none">
-                    <p class="text-[11px] text-gray-400 font-bold tracking-wider pulse-text uppercase leading-relaxed">
-                        &larr; Please select your Brand and Chassis configuration above to explore your custom assets.
-                    </p>
                 </div>
             </div>
 
@@ -357,20 +337,17 @@ function selectCategory(category) {
 
 function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
-    const welcomeHero = document.getElementById('welcome-hero-screen');
     const emptyState = document.getElementById('empty-state');
     const showcaseZone = document.getElementById('bodykits-showcase-zone');
     
     if (initialLoad) { 
         gridContainer.classList.add('hidden'); 
         emptyState.classList.add('hidden'); 
-        welcomeHero.classList.remove('hidden'); 
         showcaseZone.classList.remove('hidden'); 
         return; 
     }
     
     showcaseZone.classList.add('hidden');
-    welcomeHero.classList.add('hidden'); 
     gridContainer.innerHTML = '';
     
     let currentChassisTokens = currentModel !== 'All' ? currentModel.split(' / ').map(t => t.split(' ')[0]) : [];
@@ -390,7 +367,7 @@ function renderMatrix() {
             const card = document.createElement('div');
             card.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
             
-            // 💡 修正 1：點擊小圖卡片，不彈窗，直接發射入 PayPal 官方付款台
+            // 💡 點擊直連 PayPal 官方台
             card.onclick = () => directAddProductToPayPal(item.id);
             
             card.innerHTML = `
@@ -436,7 +413,6 @@ function switchBodyKitsViewer(index, thumbElement) {
     }
 }
 
-// 💡 修正 2：全新無痛「背景 PayPal 隱形發射器」，徹底抹除彈窗換張 Bug
 function directAddProductToPayPal(productId) {
     const targetItem = window.masterExteriorDatabase.find(x => x.id === productId);
     if (!targetItem) return;
