@@ -71,6 +71,15 @@ body {
 .pulse-text {
     animation: pulseGlow 2.5s infinite ease-in-out;
 }
+
+/* 📥 加載：來自 Bodykits-en 的專屬高亮樣式 */
+.active-thumb {
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 12px rgba(212,175,55,0.4);
+}
+.viewer-box {
+    background: rgba(0, 0, 0, 0.8);
+}
 </style>
 </head>
 
@@ -100,7 +109,6 @@ body {
             <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition duration-300 hover:border-yellow-600">Toyota</button>
             <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
         </div>
-
         <div id="model-container" class="flex flex-wrap items-center gap-3">
             <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Chassis:</span>
             <div id="model-list" class="flex flex-wrap gap-2">
@@ -144,30 +152,94 @@ body {
 
         <div class="md:col-span-3 relative min-h-[50vh]">
             
-            <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
-                <div class="mb-14 text-center">
-                    <h2 class="text-xl md:text-2xl font-black uppercase tracking-widest gold-flow gold-glow mb-3">The KINGZCARBON Standard: Beyond The Mold</h2>
-                    <p class="text-xs md:text-sm text-gray-400 tracking-wider max-w-2xl mx-auto leading-relaxed">Direct workshop-to-door aerodynamic upgrades without middleman markups.</p>
+            <div id="bodykits-showcase-zone" class="w-full mb-12 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
+                <div class="mb-4">
+                    <label class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-2 font-black text-center md:text-left">
+                        ⭐ KingzCarbon Premium Showcase Profile
+                    </label>
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        <div onclick="switchBodyKitsViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
+                            <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                            <video src="https://i.imgur.com/CzT3FVY.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                            <video src="https://i.imgur.com/lIweAMD.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(3, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                            <video src="https://i.imgur.com/BqBmit2.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(4, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
+                            <img src="https://i.imgur.com/DNeHanC.png" alt="Profile" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div onclick="switchBodyKitsViewer(5, this)" class="paddle-thumb aspect-square bg-zinc-950 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center cursor-pointer transition duration-300 hover:border-yellow-600">
+                            <span class="text-[9px] text-gray-600 font-bold uppercase tracking-wider block">Coming</span>
+                            <span class="text-[9px] text-yellow-600 font-bold uppercase tracking-wider block">Soon</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[50vh] relative shadow-2xl">
-                    <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON" class="w-full h-auto min-h-[50vh] object-cover">
+
+                <div class="viewer-box rounded-xl overflow-hidden border border-gray-900 p-2 shadow-inner relative">
+                    <div class="w-full aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center relative">
+                        <img id="main-view-img" src="" alt="HD Display View" class="max-w-full max-h-full object-contain transition duration-300 hidden">
+                        <video id="main-view-video" class="w-full h-full object-contain" autoplay loop muted playsinline controls></video>
+                        <div id="coming-soon-overlay" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gray-950 bg-opacity-95">
+                            <h3 class="text-xs font-black gold-flow gold-glow uppercase tracking-[0.2em]">Next Artisan Project</h3>
+                            <p class="text-[10px] text-gray-500 uppercase mt-1">Template Engineering</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a id="whatsapp-link" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20some%20body%20kits." target="_blank" class="block text-center w-full py-3 bg-yellow-600 hover:bg-yellow-500 text-black rounded-xl font-bold tracking-widest uppercase text-xs transition duration-300 shadow-md">
+                            Inquire This Custom Kit Configuration
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
+                <div class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[50vh] relative shadow-2xl">
+                    <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
+                    <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
+                    <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto min-h-[50vh] object-cover block select-none pointer-events-none transition-all duration-500">
+                </div>
+                <div class="text-center mt-6 px-4 select-none">
+                    <p class="text-[11px] text-gray-400 font-bold tracking-wider pulse-text uppercase leading-relaxed">
+                        &larr; Please select your Brand and Chassis configuration above to explore your custom assets.
+                    </p>
+                </div>
+            </div>
+
             <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4"></div>
-            <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800"><p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found.</p></div>
+            <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
+                <p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found matching the criteria.</p>
+                <p class="text-xs text-gray-600 mt-2">Our facility templates are fully adaptive. Tap below to commission parameters directly.</p>
+                <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20order%20special%20carbon%20parts." target="_blank" class="inline-block mt-6 px-6 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs uppercase tracking-widest font-semibold transition hover:bg-yellow-600 hover:text-black">Direct Inquiry</a>
+            </div>
         </div>
+
     </div>
+
 </div>
 
 <div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
     <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
         <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
-        
         <div class="w-full p-2 bg-black flex items-center justify-center relative select-none">
             <button onclick="prevLightboxImg()" class="absolute left-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&larr;</button>
-            
             <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[60vh] w-auto mx-auto object-contain block">
-            
             <button onclick="nextLightboxImg()" class="absolute right-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&rarr;</button>
         </div>
         <div class="p-6 md:p-8 bg-black bg-opacity-95">
@@ -200,11 +272,23 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體 - 跨頁面跳轉與箭頭修復穩定版)
+ * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體)
  */
 let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
 let activeFilteredData = []; let currentLightboxIndex = 0;
+
+// 全域唯一主要數據緩存庫
 window.masterExteriorDatabase = []; 
+
+// 📺 Body Kits Showcase 內部數據集陣列
+const bodyKitsDatabase = [
+    { type: 'video', url: 'https://i.imgur.com/OWKM58C.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/CzT3FVY.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/lIweAMD.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/BqBmit2.mp4' },
+    { type: 'image', url: 'https://i.imgur.com/DNeHanC.png' },
+    { type: 'coming-soon', url: '' }
+];
 
 window.chassisMapping = {
   'BMW': ['E90 / E92 / E93 M3', 'F30 / F35 3-Series', 'F32 / F33 / F36 4-Series', 'F34 3-Series GT', 'F10 / F18 5-Series', 'F15 X5', 'F16 X6', 'F87 M2 / M2C', 'F80 M3', 'F82 / F83 M4', 'F90 M5', 'F06 / F12 / F13 M6', 'F97 X3M / F98 X4M', 'G42 2-Series', 'G20 / G28 3-Series', 'G22 4-Series', 'G26 4-Series Gran Coupe', 'G30 / G38 5-Series', 'G05 X5', 'G06 X6', 'G07 X7', 'G87 M2', 'G80 M3', 'G82 M4'],
@@ -221,7 +305,6 @@ function toggleMobileSidebar() {
     }
 }
 
-// 💡 保持更改：點擊選單上的 Badges 直接跨頁面跳轉
 function selectCategoryCloseMobile(category) {
     if (category === 'Badges') { window.location.href = 'badges-en.html'; return; }
     selectCategory(category);
@@ -303,7 +386,6 @@ function selectModel(model) {
     else { renderMatrix(); }
 }
 
-// 💡 保持更改：側欄點擊 Badges 同樣直通專屬頁面
 function selectCategory(category) {
     if (category === 'Badges') { window.location.href = 'badges-en.html'; return; }
     currentCategory = category; if (currentBrand !== 'All') initialLoad = false;
@@ -317,9 +399,21 @@ function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const welcomeHero = document.getElementById('welcome-hero-screen');
     const emptyState = document.getElementById('empty-state');
-    if (initialLoad) { gridContainer.classList.add('hidden'); emptyState.classList.add('hidden'); welcomeHero.classList.remove('hidden'); return; }
+    const showcaseZone = document.getElementById('bodykits-showcase-zone'); // 📺 控制 ShowCase
     
-    welcomeHero.classList.add('hidden'); gridContainer.innerHTML = '';
+    if (initialLoad) { 
+        gridContainer.classList.add('hidden'); 
+        emptyState.classList.add('hidden'); 
+        welcomeHero.classList.remove('hidden'); 
+        showcaseZone.classList.remove('hidden'); // 💡 修正：首頁初始加載（All Brands）時，顯示 Showcase 區塊
+        return; 
+    }
+    
+    // 💡 修正：一旦買家點擊了任何篩選分類（Brand/Chassis/Category），自動隱藏 Showcase 區塊，全速騰出空間！
+    showcaseZone.classList.add('hidden');
+    welcomeHero.classList.add('hidden'); 
+    gridContainer.innerHTML = '';
+    
     let currentChassisTokens = currentModel !== 'All' ? currentModel.split(' / ').map(t => t.split(' ')[0]) : [];
 
     activeFilteredData = window.masterExteriorDatabase.filter(item => {
@@ -350,11 +444,41 @@ function renderMatrix() {
     }
 }
 
+// 📺 獨家植入：Body Kits Showcase 控制中心邏輯管線
+function switchBodyKitsViewer(index, thumbElement) {
+    const data = bodyKitsDatabase[index];
+    if (!data) return;
+
+    const allThumbs = document.querySelectorAll('.paddle-thumb');
+    allThumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
+    if (thumbElement) thumbElement.classList.add('active-thumb');
+
+    const imgElement = document.getElementById('main-view-img');
+    const videoElement = document.getElementById('main-view-video');
+    const csOverlay = document.getElementById('coming-soon-overlay');
+    const btnLink = document.getElementById('whatsapp-link');
+
+    if (data.type === 'video') {
+        csOverlay.classList.add('hidden'); imgElement.classList.add('hidden'); imgElement.src = "";
+        videoElement.src = data.url; videoElement.classList.remove('hidden'); videoElement.load();
+        videoElement.play().catch(e => console.log(e));
+        btnLink.style.opacity = "1"; btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'image') {
+        csOverlay.classList.add('hidden'); videoElement.classList.add('hidden'); videoElement.pause(); videoElement.src = "";
+        imgElement.src = data.url; imgElement.classList.remove('hidden');
+        btnLink.style.opacity = "1"; btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'coming-soon') {
+        videoElement.classList.add('hidden'); videoElement.pause(); videoElement.src = "";
+        imgElement.classList.add('hidden'); imgElement.src = "";
+        csOverlay.classList.remove('hidden');
+        btnLink.style.opacity = "0.3"; btnLink.style.pointerEvents = "none";
+    }
+}
+
 function openLightbox(productId) {
     const item = window.masterExteriorDatabase.find(x => x.id === productId);
     if (!item) return;
     
-    // 💡 修正指針：精確咬取當前局部過濾陣列（activeFilteredData）中的物理索引順序
     currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
     if (currentLightboxIndex === -1) currentLightboxIndex = 0;
     
@@ -372,7 +496,6 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
-// 💡 修正左右換張指針管線：點擊箭頭時精確傳遞下一個物件的實體 `targetItem.id` 進入 openLightbox，完全解決不換張 bug
 function nextLightboxImg() {
     if (activeFilteredData.length <= 1) return;
     currentLightboxIndex = (currentLightboxIndex + 1) % activeFilteredData.length;
@@ -429,7 +552,12 @@ function closeLightboxForce() {
     const modal = document.getElementById('product-lightbox-modal');
     modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
 }
-window.onload = () => selectBrand('All', true);
+
+window.onload = () => {
+    selectBrand('All', true);
+    // 💡 初始化加載第一個精選影片案例
+    switchBodyKitsViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
+};
 </script>
 </body>
 </html>
