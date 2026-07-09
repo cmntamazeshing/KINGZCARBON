@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,12 +74,12 @@ body {
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-        <div onclick="selectSeatModel('GK100')" id="grid-card-GK100" class="bg-black bg-opacity-70 rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between cursor-pointer transition duration-300 hover:border-yellow-600 active-seat-thumb">
-            <div class="w-full aspect-square bg-gray-950 rounded-lg overflow-hidden mb-2"><img src="https://i.imgur.com/FJEseY6.jpeg" class="w-full h-full object-cover"></div>
+        <div onclick="redirectModelSwitch('GK100')" id="grid-card-GK100" class="bg-black bg-opacity-70 rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between cursor-pointer transition duration-300 hover:border-yellow-600 active-seat-thumb">
+            <div class="w-full aspect-square bg-gray-950 rounded-lg overflow-hidden mb-2"><img src="https://i.imgur.com/iOkzacH.jpeg" class="w-full h-full object-cover rounded-md"></div>
             <h4 class="text-xs font-bold text-center uppercase tracking-wider text-yellow-500">Cross Sportster GK100</h4>
         </div>
-        <div onclick="selectSeatModel('CS')" id="grid-card-CS" class="bg-black bg-opacity-70 rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between cursor-pointer transition duration-300 hover:border-yellow-600">
-            <div class="w-full aspect-square bg-gray-950 rounded-lg overflow-hidden mb-2"><img src="https://i.imgur.com/6lhWf6C.jpeg" class="w-full h-full object-cover"></div>
+        <div onclick="redirectModelSwitch('CS')" id="grid-card-CS" class="bg-black bg-opacity-70 rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between cursor-pointer transition duration-300 hover:border-yellow-600">
+            <div class="w-full aspect-square bg-gray-950 rounded-lg overflow-hidden mb-2"><img src="https://i.imgur.com/6lhWf6C.jpeg" class="w-full h-full object-cover rounded-md"></div>
             <h4 class="text-xs font-bold text-center uppercase tracking-wider text-gray-400">Sportster CS Classic</h4>
         </div>
         <div class="bg-black bg-opacity-40 rounded-xl border border-dashed border-gray-800 p-3 flex flex-col items-center justify-center opacity-40 select-none">
@@ -97,7 +96,7 @@ body {
         
         <div class="md:col-span-7 space-y-4">
             <div class="w-full aspect-square bg-zinc-950 rounded-xl border border-gray-900 overflow-hidden flex items-center justify-center p-2 relative shadow-inner">
-                <img id="seat-main-view" src="https://i.imgur.com/FJEseY6.jpeg" class="w-full h-full object-contain transition duration-300" alt="Main Cockpit Display">
+                <img id="seat-main-view" src="https://i.imgur.com/iOkzacH.jpeg" class="w-full h-full object-contain transition duration-300" alt="Main Cockpit Display">
             </div>
             
             <div id="seat-thumbnails-row" class="grid grid-cols-5 gap-2">
@@ -143,19 +142,18 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 硬核桶椅動態數據矩陣引擎
+ * 🕹️ KINGZCARBON 硬核桶椅動態數據矩陣引擎 (椅背共通同步完美版)
  */
 let chosenModel = 'GK100';
 let chosenTrimIndex = 0;
 let chosenCarbon = 'none';
 
-// 📚 桶椅資產全圖庫清單
+// 📚 修正：精準移除 "Signature Cover"，並完成兩款椅背 Carbon Shell 共通對齊
 const bucketDatabase = {
     GK100: {
         title: "RECARO Cross Sportster GK100",
         basePrice: 799,
         trims: [
-            { name: "Signature Cover", img: "https://i.imgur.com/FJEseY6.jpeg" },
             { name: "Gray Mesh Element", img: "https://i.imgur.com/iOkzacH.jpeg" },
             { name: "Red Crimson Mesh", img: "https://i.imgur.com/YSxATh1.jpeg" },
             { name: "Blue Cobalt Mesh", img: "https://i.imgur.com/YBDn6eS.jpeg" },
@@ -163,7 +161,7 @@ const bucketDatabase = {
             { name: "Bespoke Custom Order", img: "https://i.imgur.com/6PLbuQt.png", isCustom: true }
         ],
         extraThumbs: [
-            "https://i.imgur.com/RFQSnFn.jpeg", // carbon shell
+            "https://i.imgur.com/RFQSnFn.jpeg", // carbon shell gloss
             "https://i.imgur.com/aTfYehs.jpeg", // details
             "https://i.imgur.com/ZZxmJam.jpeg", // back details
             "https://i.imgur.com/W1tcHel.jpeg", // matte back
@@ -187,12 +185,11 @@ const bucketDatabase = {
     }
 };
 
-function selectSeatModel(modelId) {
+function redirectModelSwitch(modelId) {
     chosenModel = modelId;
     chosenTrimIndex = 0;
     chosenCarbon = 'none';
     
-    // 同步四大卡片高亮狀態
     document.getElementById('grid-card-GK100').classList.remove('active-seat-thumb');
     document.getElementById('grid-card-CS').classList.remove('active-seat-thumb');
     document.getElementById('grid-card-' + modelId).classList.add('active-seat-thumb');
@@ -205,24 +202,36 @@ function selectTrim(index) {
     const modelData = bucketDatabase[chosenModel];
     document.getElementById('seat-main-view').src = modelData.trims[index].img;
     
-    // 更新 Trim 按鈕高亮
     document.querySelectorAll('.trim-btn').forEach(btn => btn.classList.remove('option-btn-active'));
-    document.getElementById('trim-btn-' + index).classList.add('option-btn-active');
+    if(document.getElementById('trim-btn-' + index)) {
+        document.getElementById('trim-btn-' + index).classList.add('option-btn-active');
+    }
+
+    // 當換 Trim 時，自動將椅背選回 None 狀態防止視覺衝突
+    chosenCarbon = 'none';
+    document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
+    document.getElementById('cc-none').classList.add('option-btn-active');
 
     calculateMatrixPrice();
 }
 
+// 💡 修正 2：核心對齊！無論係 GK100 還是 CS，點擊 Gloss / Matte 都能同步調用並顯示最精準嘅椅背殼高精圖片
 function selectCarbonCover(type) {
     chosenCarbon = type;
     document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
     document.getElementById('cc-' + type).classList.add('option-btn-active');
 
-    // 智能聯動換圖展示椅背 Carbon 殼
     const modelData = bucketDatabase[chosenModel];
-    if (chosenModel === 'GK100' && modelData.trims[chosenTrimIndex].isCustom !== true) {
-        if (type === 'gloss') document.getElementById('seat-main-view').src = "https://i.imgur.com/LctI5HE.jpeg";
-        else if (type === 'matte') document.getElementById('seat-main-view').src = "https://i.imgur.com/W1tcHel.jpeg";
-        else document.getElementById('seat-main-view').src = modelData.trims[chosenTrimIndex].img;
+    
+    // 如果客人選取嘅不是 Custom 模式，直接觸發椅背圖片同步展示（兩款共通）
+    if (modelData.trims[chosenTrimIndex].isCustom !== true) {
+        if (type === 'gloss') {
+            document.getElementById('seat-main-view').src = "https://i.imgur.com/LctI5HE.jpeg"; // 亮面共通椅背圖
+        } else if (type === 'matte') {
+            document.getElementById('seat-main-view').src = "https://i.imgur.com/W1tcHel.jpeg"; // 啞面共通椅背圖
+        } else {
+            document.getElementById('seat-main-view').src = modelData.trims[chosenTrimIndex].img; // 還原正面款式圖
+        }
     }
 
     calculateMatrixPrice();
@@ -238,38 +247,29 @@ function calculateMatrixPrice() {
 
     document.getElementById('realtime-price-tag').innerText = `$${totalPrice} USD`;
 
-    // 🚀 智能控制分流門禁發射埠
     const currentTrim = modelData.trims[chosenTrimIndex];
     const gatewayZone = document.getElementById('checkout-gateway-zone');
 
     if (currentTrim.isCustom === true) {
-        // 🟢 如果選取 Custom Order，直接顯示綠金風格的 WhatsApp 客製化接口
-        let customText = `Hello Shing, I want to commission a Bespoke Custom Order for ${modelData.title}. Please provide options for custom leather finishes and embroidery patterns.`;
+        let WaPayload = `Hello Shing, I want to place a Bespoke Custom Order for ${modelData.title}. Please guide me through custom leather textures and stitch options.`;
         gatewayZone.innerHTML = `
             <div class="text-left bg-yellow-600 bg-opacity-10 border border-yellow-500/30 p-4 rounded-xl mb-4">
                 <p class="text-xs text-yellow-500 leading-relaxed font-medium">
-                    💡 <strong>Custom Blueprint Activated:</strong> Custom orders require layout continuity validation. Click below to discuss your bespoke embroidery text and material finishes directly with our workshop manager.
+                    🎨 <strong>Bespoke Custom Interface:</strong> Customized leather/ Houndstooth stitches require manual pattern continuity checkout. Click below to verify details directly with us.
                 </p>
             </div>
-            <a href="https://wa.me/85295368533?text=${encodeURIComponent(customText)}" target="_blank" class="w-full block text-center py-4 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 font-black tracking-widest uppercase text-xs rounded-xl transition shadow-lg">
+            <a href="https://wa.me/85295368533?text=${encodeURIComponent(WaPayload)}" target="_blank" class="w-full block text-center py-4 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 font-black tracking-widest uppercase text-xs rounded-xl transition shadow-lg">
                 💬 Inquire Bespoke Custom Layout Via WhatsApp
             </a>`;
     } else {
-        // 🛒 如果是 Preset 基礎款，則顯示 PayPal 加購按鈕，但如果在下方提示加購訊息提示
-        let carbonLabel = chosenCarbon === 'none' ? 'None' : (chosenCarbon === 'gloss' ? 'Gloss Carbon Shell (+799)' : 'Matte Carbon Shell (+799)');
+        let carbonLabel = chosenCarbon === 'none' ? 'Standard Cover' : `with Autoclave ${chosenCarbon.toUpperCase()} Carbon Shell`;
         gatewayZone.innerHTML = `
-            ${chosenCarbon === 'none' ? `
-            <div class="text-left bg-zinc-900 p-3 rounded-xl mb-3 border border-zinc-800">
-                <p class="text-[11px] text-zinc-400 leading-normal">
-                    💡 Want custom leather stitching or tailored emblems? You can checkout now or tap below to query.
-                </p>
-            </div>` : ''}
             <div class="flex flex-col gap-2">
                 <button onclick="launchPayPalSeatCheckout(${totalPrice})" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl">
-                    🛒 Checkout Configured Seat ($${totalPrice})
+                    🛒 Add Configured Seat to Cart ($${totalPrice})
                 </button>
-                <a href="https://wa.me/85295368533?text=${encodeURIComponent(`Hello Shing, I want to query embroidery options for ${modelData.title} (${currentTrim.name}) with ${carbonLabel}.`)}" target="_blank" class="w-full py-2.5 bg-transparent border border-zinc-800 hover:bg-zinc-900 text-zinc-500 text-[11px] uppercase tracking-widest text-center font-bold rounded-xl transition">
-                    Inquire Leather Finish / Embroidery Options
+                <a href="https://wa.me/85295368533?text=${encodeURIComponent(`Hello Shing, I want to query specialized patterns/embroidery for ${modelData.title} (${currentTrim.name}) ${carbonLabel}.`)}" target="_blank" class="w-full py-2.5 bg-transparent border border-zinc-800 hover:bg-zinc-900 text-zinc-500 text-[11px] uppercase tracking-widest text-center font-bold rounded-xl transition">
+                    Inquire Custom Materials / Embroidery Detail
                 </a>
             </div>`;
     }
@@ -278,7 +278,7 @@ function calculateMatrixPrice() {
 function launchPayPalSeatCheckout(finalPrice) {
     const modelData = bucketDatabase[chosenModel];
     const currentTrim = modelData.trims[chosenTrimIndex];
-    let carbonText = chosenCarbon === 'none' ? 'Standard Back' : `With ${chosenCarbon.toUpperCase()} Carbon Shell`;
+    let carbonText = chosenCarbon === 'none' ? 'Standard Back' : `With ${chosenCarbon.toUpperCase()} Carbon Back Cover`;
 
     const form = document.createElement('form');
     form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
@@ -287,7 +287,7 @@ function launchPayPalSeatCheckout(finalPrice) {
         cmd: '_cart', add: '1', business: 'M9P8HY87UAXQN', currency_code: 'USD',
         item_name: `${modelData.title} - ${currentTrim.name} (${carbonText})`,
         amount: finalPrice, item_number: `BUCKET-${chosenModel}-${chosenTrimIndex}`,
-        on0: 'Configuration Shell Opt', os0: carbonText
+        on0: 'Carbon Shell Specification', os0: carbonText
     };
 
     for (const [key, val] of Object.entries(params)) {
@@ -302,7 +302,6 @@ function initMatrixEngine() {
     document.getElementById('seat-title-display').innerText = modelData.title;
     document.getElementById('seat-main-view').src = modelData.trims[0].img;
 
-    // 1. 動態渲染 Trim 選擇按鈕
     const btnContainer = document.getElementById('trim-buttons-container');
     btnContainer.innerHTML = '';
     modelData.trims.forEach((trim, idx) => {
@@ -313,18 +312,16 @@ function initMatrixEngine() {
             </button>`;
     });
 
-    // 2. 動態渲染下方縮圖行
     const thumbRow = document.getElementById('seat-thumbnails-row');
     thumbRow.innerHTML = '';
     
-    // 先塞款式圖
     modelData.trims.forEach((trim, idx) => {
         thumbRow.innerHTML += `
             <div onclick="selectTrim(${idx})" class="aspect-square bg-black border border-zinc-900 rounded-lg overflow-hidden cursor-pointer p-0.5 hover:border-yellow-600">
                 <img src="${trim.img}" class="w-full h-full object-cover rounded-md">
             </div>`;
     });
-    // 再塞補充細節圖
+
     if(modelData.extraThumbs) {
         modelData.extraThumbs.forEach(imgUrl => {
             thumbRow.innerHTML += `
@@ -334,10 +331,14 @@ function initMatrixEngine() {
         });
     }
 
+    // 預設將 Carbon 設回 None 狀態
+    chosenCarbon = 'none';
+    document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
+    document.getElementById('cc-none').classList.add('option-btn-active');
+
     calculateMatrixPrice();
 }
 
-// 啟動主引擎
 initMatrixEngine();
 </script>
 
