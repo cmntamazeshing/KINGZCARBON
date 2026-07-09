@@ -86,7 +86,7 @@ body {
         </p>
     </div>
 
-    <div class="text-center mb-20">
+    <div class="text-center mb-12">
         <p class="uppercase tracking-widest text-xs text-gray-500 mb-4">
             Brand Declaration
         </p>
@@ -96,7 +96,21 @@ body {
         </h2>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+    <div class="mb-16 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
+        <div class="text-center mb-5 select-none">
+            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow">KINGZCARBON SHOWCASE</span>
+        </div>
+
+        <div class="w-full rounded-xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[40vh] md:min-h-[55vh] relative shadow-2xl">
+            <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
+            
+            <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
+
+            <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto max-h-[65vh] object-cover block select-none pointer-events-none transition-all duration-500">
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
 
         <a href="ride-en.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
             <div>
@@ -166,20 +180,6 @@ body {
             </div>
         </a>
 
-    </div>
-
-    <div class="mt-24 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
-        <div class="text-center mb-5 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow">KINGZCARBON SHOWCASE</span>
-        </div>
-
-        <div class="w-full rounded-xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[40vh] md:min-h-[55vh] relative shadow-2xl">
-            <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
-            
-            <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
-
-            <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto max-h-[65vh] object-cover block select-none pointer-events-none transition-all duration-500">
-        </div>
     </div>
 
     <div class="mt-20 border-t border-gray-900 pt-12 text-center">
