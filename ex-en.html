@@ -45,7 +45,7 @@ body {
             <button onclick="selectBrand('BMW')" id="brand-BMW" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">BMW</button>
             <button onclick="selectBrand('Mercedes-Benz')" id="brand-Benz" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Mercedes-Benz</button>
             <button onclick="selectBrand('Audi')" id="brand-Audi" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Audi</button>
-            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Toyota</button>
+            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition duration-300 hover:border-yellow-600">Toyota</button>
             <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
         </div>
         <div id="model-container" class="flex flex-wrap items-center gap-3">
@@ -107,13 +107,21 @@ body {
                 <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider"></span>
             </div>
             <div class="mt-6 pt-4">
-                <div class="mb-5 text-left">
-                    <label class="block text-[11px] text-gray-400 uppercase tracking-widest font-bold mb-2">Car Year, Model & VIN <span class="text-yellow-600">* Required</span></label>
-                    <input type="text" id="fitment-text-input" class="w-full bg-zinc-950 border border-gray-800 focus:border-yellow-600 text-gray-200 rounded-xl px-4 py-3 text-xs outline-none" placeholder="e.g., 2024 BMW G26 430i (VIN: WBA...)">
+                <div class="mb-5 text-left border-l-2 border-yellow-600 pl-3 py-1">
+                    <p class="text-xs text-yellow-500 tracking-wide font-medium">
+                        ⚠️ <strong>Fitment Note:</strong> Please double-check if your vehicle chassis matches the item title configuration before checking out.
+                    </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart (PayPal)</button>
-                    <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">💳 Credit Card (Stripe)</button>
+                
+                <div class="flex flex-col gap-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart (PayPal)</button>
+                        <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">💳 Credit Card (Stripe)</button>
+                    </div>
+                    
+                    <a id="modal-wa-btn" href="" target="_blank" class="w-full px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 text-xs font-black tracking-widest uppercase rounded-xl transition text-center flex items-center justify-center gap-2">
+                        💬 Not Sure? Inquire Setup via WhatsApp
+                    </a>
                 </div>
                 <div id="modal-cat" class="text-left text-[10px] text-zinc-600 uppercase mt-4"></div>
             </div>
@@ -124,7 +132,7 @@ body {
 <script>
 let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
 let activeFilteredData = []; let currentLightboxIndex = 0;
-window.masterExteriorDatabase = []; // 💡 終極修復點：全站唯一、永不被中途洗空的資料主宿主
+window.masterExteriorDatabase = []; 
 
 window.chassisMapping = {
   'BMW': ['E90 / E92 / E93 M3', 'F30 / F35 3-Series', 'F32 / F33 / F36 4-Series', 'F34 3-Series GT', 'F10 / F18 5-Series', 'F15 X5', 'F16 X6', 'F87 M2 / M2C', 'F80 M3', 'F82 / F83 M4', 'F90 M5', 'F06 / F12 / F13 M6', 'F97 X3M / F98 X4M', 'G42 2-Series', 'G20 / G28 3-Series', 'G22 4-Series', 'G26 4-Series Gran Coupe', 'G30 / G38 5-Series', 'G05 X5', 'G06 X6', 'G07 X7', 'G87 M2', 'G80 M3', 'G82 M4'],
@@ -262,7 +270,10 @@ function openLightbox(productId) {
     document.getElementById('modal-price').innerText = `Product: ${item.price}`;
     document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
     document.getElementById('modal-cat').innerText = `Category: ${item.category} | Asset ID: ${item.id}`;
-    document.getElementById('fitment-text-input').value = '';
+
+    // 💡 修正 2：WhatsApp 預填文字機制，帶入買家想查詢的產品標題
+    let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup: ${item.title}`;
+    document.getElementById('modal-wa-btn').href = `https://wa.me/85295368533?text=${encodeURIComponent(dynamicPayload)}`;
 
     const modal = document.getElementById('product-lightbox-modal');
     modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -272,21 +283,19 @@ function openLightbox(productId) {
 function submitToPayPalCart() {
     const targetItem = activeFilteredData[currentLightboxIndex];
     if (!targetItem) return;
-    const fitment = document.getElementById('fitment-text-input').value.trim();
-    if (fitment.length < 5) { alert("Please specify your exact car year, model, or VIN."); return; }
 
     const form = document.createElement('form');
     form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
     const params = {
         cmd: '_cart', add: '1', business: 'M9P8HY87UAXQN', currency_code: 'USD',
         item_name: targetItem.title, amount: targetItem.price.replace(/[^0-9.]/g, ''),
-        item_number: `ID-${targetItem.id}`, on0: 'Car Fitment Details', os0: fitment
+        item_number: `ID-${targetItem.id}`
     };
     for (const [key, val] of Object.entries(params)) {
         const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
         form.appendChild(input);
     }
-    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
+    document.body.appendChild(form); form.submit(); document.body.appendChild(form).remove();
 }
 
 function triggerPayPalViewCart() {
@@ -297,7 +306,7 @@ function triggerPayPalViewCart() {
         const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
         form.appendChild(input);
     }
-    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
+    document.body.appendChild(form); form.submit(); document.body.appendChild(form).remove();
 }
 
 function closeLightbox(event) { if (event.target === document.getElementById('product-lightbox-modal')) closeLightboxForce(); }
