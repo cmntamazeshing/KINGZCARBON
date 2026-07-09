@@ -271,13 +271,10 @@ body {
 </div>
 
 <script>
-/**
- * 🕹️ KINGZCARBON 異步動態數據分流控制引擎 (2026 完全體)
- */
 let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
 let activeFilteredData = []; let currentLightboxIndex = 0;
 
-// 全域唯一主要數據緩存庫
+// 全局主要緩存庫
 window.masterExteriorDatabase = []; 
 
 // 📺 Body Kits Showcase 內部數據集陣列
@@ -327,7 +324,10 @@ function fetchScript(src) {
 
 async function loadChassisDatabase(targetGroup, callback) {
     document.querySelectorAll('.dynamic-db-script').forEach(el => el.remove());
-    window.masterExteriorDatabase = [];
+    // 💡 修正：只有在非初始化時，才允許清空主庫，防止 onload 被中途截斷沖刷真空
+    if(targetGroup !== 'ALL_BMW' || window.masterExteriorDatabase.length === 0) {
+        window.masterExteriorDatabase = [];
+    }
     const upper = targetGroup.toUpperCase();
 
     try {
@@ -363,7 +363,8 @@ function selectBrand(brand, isInit = false) {
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
-        window.masterExteriorDatabase = []; renderMatrix();
+        // 💡 修正：當回到 All 頁面時，強制執行一次全數據載入以防異步撈空
+        loadChassisDatabase('ALL_BMW', renderMatrix);
     } else {
         let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide filter-active">All ${brand}</button>`;
         if (chassisMapping[brand]) {
@@ -399,17 +400,16 @@ function renderMatrix() {
     const gridContainer = document.getElementById('exterior-matrix-grid');
     const welcomeHero = document.getElementById('welcome-hero-screen');
     const emptyState = document.getElementById('empty-state');
-    const showcaseZone = document.getElementById('bodykits-showcase-zone'); // 📺 控制 ShowCase
+    const showcaseZone = document.getElementById('bodykits-showcase-zone');
     
     if (initialLoad) { 
         gridContainer.classList.add('hidden'); 
         emptyState.classList.add('hidden'); 
         welcomeHero.classList.remove('hidden'); 
-        showcaseZone.classList.remove('hidden'); // 💡 修正：首頁初始加載（All Brands）時，顯示 Showcase 區塊
+        showcaseZone.classList.remove('hidden'); 
         return; 
     }
     
-    // 💡 修正：一旦買家點擊了任何篩選分類（Brand/Chassis/Category），自動隱藏 Showcase 區塊，全速騰出空間！
     showcaseZone.classList.add('hidden');
     welcomeHero.classList.add('hidden'); 
     gridContainer.innerHTML = '';
@@ -444,7 +444,6 @@ function renderMatrix() {
     }
 }
 
-// 📺 獨家植入：Body Kits Showcase 控制中心邏輯管線
 function switchBodyKitsViewer(index, thumbElement) {
     const data = bodyKitsDatabase[index];
     if (!data) return;
@@ -553,10 +552,12 @@ function closeLightboxForce() {
     modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
 }
 
+// 💡 修正：網頁初始化加載時，先安全地在背景行一次 loadChassisDatabase 同步全站數據，解除初始真空死鎖！
 window.onload = () => {
-    selectBrand('All', true);
-    // 💡 初始化加載第一個精選影片案例
-    switchBodyKitsViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
+    loadChassisDatabase('ALL_BMW', () => {
+        selectBrand('All', true);
+        switchBodyKitsViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
+    });
 };
 </script>
 </body>
