@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bespoke Exterior Matrix | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
-
+    
 <style>
 /* 完美修復並還原標誌性的碳纖維紋理背景 */
 body {
@@ -72,7 +72,7 @@ body {
     animation: pulseGlow 2.5s infinite ease-in-out;
 }
 
-/* 📥 加載：來自 Bodykits-en 的專屬高亮樣式 */
+/* 📥 來自原精選 Showcase 的高亮樣式 */
 .active-thumb {
     border-color: #d4af37 !important;
     box-shadow: 0 0 12px rgba(212,175,55,0.4);
@@ -157,7 +157,7 @@ body {
                     <label class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-2 font-black text-center md:text-left">
                         ⭐ KingzCarbon Premium Showcase Profile
                     </label>
-                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
                         <div onclick="switchBodyKitsViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
                             <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
                             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -211,8 +211,6 @@ body {
 
             <div id="welcome-hero-screen" class="w-full transition-all duration-500 relative pb-10">
                 <div class="w-full rounded-2xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[50vh] relative shadow-2xl">
-                    <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
-                    <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
                     <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto min-h-[50vh] object-cover block select-none pointer-events-none transition-all duration-500">
                 </div>
                 <div class="text-center mt-6 px-4 select-none">
@@ -234,47 +232,11 @@ body {
 
 </div>
 
-<div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
-    <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
-        <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
-        <div class="w-full p-2 bg-black flex items-center justify-center relative select-none">
-            <button onclick="prevLightboxImg()" class="absolute left-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&larr;</button>
-            <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[60vh] w-auto mx-auto object-contain block">
-            <button onclick="nextLightboxImg()" class="absolute right-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&rarr;</button>
-        </div>
-        <div class="p-6 md:p-8 bg-black bg-opacity-95">
-            <h3 id="modal-title" class="text-lg md:text-xl font-bold text-gray-100 tracking-wide"></h3>
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 border-b border-gray-900 pb-5">
-                <span id="modal-price" class="text-xl md:text-2xl font-extrabold text-yellow-500"></span>
-                <span class="text-sm text-gray-400 font-medium">| &nbsp; Shipping: <strong class="text-gray-100">FREE SHIPPING</strong></span>
-                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider"></span>
-            </div>
-            <div class="mt-6 pt-4">
-                <div class="mb-5 text-left border-l-2 border-yellow-600 pl-3 py-1">
-                    <p class="text-xs text-yellow-500 tracking-wide font-medium">
-                        ⚠️ <strong>Fitment Note:</strong> Please double-check if your vehicle chassis matches the item title configuration before checking out.
-                    </p>
-                </div>
-                <div class="flex flex-col gap-3">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart (PayPal)</button>
-                        <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">💳 Credit Card (Stripe)</button>
-                    </div>
-                    <a id="modal-wa-btn" href="" target="_blank" class="w-full px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 text-xs font-black tracking-widest uppercase rounded-xl transition text-center flex items-center justify-center gap-2">
-                        💬 Not Sure? Inquire Setup via WhatsApp
-                    </a>
-                </div>
-                <div id="modal-cat" class="text-left text-[10px] text-zinc-600 uppercase mt-4"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
 let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
-let activeFilteredData = []; let currentLightboxIndex = 0;
+let activeFilteredData = [];
 
-// 全局主要緩存庫
+// 全局主腦緩存庫
 window.masterExteriorDatabase = []; 
 
 const bodyKitsDatabase = [
@@ -427,7 +389,10 @@ function renderMatrix() {
         activeFilteredData.forEach((item) => {
             const card = document.createElement('div');
             card.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
-            card.onclick = () => openLightbox(item.id);
+            
+            // 💡 修正 1：點擊小圖卡片，不彈窗，直接發射入 PayPal 官方付款台
+            card.onclick = () => directAddProductToPayPal(item.id);
+            
             card.innerHTML = `
                 <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
                     <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain">
@@ -471,52 +436,9 @@ function switchBodyKitsViewer(index, thumbElement) {
     }
 }
 
-function openLightbox(productId) {
-    const item = window.masterExteriorDatabase.find(x => x.id === productId);
-    if (!item) return;
-    
-    // 💡 修正指針：即使在首頁 (All 模式) 點擊精選物件，如果 activeFilteredData 還是空陣列，就自動用 master 數據庫來對齊左右指針
-    if (activeFilteredData.length === 0) {
-        activeFilteredData = [...window.masterExteriorDatabase];
-    }
-    
-    currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
-    if (currentLightboxIndex === -1) currentLightboxIndex = 0;
-    
-    document.getElementById('modal-img').src = item.image;
-    document.getElementById('modal-title').innerText = item.title;
-    document.getElementById('modal-price').innerText = `Product: ${item.price}`;
-    document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
-    document.getElementById('modal-cat').innerText = `Category: ${item.category} | Asset ID: ${item.id}`;
-
-    let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup: ${item.title}`;
-    document.getElementById('modal-wa-btn').href = `https://wa.me/85295368533?text=${encodeURIComponent(dynamicPayload)}`;
-
-    const modal = document.getElementById('product-lightbox-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    document.body.classList.add('modal-open');
-}
-
-// 💡 修正 4：當點擊箭頭換張時，如果 activeFilteredData 是空的，自動相容 masterExteriorDatabase 全在庫管線，徹底破除 0 長度被阻斷 bug 
-function nextLightboxImg() {
-    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
-    if (sourceData.length <= 1) return;
-    currentLightboxIndex = (currentLightboxIndex + 1) % sourceData.length;
-    const targetItem = sourceData[currentLightboxIndex];
-    if (targetItem) openLightbox(targetItem.id);
-}
-
-function prevLightboxImg() {
-    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
-    if (sourceData.length <= 1) return;
-    currentLightboxIndex = (currentLightboxIndex - 1 + sourceData.length) % sourceData.length;
-    const targetItem = sourceData[currentLightboxIndex];
-    if (targetItem) openLightbox(targetItem.id);
-}
-
-function submitToPayPalCart() {
-    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
-    const targetItem = sourceData[currentLightboxIndex];
+// 💡 修正 2：全新無痛「背景 PayPal 隱形發射器」，徹底抹除彈窗換張 Bug
+function directAddProductToPayPal(productId) {
+    const targetItem = window.masterExteriorDatabase.find(x => x.id === productId);
     if (!targetItem) return;
 
     const form = document.createElement('form');
@@ -542,20 +464,6 @@ function triggerPayPalViewCart() {
         form.appendChild(input);
     }
     document.body.appendChild(form); form.submit(); document.body.removeChild(form);
-}
-
-window.addEventListener('keydown', function(e) {
-    const modal = document.getElementById('product-lightbox-modal');
-    if (modal.classList.contains('opacity-0')) return;
-    if (e.key === 'ArrowRight') nextLightboxImg();
-    else if (e.key === 'ArrowLeft') prevLightboxImg();
-    else if (e.key === 'Escape') closeLightboxForce();
-});
-
-function closeLightbox(event) { if (event.target === document.getElementById('product-lightbox-modal')) closeLightboxForce(); }
-function closeLightboxForce() {
-    const modal = document.getElementById('product-lightbox-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
 }
 
 window.onload = () => {
