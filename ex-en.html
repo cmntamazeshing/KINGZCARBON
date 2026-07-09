@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bespoke Exterior Matrix | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
-
+    
 <style>
 /* 完美修復並還原標誌性的碳纖維紋理背景 */
 body {
@@ -277,7 +277,6 @@ let activeFilteredData = []; let currentLightboxIndex = 0;
 // 全局主要緩存庫
 window.masterExteriorDatabase = []; 
 
-// 📺 Body Kits Showcase 內部數據集陣列
 const bodyKitsDatabase = [
     { type: 'video', url: 'https://i.imgur.com/OWKM58C.mp4' },
     { type: 'video', url: 'https://i.imgur.com/CzT3FVY.mp4' },
@@ -324,7 +323,6 @@ function fetchScript(src) {
 
 async function loadChassisDatabase(targetGroup, callback) {
     document.querySelectorAll('.dynamic-db-script').forEach(el => el.remove());
-    // 💡 修正：只有在非初始化時，才允許清空主庫，防止 onload 被中途截斷沖刷真空
     if(targetGroup !== 'ALL_BMW' || window.masterExteriorDatabase.length === 0) {
         window.masterExteriorDatabase = [];
     }
@@ -363,7 +361,6 @@ function selectBrand(brand, isInit = false) {
     const modelListDiv = document.getElementById('model-list');
     if (brand === 'All') {
         modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
-        // 💡 修正：當回到 All 頁面時，強制執行一次全數據載入以防異步撈空
         loadChassisDatabase('ALL_BMW', renderMatrix);
     } else {
         let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide filter-active">All ${brand}</button>`;
@@ -478,6 +475,11 @@ function openLightbox(productId) {
     const item = window.masterExteriorDatabase.find(x => x.id === productId);
     if (!item) return;
     
+    // 💡 修正指針：即使在首頁 (All 模式) 點擊精選物件，如果 activeFilteredData 還是空陣列，就自動用 master 數據庫來對齊左右指針
+    if (activeFilteredData.length === 0) {
+        activeFilteredData = [...window.masterExteriorDatabase];
+    }
+    
     currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
     if (currentLightboxIndex === -1) currentLightboxIndex = 0;
     
@@ -495,22 +497,26 @@ function openLightbox(productId) {
     document.body.classList.add('modal-open');
 }
 
+// 💡 修正 4：當點擊箭頭換張時，如果 activeFilteredData 是空的，自動相容 masterExteriorDatabase 全在庫管線，徹底破除 0 長度被阻斷 bug 
 function nextLightboxImg() {
-    if (activeFilteredData.length <= 1) return;
-    currentLightboxIndex = (currentLightboxIndex + 1) % activeFilteredData.length;
-    const targetItem = activeFilteredData[currentLightboxIndex];
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    if (sourceData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex + 1) % sourceData.length;
+    const targetItem = sourceData[currentLightboxIndex];
     if (targetItem) openLightbox(targetItem.id);
 }
 
 function prevLightboxImg() {
-    if (activeFilteredData.length <= 1) return;
-    currentLightboxIndex = (currentLightboxIndex - 1 + activeFilteredData.length) % activeFilteredData.length;
-    const targetItem = activeFilteredData[currentLightboxIndex];
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    if (sourceData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex - 1 + sourceData.length) % sourceData.length;
+    const targetItem = sourceData[currentLightboxIndex];
     if (targetItem) openLightbox(targetItem.id);
 }
 
 function submitToPayPalCart() {
-    const targetItem = activeFilteredData[currentLightboxIndex];
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    const targetItem = sourceData[currentLightboxIndex];
     if (!targetItem) return;
 
     const form = document.createElement('form');
@@ -552,7 +558,6 @@ function closeLightboxForce() {
     modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
 }
 
-// 💡 修正：網頁初始化加載時，先安全地在背景行一次 loadChassisDatabase 同步全站數據，解除初始真空死鎖！
 window.onload = () => {
     loadChassisDatabase('ALL_BMW', () => {
         selectBrand('All', true);
