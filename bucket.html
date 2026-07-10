@@ -82,9 +82,9 @@ body {
             <div class="w-full aspect-square bg-gray-950 rounded-lg overflow-hidden mb-2"><img src="https://i.imgur.com/6lhWf6C.jpeg" class="w-full h-full object-cover rounded-md"></div>
             <h4 class="text-xs font-bold text-center uppercase tracking-wider text-gray-400">Sportster CS Classic</h4>
         </div>
-        <div class="bg-black bg-opacity-40 rounded-xl border border-dashed border-gray-800 p-3 flex flex-col items-center justify-center opacity-40 select-none">
-            <span class="text-xs font-bold uppercase tracking-widest text-zinc-600 block">Pro-Racer Series</span>
-            <span class="text-[10px] uppercase tracking-wider text-yellow-600 mt-1 block">Coming Soon</span>
+        <div onclick="redirectModelSwitch('PODIUM')" id="grid-card-PODIUM" class="bg-black bg-opacity-70 rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between cursor-pointer transition duration-300 hover:border-yellow-600">
+            <div class="w-full aspect-square bg-gray-950 rounded-lg overflow-hidden mb-2"><img src="https://i.imgur.com/vQOLyn5.jpeg" class="w-full h-full object-cover rounded-md"></div>
+            <h4 class="text-xs font-bold text-center uppercase tracking-wider text-yellow-500">Recaro Podium Carbon</h4>
         </div>
         <div class="bg-black bg-opacity-40 rounded-xl border border-dashed border-gray-800 p-3 flex flex-col items-center justify-center opacity-40 select-none">
             <span class="text-xs font-bold uppercase tracking-widest text-zinc-600 block">Carbon Shell SPA</span>
@@ -103,7 +103,7 @@ body {
                 </div>
         </div>
 
-        <div class="md:col-span-5 space-y-6">
+        <div class="md:col-span-5 space-y-5">
             <div>
                 <span class="text-[10px] text-zinc-500 uppercase tracking-widest block mb-1">Step 01: Active Blueprint</span>
                 <h2 id="seat-title-display" class="text-xl md:text-2xl font-black tracking-wide text-gray-100 uppercase">RECARO Cross Sportster GK100</h2>
@@ -115,7 +115,7 @@ body {
                     </div>
             </div>
 
-            <div class="space-y-2">
+            <div id="panel-carbon-shell" class="space-y-2">
                 <label class="block text-[11px] text-zinc-500 uppercase tracking-widest font-bold">Step 03: Autoclave Carbon Back Cover</label>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectCarbonCover('none')" id="cc-none" class="option-btn px-3 py-2.5 rounded-xl border border-gray-800 text-xs tracking-wider uppercase font-semibold text-gray-400 transition hover:border-yellow-600 option-btn-active">None</button>
@@ -124,7 +124,40 @@ body {
                 </div>
             </div>
 
-            <div class="border-t border-zinc-900 pt-6 mt-6">
+            <div id="panel-podium-addons" class="hidden space-y-4">
+                <div class="space-y-2">
+                    <label class="block text-[11px] text-zinc-500 uppercase tracking-widest font-bold">Step 03: Cushion Material Upgrade</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setPodiumAlcantara(false)" id="p-alc-no" class="podium-opt-btn px-3 py-2 rounded-xl border border-gray-800 text-xs tracking-wide uppercase font-semibold text-gray-400 option-btn-active">Standard Leather</button>
+                        <button onclick="setPodiumAlcantara(true)" id="p-alc-yes" class="podium-opt-btn px-3 py-2 rounded-xl border border-gray-800 text-xs tracking-wide uppercase font-semibold text-gray-400">Alcantara Cushions (+599)</button>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-[11px] text-zinc-500 uppercase tracking-widest font-bold">Step 04: Headrest Embroidery Style</label>
+                    <div class="grid grid-cols-3 gap-1">
+                        <button onclick="setPodiumEmbroidery('none')" id="p-emb-none" class="podium-opt-btn px-2 py-2 rounded-xl border border-gray-800 text-[10px] tracking-tight uppercase font-semibold text-gray-400 option-btn-active">No Stitch</button>
+                        <button onclick="setPodiumEmbroidery('recaro')" id="p-emb-rec" class="podium-opt-btn px-2 py-2 rounded-xl border border-gray-800 text-[10px] tracking-tight uppercase font-semibold text-gray-400">Recaro Text (+100)</button>
+                        <button onclick="setPodiumEmbroidery('custom')" id="p-emb-cust" class="podium-opt-btn px-2 py-2 rounded-xl border border-gray-800 text-[10px] tracking-tight uppercase font-semibold text-gray-400">Custom Sign (+300)</button>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-[11px] text-zinc-500 uppercase tracking-widest font-bold">Step 05: Pad Mount Configuration</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setPodiumMount('velcro')" id="p-mnt-velcro" class="podium-opt-btn px-3 py-2 rounded-xl border border-gray-800 text-xs tracking-wide uppercase font-semibold text-gray-400 option-btn-active">Default Velcro</button>
+                        <button onclick="setPodiumMount('bracket')" id="p-mnt-bracket" class="podium-opt-btn px-3 py-2 rounded-xl border border-gray-800 text-xs tracking-wide uppercase font-semibold text-gray-400">Genuine Bracket (+800)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label class="block text-[11px] text-zinc-500 uppercase tracking-widest font-bold">Step 06: Essential Base Installation Slider</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="setUniversalBase(false)" id="ub-no" class="universal-opt-btn px-3 py-2 rounded-xl border border-gray-800 text-xs tracking-wide uppercase font-semibold text-gray-400 option-btn-active">Exclude Base</button>
+                    <button onclick="setUniversalBase(true)" id="ub-yes" class="universal-opt-btn px-3 py-2 rounded-xl border border-gray-800 text-xs tracking-wide uppercase font-semibold text-gray-400">L-Plate + Universal Slider (+149)</button>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-900 pt-5 mt-5">
                 <div class="flex items-baseline justify-between">
                     <span class="text-xs uppercase tracking-widest text-zinc-400">Total Configured Amount</span>
                     <span id="realtime-price-tag" class="text-3xl font-black text-yellow-500 gold-glow">$899 USD</span>
@@ -142,13 +175,20 @@ body {
 
 <script>
 /**
- * 🕹️ KINGZCARBON 硬核桶椅動態數據矩陣引擎 (基價更新與 Custom 加價完全體)
+ * 🕹️ KINGZCARBON 硬核桶椅動態數據矩陣引擎 (Podium 頂級乾碳旗艦進化版)
  */
 let chosenModel = 'GK100';
 let chosenTrimIndex = 0;
 let chosenCarbon = 'none';
 
-// 📚 修正：更新 GK100 基價為 899，CS 基價為 699，並在 Custom Order 註明 +699
+// Podium 特有狀態鎖
+let podiumAlcantara = false;
+let podiumEmbroidery = 'none';
+let podiumMount = 'velcro';
+
+// 三款共通底座狀態
+let universalBase = false;
+
 const bucketDatabase = {
     GK100: {
         title: "RECARO Cross Sportster GK100",
@@ -182,6 +222,34 @@ const bucketDatabase = {
         extraThumbs: [
             "https://i.imgur.com/MOiC9qS.jpeg"  
         ]
+    },
+    // 👑 頂級乾碳座艙數據庫
+    PODIUM: {
+        title: "RECARO Podium Dry Carbon",
+        basePrice: 1999,
+        trims: [
+            { name: "Full Black Shadow", img: "https://i.imgur.com/bfTZYmG.jpeg" },
+            { name: "Full Crimson Red", img: "https://i.imgur.com/iJjAHjy.png" },
+            { name: "Black + Red Accent", img: "https://i.imgur.com/EaCusg4.jpeg" },
+            { name: "Bespoke Custom (+699)", img: "https://i.imgur.com/QVCoHmx.png", isCustom: true }
+        ],
+        extraThumbs: [
+            "https://i.imgur.com/vQOLyn5.jpeg", // 合照
+            "https://i.imgur.com/GquqrUr.jpeg", // 尺寸圖
+            "https://i.imgur.com/bLjvkiu.png",  // 效果圖
+            "https://i.imgur.com/NN13I1O.jpeg", // 椅背特寫
+            "https://i.imgur.com/XozIiFM.jpeg", // 效果圖
+            "https://i.imgur.com/RRW6v7S.jpeg", // 全黑2
+            "https://i.imgur.com/6RqP7r8.png",  // 全紅2
+            "https://i.imgur.com/W7FMhd5.jpeg", // custom1
+            "https://i.imgur.com/1k8Cu90.jpeg", // custom2
+            "https://i.imgur.com/go1dVv4.jpeg", // 紅黑2
+            "https://i.imgur.com/aLDhRN2.jpeg", // 效果
+            "https://i.imgur.com/6cmBxPq.jpeg", // 效果
+            "https://i.imgur.com/CymY6Ny.jpeg", // 效果
+            "https://i.imgur.com/0U8QKya.jpeg", // 效果
+            "https://i.imgur.com/y3Xk9cL.jpeg"  // 效果
+        ]
     }
 };
 
@@ -189,10 +257,29 @@ function redirectModelSwitch(modelId) {
     chosenModel = modelId;
     chosenTrimIndex = 0;
     chosenCarbon = 'none';
+    podiumAlcantara = false;
+    podiumEmbroidery = 'none';
+    podiumMount = 'velcro';
+    universalBase = false;
     
+    // 頂部高亮切換
     document.getElementById('grid-card-GK100').classList.remove('active-seat-thumb');
     document.getElementById('grid-card-CS').classList.remove('active-seat-thumb');
+    document.getElementById('grid-card-PODIUM').classList.remove('active-seat-thumb');
     document.getElementById('grid-card-' + modelId).classList.add('active-seat-thumb');
+
+    // 依椅款動態顯示/隱藏選配控制台
+    if(modelId === 'PODIUM') {
+        document.getElementById('panel-carbon-shell').classList.add('hidden');
+        document.getElementById('panel-podium-addons').classList.remove('hidden');
+    } else {
+        document.getElementById('panel-carbon-shell').classList.remove('hidden');
+        document.getElementById('panel-podium-addons').classList.add('hidden');
+    }
+
+    // 重設共通 L型底座按鈕高亮
+    document.querySelectorAll('.universal-opt-btn').forEach(btn => btn.classList.remove('option-btn-active'));
+    document.getElementById('ub-no').classList.add('option-btn-active');
 
     initMatrixEngine();
 }
@@ -207,9 +294,10 @@ function selectTrim(index) {
         document.getElementById('trim-btn-' + index).classList.add('option-btn-active');
     }
 
+    // 還原椅背/選配狀態防止切換圖層錯誤
     chosenCarbon = 'none';
     document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
-    document.getElementById('cc-none').classList.add('option-btn-active');
+    if(document.getElementById('cc-none')) document.getElementById('cc-none').classList.add('option-btn-active');
 
     calculateMatrixPrice();
 }
@@ -220,17 +308,41 @@ function selectCarbonCover(type) {
     document.getElementById('cc-' + type).classList.add('option-btn-active');
 
     const modelData = bucketDatabase[chosenModel];
-    
     if (modelData.trims[chosenTrimIndex].isCustom !== true) {
-        if (type === 'gloss') {
-            document.getElementById('seat-main-view').src = "https://i.imgur.com/LctI5HE.jpeg"; 
-        } else if (type === 'matte') {
-            document.getElementById('seat-main-view').src = "https://i.imgur.com/W1tcHel.jpeg"; 
-        } else {
-            document.getElementById('seat-main-view').src = modelData.trims[chosenTrimIndex].img; 
-        }
+        if (type === 'gloss') document.getElementById('seat-main-view').src = "https://i.imgur.com/LctI5HE.jpeg";
+        else if (type === 'matte') document.getElementById('seat-main-view').src = "https://i.imgur.com/W1tcHel.jpeg";
+        else document.getElementById('seat-main-view').src = modelData.trims[chosenTrimIndex].img;
     }
+    calculateMatrixPrice();
+}
 
+// 📺 Podium 高階選配控制器管線
+function setPodiumAlcantara(status) {
+    podiumAlcantara = status;
+    document.querySelectorAll('.podium-opt-btn').forEach(btn => { if(btn.id.startsWith('p-alc-')) btn.classList.remove('option-btn-active'); });
+    document.getElementById(status ? 'p-alc-yes' : 'p-alc-no').classList.add('option-btn-active');
+    calculateMatrixPrice();
+}
+
+function setPodiumEmbroidery(style) {
+    podiumEmbroidery = style;
+    document.querySelectorAll('.podium-opt-btn').forEach(btn => { if(btn.id.startsWith('p-emb-')) btn.classList.remove('option-btn-active'); });
+    let mapId = style === 'none' ? 'p-emb-none' : (style === 'recaro' ? 'p-emb-rec' : 'p-emb-cust');
+    document.getElementById(mapId).classList.add('option-btn-active');
+    calculateMatrixPrice();
+}
+
+function setPodiumMount(mount) {
+    podiumMount = mount;
+    document.querySelectorAll('.podium-opt-btn').forEach(btn => { if(btn.id.startsWith('p-mnt-')) btn.classList.remove('option-btn-active'); });
+    document.getElementById('p-mnt-' + mount).classList.add('option-btn-active');
+    calculateMatrixPrice();
+}
+
+function setUniversalBase(status) {
+    universalBase = status;
+    document.querySelectorAll('.universal-opt-btn').forEach(btn => btn.classList.remove('option-btn-active'));
+    document.getElementById(status ? 'ub-yes' : 'ub-no').classList.add('option-btn-active');
     calculateMatrixPrice();
 }
 
@@ -239,45 +351,57 @@ function calculateMatrixPrice() {
     let totalPrice = modelData.basePrice;
     const currentTrim = modelData.trims[chosenTrimIndex];
     
-    // 💡 修正 1：若點選 Custom Order，全自動加算 $699 USD 進入總價
+    // 1. 判斷是否為 Custom Order (加算 699)
     if (currentTrim.isCustom === true) {
         totalPrice += 699;
     }
 
-    if (chosenCarbon !== 'none') {
+    // 2. GK100 / CS 的椅背加算
+    if (chosenModel !== 'PODIUM' && chosenCarbon !== 'none') {
         totalPrice += 799;
     }
 
-    document.getElementById('realtime-price-tag').innerText = `$${totalPrice} USD`;
+    // 3. Podium 專屬動態選配加算
+    if (chosenModel === 'PODIUM') {
+        if (podiumAlcantara) totalPrice += 599;
+        if (podiumEmbroidery === 'recaro') totalPrice += 100;
+        if (podiumEmbroidery === 'custom') totalPrice += 300;
+        if (podiumMount === 'bracket') totalPrice += 800;
+    }
 
+    // 4. 共通安裝底座加算
+    if (universalBase) {
+        totalPrice += 149;
+    }
+
+    document.getElementById('realtime-price-tag').innerText = `$${totalPrice} USD`;
     const gatewayZone = document.getElementById('checkout-gateway-zone');
 
+    // 💡 智能分流發射埠：如為 Custom, 提示 +699 包含並叫他一定要搵你
     if (currentTrim.isCustom === true) {
-        // 💡 修正 2：Custom Order 位強制提醒機制，強迫客人點擊直連 WhatsApp
-        let carbonSpec = chosenCarbon === 'none' ? 'Standard Back' : `with Autoclave ${chosenCarbon.toUpperCase()} Carbon Shell`;
-        let WaPayload = `Hello Shing, I want to commission a Bespoke Custom Layout for ${modelData.title} (Custom Setup / ${carbonSpec}). Please guide me through specialized leather textures and custom embroidery stitching.`;
+        let optionsLog = chosenModel === 'PODIUM' ? 'Podium Tailored Plan' : `Back Cover: ${chosenCarbon.toUpperCase()}`;
+        let WaPayload = `Hello Shing, I want to commission a Bespoke Custom Layout for ${modelData.title} (${optionsLog}). Please guide me through custom alcantara selections and signing stitching.`;
         gatewayZone.innerHTML = `
             <div class="text-left bg-yellow-600 bg-opacity-10 border border-yellow-500/30 p-4 rounded-xl mb-4">
                 <p class="text-xs text-yellow-500 leading-relaxed font-medium">
-                    🎨 <strong>Bespoke Custom Plan Activated (+$699 Included):</strong> Specialized fabric patterns, custom leather stitching, and personalized headrest embroideries require manual verification. <strong>You must contact us via WhatsApp below to lock in your custom specifications.</strong>
+                    🎨 <strong>Bespoke Custom Plan Activated (+$699 Included):</strong> Custom specifications require strict parameter continuity. <strong>Please tap below to contact Shing via WhatsApp to lock in your custom patterns before checkout.</strong>
                 </p>
             </div>
             <div class="flex flex-col gap-2">
                 <a href="https://wa.me/85295368533?text=${encodeURIComponent(WaPayload)}" target="_blank" class="w-full block text-center py-4 bg-yellow-600 hover:bg-yellow-500 text-black font-black tracking-widest uppercase text-xs rounded-xl transition shadow-lg">
-                    💬 Contact Shing via WhatsApp to Finalize Options
+                    💬 Contact Shing via WhatsApp to Finalize Design
                 </a>
                 <button onclick="launchPayPalSeatCheckout(${totalPrice})" class="w-full py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-400 text-[11px] uppercase tracking-widest font-bold rounded-xl transition shadow-md">
-                    🛒 Secure Deposit Checkout ($${totalPrice})
+                    🛒 Secure Custom Checkout ($${totalPrice})
                 </button>
             </div>`;
     } else {
-        let carbonLabel = chosenCarbon === 'none' ? 'Standard Cover' : `with Autoclave ${chosenCarbon.toUpperCase()} Carbon Shell`;
         gatewayZone.innerHTML = `
             <div class="flex flex-col gap-2">
                 <button onclick="launchPayPalSeatCheckout(${totalPrice})" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl">
                     🛒 Add Configured Seat to Cart ($${totalPrice})
                 </button>
-                <a href="https://wa.me/85295368533?text=${encodeURIComponent(`Hello Shing, I want to query specialized patterns/embroidery for ${modelData.title} (${currentTrim.name}) ${carbonLabel}.`)}" target="_blank" class="w-full py-2.5 bg-transparent border border-zinc-800 hover:bg-zinc-900 text-zinc-500 text-[11px] uppercase tracking-widest text-center font-bold rounded-xl transition">
+                <a href="https://wa.me/85295368533?text=${encodeURIComponent(`Hello Shing, I want to query specialized options for my order: ${modelData.title} (${currentTrim.name}).`)}" target="_blank" class="w-full py-2.5 bg-transparent border border-zinc-800 hover:bg-zinc-900 text-zinc-500 text-[11px] uppercase tracking-widest text-center font-bold rounded-xl transition">
                     Inquire Custom Materials / Embroidery Detail
                 </a>
             </div>`;
@@ -287,17 +411,24 @@ function calculateMatrixPrice() {
 function launchPayPalSeatCheckout(finalPrice) {
     const modelData = bucketDatabase[chosenModel];
     const currentTrim = modelData.trims[chosenTrimIndex];
-    let carbonText = chosenCarbon === 'none' ? 'Standard Back' : `With ${chosenCarbon.toUpperCase()} Carbon Back Cover`;
-    let customStatus = currentTrim.isCustom ? 'CUSTOM SPEC' : 'PRESET SPEC';
+    
+    // 組裝結算明細字串
+    let specsText = "";
+    if (chosenModel === 'PODIUM') {
+        specsText = `Pad:${podiumAlcantara?'Alcantara':'Leather'} | Stitch:${podiumEmbroidery.toUpperCase()} | Mount:${podiumMount.toUpperCase()}`;
+    } else {
+        specsText = `Back Cover: ${chosenCarbon.toUpperCase()}`;
+    }
+    if (universalBase) specsText += " + Universal Base Mount";
 
     const form = document.createElement('form');
     form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
     
     const params = {
         cmd: '_cart', add: '1', business: 'M9P8HY87UAXQN', currency_code: 'USD',
-        item_name: `${modelData.title} - ${currentTrim.name} (${carbonText}) [${customStatus}]`,
+        item_name: `${modelData.title} [${currentTrim.name}] (${specsText})`,
         amount: finalPrice, item_number: `BUCKET-${chosenModel}-${chosenTrimIndex}`,
-        on0: 'Carbon Shell Specification', os0: carbonText
+        on0: 'Specs Verification Log', os0: specsText
     };
 
     for (const [key, val] of Object.entries(params)) {
@@ -341,9 +472,13 @@ function initMatrixEngine() {
         });
     }
 
-    chosenCarbon = 'none';
-    document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('option-btn-active'));
-    document.getElementById('cc-none').classList.add('option-btn-active');
+    // 重置選配高亮狀態
+    if(chosenModel === 'PODIUM') {
+        document.querySelectorAll('.podium-opt-btn').forEach(btn => {
+            btn.classList.remove('option-btn-active');
+            if(btn.id === 'p-alc-no' || btn.id === 'p-emb-none' || btn.id === 'p-mnt-velcro') btn.classList.add('option-btn-active');
+        });
+    }
 
     calculateMatrixPrice();
 }
