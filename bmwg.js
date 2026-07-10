@@ -1,3 +1,4 @@
+
 window.exteriorDatabase = [
   { id: 17, brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (R44 Style)', price: '$599 USD', saved: '$205 USD', image: 'https://i.imgur.com/jigDsLH.jpeg' },
   { id: 18, brand: 'BMW', compat: ['G80', 'G82'], category: 'Front Lips', title: 'BMW G80 M3 / G82 M4 Carbon Front Lip (A Style)', price: '$939 USD', saved: '$205 USD', image: 'https://i.imgur.com/KnTzjy0.jpeg' },
