@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bespoke Exterior Matrix | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
- 
+    
 <style>
 /* 完美修復並還原標誌性的碳纖維紋理背景 */
 body {
@@ -212,9 +212,47 @@ body {
 
 </div>
 
+<div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
+    <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+        <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
+        <div class="w-full p-2 bg-black flex items-center justify-center relative select-none">
+            <button onclick="prevLightboxImg()" class="absolute left-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&larr;</button>
+            
+            <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[60vh] w-auto mx-auto object-contain block">
+            
+            <button onclick="nextLightboxImg()" class="absolute right-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&rarr;</button>
+        </div>
+        <div class="p-6 md:p-8 bg-black bg-opacity-95">
+            <h3 id="modal-title" class="text-lg md:text-xl font-bold text-gray-100 tracking-wide"></h3>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 border-b border-gray-900 pb-5">
+                <span id="modal-price" class="text-xl md:text-2xl font-extrabold text-yellow-500"></span>
+                <span class="text-sm text-gray-400 font-medium">| &nbsp; Shipping: <strong class="text-gray-100">FREE SHIPPING</strong></span>
+                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider"></span>
+            </div>
+            <div class="mt-6 pt-4">
+                <div class="mb-5 text-left border-l-2 border-yellow-600 pl-3 py-1">
+                    <p class="text-xs text-yellow-500 tracking-wide font-medium">
+                        ⚠️ <strong>Fitment Note:</strong> Please double-check if your vehicle chassis matches the item title configuration before checking out.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart (PayPal)</button>
+                        <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">💳 Credit Card (Stripe)</button>
+                    </div>
+                    <a id="modal-wa-btn" href="" target="_blank" class="w-full px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 text-xs font-black tracking-widest uppercase rounded-xl transition text-center flex items-center justify-center gap-2">
+                        💬 Not Sure? Inquire Setup via WhatsApp
+                    </a>
+                </div>
+                <div id="modal-cat" class="text-left text-[10px] text-zinc-600 uppercase mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
-let activeFilteredData = [];
+let activeFilteredData = []; let currentLightboxIndex = 0;
 
 // 全局主腦緩存庫
 window.masterExteriorDatabase = []; 
@@ -367,8 +405,8 @@ function renderMatrix() {
             const card = document.createElement('div');
             card.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
             
-            // 💡 點擊直連 PayPal 官方台
-            card.onclick = () => directAddProductToPayPal(item.id);
+            // 💡 滿血回復：點擊卡片觸發大圖彈窗 openLightbox
+            card.onclick = () => openLightbox(item.id);
             
             card.innerHTML = `
                 <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
@@ -413,8 +451,53 @@ function switchBodyKitsViewer(index, thumbElement) {
     }
 }
 
-function directAddProductToPayPal(productId) {
-    const targetItem = window.masterExteriorDatabase.find(x => x.id === productId);
+// 💡 滿血回復：高檔大圖彈窗動態渲染中樞
+function openLightbox(productId) {
+    const item = window.masterExteriorDatabase.find(x => x.id === productId);
+    if (!item) return;
+    
+    // 如果首頁初始狀態過濾陣列是空的，自動安全倒沙相容全在庫，確保左右切換 100% 流暢
+    if (activeFilteredData.length === 0) {
+        activeFilteredData = [...window.masterExteriorDatabase];
+    }
+    
+    currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
+    if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+    
+    document.getElementById('modal-img').src = item.image;
+    document.getElementById('modal-title').innerText = item.title;
+    document.getElementById('modal-price').innerText = `Product: ${item.price}`;
+    document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
+    document.getElementById('modal-cat').innerText = `Category: ${item.category} | Asset ID: ${item.id}`;
+
+    let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup: ${item.title}`;
+    document.getElementById('modal-wa-btn').href = `https://wa.me/85295368533?text=${encodeURIComponent(dynamicPayload)}`;
+
+    const modal = document.getElementById('product-lightbox-modal');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    document.body.classList.add('modal-open');
+}
+
+// 💡 滿血回復：大圖左右箭頭換圖精密計算法則
+function nextLightboxImg() {
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    if (sourceData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex + 1) % sourceData.length;
+    const targetItem = sourceData[currentLightboxIndex];
+    if (targetItem) openLightbox(targetItem.id);
+}
+
+function prevLightboxImg() {
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    if (sourceData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex - 1 + sourceData.length) % sourceData.length;
+    const targetItem = sourceData[currentLightboxIndex];
+    if (targetItem) openLightbox(targetItem.id);
+}
+
+function submitToPayPalCart() {
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    const targetItem = sourceData[currentLightboxIndex];
     if (!targetItem) return;
 
     const form = document.createElement('form');
@@ -440,6 +523,20 @@ function triggerPayPalViewCart() {
         form.appendChild(input);
     }
     document.body.appendChild(form); form.submit(); document.body.removeChild(form);
+}
+
+window.addEventListener('keydown', function(e) {
+    const modal = document.getElementById('product-lightbox-modal');
+    if (modal.classList.contains('opacity-0')) return;
+    if (e.key === 'ArrowRight') nextLightboxImg();
+    else if (e.key === 'ArrowLeft') prevLightboxImg();
+    else if (e.key === 'Escape') closeLightboxForce();
+});
+
+function closeLightbox(event) { if (event.target === document.getElementById('product-lightbox-modal')) closeLightboxForce(); }
+function closeLightboxForce() {
+    const modal = document.getElementById('product-lightbox-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
 }
 
 window.onload = () => {
