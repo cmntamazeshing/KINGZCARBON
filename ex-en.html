@@ -486,19 +486,17 @@ function prevLightboxImg() {
     if (targetItem) openLightbox(targetItem.id);
 }
 
-/* 👑 核心安全除錯引擎：全方位杜絕 PayPal 無效空值及亂碼 👑 */
-function cleanPriceForPayPal(priceString) {
-    if (!priceString) return "1.00"; 
-    // 移除非數字和小數點的雜質
+// 🛡️ 皇家級極致除錯過濾器 (100% 挽救並保留正確認價小數點)
+function cleanPriceForCart(priceString) {
+    if (!priceString) return "1.00";
+    // 剔除 $、字母、空格等雜質，只留數字跟小數點
     let s = priceString.replace(/[^0-9.]/g, '');
     let f = parseFloat(s);
-    // 防呆保底：如果抽出來是 0 或者不是正常數字，強制回報 1.00 作為安全測試價
-    if (isNaN(f) || f <= 0) {
-        return "1.00";
-    }
+    if (isNaN(f) || f <= 0) return "1.00";
     return f.toFixed(2);
 }
 
+// 🛒 成功保留「放多件貨一齊畀錢」核心加購發射器
 function submitToPayPalCart() {
     let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
     const targetItem = sourceData[currentLightboxIndex];
@@ -507,32 +505,28 @@ function submitToPayPalCart() {
     const form = document.createElement('form');
     form.method = 'POST'; 
     form.action = 'https://www.paypal.com/cgi-bin/webscr'; 
-    form.target = 'paypal';
-    
-    let finalValidPrice = cleanPriceForPayPal(targetItem.price);
-    // 淨化產品名稱，切走危險的引號並限制長度
-    let safeTitle = String(targetItem.title).replace(/["']/g, '').substring(0, 120);
+    form.target = 'paypal'; // 完美在 PayPal 標準獨立分頁累積數量
 
+    let cleanAmount = cleanPriceForCart(targetItem.price);
+    let pureSafeTitle = String(targetItem.title).replace(/["']/g, '');
+
+    // 🛡️ 補全所有 _cart 模組死穴核心欄位，防止 Session 碰撞
     const params = {
         cmd: '_cart',
         add: '1',
         business: 'M9P8HY87UAXQN',
         currency_code: 'USD',
-        item_name: safeTitle,
-        amount: finalValidPrice,
-        item_number: 'ID-' + String(targetItem.id).substring(0, 20)
+        item_name: pureSafeTitle,
+        amount: cleanAmount,
+        item_number: 'EXT-' + String(targetItem.id),
+        shopping_url: window.location.href // 告訴 PayPal 繼續加購的回訪地址
     };
     
     for (const [key, val] of Object.entries(params)) {
-        const input = document.createElement('input'); 
-        input.type = 'hidden'; 
-        input.name = key; 
-        input.value = val;
+        const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
         form.appendChild(input);
     }
-    document.body.appendChild(form); 
-    form.submit(); 
-    document.body.removeChild(form);
+    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
 }
 
 function triggerPayPalViewCart() {
