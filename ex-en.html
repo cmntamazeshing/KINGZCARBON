@@ -71,6 +71,24 @@ body {
 .viewer-box {
     background: rgba(0, 0, 0, 0.8);
 }
+
+/* 📥 側滑式 Cart Preview 高級過渡樣式 */
+.cart-sidebar-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 460px;
+    height: 100%;
+    background: #09090b;
+    border-left: 1px solid rgba(212,175,55,0.3);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+    z-index: 10000;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cart-sidebar-hidden {
+    transform: translateX(100%);
+}
 </style>
 </head>
 
@@ -133,7 +151,7 @@ body {
             <button onclick="selectCategoryCloseMobile('Other')" id="cat-Other" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Other (Accents)</button>
             
             <div class="border-t border-zinc-900 pt-4 mt-4">
-                <button onclick="triggerPayPalViewCart()" class="w-full bg-transparent border border-yellow-500 hover:bg-yellow-500/10 text-yellow-500 font-bold py-2.5 px-4 rounded-xl text-[11px] tracking-widest uppercase transition flex items-center justify-center gap-2">
+                <button onclick="openCartPreview()" class="w-full bg-transparent border border-yellow-500 hover:bg-yellow-500/10 text-yellow-500 font-bold py-2.5 px-4 rounded-xl text-[11px] tracking-widest uppercase transition flex items-center justify-center gap-2">
                     View Cart / Checkout
                 </button>
             </div>
@@ -234,9 +252,8 @@ body {
                     </p>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <button onclick="submitToPayPalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart (PayPal)</button>
-                        <button type="button" disabled class="w-full px-6 py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">💳 Credit Card (Stripe)</button>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button onclick="submitToLocalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart</button>
                     </div>
                     <a id="modal-wa-btn" href="" target="_blank" class="w-full px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 text-xs font-black tracking-widest uppercase rounded-xl transition text-center flex items-center justify-center gap-2">
                         💬 Not Sure? Inquire Setup via WhatsApp
@@ -248,9 +265,57 @@ body {
     </div>
 </div>
 
+<div id="cartSidebarPanel" class="cart-sidebar-panel cart-sidebar-hidden p-6 flex flex-col justify-between">
+    <div class="flex flex-col h-full overflow-hidden">
+        <div class="flex items-center justify-between border-b border-zinc-900 pb-4 mb-4">
+            <h3 class="text-sm font-black uppercase tracking-widest text-yellow-500 gold-glow">Your Carbon Cart</h3>
+            <button onclick="closeCartPreview()" class="text-gray-500 hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        
+        <div id="cartItemsList" class="flex-grow overflow-y-auto space-y-4 pr-1">
+            </div>
+    </div>
+
+    <div class="border-t border-zinc-900 pt-4 mt-4 bg-zinc-950/40 p-3 rounded-xl gold-border">
+        <span class="block text-[10px] text-zinc-500 uppercase tracking-widest font-black mb-3">Select Shipping Channel</span>
+        
+        <div class="space-y-2 mb-4">
+            <label class="flex items-center justify-between p-2 rounded-lg border border-zinc-800 bg-black/60 cursor-pointer hover:border-yellow-600 transition">
+                <div class="flex items-center gap-2">
+                    <input type="radio" name="cartShippingMethod" value="free" checked onchange="handleShippingChange()" class="accent-yellow-500">
+                    <span class="text-xs uppercase tracking-wide text-gray-300">Ocean Standard</span>
+                </div>
+                <span class="text-xs font-bold text-green-500 uppercase tracking-wider">FREE</span>
+            </label>
+            <label class="flex items-center justify-between p-2 rounded-lg border border-zinc-800 bg-black/60 cursor-pointer hover:border-yellow-600 transition">
+                <div class="flex items-center gap-2">
+                    <input type="radio" name="cartShippingMethod" value="express" onchange="handleShippingChange()" class="accent-yellow-500">
+                    <span class="text-xs uppercase tracking-wide text-gray-300">🚀 Express Air Cargo</span>
+                </div>
+                <span class="text-[10px] font-black text-red-500 uppercase tracking-wider bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20">QUOTE</span>
+            </label>
+        </div>
+
+        <div class="flex items-baseline justify-between mb-4 border-t border-zinc-900 pt-3">
+            <span class="text-xs uppercase tracking-widest text-zinc-400">Cart Total:</span>
+            <span id="cartGrandTotal" class="text-xl font-black text-yellow-500 gold-glow">$0.00 USD</span>
+        </div>
+
+        <div id="cartActionGateZone">
+            </div>
+    </div>
+</div>
+
+<div id="cartSidebarOverlay" onclick="closeCartPreview()" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-xs hidden z-[999]"></div>
+
+<div id="hiddenPayPalFormContainer" style="display:none;"></div>
+
 <script>
 let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
 let activeFilteredData = []; let currentLightboxIndex = 0;
+
+// 👑 初始化本地購物車數據內核
+let kingzCart = JSON.parse(localStorage.getItem('kingz_carbon_cart')) || [];
 
 window.masterExteriorDatabase = []; 
 
@@ -488,56 +553,201 @@ function prevLightboxImg() {
 
 // 🛡️ 皇家級極致除錯過濾器 (100% 挽救並保留正確認價小數點)
 function cleanPriceForCart(priceString) {
-    if (!priceString) return "1.00";
-    // 剔除 $、字母、空格等雜質，只留數字跟小數點
+    if (!priceString) return 1.00;
     let s = priceString.replace(/[^0-9.]/g, '');
     let f = parseFloat(s);
-    if (isNaN(f) || f <= 0) return "1.00";
-    return f.toFixed(2);
+    if (isNaN(f) || f <= 0) return 1.00;
+    return f;
 }
 
-// 🛒 成功保留「放多件貨一齊畀錢」核心加購發射器
-function submitToPayPalCart() {
+// 🛒 👑 爆改升級點：攔截大圖 Add to Cart，寫入本地儲存，彈出 Cart Preview 
+function submitToLocalCart() {
     let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
     const targetItem = sourceData[currentLightboxIndex];
     if (!targetItem) return;
 
-    const form = document.createElement('form');
-    form.method = 'POST'; 
-    form.action = 'https://www.paypal.com/cgi-bin/webscr'; 
-    form.target = 'paypal'; // 完美在 PayPal 標準獨立分頁累積數量
-
-    let cleanAmount = cleanPriceForCart(targetItem.price);
-    let pureSafeTitle = String(targetItem.title).replace(/["']/g, '');
-
-    // 🛡️ 補全所有 _cart 模組死穴核心欄位，防止 Session 碰撞
-    const params = {
-        cmd: '_cart',
-        add: '1',
-        business: 'M9P8HY87UAXQN',
-        currency_code: 'USD',
-        item_name: pureSafeTitle,
-        amount: cleanAmount,
-        item_number: 'EXT-' + String(targetItem.id),
-        shopping_url: window.location.href // 告訴 PayPal 繼續加購的回訪地址
-    };
+    let validPrice = cleanPriceForCart(targetItem.price);
     
-    for (const [key, val] of Object.entries(params)) {
-        const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
-        form.appendChild(input);
+    // 檢查車內是否已有同款產品
+    let existingItem = kingzCart.find(x => x.id === targetItem.id);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        kingzCart.push({
+            id: targetItem.id,
+            title: targetItem.title,
+            price: validPrice,
+            image: targetItem.image,
+            quantity: 1
+        });
     }
-    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
+
+    // 同步寫入 localStorage
+    localStorage.setItem('kingz_carbon_cart', JSON.stringify(kingzCart));
+    
+    // 關閉大圖 Lightbox，滑出購物車
+    closeLightboxForce();
+    openCartPreview();
 }
 
-function triggerPayPalViewCart() {
-    const form = document.createElement('form');
-    form.method = 'POST'; form.action = 'https://www.paypal.com/cgi-bin/webscr'; form.target = 'paypal';
-    const params = { cmd: '_cart', display: '1', business: 'M9P8HY87UAXQN' };
-    for (const [key, val] of Object.entries(params)) {
-        const input = document.createElement('input'); input.type = 'hidden'; input.name = key; input.value = val;
-        form.appendChild(input);
+/**
+ * 👑 動態渲染側滑購物車面板與按鈕分流
+ */
+function renderCartPreview() {
+    const listContainer = document.getElementById('cartItemsList');
+    const totalDisplay = document.getElementById('cartGrandTotal');
+    
+    if (kingzCart.length === 0) {
+        listContainer.innerHTML = `<div class="text-center text-zinc-600 py-12 text-xs uppercase tracking-widest">Cart is empty</div>`;
+        totalDisplay.innerText = "$0.00 USD";
+        document.getElementById('cartActionGateZone').innerHTML = `
+            <button disabled class="w-full py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">Cart Empty</button>
+        `;
+        return;
     }
-    document.body.appendChild(form); form.submit(); document.body.removeChild(form);
+
+    let html = '';
+    let grandTotal = 0;
+
+    kingzCart.forEach((item, index) => {
+        let subtotal = item.price * item.quantity;
+        grandTotal += subtotal;
+        html += `
+            <div class="flex items-center gap-3 bg-black/40 p-2.5 rounded-xl border border-zinc-900 justify-between">
+                <div class="w-16 h-16 bg-zinc-950 rounded-lg overflow-hidden flex-shrink-0">
+                    <img src="${item.image}" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-grow min-w-0">
+                    <h4 class="text-xs font-bold text-gray-300 truncate tracking-wide">${item.title}</h4>
+                    <p class="text-[11px] text-yellow-500 font-extrabold mt-1">$${item.price.toFixed(2)} USD</p>
+                    
+                    <div class="flex items-center gap-2 mt-2">
+                        <button onclick="updateQty(${index}, -1)" class="w-5 h-5 bg-zinc-900 border border-zinc-800 text-[10px] text-zinc-400 flex items-center justify-center rounded hover:text-white transition">-</button>
+                        <span class="text-xs font-bold text-zinc-300">${item.quantity}</span>
+                        <button onclick="updateQty(${index}, 1)" class="w-5 h-5 bg-zinc-900 border border-zinc-800 text-[10px] text-zinc-400 flex items-center justify-center rounded hover:text-white transition">+</button>
+                    </div>
+                </div>
+                <button onclick="removeLocalItem(${index})" class="text-zinc-600 hover:text-red-500 text-xs font-medium uppercase tracking-wider pl-1 transition">Delete</button>
+            </div>
+        `;
+    });
+
+    listContainer.innerHTML = html;
+    totalDisplay.innerText = `$${grandTotal.toFixed(2)} USD`;
+
+    // 刷新當前運費選項對應嘅功能按鈕
+    handleShippingChange();
+}
+
+function updateQty(index, offset) {
+    kingzCart[index].quantity += offset;
+    if (kingzCart[index].quantity <= 0) {
+        kingzCart.splice(index, 1);
+    }
+    localStorage.setItem('kingz_carbon_cart', JSON.stringify(kingzCart));
+    renderCartPreview();
+}
+
+function removeLocalItem(index) {
+    kingzCart.splice(index, 1);
+    localStorage.setItem('kingz_carbon_cart', JSON.stringify(kingzCart));
+    renderCartPreview();
+}
+
+/**
+ * 👑 運費切換大分流大腦
+ */
+function handleShippingChange() {
+    const selectedShipping = document.querySelector('input[name="cartShippingMethod"]:checked').value;
+    const gateZone = document.getElementById('cartActionGateZone');
+    
+    if (selectedShipping === 'free') {
+        // 分流 A：海運免運費 -> 一鍵集體直飛 PayPal 官方多件購物車
+        gateZone.innerHTML = `
+            <button onclick="launchBulkPayPalFormSubmit()" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl flex items-center justify-center gap-2">
+                🛒 Proceed to PayPal Checkout
+            </button>
+        `;
+    } else {
+        // 分流 B：特快空運 -> 自動打包清單發射去 WhatsApp 搵 Shing 精算報價
+        gateZone.innerHTML = `
+            <button onclick="fireOrderToWhatsAppQuote()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl flex items-center justify-center gap-2">
+                💬 Request Express Shipping Quote via WhatsApp
+            </button>
+        `;
+    }
+}
+
+/**
+ * 👑 背後打包多件貨上傳 (PayPal 官方購物車集體結算專用表單)
+ */
+function launchBulkPayPalFormSubmit() {
+    if (kingzCart.length === 0) return;
+
+    const formContainer = document.getElementById('hiddenPayPalFormContainer');
+    
+    let formHtml = `
+        <form id="bulkPayPalAutoForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="M9P8HY87UAXQN">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="shopping_url" value="${window.location.href}">
+    `;
+
+    kingzCart.forEach((item, index) => {
+        let i = index + 1;
+        let pureSafeTitle = String(item.title).replace(/["']/g, '');
+        formHtml += `
+            <input type="hidden" name="item_name_${i}" value="${pureSafeTitle} (Standard Ocean)">
+            <input type="hidden" name="amount_${i}" value="${item.price.toFixed(2)}">
+            <input type="hidden" name="quantity_${i}" value="${item.quantity}">
+        `;
+    });
+
+    formHtml += `</form>`;
+    formContainer.innerHTML = formHtml;
+    
+    // 1秒閃電發射去 PayPal 官方台
+    document.getElementById('bulkPayPalAutoForm').submit();
+}
+
+/**
+ * 👑 互動核心：將購物車清單排好版，一秒射去 WhatsApp 畀你人工精算運費箱！
+ */
+function fireOrderToWhatsAppQuote() {
+    if (kingzCart.length === 0) return;
+    
+    let itemsText = "";
+    let totalValue = 0;
+    
+    kingzCart.forEach((item, idx) => {
+        let sub = item.price * item.quantity;
+        totalValue += sub;
+        itemsText += `[${idx + 1}] ${item.title}%0A    Qty: ${item.quantity} | Item Price: $${item.price.toFixed(2)} USD%0A`;
+    });
+
+    let baseText = `Hello Shing, I want to upgrade my carbon assets order to Air Express Shipping (DHL/FedEx).%0A%0A`;
+    let bodyText = `--- MY CARBON CART LIST ---%0A${itemsText}`;
+    let footerText = `%0AProduct Total: $${totalValue.toFixed(2)} USD%0A%0APlease calculate the best consolidated master crate rate for my address! Thanks.`;
+    
+    let fullPayload = baseText + bodyText + footerText;
+    
+    // 調用 WhatsApp API 開啟直連對話框
+    window.open(`https://wa.me/85295368533?text=${fullPayload}`, '_blank');
+}
+
+function openCartPreview() {
+    document.getElementById('cartSidebarPanel').classList.remove('cart-sidebar-hidden');
+    document.getElementById('cartSidebarOverlay').classList.remove('hidden');
+    document.body.classList.add('modal-open');
+    renderCartPreview();
+}
+
+function closeCartPreview() {
+    document.getElementById('cartSidebarPanel').classList.add('cart-sidebar-hidden');
+    document.getElementById('cartSidebarOverlay').classList.add('hidden');
+    document.body.classList.remove('modal-open');
 }
 
 window.addEventListener('keydown', function(e) {
@@ -558,6 +768,8 @@ window.onload = () => {
     loadChassisDatabase('ALL_BMW', () => {
         selectBrand('All', true);
         switchBodyKitsViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
+        // 頁面初始化加載車況
+        renderCartPreview();
     });
 };
 </script>
