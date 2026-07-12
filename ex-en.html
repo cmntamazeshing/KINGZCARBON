@@ -273,7 +273,7 @@ body {
         </div>
         
         <div id="cartItemsList" class="flex-grow overflow-y-auto space-y-4 pr-1">
-            </div>
+        </div>
     </div>
 
     <div class="border-t border-zinc-900 pt-4 mt-4 bg-zinc-950/40 p-3 rounded-xl gold-border">
@@ -292,17 +292,33 @@ body {
                     <input type="radio" name="cartShippingMethod" value="express" onchange="handleShippingChange()" class="accent-yellow-500">
                     <span class="text-xs uppercase tracking-wide text-gray-300">🚀 Express Air Cargo</span>
                 </div>
-                <span class="text-[10px] font-black text-red-500 uppercase tracking-wider bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20">QUOTE</span>
+                <span class="text-[10px] font-black text-red-500 uppercase tracking-wider bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20">CALCULATING</span>
             </label>
         </div>
 
-        <div class="flex items-baseline justify-between mb-4 border-t border-zinc-900 pt-3">
-            <span class="text-xs uppercase tracking-widest text-zinc-400">Cart Total:</span>
-            <span id="cartGrandTotal" class="text-xl font-black text-yellow-500 gold-glow">$0.00 USD</span>
-        </div>
-
-        <div id="cartActionGateZone">
+        <div class="border-t border-zinc-900 pt-3 space-y-1 text-xs tracking-wide">
+            <div class="flex justify-between text-zinc-400">
+                <span>Items Subtotal:</span>
+                <span id="summaryItemsSubtotal">$0.00 USD</span>
             </div>
+            <div class="flex justify-between text-zinc-400">
+                <span>Express Shipping (Size-Based):</span>
+                <span id="summaryShippingFee">+$0.00 USD</span>
+            </div>
+            <div class="flex justify-between text-emerald-400 font-semibold">
+                <span>🟢 Total Estimated Savings Today:</span>
+                <span id="summaryTotalSaved">$0.00 USD</span>
+            </div>
+            <div class="flex items-baseline justify-between pt-2 border-t border-zinc-900">
+                <span class="uppercase tracking-widest text-zinc-300 font-bold">Grand Total:</span>
+                <span id="cartGrandTotal" class="text-xl font-black text-yellow-500 gold-glow">$0.00 USD</span>
+            </div>
+        </div>
+        
+        <div id="shippingNoticeArea" class="mt-3 text-[10px] text-zinc-500 text-left uppercase tracking-wider leading-relaxed"></div>
+
+        <div id="cartActionGateZone" class="mt-3">
+        </div>
     </div>
 </div>
 
@@ -560,15 +576,35 @@ function cleanPriceForCart(priceString) {
     return f;
 }
 
-// 🛒 👑 爆改升級點：攔截大圖 Add to Cart，寫入本地儲存，彈出 Cart Preview 
+// 🛒 👑 攔截大圖 Add to Cart，寫入本地儲存，彈出 Cart Preview 
 function submitToLocalCart() {
     let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
     const targetItem = sourceData[currentLightboxIndex];
     if (!targetItem) return;
 
     let validPrice = cleanPriceForCart(targetItem.price);
+    let validSaved = cleanPriceForCart(targetItem.saved);
     
-    // 檢查車內是否已有同款產品
+    // 👑 根據你所託付嘅「終極精算修正版 4級品類標準」在入庫時標記物流 Size 級別
+    let itemSize = 'small'; // 默認細件
+    const cat = targetItem.category;
+    const titleLower = String(targetItem.title).toLowerCase();
+
+    if (cat === 'Body Kit' || cat === 'Hood') {
+        itemSize = 'xlarge'; // 特大件
+    } else if (cat === 'Front Lips' || cat === 'Side Skirts' || cat === 'Trunk' || (cat === 'Rear Spoilers' && titleLower.includes('gt wing'))) {
+        itemSize = 'large'; // 大件
+    } else if (cat === 'Rear Diffusers') {
+        // 分流：後保包角(幾片裝)算細件，整條式算大件
+        if (titleLower.includes('side splitter') || titleLower.includes('trim')) {
+            itemSize = 'small';
+        } else {
+            itemSize = 'large';
+        }
+    } else if (cat === 'Front Fender' || cat === 'Rear Spoilers' || titleLower.includes('engine bay') || titleLower.includes('seat back')) {
+        itemSize = 'medium'; // 中件
+    }
+
     let existingItem = kingzCart.find(x => x.id === targetItem.id);
     if (existingItem) {
         existingItem.quantity += 1;
@@ -577,29 +613,38 @@ function submitToLocalCart() {
             id: targetItem.id,
             title: targetItem.title,
             price: validPrice,
+            saved: validSaved,
             image: targetItem.image,
+            size: itemSize,
             quantity: 1
         });
     }
 
-    // 同步寫入 localStorage
     localStorage.setItem('kingz_carbon_cart', JSON.stringify(kingzCart));
     
-    // 關閉大圖 Lightbox，滑出購物車
     closeLightboxForce();
     openCartPreview();
 }
 
 /**
- * 👑 動態渲染側滑購物車面板與按鈕分流
+ * 👑 動態渲染側滑購物車面板與核心演算法
  */
 function renderCartPreview() {
     const listContainer = document.getElementById('cartItemsList');
+    
+    const summaryItemsSubtotal = document.getElementById('summaryItemsSubtotal');
+    const summaryShippingFee = document.getElementById('summaryShippingFee');
+    const summaryTotalSaved = document.getElementById('summaryTotalSaved');
     const totalDisplay = document.getElementById('cartGrandTotal');
+    const noticeArea = document.getElementById('shippingNoticeArea');
     
     if (kingzCart.length === 0) {
         listContainer.innerHTML = `<div class="text-center text-zinc-600 py-12 text-xs uppercase tracking-widest">Cart is empty</div>`;
+        summaryItemsSubtotal.innerText = "$0.00 USD";
+        summaryShippingFee.innerText = "+$0.00 USD";
+        summaryTotalSaved.innerText = "$0.00 USD";
         totalDisplay.innerText = "$0.00 USD";
+        noticeArea.innerText = "";
         document.getElementById('cartActionGateZone').innerHTML = `
             <button disabled class="w-full py-3.5 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">Cart Empty</button>
         `;
@@ -607,11 +652,26 @@ function renderCartPreview() {
     }
 
     let html = '';
-    let grandTotal = 0;
+    let itemsSubtotal = 0;
+    let totalSaved = 0;
+
+    // 建立物流池用嚟跑塞箱演算法
+    let largePool = 0;
+    let mediumPool = 0;
+    let smallPool = 0;
+    let hasXlarge = false;
 
     kingzCart.forEach((item, index) => {
         let subtotal = item.price * item.quantity;
-        grandTotal += subtotal;
+        itemsSubtotal += subtotal;
+        totalSaved += (item.saved * item.quantity);
+
+        // 按件數打入物流池
+        if (item.size === 'xlarge') hasXlarge = true;
+        else if (item.size === 'large') largePool += item.quantity;
+        else if (item.size === 'medium') mediumPool += item.quantity;
+        else if (item.size === 'small') smallPool += item.quantity;
+
         html += `
             <div class="flex items-center gap-3 bg-black/40 p-2.5 rounded-xl border border-zinc-900 justify-between">
                 <div class="w-16 h-16 bg-zinc-950 rounded-lg overflow-hidden flex-shrink-0">
@@ -619,7 +679,7 @@ function renderCartPreview() {
                 </div>
                 <div class="flex-grow min-w-0">
                     <h4 class="text-xs font-bold text-gray-300 truncate tracking-wide">${item.title}</h4>
-                    <p class="text-[11px] text-yellow-500 font-extrabold mt-1">$${item.price.toFixed(2)} USD</p>
+                    <p class="text-[11px] text-yellow-500 font-extrabold mt-1">$${item.price.toFixed(2)} USD <span class="text-[9px] text-zinc-500 font-normal uppercase">(${item.size})</span></p>
                     
                     <div class="flex items-center gap-2 mt-2">
                         <button onclick="updateQty(${index}, -1)" class="w-5 h-5 bg-zinc-900 border border-zinc-800 text-[10px] text-zinc-400 flex items-center justify-center rounded hover:text-white transition">-</button>
@@ -633,10 +693,81 @@ function renderCartPreview() {
     });
 
     listContainer.innerHTML = html;
+
+    // 读取運費單選掣
+    const selectedShipping = document.querySelector('input[name="cartShippingMethod"]:checked').value;
+    let shippingFee = 0;
+    let expressBlocked = false;
+
+    if (selectedShipping === 'free') {
+        shippingFee = 0;
+        noticeArea.innerHTML = `<span class="text-green-500">Standard Ocean Freight Enabled</span><br>Estimated delivery: 7-30 business days (varies depending on maritime transit routes).`;
+    } else {
+        // 🚀 執行老細專屬嘅「塞箱空運扣減演算法」
+        if (hasXlarge) {
+            expressBlocked = true; // 特大件直接鎖死空運
+        } else {
+            // 計算大件費及扣減細件配額
+            let largeCost = largePool * 220;
+            let smallQuotaFromLarge = largePool * 2; // 每件大件可裝2件小件
+
+            // 計算中件費及扣減細件配額
+            let mediumCost = mediumPool * 120;
+            let smallQuotaFromMedium = mediumPool * 1; // 每件中件可裝1件小件
+
+            let totalSmallQuota = smallQuotaFromLarge + smallQuotaFromMedium;
+            
+            // 計算超出配額嘅小件原價收費 (每件 $50)
+            let remainingSmall = Math.max(0, smallPool - totalSmallQuota);
+            let smallCost = remainingSmall * 50;
+
+            // 如果車內完全沒有大/中件，只有純小件，則按基礎小件原價累計
+            if (largePool === 0 && mediumPool === 0 && smallPool > 0) {
+                shippingFee = smallPool * 50;
+            } else {
+                shippingFee = largeCost + mediumCost + smallCost;
+            }
+        }
+        noticeArea.innerHTML = expressBlocked ? 
+            `<span class="text-red-500 font-bold">❌ AIR CARGO UNAVAILABLE FOR OVERSIZED ITEMS</span>` :
+            `<span class="text-yellow-500">Premium Air Cargo Enabled</span><br>Delivering straight to your doorstep approximately 7 days from dispatch.`;
+    }
+
+    // 渲染四大核心明細行
+    summaryItemsSubtotal.innerText = `$${itemsSubtotal.toFixed(2)} USD`;
+    summaryShippingFee.innerText = selectedShipping === 'free' ? "FREE" : `+$${shippingFee.toFixed(2)} USD`;
+    summaryTotalSaved.innerText = `$${totalSaved.toFixed(2)} USD`;
+    
+    let grandTotal = itemsSubtotal + shippingFee;
     totalDisplay.innerText = `$${grandTotal.toFixed(2)} USD`;
 
-    // 刷新當前運費選項對應嘅功能按鈕
-    handleShippingChange();
+    // 處理結算閘口按鈕分流與防呆
+    const gateZone = document.getElementById('cartActionGateZone');
+    if (selectedShipping === 'free') {
+        gateZone.innerHTML = `
+            <button onclick="launchBulkPayPalFormSubmit()" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl flex items-center justify-center gap-2">
+                🛒 Proceed to PayPal Checkout
+            </button>
+        `;
+    } else {
+        if (expressBlocked) {
+            gateZone.innerHTML = `
+                <div class="p-3 bg-red-950/20 border border-red-900 rounded-xl text-[10px] text-red-400 uppercase tracking-wider mb-2">
+                    ⚠️ Due to international aviation dimension restrictions, Hoods and Full Body Kits are ineligible for Air Cargo. Please switch to Ocean Standard.
+                </div>
+                <button disabled class="w-full py-4 bg-zinc-900 text-zinc-600 text-xs font-black tracking-widest uppercase rounded-xl cursor-not-allowed opacity-40">
+                    Air Cargo Restricted
+                </button>
+            `;
+        } else {
+            // 空運允許，一鍵集體直飛 PayPal 官方多件購物車 (連同算好嘅運費一併打包)
+            gateZone.innerHTML = `
+                <button onclick="launchBulkPayPalFormSubmit(${shippingFee})" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl flex items-center justify-center gap-2">
+                    🚀 Proceed to PayPal (Express Air)
+                </button>
+            `;
+        }
+    }
 }
 
 function updateQty(index, offset) {
@@ -654,37 +785,18 @@ function removeLocalItem(index) {
     renderCartPreview();
 }
 
-/**
- * 👑 運費切換大分流大腦
- */
 function handleShippingChange() {
-    const selectedShipping = document.querySelector('input[name="cartShippingMethod"]:checked').value;
-    const gateZone = document.getElementById('cartActionGateZone');
-    
-    if (selectedShipping === 'free') {
-        // 分流 A：海運免運費 -> 一鍵集體直飛 PayPal 官方多件購物車
-        gateZone.innerHTML = `
-            <button onclick="launchBulkPayPalFormSubmit()" class="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl flex items-center justify-center gap-2">
-                🛒 Proceed to PayPal Checkout
-            </button>
-        `;
-    } else {
-        // 分流 B：特快空運 -> 自動打包清單發射去 WhatsApp 搵 Shing 精算報價
-        gateZone.innerHTML = `
-            <button onclick="fireOrderToWhatsAppQuote()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black tracking-widest uppercase rounded-xl transition shadow-xl flex items-center justify-center gap-2">
-                💬 Request Express Shipping Quote via WhatsApp
-            </button>
-        `;
-    }
+    renderCartPreview();
 }
 
 /**
  * 👑 背後打包多件貨上傳 (PayPal 官方購物車集體結算專用表單)
  */
-function launchBulkPayPalFormSubmit() {
+function launchBulkPayPalFormSubmit(calculatedExpressFee = 0) {
     if (kingzCart.length === 0) return;
 
     const formContainer = document.getElementById('hiddenPayPalFormContainer');
+    const selectedShipping = document.querySelector('input[name="cartShippingMethod"]:checked').value;
     
     let formHtml = `
         <form id="bulkPayPalAutoForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -695,46 +807,31 @@ function launchBulkPayPalFormSubmit() {
             <input type="hidden" name="shopping_url" value="${window.location.href}">
     `;
 
-    kingzCart.forEach((item, index) => {
-        let i = index + 1;
+    let itemIndex = 1;
+    kingzCart.forEach((item) => {
         let pureSafeTitle = String(item.title).replace(/["']/g, '');
+        let suffix = selectedShipping === 'free' ? " (Ocean Standard)" : " (Express Air)";
         formHtml += `
-            <input type="hidden" name="item_name_${i}" value="${pureSafeTitle} (Standard Ocean)">
-            <input type="hidden" name="amount_${i}" value="${item.price.toFixed(2)}">
-            <input type="hidden" name="quantity_${i}" value="${item.quantity}">
+            <input type="hidden" name="item_name_${itemIndex}" value="${pureSafeTitle}${suffix}">
+            <input type="hidden" name="amount_${itemIndex}" value="${item.price.toFixed(2)}">
+            <input type="hidden" name="quantity_${itemIndex}" value="${item.quantity}">
         `;
+        itemIndex++;
     });
+
+    // 🌟 如果選取了特快空運，將計算好嘅運費作為一筆獨立嘅「虛擬物流服務商品」塞入 PayPal 內一同結帳
+    if (selectedShipping === 'express' && calculatedExpressFee > 0) {
+        formHtml += `
+            <input type="hidden" name="item_name_${itemIndex}" value="KINGZCARBON Premium Air Cargo Upgrade Service">
+            <input type="hidden" name="amount_${itemIndex}" value="${calculatedExpressFee.toFixed(2)}">
+            <input type="hidden" name="quantity_${itemIndex}" value="1">
+        `;
+    }
 
     formHtml += `</form>`;
     formContainer.innerHTML = formHtml;
     
-    // 1秒閃電發射去 PayPal 官方台
     document.getElementById('bulkPayPalAutoForm').submit();
-}
-
-/**
- * 👑 互動核心：將購物車清單排好版，一秒射去 WhatsApp 畀你人工精算運費箱！
- */
-function fireOrderToWhatsAppQuote() {
-    if (kingzCart.length === 0) return;
-    
-    let itemsText = "";
-    let totalValue = 0;
-    
-    kingzCart.forEach((item, idx) => {
-        let sub = item.price * item.quantity;
-        totalValue += sub;
-        itemsText += `[${idx + 1}] ${item.title}%0A    Qty: ${item.quantity} | Item Price: $${item.price.toFixed(2)} USD%0A`;
-    });
-
-    let baseText = `Hello Shing, I want to upgrade my carbon assets order to Air Express Shipping (DHL/FedEx).%0A%0A`;
-    let bodyText = `--- MY CARBON CART LIST ---%0A${itemsText}`;
-    let footerText = `%0AProduct Total: $${totalValue.toFixed(2)} USD%0A%0APlease calculate the best consolidated master crate rate for my address! Thanks.`;
-    
-    let fullPayload = baseText + bodyText + footerText;
-    
-    // 調用 WhatsApp API 開啟直連對話框
-    window.open(`https://wa.me/85295368533?text=${fullPayload}`, '_blank');
 }
 
 function openCartPreview() {
@@ -768,7 +865,6 @@ window.onload = () => {
     loadChassisDatabase('ALL_BMW', () => {
         selectBrand('All', true);
         switchBodyKitsViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
-        // 頁面初始化加載車況
         renderCartPreview();
     });
 };
