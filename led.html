@@ -87,7 +87,7 @@ body {
         </h1>
     </div>
 
-    <!-- 🌐 新增：顯眼的中文版網頁切換按鈕 (指向 ledhk.html) -->
+    <!-- 🌐 顯眼的中文版網頁切換按鈕 (指向 ledhk.html) -->
     <div class="flex justify-center mb-10">
         <a href="ledhk.html" 
            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-950/80 via-black to-yellow-950/80 gold-border rounded-full text-yellow-400 font-extrabold text-xs md:text-sm uppercase tracking-widest shadow-xl hover:scale-105 hover:bg-yellow-600 hover:text-black transition duration-300 border border-yellow-500/80">
@@ -513,7 +513,7 @@ body {
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-500">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                         </div>
                         <div>
@@ -682,7 +682,7 @@ body {
                         <h4 class="text-2xl font-bold text-white gold-flow mb-4">PayPal Direct</h4>
                         <div class="text-4xl font-extrabold text-white mb-2">$229 <span class="text-xs text-gray-400 font-normal">USD</span></div>
                         <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                            Exclusive direct rate with full PayPal buyer protection. Fast dispatch with global tracking.
+                            Exclusive direct rate for <strong class="text-yellow-400">LED BADGE</strong> with full PayPal buyer protection. Fast dispatch with global tracking.
                         </p>
                     </div>
 
@@ -803,7 +803,7 @@ body {
             </button>
 
             <a id="modalWhatsappBtn" 
-               href="https://wa.me/85295368533?text=Hello%20SHING,%20I%20would%20like%20to%20order%20the%20Illuminated%20LED%20Badge%20($229%20USD).%20My%20emblem%20size%20is%20[82mm%20/%2074mm]%20and%20I%20prefer%20[12V%20Cigarette%20Lighter%20/%20Fuse%20Box]%20wiring." 
+               href="https://wa.me/85295368533?text=Hello%20SHING,%20I%20would%20like%20to%20order%20the%20LED%20BADGE%20($229%20USD).%20My%20emblem%20size%20is%20[82mm%20/%2074mm]%20and%20I%20prefer%20[12V%20Cigarette%20Lighter%20/%20Fuse%20Box]%20wiring." 
                target="_blank" 
                class="w-full py-3 px-4 bg-gray-900 border border-yellow-600/60 text-yellow-400 font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-yellow-600 hover:text-black transition text-center">
                 Direct WhatsApp Custom Order (SHING)
@@ -816,11 +816,9 @@ body {
 <script>
 let currentTargetChannel = '';
 
-// 💡 提示老細：請將下方 'your-paypal-email@domain.com' 替換為你的 PayPal 正式 Email 或 PayPal.Me 專屬網址
-const officialPaypalEmail = 'https://paypal.me/shingkingzf82m4';
-
+// 👑 直連老細 PayPal.Me 收款網址 (已自動帶入 229 USD)
 const channelUrls = {
-    'paypal': `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${encodeURIComponent(officialPaypalEmail)}&item_name=KINGZCARBON%20Illuminated%20LED%20Badge&amount=229.00&currency_code=USD`,
+    'paypal': 'https://paypal.me/shingkingzf82m4/229usd',
     'ebay': 'https://www.ebay.com/itm/137844583595',
     'etsy': 'https://www.etsy.com/hk-en/listing/4542500949/pre-order-led-badge-for-bmw-trunk-82mm'
 };
@@ -831,7 +829,7 @@ function openOrderModal(channel) {
     const proceedBtn = document.getElementById('modalProceedBtn');
 
     if(channel === 'paypal') {
-        proceedBtn.innerText = 'Proceed to PayPal Cart ($229 USD) →';
+        proceedBtn.innerText = 'Proceed to PayPal.Me for LED BADGE ($229 USD) →';
     } else if(channel === 'ebay') {
         proceedBtn.innerText = 'Proceed to eBay Listing ($249 USD) →';
     } else if(channel === 'etsy') {
@@ -846,10 +844,7 @@ function closeOrderModal() {
 }
 
 function proceedToDestination() {
-    if(currentTargetChannel === 'paypal' && officialPaypalEmail.includes('domain.com')) {
-        // 防錯安全提示：若未填寫正式 Email，自動跳轉 WhatsApp 聯繫，防止客人看到 PayPal 報錯
-        window.open('https://wa.me/85295368533?text=Hello%20SHING,%20I%20would%20like%20to%20order%20the%20Illuminated%20LED%20Badge%20($229%20USD)%20via%20PayPal.', '_blank');
-    } else if(channelUrls[currentTargetChannel]) {
+    if(channelUrls[currentTargetChannel]) {
         window.open(channelUrls[currentTargetChannel], '_blank');
     }
     closeOrderModal();
