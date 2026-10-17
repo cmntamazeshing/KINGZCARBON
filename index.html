@@ -69,7 +69,7 @@ body {
 
 <body class="text-gray-200">
 
-<div class="max-w-6xl mx-auto px-6 py-16">
+<div class="max-w-7xl mx-auto px-6 py-16">
 
     <div class="flex justify-center mb-6">
         <img src="https://i.imgur.com/WNQPBad.png"
@@ -110,7 +110,26 @@ body {
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+    <!-- 🚀 升級為 lg:grid-cols-5，完美單行平排 5 個奢華分頁卡片 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-6">
+
+        <!-- 👑 新增：LED Badges 分頁（排在 Interior Upgrades 最左邊） -->
+        <a href="led.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
+            <div>
+                <div class="relative h-48 bg-gray-900">
+                    <img src="https://i.imgur.com/LMC66Ho.png" alt="Illuminated LED Badges" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 text-center">
+                    <h3 class="text-lg font-bold gold-flow gold-glow mb-2 tracking-wide">Illuminated LED Badges</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed line-clamp-5">
+                        Redefine your vehicle's iconic identity in the dark. Precision ambient backlighting paired with bespoke artisan crafting to create an undeniable nocturnal presence.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center pb-5">
+                <span class="inline-block text-[11px] text-yellow-500 uppercase tracking-widest border-b border-yellow-600 pb-1">Explore Illumination &rarr;</span>
+            </div>
+        </a>
 
         <a href="ride-en.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
             <div>
