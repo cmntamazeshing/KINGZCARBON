@@ -3,38 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Illuminated LED Badges | KINGZCARBON Sovereign Performance</title>
+<title>Bespoke Exterior Matrix | KINGZCARBON</title>
 <script src="https://cdn.tailwindcss.com"></script>
-  
+    
 <style>
-/* 完美繼承標誌性的碳纖維紋理背景 */
+/* 完美修復並還原標誌性的碳纖維紋理背景 */
 body {
     background-color: #000;
     background-image:
-        repeating-linear-gradient(
-            45deg,
-            rgba(255,255,255,0.03) 0px,
-            rgba(255,255,255,0.03) 2px,
-            transparent 2px,
-            transparent 6px
-        ),
-        repeating-linear-gradient(
-            -45deg,
-            rgba(255,255,255,0.03) 0px,
-            rgba(255,255,255,0.03) 2px,
-            transparent 2px,
-            transparent 6px
-        );
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 6px);
 }
-
+ 
 /* 金色流光動畫 */
 .gold-flow {
-    background: linear-gradient(
-        90deg,
-        #b8892e,
-        #f5e6a8, #d4af37, #f5e6a8,
-        #b8892e
-    );
+    background: linear-gradient(90deg, #b8892e, #f5e6a8, #d4af37, #f5e6a8, #b8892e);
     background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -48,26 +31,45 @@ body {
 
 /* 金色字體發光 */
 .gold-glow {
-    text-shadow: 0 0 8px rgba(212,175,55,0.6),
-                 0 0 18px rgba(212,175,55,0.3);
+    text-shadow: 0 0 8px rgba(212,175,55,0.6), 0 0 18px rgba(212,175,55,0.3);
 }
 
 .gold-border {
-    border: 1px solid rgba(212,175,55,0.5);
+    border: 1px solid rgba(212,175,55,0.4);
 }
 
-/* 卡片懸停發光與縮放特效 */
-.card-glow {
-    transition: all 0.4s ease;
+/* 小圖卡片樣式優化 */
+.product-matrix-card {
+    background: rgba(0, 0, 0, 0.75);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
-.card-glow:hover {
-    box-shadow: 0 0 30px rgba(212,175,55,0.25);
-    transform: translateY(-5px);
+
+.product-matrix-card:hover {
+    box-shadow: 0 0 25px rgba(212,175,55,0.25);
+    border-color: #d4af37;
+}
+
+/* 篩選按鈕激活狀態 */
+.filter-active {
+    border-color: #d4af37 !important;
+    color: #fff !important;
+    background-color: rgba(212, 175, 55, 0.15) !important;
+    text-shadow: 0 0 8px rgba(212,175,55,0.6);
 }
 
 /* 鎖定背景滾動 */
 .modal-open {
     overflow: hidden;
+}
+
+/* 精選 Showcase 的高亮樣式 */
+.active-thumb {
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 12px rgba(212,175,55,0.4);
+}
+.viewer-box {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 /* 📥 側滑式 Cart Preview 高級過渡樣式 */
@@ -92,714 +94,177 @@ body {
 
 <body class="text-gray-200">
 
-<!-- 頂部導航列與購物車按鈕 -->
-<div class="max-w-7xl mx-auto px-6 pt-6 flex justify-between items-center text-sm tracking-widest relative z-40">
+<div class="absolute top-6 left-6 z-50 text-sm tracking-widest flex items-center gap-6">
     <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; Home</a>
-    
-    <button onclick="openCartPreview()" class="px-5 py-2 rounded-full bg-gradient-to-r from-yellow-950/80 via-black to-yellow-950/80 gold-border text-yellow-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:bg-yellow-600 hover:text-black transition shadow-lg">
-        🛒 View Cart
-    </button>
+</div>
+<div class="absolute top-6 right-6 z-50 text-sm tracking-widest text-gray-500 select-none">
+    English USD
 </div>
 
-<div class="max-w-7xl mx-auto px-6 py-12">
+<div class="max-w-7xl mx-auto px-6 py-20">
 
-    <!-- KINGZCARBON Header & Brand Logo -->
-    <div class="flex justify-center mb-6">
-        <a href="index.html">
-            <img src="https://i.imgur.com/WNQPBad.png"
-                 alt="KINGZCARBON Logo"
-                 class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-full border-2 border-yellow-600 shadow-2xl hover:scale-105 transition duration-300">
-        </a>
+    <div class="text-center mb-12">
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-3">Modular Matrix Configurator</p>
+        <h1 class="text-3xl md:text-5xl font-bold tracking-widest gold-flow gold-glow uppercase">Bespoke Exterior Works</h1>
     </div>
 
-    <!-- 品牌大標題 -->
-    <div class="text-center mb-8">
-        <h1 class="text-5xl md:text-7xl font-bold tracking-widest gold-flow gold-glow uppercase">
-            KINGZCARBON
-        </h1>
+    <div class="bg-black bg-opacity-60 rounded-2xl gold-border p-6 mb-10 shadow-xl">
+        <div class="flex flex-wrap items-center gap-3 border-b border-gray-900 pb-4 mb-4">
+            <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Brand:</span>
+            <button onclick="selectBrand('All')" id="brand-All" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">All Brands</button>
+            <button onclick="selectBrand('BMW')" id="brand-BMW" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">BMW</button>
+            <button onclick="selectBrand('Mercedes-Benz')" id="brand-Benz" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Mercedes-Benz</button>
+            <button onclick="selectBrand('Audi')" id="brand-Audi" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Audi</button>
+            <button onclick="selectBrand('Toyota')" id="brand-Toyota" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition duration-300 hover:border-yellow-600">Toyota</button>
+            <button onclick="selectBrand('Nissan')" id="brand-Nissan" class="brand-btn px-4 py-1.5 rounded-lg border border-gray-800 text-xs text-gray-400 tracking-wider uppercase transition hover:border-yellow-600">Nissan</button>
+        </div>
+        <div id="model-container" class="flex flex-wrap items-center gap-3">
+            <span class="text-xs text-gray-500 uppercase tracking-widest font-semibold mr-2">Chassis:</span>
+            <div id="model-list" class="flex flex-wrap gap-2">
+                <span class="text-xs text-gray-600 italic">Select a brand above to decode bespoke asset allocations.</span>
+            </div>
+        </div>
     </div>
 
-    <!-- 🌐 顯眼的中文版網頁切換按鈕 (指向 ledhk.html) -->
-    <div class="flex justify-center mb-10">
-        <a href="ledhk.html" 
-           class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-950/80 via-black to-yellow-950/80 gold-border rounded-full text-yellow-400 font-extrabold text-xs md:text-sm uppercase tracking-widest shadow-xl hover:scale-105 hover:bg-yellow-600 hover:text-black transition duration-300 border border-yellow-500/80">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-            </svg>
-            中文版頁面 (Hong Kong / TW) &rarr;
-        </a>
+    <div class="md:hidden mb-6">
+        <button onclick="toggleMobileSidebar()" class="w-full py-3 bg-black bg-opacity-80 rounded-xl border gold-border text-xs tracking-widest uppercase font-bold text-yellow-400 transition hover:bg-yellow-600 hover:text-black flex items-center justify-center gap-2 shadow-lg">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"></path></svg>
+            Filter Components
+        </button>
     </div>
 
-    <!-- 🔥 整合格仔：副標題（大字顯眼）佔據格仔頂部 + 100% NO DRILLING REQUIRED -->
-    <div class="mb-16 bg-gradient-to-r from-yellow-950/40 via-black to-yellow-950/40 p-6 md:p-10 rounded-2xl gold-border text-center shadow-2xl relative overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
         
-        <!-- 格仔頂部：加大顯眼副標題 -->
-        <p class="text-base md:text-xl font-extrabold gold-flow gold-glow uppercase tracking-widest mb-6 border-b border-yellow-600/30 pb-4">
-            ILLUMINATED LED BADGES • SOVEREIGN DIGITAL CONTROL • PRECISION ENGINEERING
-        </p>
-
-        <!-- 無損安裝核心賣點 -->
-        <span class="inline-block px-4 py-1 rounded-full border border-yellow-500/60 bg-yellow-900/30 text-yellow-400 text-xs font-black tracking-widest uppercase mb-3">
-            ZERO DAMAGE INSTALLATION
-        </span>
-        <h2 class="text-3xl md:text-5xl font-black gold-flow gold-glow uppercase tracking-wider">
-            100% NO DRILLING REQUIRED
-        </h2>
-        <p class="mt-4 text-xs md:text-sm text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Preserve your vehicle’s factory bodywork. Engineered with custom low-profile cable routing and ultra-strong mounting adhesive for a flawless, completely non-destructive setup.
-        </p>
-    </div>
-
-    <!-- 👑 區塊一：Showcase 區域 (3 卡並排 IG Reels 網格 Showcase) -->
-    <section class="mb-16 bg-black bg-opacity-40 p-4 md:p-8 rounded-2xl gold-border shadow-2xl">
-        
-        <div class="text-center mb-8 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
-                NOCTURNAL ILLUMINATION IN ACTION
-            </span>
-            <h2 class="text-2xl md:text-3xl font-bold tracking-wider text-white uppercase">
-                Live Showcase & Social Highlights
-            </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="category-sidebar" class="fixed inset-y-0 left-0 w-72 bg-black bg-opacity-95 md:bg-opacity-60 p-6 md:p-5 md:static md:w-auto md:h-auto md:rounded-2xl gold-border space-y-2.5 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-[90] md:sticky md:top-6">
+            <div class="flex items-center justify-between border-b border-gray-900 pb-3 mb-4 md:mb-2"><span class="text-xs text-gray-500 uppercase tracking-widest font-bold">Categories</span><button onclick="toggleMobileSidebar()" class="md:hidden text-gray-400 hover:text-yellow-400 text-xl font-bold">&times;</button></div>
+            <button onclick="selectCategoryCloseMobile('All')" id="cat-All" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">All Components</button>
+            <button onclick="selectCategoryCloseMobile('Body Kit')" id="cat-BodyKit" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-yellow-500 transition hover:border-yellow-600 block font-bold">Body Kits (Full Conversion)</button>
+            <button onclick="selectCategoryCloseMobile('Front Lips')" id="cat-FrontLips" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Lips</button>
+            <button onclick="selectCategoryCloseMobile('Side Skirts')" id="cat-SideSkirts" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Side Skirt Extensions</button>
+            <button onclick="selectCategoryCloseMobile('Rear Diffusers')" id="cat-RearDiffusers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Rear Diffusers</button>
+            <button onclick="selectCategoryCloseMobile('Rear Spoilers')" id="cat-RearSpoilers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Rear Spoilers</button>
+            <button onclick="selectCategoryCloseMobile('Mirror Covers')" id="cat-MirrorCovers" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Mirror Covers</button>
+            <button onclick="selectCategoryCloseMobile('Front Fender')" id="cat-FrontFender" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Front Fender</button>
+            <button onclick="selectCategoryCloseMobile('Hood')" id="cat-Hood" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Hood</button>
+            <button onclick="selectCategoryCloseMobile('Trunk')" id="cat-Trunk" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Trunk</button>
+            <button onclick="selectCategoryCloseMobile('Badges')" id="cat-Badges" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Badges</button>
+            <button onclick="selectCategoryCloseMobile('Other')" id="cat-Other" class="cat-btn w-full text-left px-4 py-3 rounded-xl border border-gray-900 text-xs tracking-widest uppercase text-gray-400 transition hover:border-yellow-600 block">Other (Accents)</button>
             
-            <!-- Reel 1 -->
-            <div class="bg-black rounded-xl gold-border overflow-hidden card-glow flex flex-col justify-between p-2">
-                <div class="w-full flex justify-center items-center min-h-[450px]">
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/p/DcHsVh3qi-H/" 
-                                data-instgrm-version="14"
-                                style=" background:#000; border:0; border-radius:12px; box-shadow:none; margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%;">
-                    </blockquote>
-                </div>
-                <div class="p-3 text-center border-t border-gray-900">
-                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Dynamic Ambient Backlight</span>
-                </div>
-            </div>
-
-            <!-- Reel 2 -->
-            <div class="bg-black rounded-xl gold-border overflow-hidden card-glow flex flex-col justify-between p-2">
-                <div class="w-full flex justify-center items-center min-h-[450px]">
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/p/DduRYsgz7qT/" 
-                                data-instgrm-version="14"
-                                style=" background:#000; border:0; border-radius:12px; box-shadow:none; margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%;">
-                    </blockquote>
-                </div>
-                <div class="p-3 text-center border-t border-gray-900">
-                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Precision Emblem Fitment</span>
-                </div>
-            </div>
-
-            <!-- Reel 3 -->
-            <div class="bg-black rounded-xl gold-border overflow-hidden card-glow flex flex-col justify-between p-2">
-                <div class="w-full flex justify-center items-center min-h-[450px]">
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/p/Dd_wvdQzJol/" 
-                                data-instgrm-version="14"
-                                style=" background:#000; border:0; border-radius:12px; box-shadow:none; margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%;">
-                    </blockquote>
-                </div>
-                <div class="p-3 text-center border-t border-gray-900">
-                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Nocturnal Street Presence</span>
-                </div>
-            </div>
-
-        </div>
-
-        <script async src="https://www.instagram.com/embed.js"></script>
-    </section>
-
-    <!-- 👑 區塊二：App 數字操控 + 硬件工藝規格整合區塊 -->
-    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
-        
-        <div class="text-center mb-12 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
-                INTELLIGENT PERFORMANCE & ARCHITECTURAL DURABILITY
-            </span>
-            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
-                Sovereign Digital Control
-            </h2>
-            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
-                Bespoke Ambient Technology • Military-Grade Enclosure
-            </p>
-        </div>
-
-        <!-- 01 / App & Digital Control Highlights -->
-        <div class="mb-12">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
-                01 / App & Digital Control Highlights
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
-                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Smart Driving Sync</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            Real-time vehicle telematics integration. Automatically triggers bespoke animations, emojis, and hazard indicators for turns, braking, acceleration, and user-defined speed thresholds.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
-                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Artisan Image & Video Playback</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            Seamless upload for custom images, animated GIFs, and short video clips. Personalize your emblem display with dynamic visual content.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
-                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Intelligent Dimming & Compliance Guard</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            Ambient auto-dimming with manual override. Features a dedicated <strong class="text-yellow-400">Static Mode</strong> to lock single-color or stealth non-illuminated displays for legal compliance.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
-                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Sequence Memory & OTA Upgrades</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            Industrial-grade onboard memory retains custom playlist ordering after shutdown. Complete wireless Over-The-Air (OTA) firmware updates.
-                        </p>
-                    </div>
-                </div>
-
+            <div class="border-t border-zinc-900 pt-4 mt-4">
+                <button onclick="openCartPreview()" class="w-full bg-transparent border border-yellow-500 hover:bg-yellow-500/10 text-yellow-500 font-bold py-2.5 px-4 rounded-xl text-[11px] tracking-widest uppercase transition flex items-center justify-center gap-2">
+                    View Cart / Checkout
+                </button>
             </div>
         </div>
 
-        <!-- 02 / Hardware & Engineering Specifications -->
-        <div class="mb-12">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
-                02 / Hardware & Engineering Specifications
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
-                    <h4 class="text-lg font-bold text-white gold-flow mb-2">Aerospace CNC Structure</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        High-precision CNC-machined aluminum alloy housing with premium anodized scratch-resistant finishing.
-                    </p>
-                </div>
+        <div id="sidebar-overlay" onclick="toggleMobileSidebar()" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-xs hidden z-[80]"></div>
 
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
-                    <h4 class="text-lg font-bold text-white gold-flow mb-2">Optical Glass Coatings</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        AR (Anti-Reflective) coating for maximum daylight visibility; AF (Anti-Fingerprint) hydrophobic coating for permanent cleanliness.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
-                    <h4 class="text-lg font-bold text-white gold-flow mb-2">IP68 + IP69 Waterproofing</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        All-weather sealed construction, built to withstand high-pressure washdowns, rainstorms, and extreme temperatures (-30°C to 80°C).
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 圖片對調：左卡 App 介面圖 / 右卡 工藝與耐用規格圖 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pt-8 border-t border-gray-900">
+        <div class="md:col-span-3 relative min-h-[50vh]">
             
-            <div class="rounded-xl gold-border overflow-hidden card-glow bg-black flex flex-col justify-between p-2">
-                <img src="https://i.imgur.com/WL9hIsB.jpeg" alt="KINGZCARBON Exclusive App Interface & Controls" class="w-full h-auto object-cover rounded-lg">
-                <div class="p-3 text-center border-t border-gray-900 mt-2">
-                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Exclusive App Interface & Controls</span>
+            <div id="bodykits-showcase-zone" class="w-full mb-12 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
+                <div class="mb-4">
+                    <label class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-2 font-black text-center md:text-left">
+                        ⭐ KingzCarbon Premium Showcase Profile
+                    </label>
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        <div onclick="switchBodyKitsViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
+                            <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                            <video src="https://i.imgur.com/CzT3FVY.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                            <video src="https://i.imgur.com/lIweAMD.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(3, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                            <video src="https://i.imgur.com/BqBmit2.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                            </div>
+                        </div>
+                        <div onclick="switchBodyKitsViewer(4, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
+                            <img src="https://i.imgur.com/DNeHanC.png" alt="Profile" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div onclick="switchBodyKitsViewer(5, this)" class="paddle-thumb aspect-square bg-zinc-950 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center cursor-pointer transition duration-300 hover:border-yellow-600">
+                            <span class="text-[9px] text-gray-600 font-bold uppercase tracking-wider block">Coming</span>
+                            <span class="text-[9px] text-yellow-600 font-bold uppercase tracking-wider block">Soon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viewer-box rounded-xl overflow-hidden border border-gray-900 p-2 shadow-inner relative">
+                    <div class="w-full aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center relative">
+                        <img id="main-view-img" src="" alt="HD Display View" class="max-w-full max-h-full object-contain transition duration-300 hidden">
+                        <video id="main-view-video" class="w-full h-full object-contain" autoplay loop muted playsinline controls></video>
+                        <div id="coming-soon-overlay" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gray-950 bg-opacity-95">
+                            <h3 class="text-xs font-black gold-flow gold-glow uppercase tracking-[0.2em]">Next Artisan Project</h3>
+                            <p class="text-[10px] text-gray-500 uppercase mt-1">Template Engineering</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a id="whatsapp-link" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20some%20body%20kits." target="_blank" class="block text-center w-full py-3 bg-yellow-600 hover:bg-yellow-500 text-black rounded-xl font-bold tracking-widest uppercase text-xs transition duration-300 shadow-md">
+                            Inquire This Custom Kit Configuration
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="rounded-xl gold-border overflow-hidden card-glow bg-black flex flex-col justify-between p-2">
-                <img src="https://i.imgur.com/CpTiNnj.png" alt="KINGZCARBON Process & Durability Specifications" class="w-full h-auto object-cover rounded-lg">
-                <div class="p-3 text-center border-t border-gray-900 mt-2">
-                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Process & Durability Architecture</span>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- 👑 區塊三：適配指南 (Vehicle Compatibility & Fitment Architecture) -->
-    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
-        
-        <div class="text-center mb-12 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
-                PRECISION FITMENT GUIDE
-            </span>
-            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
-                Vehicle Compatibility
-            </h2>
-            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
-                Engineered For Standard 74mm & 82mm Emblems • Universal Adaptation
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <!-- BMW 專車直上卡片 -->
-            <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-400 font-bold">
-                            BMW
-                        </div>
-                        <h3 class="text-xl font-bold text-white gold-flow tracking-wide">
-                            BMW Dedicated Fitment
-                        </h3>
-                    </div>
-                    
-                    <p class="text-xs text-gray-300 leading-relaxed mb-6">
-                        Direct OEM-style replacement for standard BMW roundel emblems measuring <strong class="text-yellow-400">82mm</strong> (typically front bonnet / hood, and select rear trunks) and <strong class="text-yellow-400">74mm</strong> (typically rear trunk lids). Seamless clip/adhesive flush mounting without modifying factory bodywork.
-                    </p>
-
-                    <div class="p-4 rounded-lg bg-yellow-950 bg-opacity-30 border border-yellow-600/60 text-xs text-yellow-200/90 leading-relaxed mb-4">
-                        <strong class="text-yellow-400 block mb-1 uppercase tracking-wider font-bold">✨ NO DRILLING REQUIRED:</strong>
-                        Designed to utilize original factory routing access. Zero body panel modifications or hole drilling required.
-                    </div>
-
-                    <div class="p-4 rounded-lg bg-red-950 bg-opacity-30 border border-red-900/60 text-xs text-red-200/90 leading-relaxed">
-                        <strong class="text-red-400 block mb-1 uppercase tracking-wider font-bold">⚠️ Important Compatibility Notice:</strong>
-                        Vehicles with next-generation integrated rear cameras, washer nozzles, or active electronic sensors built directly inside the emblem housing are <strong class="underline">NOT compatible</strong>. Please inspect your factory emblem setup prior to commissioning.
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-gray-900 text-right">
-                    <span class="text-[11px] text-yellow-500 uppercase tracking-widest">Available Sizes: 82mm / 74mm</span>
-                </div>
-            </div>
-
-            <!-- 非 BMW / 跨品牌通用改裝卡片 -->
-            <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-400 font-bold">
-                            UNI
-                        </div>
-                        <h3 class="text-xl font-bold text-white gold-flow tracking-wide">
-                            Non-BMW Universal Conversion
-                        </h3>
-                    </div>
-
-                    <p class="text-xs text-gray-300 leading-relaxed mb-6">
-                        Fully adaptable to all non-BMW vehicles with simple custom wire routing through existing emblem pinholes.
-                    </p>
-
-                    <div class="p-4 rounded-lg bg-yellow-950 bg-opacity-20 border border-yellow-600/40 text-xs text-yellow-200/90 leading-relaxed">
-                        <strong class="text-yellow-400 block mb-1 uppercase tracking-wider font-bold">💡 Flat-Surface Requirement:</strong>
-                        Ensure the mounting surface on your vehicle panel is completely <strong class="text-white">FLAT</strong> once the factory badge is removed. As long as the base is flat, select the <strong class="text-white">82mm version</strong> to achieve a seamless, perfectly flush fitment.
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-gray-900 text-right">
-                    <span class="text-[11px] text-yellow-500 uppercase tracking-widest">Recommended Variant: 82mm Flat Mount</span>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- 👑 區塊四：安裝教學、素材下載與 App 下載 (Installation & Downloads) -->
-    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
-        
-        <div class="text-center mb-12 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
-                OPERATIONAL GUIDANCE & DIGITAL ASSETS
-            </span>
-            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
-                Installation & Downloads
-            </h2>
-            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
-                Step-by-Step Sequential Video Guides • Display Assets • Official Mobile App
-            </p>
-        </div>
-
-        <!-- 單欄（一列一卡）大畫面安裝影片引導區塊 -->
-        <div class="mb-12">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
-                01 / Step-by-Step Installation & Calibration Video Guides
-            </h3>
-            
-            <div class="space-y-8">
-                
-                <!-- 步驟 01 大卡片 -->
-                <div class="p-6 md:p-8 rounded-2xl bg-black bg-opacity-60 gold-border card-glow flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-2/3 h-64 md:h-80 bg-gray-900 rounded-xl gold-border flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group flex-shrink-0">
-                        <svg class="w-16 h-16 text-yellow-600/70 mb-3 group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span class="text-xs tracking-widest uppercase text-yellow-500/80 font-bold">Video Guide Slot 01</span>
-                    </div>
-                    <div class="w-full md:w-1/3 flex flex-col justify-center">
-                        <div class="inline-block w-12 h-12 rounded-lg bg-yellow-600/20 border border-yellow-600 text-yellow-400 font-extrabold text-lg flex items-center justify-center mb-4">
-                            01
-                        </div>
-                        <h4 class="text-xl font-bold text-white gold-flow mb-3">Mounting & Power Wiring</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Secure the emblem baseplate without drilling, route the low-voltage harness through factory access ports, and complete power connection to trigger initial boot-up sequence.
-                        </p>
-                        <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">Step 1: Hardware Setup &rarr;</span>
-                    </div>
-                </div>
-
-                <!-- 步驟 02 大卡片 -->
-                <div class="p-6 md:p-8 rounded-2xl bg-black bg-opacity-60 gold-border card-glow flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-2/3 h-64 md:h-80 bg-gray-900 rounded-xl gold-border flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group flex-shrink-0">
-                        <svg class="w-16 h-16 text-yellow-600/70 mb-3 group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span class="text-xs tracking-widest uppercase text-yellow-500/80 font-bold">Video Guide Slot 02</span>
-                    </div>
-                    <div class="w-full md:w-1/3 flex flex-col justify-center">
-                        <div class="inline-block w-12 h-12 rounded-lg bg-yellow-600/20 border border-yellow-600 text-yellow-400 font-extrabold text-lg flex items-center justify-center mb-4">
-                            02
-                        </div>
-                        <h4 class="text-xl font-bold text-white gold-flow mb-3">Initial Alignment Calibration</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Upon initial Bluetooth connection via our App, calibrate display orientation and rotational offset to guarantee graphics remain perfectly horizontal regardless of physical mounting angle.
-                        </p>
-                        <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">Step 2: Optical Calibration &rarr;</span>
-                    </div>
-                </div>
-
-                <!-- 步驟 03 大卡片 -->
-                <div class="p-6 md:p-8 rounded-2xl bg-black bg-opacity-60 gold-border card-glow flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-2/3 h-64 md:h-80 bg-gray-900 rounded-xl gold-border flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group flex-shrink-0">
-                        <svg class="w-16 h-16 text-yellow-600/70 mb-3 group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span class="text-xs tracking-widest uppercase text-yellow-500/80 font-bold">Video Guide Slot 03</span>
-                    </div>
-                    <div class="w-full md:w-1/3 flex flex-col justify-center">
-                        <div class="inline-block w-12 h-12 rounded-lg bg-yellow-600/20 border border-yellow-600 text-yellow-400 font-extrabold text-lg flex items-center justify-center mb-4">
-                            03
-                        </div>
-                        <h4 class="text-xl font-bold text-white gold-flow mb-3">Monthly OTA Firmware Updates</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                            Keep system performance optimized and unlock new feature packs. We strongly recommend checking for wireless Over-The-Air (OTA) updates monthly or whenever convenient.
-                        </p>
-                        <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">Step 3: System Optimization &rarr;</span>
-                    </div>
-                </div>
-
+            <div id="exterior-matrix-grid" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+            <div id="empty-state" class="hidden text-center py-20 bg-black bg-opacity-40 rounded-2xl border border-dashed border-gray-800">
+                <p class="text-sm text-gray-500 uppercase tracking-widest">No custom samples found matching the criteria.</p>
+                <p class="text-xs text-gray-600 mt-2">Our facility templates are fully adaptive. Tap below to commission parameters directly.</p>
+                <a href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20order%20special%20carbon%20parts." target="_blank" class="inline-block mt-6 px-6 py-2.5 border border-yellow-600 text-yellow-400 rounded-lg text-xs uppercase tracking-widest font-semibold transition hover:bg-yellow-600 hover:text-black">Direct Inquiry</a>
             </div>
         </div>
 
-        <!-- 02 / Display Asset & Video Media Libraries -->
-        <div class="mb-12 pt-8 border-t border-gray-900">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase">
-                02 / Display Asset & Video Media Libraries
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <a href="https://show.pakex.app/" target="_blank" 
-                   class="p-6 rounded-xl bg-black bg-opacity-60 gold-border card-glow flex items-center justify-between hover:bg-yellow-950/30 transition group">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-500">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-white gold-flow">Pakex Official Media Showcase</h4>
-                            <p class="text-xs text-gray-400">Browse and download official display graphics & presets</p>
-                        </div>
-                    </div>
-                    <span class="text-yellow-400 text-lg group-hover:translate-x-1 transition">&rarr;</span>
-                </a>
-
-                <a href="https://pixabay.com/videos/" target="_blank" 
-                   class="p-6 rounded-xl bg-black bg-opacity-60 gold-border card-glow flex items-center justify-between hover:bg-yellow-950/30 transition group">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-500">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold text-white gold-flow">Pixabay HD Royalty-Free Videos</h4>
-                            <p class="text-xs text-gray-400">Explore thousands of free background loops for your badge</p>
-                        </div>
-                    </div>
-                    <span class="text-yellow-400 text-lg group-hover:translate-x-1 transition">&rarr;</span>
-                </a>
-
-            </div>
-        </div>
-
-        <!-- 03 / Download Official Mobile Control App -->
-        <div class="pt-8 border-t border-gray-900">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase">
-                03 / Download Official Mobile Control App
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <a href="https://apps.apple.com/us/app/%E5%B3%B0%E7%9D%BF%E6%93%8E%E5%B5%8C/id6783410080" target="_blank" 
-                   class="p-6 rounded-xl bg-gradient-to-r from-gray-900 to-black gold-border card-glow flex items-center justify-between hover:border-yellow-400 transition group">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-black border border-yellow-600 flex items-center justify-center text-yellow-400">
-                            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.62-.75 1.04-1.8 0.93-2.85-.9.04-2 .6-2.64 1.35-.58.67-1.09 1.75-.95 2.78 1.01.08 2.04-.53 2.66-1.28z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">iOS Ecosystem</span>
-                            <h4 class="text-base font-bold text-white gold-flow">Apple App Store</h4>
-                        </div>
-                    </div>
-                    <span class="px-4 py-2 bg-yellow-600 text-black text-xs font-black uppercase tracking-widest rounded-lg group-hover:bg-yellow-500 transition">Download</span>
-                </a>
-
-                <a href="https://github.com/cmntamazeshing/KINGZCARBON/releases/download/app/led-app.apk" target="_blank" 
-                   class="p-6 rounded-xl bg-gradient-to-r from-gray-900 to-black gold-border card-glow flex items-center justify-between hover:border-yellow-400 transition group">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-black border border-yellow-600 flex items-center justify-center text-yellow-400">
-                            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-                                <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997 0-.5511.4482-.9993.9993-.9993.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997 0-.5511.4482-.9993.9993-.9993.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997zm11.4045-6.02l1.9973-3.4592c.1217-.2108.0494-.4797-.1614-.6014-.2108-.1217-.4797-.0494-.6014.1614l-2.0238 3.5051c-1.4013-.6386-2.9754-1.0023-4.6322-1.0023s-3.2309.3637-4.6322 1.0023l-2.0238-3.5051c-.1217-.2108-.3906-.2831-.6014-.1614-.2108.1217-.2831.3906-.1614.6014l1.9973 3.4592c-3.1412 1.7088-5.3007 4.8872-5.6385 8.6258h21.9168c-.3378-3.7386-2.4973-6.917-5.6385-8.6258z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Android Direct Package</span>
-                            <h4 class="text-base font-bold text-white gold-flow">Download APK File</h4>
-                        </div>
-                    </div>
-                    <span class="px-4 py-2 bg-yellow-600 text-black text-xs font-black uppercase tracking-widest rounded-lg group-hover:bg-yellow-500 transition">Direct APK</span>
-                </a>
-
-            </div>
-        </div>
-
-        <!-- 04 / Operational Cautions & Preventive Maintenance -->
-        <div class="mt-12 pt-8 border-t border-gray-900">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase">
-                04 / Preventive Care & Essential Cautions
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow border-l-4 border-l-yellow-600">
-                    <div class="flex items-center gap-3 mb-3">
-                        <svg class="w-6 h-6 text-yellow-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                        </svg>
-                        <h4 class="text-base font-bold text-white gold-flow">High-Pressure Washdown Warning</h4>
-                    </div>
-                    <p class="text-xs text-gray-300 leading-relaxed">
-                        While the enclosure features IP68/IP69 weather sealing, avoid direct, prolonged exposure to high-pressure waterjets at point-blank range during vehicle washdowns to prevent premature sealing gasket aging.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow border-l-4 border-l-yellow-600">
-                    <div class="flex items-center gap-3 mb-3">
-                        <svg class="w-6 h-6 text-yellow-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                        <h4 class="text-base font-bold text-white gold-flow">Front Hood PPF Film Armor</h4>
-                    </div>
-                    <p class="text-xs text-gray-300 leading-relaxed">
-                        For front-hood installations, we highly recommend applying Paint Protection Film (PPF) over the optical badge surface for maximum shielding against road debris impacts, stone chips, and direct UV degradation.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <!-- 👑 區塊五：內容物、價格與下單通路 (Pricing, Package & Acquisition Doors) -->
-    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
-        
-        <div class="text-center mb-12 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
-                OFFICIAL COMMISSIONS & PACKAGE ARCHITECTURE
-            </span>
-            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
-                Acquire Your LED Badge
-            </h2>
-            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
-                Direct PayPal Privilege • Global E-Commerce Portals
-            </p>
-        </div>
-
-        <!-- 01 / Package Contents -->
-        <div class="mb-12">
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
-                01 / Package Contents
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
-                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-400 font-bold">
-                        01
-                    </div>
-                    <h4 class="text-base font-bold text-white gold-flow mb-2">Sovereign Illuminated Badge</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        Precision CNC aluminum structure with optical glass lens. Fully sealed IP68/IP69 main unit.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
-                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-400 font-bold">
-                        02
-                    </div>
-                    <h4 class="text-base font-bold text-white gold-flow mb-2">Master Digital Control Box</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        High-speed micro-processor housing Bluetooth module, onboard memory, and vehicle telematics interface.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
-                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-400 font-bold">
-                        03
-                    </div>
-                    <h4 class="text-base font-bold text-white gold-flow mb-2">Power Wiring Harness</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        Choice of 12V Cigarette Lighter Adapter OR Fuse Box Hardwire Harness for seamless power integration.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 02 / Pricing & Direct Purchase Buttons -->
-        <div>
-            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
-                02 / Pricing & Commission Channels
-            </h3>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- PayPal ($229 USD Add to Cart) -->
-                <div class="p-8 rounded-xl bg-black bg-opacity-70 gold-border card-glow flex flex-col justify-between border-2 border-yellow-600/80 relative overflow-hidden">
-                    <div class="absolute top-3 right-3 bg-yellow-600 text-black text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded">
-                        Best Privilege
-                    </div>
-                    
-                    <div>
-                        <span class="text-xs font-bold text-yellow-500 uppercase tracking-widest block mb-2">Official Direct Order</span>
-                        <h4 class="text-2xl font-bold text-white gold-flow mb-4">PayPal Direct</h4>
-                        <div class="text-4xl font-extrabold text-white mb-2">$229 <span class="text-xs text-gray-400 font-normal">USD</span></div>
-                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                            Add <strong class="text-yellow-400">LED BADGE</strong> to cart for official PayPal buyer protection and fast global dispatch.
-                        </p>
-                    </div>
-
-                    <button onclick="addLedBadgeToCart()" 
-                            class="w-full py-3.5 px-4 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-black font-extrabold text-xs uppercase tracking-widest rounded-xl hover:brightness-110 transition shadow-lg flex items-center justify-center gap-2">
-                        🛒 Add to Cart ($229)
-                    </button>
-                </div>
-
-                <!-- eBay ($249 USD) -->
-                <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Global Storefront</span>
-                        <h4 class="text-2xl font-bold text-white gold-flow mb-4">eBay Official</h4>
-                        <div class="text-4xl font-extrabold text-white mb-2">$249 <span class="text-xs text-gray-400 font-normal">USD</span></div>
-                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                            Order through our authenticated eBay store. Includes standard platform fees and buyer guarantee.
-                        </p>
-                    </div>
-
-                    <a href="https://www.ebay.com/itm/137844583595" target="_blank" 
-                       class="w-full py-3.5 px-4 bg-gray-900 border border-yellow-600/60 text-yellow-400 font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-yellow-600 hover:text-black transition shadow-lg text-center block">
-                        Buy on eBay ($249) &rarr;
-                    </a>
-                </div>
-
-                <!-- Etsy ($249 USD) -->
-                <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
-                    <div>
-                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Artisan Marketplace</span>
-                        <h4 class="text-2xl font-bold text-white gold-flow mb-4">Etsy Official</h4>
-                        <div class="text-4xl font-extrabold text-white mb-2">$249 <span class="text-xs text-gray-400 font-normal">USD</span></div>
-                        <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                            Commission via Etsy storefront for artisan craft enthusiasts and specialized custom handling.
-                        </p>
-                    </div>
-
-                    <a href="https://www.etsy.com/hk-en/listing/4542500949/pre-order-led-badge-for-bmw-trunk-82mm" target="_blank" 
-                       class="w-full py-3.5 px-4 bg-gray-900 border border-yellow-600/60 text-yellow-400 font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-yellow-600 hover:text-black transition shadow-lg text-center block">
-                        Buy on Etsy ($249) &rarr;
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Footer Section -->
-    <div class="mt-20 border-t border-gray-900 pt-12 text-center">
-        <p class="uppercase tracking-widest text-xs text-gray-500 mb-6">
-            Direct Commissions & Social Portals
-        </p>
-        
-        <div class="flex flex-wrap justify-center gap-6 text-sm tracking-widest">
-            <a href="https://wa.me/85295368533?text=Hello%20SHING,%20I%20would%20like%20to%20inquire%20about%20the%20Illuminated%20LED%20Badge." 
-               target="_blank" 
-               class="inline-flex items-center px-6 py-3 border border-yellow-600 rounded-xl text-yellow-400 font-medium transition duration-300 hover:bg-yellow-600 hover:text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
-                <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.704 1.456h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                WhatsApp Direct
-            </a>
-
-            <a href="https://www.instagram.com/kingzcarbon" 
-               target="_blank" 
-               class="inline-flex items-center px-6 py-3 border border-yellow-600 rounded-xl text-yellow-400 font-medium transition duration-300 hover:bg-yellow-600 hover:text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
-                @kingzcarbon
-            </a>
-
-            <a href="https://www.instagram.com/sgkzphoto" 
-               target="_blank" 
-               class="inline-flex items-center px-6 py-3 border border-yellow-600 rounded-xl text-yellow-400 font-medium transition duration-300 hover:bg-yellow-600 hover:text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
-                @sgkzphoto
-            </a>
-        </div>
-
-        <p class="mt-16 text-xs text-gray-600 tracking-wider">
-            &copy; 2026 KINGZCARBON. All Rights Reserved. Handcrafted Performance Luxury.
-        </p>
     </div>
 
 </div>
 
-<!-- 📥 側滑式 Cart Preview 購物車面板 -->
+<div id="product-lightbox-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeLightbox(event)">
+    <div class="max-w-3xl w-full mx-4 bg-gray-950 rounded-2xl border gold-border overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+        <button onclick="closeLightboxForce()" class="absolute top-4 right-4 text-gray-400 hover:text-yellow-400 text-2xl font-bold transition z-50">&times;</button>
+        <div class="w-full p-2 bg-black flex items-center justify-center relative select-none">
+            <button onclick="prevLightboxImg()" class="absolute left-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&larr;</button>
+            <img id="modal-img" src="" alt="Bespoke Showcase" class="max-h-[60vh] w-auto mx-auto object-contain block">
+            <button onclick="nextLightboxImg()" class="absolute right-4 bg-black bg-opacity-60 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl border border-gray-900 flex items-center justify-center z-40">&rarr;</button>
+        </div>
+        <div class="p-6 md:p-8 bg-black bg-opacity-95">
+            <h3 id="modal-title" class="text-lg md:text-xl font-bold text-gray-100 tracking-wide"></h3>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 border-b border-gray-900 pb-5">
+                <span id="modal-price" class="text-xl md:text-2xl font-extrabold text-yellow-500"></span>
+                <span class="text-sm text-gray-400 font-medium">| &nbsp; Shipping: <strong class="text-gray-100">FREE SHIPPING</strong></span>
+                <span id="modal-saved" class="bg-yellow-600 bg-opacity-20 border border-yellow-600 text-yellow-400 text-xs px-2.5 py-1 rounded font-bold uppercase tracking-wider"></span>
+            </div>
+            <div class="mt-6 pt-4">
+                <div class="mb-5 text-left border-l-2 border-yellow-600 pl-3 py-1">
+                    <p class="text-xs text-yellow-500 tracking-wide font-medium">
+                        ⚠️ <strong>Fitment Note:</strong> Please double-check if your vehicle chassis matches the item title configuration before checking out.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <div class="grid grid-cols-1 gap-3">
+                        <button onclick="submitToLocalCart()" class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">🛒 Add to Cart</button>
+                    </div>
+                    <a id="modal-wa-btn" href="" target="_blank" class="w-full px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 text-xs font-black tracking-widest uppercase rounded-xl transition text-center flex items-center justify-center gap-2">
+                        💬 Not Sure? Inquire Setup via WhatsApp
+                    </a>
+                </div>
+                <div id="modal-cat" class="text-left text-[10px] text-zinc-600 uppercase mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="cartSidebarPanel" class="cart-sidebar-panel cart-sidebar-hidden p-6 flex flex-col justify-between">
     <div class="flex flex-col h-full overflow-hidden">
         <div class="flex items-center justify-between border-b border-zinc-900 pb-4 mb-4">
@@ -837,7 +302,7 @@ body {
                 <span id="summaryItemsSubtotal">$0.00 USD</span>
             </div>
             <div class="flex justify-between text-zinc-400">
-                <span>Express Shipping:</span>
+                <span>Express Shipping (Size-Based):</span>
                 <span id="summaryShippingFee">+$0.00 USD</span>
             </div>
             <div class="flex justify-between text-emerald-400 font-semibold">
@@ -859,33 +324,306 @@ body {
 
 <div id="cartSidebarOverlay" onclick="closeCartPreview()" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-xs hidden z-[999]"></div>
 
-<!-- 背後隱藏的 PayPal 購物車集體提交表單 -->
 <div id="hiddenPayPalFormContainer" style="display:none;"></div>
 
 <script>
-// 初始化本地購物車數據內核 (與全站共享 kingz_carbon_cart)
+let currentBrand = 'All'; let currentModel = 'All'; let currentCategory = 'All'; let initialLoad = true;
+let activeFilteredData = []; let currentLightboxIndex = 0;
+
+// 初始化本地購物車數據內核
 let kingzCart = JSON.parse(localStorage.getItem('kingz_carbon_cart')) || [];
 
-// 🛒 將 LED BADGE 寫入本地購物車
-function addLedBadgeToCart() {
-    const ledProduct = {
-        id: 'KINGZ-LED-BADGE-01',
-        title: 'KINGZCARBON Illuminated LED BADGE',
-        price: 229.00,
-        saved: 30.00,
-        image: 'https://i.imgur.com/WNQPBad.png',
-        size: 'small',
-        quantity: 1
-    };
+window.masterExteriorDatabase = []; 
 
-    let existingItem = kingzCart.find(x => x.id === ledProduct.id);
+const bodyKitsDatabase = [
+    { type: 'video', url: 'https://i.imgur.com/OWKM58C.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/CzT3FVY.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/lIweAMD.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/BqBmit2.mp4' },
+    { type: 'image', url: 'https://i.imgur.com/DNeHanC.png' },
+    { type: 'coming-soon', url: '' }
+];
+
+window.chassisMapping = {
+  'BMW': ['E90 / E92 / E93 M3', 'F30 / F35 3-Series', 'F32 / F33 / F36 4-Series', 'F34 3-Series GT', 'F10 / F18 5-Series', 'F15 X5', 'F16 X6', 'F87 M2 / M2C', 'F80 M3', 'F82 / F83 M4', 'F90 M5', 'F06 / F12 / F13 M6', 'F97 X3M / F98 X4M', 'G42 2-Series', 'G20 / G28 3-Series', 'G22 4-Series', 'G26 4-Series Gran Coupe', 'G30 / G38 5-Series', 'G05 X5', 'G06 X6', 'G07 X7', 'G87 M2', 'G80 M3', 'G82 M4'],
+  'Toyota': ['A90 Supra'], 'Nissan': ['R35 GTR']
+};
+
+function toggleMobileSidebar() {
+    const sidebar = document.getElementById('category-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    if (sidebar.classList.contains('-translate-x-full')) {
+        sidebar.classList.remove('-translate-x-full'); overlay.classList.remove('hidden'); document.body.classList.add('modal-open');
+    } else {
+        sidebar.classList.add('-translate-x-full'); overlay.classList.add('hidden'); document.body.classList.remove('modal-open');
+    }
+}
+
+function selectCategoryCloseMobile(category) {
+    if (category === 'Badges') { window.location.href = 'badges-en.html'; return; }
+    selectCategory(category);
+    if (window.innerWidth < 768) toggleMobileSidebar();
+}
+
+function fetchScript(src) {
+    return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.className = 'dynamic-db-script';
+        script.src = src; script.async = false;
+        script.onload = () => {
+            const data = Array.isArray(window.exteriorDatabase) ? [...window.exteriorDatabase] : [];
+            resolve(data);
+        };
+        script.onerror = () => resolve([]);
+        document.body.appendChild(script);
+    });
+}
+
+async function loadChassisDatabase(targetGroup, callback) {
+    document.querySelectorAll('.dynamic-db-script').forEach(el => el.remove());
+    if(targetGroup !== 'ALL_BMW' || window.masterExteriorDatabase.length === 0) {
+        window.masterExteriorDatabase = [];
+    }
+    const upper = targetGroup.toUpperCase();
+
+    try {
+        if (upper === 'ALL_BMW') {
+            window.exteriorDatabase = []; const e = await fetchScript('bmwe.js?v=' + Date.now());
+            window.exteriorDatabase = []; const f = await fetchScript('bmwf.js?v=' + Date.now());
+            window.exteriorDatabase = []; const g = await fetchScript('bmwg.js?v=' + Date.now());
+            window.masterExteriorDatabase = [...e, ...f, ...g];
+        } else {
+            let target = '';
+            if (upper.includes('G30') || upper.includes('G38') || upper.includes('F90') || upper.includes('F10') || upper.includes('F18') || upper.includes('F16')) target = 'bmwf.js';
+            else if (upper.includes('G22') || upper.includes('G26')) target = 'bmwg.js';
+            else if (upper.startsWith('E')) target = 'bmwe.js';
+            else if (upper.startsWith('G')) target = 'bmwg.js';
+            else if (upper.startsWith('F')) target = 'bmwf.js';
+
+            if (target) {
+                window.exteriorDatabase = [];
+                const data = await fetchScript(target + '?v=' + Date.now());
+                window.masterExteriorDatabase = data;
+            }
+        }
+    } catch (err) { console.error(err); }
+    if (callback) callback();
+}
+
+function selectBrand(brand, isInit = false) {
+    currentBrand = brand; currentModel = 'All'; initialLoad = brand === 'All';
+    document.querySelectorAll('.brand-btn').forEach(btn => btn.classList.remove('filter-active'));
+    const activeBtn = document.getElementById('brand-' + (brand === 'Mercedes-Benz' ? 'Benz' : brand));
+    if(activeBtn) activeBtn.classList.add('filter-active');
+
+    const modelListDiv = document.getElementById('model-list');
+    if (brand === 'All') {
+        modelListDiv.innerHTML = '<span class="text-xs text-gray-600 italic">Select a brand above to view specific chassis configurations.</span>';
+        loadChassisDatabase('ALL_BMW', renderMatrix);
+    } else {
+        let listHtml = `<button onclick="selectModel('All')" id="model-All" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide filter-active">All ${brand}</button>`;
+        if (chassisMapping[brand]) {
+            chassisMapping[brand].forEach(chassis => {
+                let cleanId = chassis.replace(/[^a-zA-Z0-9]/g, '');
+                listHtml += `<button onclick="selectModel('${chassis}')" id="model-${cleanId}" class="model-btn px-3 py-1 rounded border border-gray-800 text-[11px] text-gray-400 tracking-wide">${chassis}</button>`;
+            });
+        } modelListDiv.innerHTML = listHtml;
+        if (brand === 'BMW') { loadChassisDatabase('ALL_BMW', renderMatrix); } 
+        else { window.masterExteriorDatabase = []; renderMatrix(); }
+    }
+}
+
+function selectModel(model) {
+    currentModel = model; initialLoad = false;
+    document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('filter-active'));
+    const activeBtn = document.getElementById('model-' + (model === 'All' ? 'All' : model.replace(/[^a-zA-Z0-9]/g, '')));
+    if(activeBtn) activeBtn.classList.add('filter-active');
+    if (currentBrand === 'BMW') { loadChassisDatabase(model === 'All' ? 'ALL_BMW' : model, renderMatrix); } 
+    else { renderMatrix(); }
+}
+
+function selectCategory(category) {
+    if (category === 'Badges') { window.location.href = 'badges-en.html'; return; }
+    currentCategory = category; if (currentBrand !== 'All') initialLoad = false;
+    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('filter-active'));
+    const activeBtn = document.getElementById('cat-' + category.replace(/[^a-zA-Z0-9]/g, ''));
+    if(activeBtn) activeBtn.classList.add('filter-active');
+    renderMatrix();
+}
+
+function renderMatrix() {
+    const gridContainer = document.getElementById('exterior-matrix-grid');
+    const emptyState = document.getElementById('empty-state');
+    const showcaseZone = document.getElementById('bodykits-showcase-zone');
+    
+    if (initialLoad) { 
+        gridContainer.classList.add('hidden'); 
+        emptyState.classList.add('hidden'); 
+        showcaseZone.classList.remove('hidden'); 
+        return; 
+    }
+    
+    showcaseZone.classList.add('hidden');
+    gridContainer.innerHTML = '';
+    
+    let currentChassisTokens = currentModel !== 'All' ? currentModel.split(' / ').map(t => t.split(' ')[0]) : [];
+
+    activeFilteredData = window.masterExteriorDatabase.filter(item => {
+        const matchCat = (currentCategory === 'All' || item.category === currentCategory);
+        if (currentBrand === 'All') return matchCat;
+        const matchBrand = (item.brand === currentBrand);
+        let matchModel = currentModel === 'All' || (item.compat && currentChassisTokens.some(token => item.compat.includes(token))) || (item.compat && item.compat.includes('All'));
+        return matchCat && matchBrand && matchModel;
+    });
+
+    if (activeFilteredData.length === 0) { gridContainer.classList.add('hidden'); emptyState.classList.remove('hidden'); } 
+    else {
+        emptyState.classList.add('hidden'); gridContainer.classList.remove('hidden');
+        activeFilteredData.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = "product-matrix-card rounded-xl overflow-hidden gold-border p-3 flex flex-col justify-between";
+            card.onclick = () => openLightbox(item.id);
+            card.innerHTML = `
+                <div class="w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg relative mb-3">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain">
+                </div>
+                <div class="flex-grow flex flex-col justify-between">
+                    <h4 class="text-xs font-bold text-gray-200 tracking-wide line-clamp-2 leading-tight">${item.title}</h4>
+                    <div class="text-sm font-extrabold text-yellow-500 mt-2">${item.price}</div>
+                </div>`;
+            gridContainer.appendChild(card);
+        });
+    }
+}
+
+function switchBodyKitsViewer(index, thumbElement) {
+    const data = bodyKitsDatabase[index];
+    if (!data) return;
+
+    const allThumbs = document.querySelectorAll('.paddle-thumb');
+    allThumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
+    if (thumbElement) thumbElement.classList.add('active-thumb');
+
+    const imgElement = document.getElementById('main-view-img');
+    const videoElement = document.getElementById('main-view-video');
+    const csOverlay = document.getElementById('coming-soon-overlay');
+    const btnLink = document.getElementById('whatsapp-link');
+
+    if (data.type === 'video') {
+        csOverlay.classList.add('hidden'); imgElement.classList.add('hidden'); imgElement.src = "";
+        videoElement.src = data.url; videoElement.classList.remove('hidden'); videoElement.load();
+        videoElement.play().catch(e => console.log(e));
+        btnLink.style.opacity = "1"; btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'image') {
+        csOverlay.classList.add('hidden'); videoElement.classList.add('hidden'); videoElement.pause(); videoElement.src = "";
+        imgElement.src = data.url; imgElement.classList.remove('hidden');
+        btnLink.style.opacity = "1"; btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'coming-soon') {
+        videoElement.classList.add('hidden'); videoElement.pause(); videoElement.src = "";
+        imgElement.classList.add('hidden'); imgElement.src = "";
+        csOverlay.classList.remove('hidden');
+        btnLink.style.opacity = "0.3"; btnLink.style.pointerEvents = "none";
+    }
+}
+
+function openLightbox(productId) {
+    const item = window.masterExteriorDatabase.find(x => x.id === productId);
+    if (!item) return;
+    
+    if (activeFilteredData.length === 0) {
+        activeFilteredData = [...window.masterExteriorDatabase];
+    }
+    
+    currentLightboxIndex = activeFilteredData.findIndex(x => x.id === productId);
+    if (currentLightboxIndex === -1) currentLightboxIndex = 0;
+    
+    document.getElementById('modal-img').src = item.image;
+    document.getElementById('modal-title').innerText = item.title;
+    document.getElementById('modal-price').innerText = `Product: ${item.price}`;
+    document.getElementById('modal-saved').innerText = `Save ${item.saved}`;
+    document.getElementById('modal-cat').innerText = `Category: ${item.category} | Asset ID: ${item.id}`;
+
+    let dynamicPayload = `Hello Shing, i want to inquire about the exterior setup: ${item.title}`;
+    document.getElementById('modal-wa-btn').href = `https://wa.me/85295368533?text=${encodeURIComponent(dynamicPayload)}`;
+
+    const modal = document.getElementById('product-lightbox-modal');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    document.body.classList.add('modal-open');
+}
+
+function nextLightboxImg() {
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    if (sourceData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex + 1) % sourceData.length;
+    const targetItem = sourceData[currentLightboxIndex];
+    if (targetItem) openLightbox(targetItem.id);
+}
+
+function prevLightboxImg() {
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    if (sourceData.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex - 1 + sourceData.length) % sourceData.length;
+    const targetItem = sourceData[currentLightboxIndex];
+    if (targetItem) openLightbox(targetItem.id);
+}
+
+// 🛡️ 皇家級極致除錯過濾器 (100% 挽救並保留正確認價小數點)
+function cleanPriceForCart(priceString) {
+    if (!priceString) return 0.00;
+    let s = String(priceString).replace(/[^0-9.]/g, '');
+    let f = parseFloat(s);
+    if (isNaN(f) || f <= 0) return 0.00;
+    return f;
+}
+
+// 🛒 👑 攔截大圖 Add to Cart，寫入本地儲存，彈出 Cart Preview 
+function submitToLocalCart() {
+    let sourceData = activeFilteredData.length > 0 ? activeFilteredData : window.masterExteriorDatabase;
+    const targetItem = sourceData[currentLightboxIndex];
+    if (!targetItem) return;
+
+    let validPrice = cleanPriceForCart(targetItem.price);
+    let validSaved = cleanPriceForCart(targetItem.saved);
+    
+    // 👑 智能品類自動對齊防呆機制（完全排除 undefined Bug）
+    let itemSize = 'small'; 
+    let cat = String(targetItem.category || '').trim();
+    let titleLower = String(targetItem.title || '').toLowerCase();
+
+    if (cat === 'Body Kit' || cat === 'Hood' || titleLower.includes('body kit') || titleLower.includes('bumper') || titleLower.includes('hood')) {
+        itemSize = 'xlarge'; 
+    } else if (cat === 'Front Lips' || cat === 'Side Skirts' || titleLower.includes('front lip') || titleLower.includes('side skirt') || titleLower.includes('gt wing')) {
+        itemSize = 'large'; 
+    } else if (cat === 'Rear Diffusers') {
+        if (titleLower.includes('side splitter') || titleLower.includes('corner') || titleLower.includes('trim')) {
+            itemSize = 'small';
+        } else {
+            itemSize = 'large';
+        }
+    } else if (cat === 'Trunk') {
+        itemSize = 'large'; 
+    } else if (cat === 'Front Fender' || cat === 'Rear Spoilers' || titleLower.includes('fender') || titleLower.includes('spoiler') || titleLower.includes('engine bay') || titleLower.includes('seat back') || titleLower.includes('guard panel')) {
+        itemSize = 'medium'; 
+    }
+
+    let existingItem = kingzCart.find(x => x.id === targetItem.id);
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        kingzCart.push(ledProduct);
+        kingzCart.push({
+            id: targetItem.id,
+            title: targetItem.title,
+            price: validPrice,
+            saved: validSaved,
+            image: targetItem.image,
+            size: itemSize,
+            quantity: 1
+        });
     }
 
     localStorage.setItem('kingz_carbon_cart', JSON.stringify(kingzCart));
+    
+    closeLightboxForce();
     openCartPreview();
 }
 
@@ -925,7 +663,7 @@ function renderCartPreview() {
     kingzCart.forEach((item, index) => {
         let subtotal = item.price * item.quantity;
         itemsSubtotal += subtotal;
-        totalSaved += ((item.saved || 0) * item.quantity);
+        totalSaved += (item.saved * item.quantity);
 
         if (item.size === 'xlarge') hasXlarge = true;
         else if (item.size === 'large') largePool += item.quantity;
@@ -965,13 +703,16 @@ function renderCartPreview() {
         if (hasXlarge) {
             expressBlocked = true; 
         } else {
+            // 🌟 滿血版：按件累算 + 智能塞箱免費配額算法
             let largeCost = largePool * 220;
-            let smallQuotaFromLarge = largePool * 2;
+            let smallQuotaFromLarge = largePool * 2; // 大件包2件小件免費
 
             let mediumCost = mediumPool * 120;
-            let smallQuotaFromMedium = mediumPool * 1;
+            let smallQuotaFromMedium = mediumPool * 1; // 中件包1件小件免費
 
             let totalSmallQuota = smallQuotaFromLarge + smallQuotaFromMedium;
+            
+            // 多出的細件計原價 $50
             let remainingSmall = Math.max(0, smallPool - totalSmallQuota);
             let smallCost = remainingSmall * 50;
 
@@ -986,6 +727,7 @@ function renderCartPreview() {
             `<span class="text-yellow-500">Premium Air Cargo Enabled</span><br>Delivering straight to your doorstep approximately 7 days from dispatch.`;
     }
 
+    // 渲染明細數據
     summaryItemsSubtotal.innerText = `$${itemsSubtotal.toFixed(2)} USD`;
     summaryShippingFee.innerText = selectedShipping === 'free' ? "FREE" : `+$${shippingFee.toFixed(2)} USD`;
     summaryTotalSaved.innerText = `$${totalSaved.toFixed(2)} USD`;
@@ -1040,7 +782,7 @@ function handleShippingChange() {
 }
 
 /**
- * 👑 背後打包多件/單件貨物上傳 (PayPal 官方購物車結算表單)
+ * 👑 背後打包多件貨上傳 (PayPal 官方購物車集體結算專用表單)
  */
 function launchBulkPayPalFormSubmit(calculatedExpressFee = 0) {
     if (kingzCart.length === 0) return;
@@ -1096,9 +838,28 @@ function closeCartPreview() {
     document.body.classList.remove('modal-open');
 }
 
+window.addEventListener('keydown', function(e) {
+    const modal = document.getElementById('product-lightbox-modal');
+    if (modal.classList.contains('opacity-0')) return;
+    if (e.key === 'ArrowRight') nextLightboxImg();
+    else if (e.key === 'ArrowLeft') prevLightboxImg();
+    else if (e.key === 'Escape') closeLightboxForce();
+});
+
+function closeLightbox(event) { if (event.target === document.getElementById('product-lightbox-modal')) closeLightboxForce(); }
+function closeLightboxForce() {
+    const modal = document.getElementById('product-lightbox-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none'); document.body.classList.remove('modal-open');
+}
+
 window.onload = () => {
-    renderCartPreview();
+    loadChassisDatabase('ALL_BMW', () => {
+        selectBrand('All', true);
+        switchBodyKitsViewer(0, document.querySelectorAll('.paddle-thumb')[0]);
+        renderCartPreview();
+    });
 };
 </script>
 </body>
 </html>
+
