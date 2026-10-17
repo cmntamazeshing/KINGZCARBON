@@ -718,11 +718,20 @@ body {
                         </p>
                     </div>
 
-                    <button onclick="addLedBadgeToCart()" 
-                            class="w-full py-3.5 px-4 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-black font-extrabold text-xs uppercase tracking-widest rounded-xl hover:brightness-110 transition shadow-lg flex items-center justify-center gap-2">
-                        🛒 Add to Cart ($229)
-                    </button>
-                </div>
+          <!-- 彈窗內的按鈕組合結構 -->
+<div class="flex flex-col gap-3 mt-4">
+    <!-- 按鈕 1：寫入本地購物車並彈出側滑 Cart Preview -->
+    <button onclick="submitToLocalCart()" 
+            class="w-full px-6 py-3.5 bg-yellow-600 hover:bg-yellow-500 text-black text-xs font-black tracking-widest uppercase rounded-xl transition shadow-lg">
+        🛒 Add to Cart
+    </button>
+
+    <!-- 按鈕 2：直連 WhatsApp 查詢 -->
+    <a id="modal-wa-btn" href="" target="_blank" 
+       class="w-full px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 text-emerald-400 border border-emerald-500/30 text-xs font-black tracking-widest uppercase rounded-xl transition text-center flex items-center justify-center gap-2">
+        💬 Direct WhatsApp Inquiry
+    </a>
+</div>
 
                 <!-- eBay ($249 USD) -->
                 <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
