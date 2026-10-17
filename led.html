@@ -80,24 +80,40 @@ body {
         </a>
     </div>
 
-    <div class="text-center mb-10">
+    <!-- 品牌大標題 -->
+    <div class="text-center mb-8">
         <h1 class="text-5xl md:text-7xl font-bold tracking-widest gold-flow gold-glow uppercase">
             KINGZCARBON
         </h1>
-        <p class="mt-6 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
-            Illuminated LED Badges • Sovereign Digital Control • Precision Engineering
-        </p>
     </div>
 
-    <!-- 頂部無須鑽孔 Banner (100% Non-Destructive Protection) -->
-    <div class="mb-16 bg-gradient-to-r from-yellow-950/40 via-black to-yellow-950/40 p-6 md:p-8 rounded-2xl gold-border text-center shadow-2xl relative overflow-hidden">
+    <!-- 🌐 新增：顯眼的中文版網頁切換按鈕 (指向 ledhk.html) -->
+    <div class="flex justify-center mb-10">
+        <a href="ledhk.html" 
+           class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-950/80 via-black to-yellow-950/80 gold-border rounded-full text-yellow-400 font-extrabold text-xs md:text-sm uppercase tracking-widest shadow-xl hover:scale-105 hover:bg-yellow-600 hover:text-black transition duration-300 border border-yellow-500/80">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            中文版頁面 (Hong Kong / TW) &rarr;
+        </a>
+    </div>
+
+    <!-- 🔥 整合格仔：副標題（大字顯眼）佔據格仔頂部 + 100% NO DRILLING REQUIRED -->
+    <div class="mb-16 bg-gradient-to-r from-yellow-950/40 via-black to-yellow-950/40 p-6 md:p-10 rounded-2xl gold-border text-center shadow-2xl relative overflow-hidden">
+        
+        <!-- 格仔頂部：加大顯眼副標題 -->
+        <p class="text-base md:text-xl font-extrabold gold-flow gold-glow uppercase tracking-widest mb-6 border-b border-yellow-600/30 pb-4">
+            ILLUMINATED LED BADGES • SOVEREIGN DIGITAL CONTROL • PRECISION ENGINEERING
+        </p>
+
+        <!-- 無損安裝核心賣點 -->
         <span class="inline-block px-4 py-1 rounded-full border border-yellow-500/60 bg-yellow-900/30 text-yellow-400 text-xs font-black tracking-widest uppercase mb-3">
             ZERO DAMAGE INSTALLATION
         </span>
         <h2 class="text-3xl md:text-5xl font-black gold-flow gold-glow uppercase tracking-wider">
             100% NO DRILLING REQUIRED
         </h2>
-        <p class="mt-3 text-xs md:text-sm text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        <p class="mt-4 text-xs md:text-sm text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Preserve your vehicle’s factory bodywork. Engineered with custom low-profile cable routing and ultra-strong mounting adhesive for a flawless, completely non-destructive setup.
         </p>
     </div>
@@ -202,7 +218,6 @@ body {
                     </div>
                 </div>
 
-                <!-- 🔥【細執 1 修正】移除文字自訂介紹，專注圖片與短影片播映 -->
                 <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
                     <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,10 +294,9 @@ body {
             </div>
         </div>
 
-        <!-- 🔥【細執 2 修正】圖片對調，精準對應 App 介面與工藝圖 -->
+        <!-- 圖片對調：左卡 App 介面圖 / 右卡 工藝與耐用規格圖 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pt-8 border-t border-gray-900">
             
-            <!-- 左卡：App 功能與介面圖 (WL9hIsB.jpeg) -->
             <div class="rounded-xl gold-border overflow-hidden card-glow bg-black flex flex-col justify-between p-2">
                 <img src="https://i.imgur.com/WL9hIsB.jpeg" alt="KINGZCARBON Exclusive App Interface & Controls" class="w-full h-auto object-cover rounded-lg">
                 <div class="p-3 text-center border-t border-gray-900 mt-2">
@@ -290,7 +304,6 @@ body {
                 </div>
             </div>
 
-            <!-- 右卡：工藝與耐用規格圖 (CpTiNnj.png) -->
             <div class="rounded-xl gold-border overflow-hidden card-glow bg-black flex flex-col justify-between p-2">
                 <img src="https://i.imgur.com/CpTiNnj.png" alt="KINGZCARBON Process & Durability Specifications" class="w-full h-auto object-cover rounded-lg">
                 <div class="p-3 text-center border-t border-gray-900 mt-2">
@@ -397,7 +410,7 @@ body {
             </p>
         </div>
 
-        <!-- 🔥【細執 3 修正】升級為單欄（一列一卡）大畫面排版，引導客人跟次序邊睇邊做 -->
+        <!-- 單欄（一列一卡）大畫面安裝影片引導區塊 -->
         <div class="mb-12">
             <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
                 01 / Step-by-Step Installation & Calibration Video Guides
@@ -803,8 +816,11 @@ body {
 <script>
 let currentTargetChannel = '';
 
+// 💡 提示老細：請將下方 'your-paypal-email@domain.com' 替換為你的 PayPal 正式 Email 或 PayPal.Me 專屬網址
+const officialPaypalEmail = 'https://paypal.me/shingkingzf82m4';
+
 const channelUrls = {
-    'paypal': 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=your-paypal-email@domain.com&item_name=KINGZCARBON%20Illuminated%20LED%20Badge&amount=229.00&currency_code=USD',
+    'paypal': `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${encodeURIComponent(officialPaypalEmail)}&item_name=KINGZCARBON%20Illuminated%20LED%20Badge&amount=229.00&currency_code=USD`,
     'ebay': 'https://www.ebay.com/itm/137844583595',
     'etsy': 'https://www.etsy.com/hk-en/listing/4542500949/pre-order-led-badge-for-bmw-trunk-82mm'
 };
@@ -830,7 +846,10 @@ function closeOrderModal() {
 }
 
 function proceedToDestination() {
-    if(channelUrls[currentTargetChannel]) {
+    if(currentTargetChannel === 'paypal' && officialPaypalEmail.includes('domain.com')) {
+        // 防錯安全提示：若未填寫正式 Email，自動跳轉 WhatsApp 聯繫，防止客人看到 PayPal 報錯
+        window.open('https://wa.me/85295368533?text=Hello%20SHING,%20I%20would%20like%20to%20order%20the%20Illuminated%20LED%20Badge%20($229%20USD)%20via%20PayPal.', '_blank');
+    } else if(channelUrls[currentTargetChannel]) {
         window.open(channelUrls[currentTargetChannel], '_blank');
     }
     closeOrderModal();
