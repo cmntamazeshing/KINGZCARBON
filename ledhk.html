@@ -1,1 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Illuminated LED Badges | KINGZCARBON X PAKEX</title>
+<script src="https://cdn.tailwindcss.com"></script>
+  
+<style>
+/* 碳纖維紋理背景 */
+body {
+    background-color: #000;
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.03) 0px,
+            rgba(255,255,255,0.03) 2px,
+            transparent 2px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,255,255,0.03) 0px,
+            rgba(255,255,255,0.03) 2px,
+            transparent 2px,
+            transparent 6px
+        );
+}
 
+/* 金色流光動畫 */
+.gold-flow {
+    background: linear-gradient(
+        90deg,
+        #b8892e,
+        #f5e6a8, #d4af37, #f5e6a8,
+        #b8892e
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: flow 6s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+}
+
+/* 金色字體發光 */
+.gold-glow {
+    text-shadow: 0 0 8px rgba(212,175,55,0.6),
+                 0 0 18px rgba(212,175,55,0.3);
+}
+
+.gold-border {
+    border: 1px solid rgba(212,175,55,0.5);
+}
+
+/* 卡片懸停特效 */
+.card-glow {
+    transition: all 0.4s ease;
+}
+.card-glow:hover {
+    box-shadow: 0 0 30px rgba(212,175,55,0.25);
+    transform: translateY(-5px);
+}
+</style>
+</head>
+
+<body class="text-gray-200">
+
+<!-- 頂部導航列 -->
+<div class="max-w-7xl mx-auto px-6 pt-6 flex justify-between items-center text-sm tracking-widest relative z-40">
+    <a href="index.html" class="text-gray-400 hover:text-yellow-400 transition">&larr; 主頁</a>
+    
+    <a href="https://wa.me/85295368533?text=Hello%20SHING,%20我想查詢%20LED%20BADGE%20發光車標。" 
+       target="_blank" 
+       class="px-5 py-2 rounded-full bg-gradient-to-r from-yellow-950/80 via-black to-yellow-950/80 gold-border text-yellow-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:bg-yellow-600 hover:text-black transition shadow-lg">
+        💬 WhatsApp 專人查詢
+    </a>
+</div>
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- KINGZCARBON Header & Brand Logo -->
+    <div class="flex justify-center mb-6">
+        <a href="index.html">
+            <img src="https://i.imgur.com/WNQPBad.png"
+                 alt="KINGZCARBON Logo"
+                 class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-full border-2 border-yellow-600 shadow-2xl hover:scale-105 transition duration-300">
+        </a>
+    </div>
+
+    <!-- 品牌大標題 -->
+    <div class="text-center mb-8">
+        <h1 class="text-5xl md:text-7xl font-bold tracking-widest gold-flow gold-glow uppercase">
+            KINGZCARBON
+        </h1>
+    </div>
+
+    <!-- 🌐 切換英文版按鈕 (指向 led.html) -->
+    <div class="flex justify-center mb-10">
+        <a href="led.html" 
+           class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-950/80 via-black to-yellow-950/80 gold-border rounded-full text-yellow-400 font-extrabold text-xs md:text-sm uppercase tracking-widest shadow-xl hover:scale-105 hover:bg-yellow-600 hover:text-black transition duration-300 border border-yellow-500/80">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            English Version Page (Global) &rarr;
+        </a>
+    </div>
+
+    <!-- 🔥 核心賣點橫幅 (Hero Banner) -->
+    <div class="mb-16 bg-gradient-to-r from-yellow-950/40 via-black to-yellow-950/40 p-6 md:p-10 rounded-2xl gold-border text-center shadow-2xl relative overflow-hidden">
+        
+        <!-- 格仔頂部：副標題 (維持英文) -->
+        <p class="text-base md:text-xl font-extrabold gold-flow gold-glow uppercase tracking-widest mb-6 border-b border-yellow-600/30 pb-4">
+            ILLUMINATED LED BADGES • SOVEREIGN DIGITAL CONTROL • PRECISION ENGINEERING
+        </p>
+
+        <!-- 無損安裝小標籤 -->
+        <span class="inline-block px-4 py-1 rounded-full border border-yellow-500/60 bg-yellow-900/30 text-yellow-400 text-xs font-black tracking-widest uppercase mb-3">
+            無損安裝,無需鑽孔
+        </span>
+        <!-- 橫幅大標題 (維持英文) -->
+        <h2 class="text-3xl md:text-5xl font-black gold-flow gold-glow uppercase tracking-wider">
+            100% NO DRILLING REQUIRED
+        </h2>
+        <!-- 說明文案 -->
+        <p class="mt-4 text-xs md:text-sm text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            完美保留原廠車身漆面與鈑件完整性。隱藏式走線，3M雙面膠，實現真正零鑽孔、無損直上。
+        </p>
+    </div>
+
+    <!-- 👑 區塊一：動態實車展示 (Section 1: Live Showcase) -->
+    <section class="mb-16 bg-black bg-opacity-40 p-4 md:p-8 rounded-2xl gold-border shadow-2xl">
+        
+        <div class="text-center mb-8 select-none">
+            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
+                NOCTURNAL ILLUMINATION IN ACTION
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold tracking-wider text-white uppercase">
+                Live Showcase 實車效果與社交平台熱門實拍
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Reel 1 -->
+            <div class="bg-black rounded-xl gold-border overflow-hidden card-glow flex flex-col justify-between p-2">
+                <div class="w-full flex justify-center items-center min-h-[450px]">
+                    <blockquote class="instagram-media" 
+                                data-instgrm-captioned 
+                                data-instgrm-permalink="https://www.instagram.com/p/DcHsVh3qi-H/" 
+                                data-instgrm-version="14"
+                                style=" background:#000; border:0; border-radius:12px; box-shadow:none; margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%;">
+                    </blockquote>
+                </div>
+                <div class="p-3 text-center border-t border-gray-900">
+                    <span class="text-xs font-semibold text-gray-300 tracking-wider">動態呼吸氛圍背光</span>
+                </div>
+            </div>
+
+            <!-- Reel 2 -->
+            <div class="bg-black rounded-xl gold-border overflow-hidden card-glow flex flex-col justify-between p-2">
+                <div class="w-full flex justify-center items-center min-h-[450px]">
+                    <blockquote class="instagram-media" 
+                                data-instgrm-captioned 
+                                data-instgrm-permalink="https://www.instagram.com/p/DduRYsgz7qT/" 
+                                data-instgrm-version="14"
+                                style=" background:#000; border:0; border-radius:12px; box-shadow:none; margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%;">
+                    </blockquote>
+                </div>
+                <div class="p-3 text-center border-t border-gray-900">
+                    <span class="text-xs font-semibold text-gray-300 tracking-wider">原廠尺寸極致貼合</span>
+                </div>
+            </div>
+
+            <!-- Reel 3 -->
+            <div class="bg-black rounded-xl gold-border overflow-hidden card-glow flex flex-col justify-between p-2">
+                <div class="w-full flex justify-center items-center min-h-[450px]">
+                    <blockquote class="instagram-media" 
+                                data-instgrm-captioned 
+                                data-instgrm-permalink="https://www.instagram.com/p/Dd_wvdQzJol/" 
+                                data-instgrm-version="14"
+                                style=" background:#000; border:0; border-radius:12px; box-shadow:none; margin: 1px; max-width:540px; min-width:280px; padding:0; width:99.375%;">
+                    </blockquote>
+                </div>
+                <div class="p-3 text-center border-t border-gray-900">
+                    <span class="text-xs font-semibold text-gray-300 tracking-wider">夜間街頭矚目焦點</span>
+                </div>
+            </div>
+
+        </div>
+
+        <script async src="https://www.instagram.com/embed.js"></script>
+    </section>
+
+    <!-- 👑 區塊二：App 數字操控與硬件工藝規格 (Section 2: Digital Control & Hardware) -->
+    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
+        
+        <div class="text-center mb-12 select-none">
+            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
+                INTELLIGENT PERFORMANCE & ARCHITECTURAL DURABILITY
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
+                Sovereign Digital Control
+            </h2>
+            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
+                燈光科技 • 頂級工藝
+            </p>
+        </div>
+
+        <!-- 01 / App 數字操控功能亮點 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
+                01 / App 數字操控功能亮點 (App & Digital Control Highlights)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Smart Driving Sync（動態駕駛同步）</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            實時感應車輛行駛動態。轉向、煞車、急加速或達到預設車速時，系統會即時聯動觸發專屬動態動畫、表情符號或警示光效。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Artisan Image & Video Playback（客製化圖文與短片播放）</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            支援自訂圖片、影片上傳。隨心打造專屬於你座駕的獨特符號。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Intelligent Dimming & Compliance Guard（智能調光與合法常亮模式）</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            自動調節亮度（支援手動微調）。可鎖定為靜態顯示或關閉燈效，完美兼顧日常道路法規。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col md:flex-row gap-5 items-start">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white tracking-wide gold-flow mb-2">Sequence Memory & OTA Upgrades（播放順序記憶與 OTA 無線升級）</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            內置記憶卡，熄火後依然永久保留播放順序。支援 OTA APP升級，持續優化效能。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 02 / 硬件與工程規格 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
+                02 / 硬件與工程規格 (Hardware & Engineering Specifications)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
+                    <h4 class="text-lg font-bold text-white gold-flow mb-2">Aerospace CNC Structure</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        高精密 CNC 機身，搭配頂級陽極氧化抗刮防腐蝕表面工藝。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
+                    <h4 class="text-lg font-bold text-white gold-flow mb-2">Optical Glass Coatings</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        AR（抗反射）鍍膜確保強烈日光下依舊清晰奪目；AF（抗指紋）疏水鍍膜令鏡面長效抗污、一抹即淨。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
+                    <h4 class="text-lg font-bold text-white gold-flow mb-2">IP68 + IP69 Waterproofing</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        全密封結構，應對高壓洗車機直沖、暴雨積水及極端溫差環境（-30°C 至 80°C）。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 圖片展示 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pt-8 border-t border-gray-900">
+            <div class="rounded-xl gold-border overflow-hidden card-glow bg-black flex flex-col justify-between p-2">
+                <img src="https://i.imgur.com/WL9hIsB.jpeg" alt="Exclusive App Interface & Controls" class="w-full h-auto object-cover rounded-lg">
+                <div class="p-3 text-center border-t border-gray-900 mt-2">
+                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Exclusive App Interface & Controls (專屬 App 操控介面)</span>
+                </div>
+            </div>
+
+            <div class="rounded-xl gold-border overflow-hidden card-glow bg-black flex flex-col justify-between p-2">
+                <img src="https://i.imgur.com/CpTiNnj.png" alt="Process & Durability Architecture" class="w-full h-auto object-cover rounded-lg">
+                <div class="p-3 text-center border-t border-gray-900 mt-2">
+                    <span class="text-xs font-semibold text-gray-400 tracking-wider">Process & Durability Architecture (精密工藝與耐用防護架構)</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 👑 區塊三：車型適配指南 (Section 3: Vehicle Compatibility) -->
+    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
+        
+        <div class="text-center mb-12 select-none">
+            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
+                PRECISION FITMENT GUIDE
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
+                Vehicle Compatibility
+            </h2>
+            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
+                專為標準 74mm 與 82mm 車標研發 • 通用改裝高度相容
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- BMW 專車直上卡片 -->
+            <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-400 font-bold">
+                            BMW
+                        </div>
+                        <h3 class="text-xl font-bold text-white gold-flow tracking-wide">
+                            BMW Dedicated Fitment（BMW 專車原位替換）
+                        </h3>
+                    </div>
+                    
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6">
+                        專為 BMW 設計。支援 <strong class="text-yellow-400">82mm</strong>（常見於車頭引擎蓋及部分車型尾箱）及 <strong class="text-yellow-400">74mm</strong>（常見於尾箱蓋）。完美貼合，完全無損原車身漆面。
+                    </p>
+
+                    <div class="p-4 rounded-lg bg-yellow-950 bg-opacity-30 border border-yellow-600/60 text-xs text-yellow-200/90 leading-relaxed mb-4">
+                        <strong class="text-yellow-400 block mb-1 uppercase tracking-wider font-bold">✨ NO DRILLING REQUIRED（無損走線）:</strong>
+                        利用原廠預留穿線孔位走線，毋須鑽孔或破壞任何車身鈑件。
+                    </div>
+
+                    <div class="p-4 rounded-lg bg-red-950 bg-opacity-30 border border-red-900/60 text-xs text-red-200/90 leading-relaxed">
+                        <strong class="text-red-400 block mb-1 uppercase tracking-wider font-bold">⚠️ Important Compatibility Notice（重要相容性提示）:</strong>
+                        若車輛原廠車標內部整合了新一代倒車鏡頭、自動清洗噴嘴或原廠主動電子感應器，則不適用本產品。訂購前請務必先檢查原車配置。
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-900 text-right">
+                    <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">可選尺寸：82mm / 74mm</span>
+                </div>
+            </div>
+
+            <!-- 非 BMW / 跨品牌通用改裝卡片 -->
+            <div class="p-8 rounded-xl bg-black bg-opacity-50 gold-border card-glow flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-400 font-bold">
+                            UNI
+                        </div>
+                        <h3 class="text-xl font-bold text-white gold-flow tracking-wide">
+                            Non-BMW Universal Conversion（非 BMW 跨品牌通用改裝）
+                        </h3>
+                    </div>
+
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6">
+                        可支援其他品牌車系。只需拆下原廠車標後鑽孔穿線即可。
+                    </p>
+
+                    <div class="p-4 rounded-lg bg-yellow-950 bg-opacity-20 border border-yellow-600/40 text-xs text-yellow-200/90 leading-relaxed">
+                        <strong class="text-yellow-400 block mb-1 uppercase tracking-wider font-bold">💡 平面安裝要求:</strong>
+                        拆除原廠車標後，確保該車身安裝基座為「完全平整表面」。只要基座平整，選擇 <strong class="text-white">82mm 版本</strong> 即可達到完美的平整服貼效果。
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-900 text-right">
+                    <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">建議規格：82mm 平面安裝款</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 👑 區塊四：安裝教學與下載 (Section 4: Installation & Downloads) -->
+    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
+        
+        <div class="text-center mb-12 select-none">
+            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
+                OPERATIONAL GUIDANCE & DIGITAL ASSETS
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
+                Installation & Downloads
+            </h2>
+            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
+                逐步影片教學 • 動態素材庫 • 官方手機 App
+            </p>
+        </div>
+
+        <!-- 01 / 影片教學 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
+                01 / 影片教學
+            </h3>
+            
+            <div class="space-y-8">
+                
+                <!-- 步驟 01 -->
+                <div class="p-6 md:p-8 rounded-2xl bg-black bg-opacity-60 gold-border card-glow flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-2/3 h-64 md:h-80 bg-gray-900 rounded-xl gold-border flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group flex-shrink-0">
+                        <svg class="w-16 h-16 text-yellow-600/70 mb-3 group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-xs tracking-widest uppercase text-yellow-500/80 font-bold">Video Guide Slot 01</span>
+                    </div>
+                    <div class="w-full md:w-1/3 flex flex-col justify-center">
+                        <div class="inline-block w-12 h-12 rounded-lg bg-yellow-600/20 border border-yellow-600 text-yellow-400 font-extrabold text-lg flex items-center justify-center mb-4">
+                            01
+                        </div>
+                        <h4 class="text-xl font-bold text-white gold-flow mb-3">Mounting & Power Wiring (固定安裝與電源接線)</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                            通電測試後，線材經原廠孔位引入並接駁電源，開機點亮。
+                        </p>
+                        <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">步驟 01：硬件接駁 &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- 步驟 02 -->
+                <div class="p-6 md:p-8 rounded-2xl bg-black bg-opacity-60 gold-border card-glow flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-2/3 h-64 md:h-80 bg-gray-900 rounded-xl gold-border flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group flex-shrink-0">
+                        <svg class="w-16 h-16 text-yellow-600/70 mb-3 group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-xs tracking-widest uppercase text-yellow-500/80 font-bold">Video Guide Slot 02</span>
+                    </div>
+                    <div class="w-full md:w-1/3 flex flex-col justify-center">
+                        <div class="inline-block w-12 h-12 rounded-lg bg-yellow-600/20 border border-yellow-600 text-yellow-400 font-extrabold text-lg flex items-center justify-center mb-4">
+                            02
+                        </div>
+                        <h4 class="text-xl font-bold text-white gold-flow mb-3">Initial Alignment Calibration (首次水平校準)</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                            打開 App 連接藍牙後，校準顯示方向與旋轉角度，確保畫面保持水平。
+                        </p>
+                        <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">步驟 02：方向校準 &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- 步驟 03 -->
+                <div class="p-6 md:p-8 rounded-2xl bg-black bg-opacity-60 gold-border card-glow flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-2/3 h-64 md:h-80 bg-gray-900 rounded-xl gold-border flex flex-col items-center justify-center text-gray-500 relative overflow-hidden group flex-shrink-0">
+                        <svg class="w-16 h-16 text-yellow-600/70 mb-3 group-hover:scale-110 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-xs tracking-widest uppercase text-yellow-500/80 font-bold">Video Guide Slot 03</span>
+                    </div>
+                    <div class="w-full md:w-1/3 flex flex-col justify-center">
+                        <div class="inline-block w-12 h-12 rounded-lg bg-yellow-600/20 border border-yellow-600 text-yellow-400 font-extrabold text-lg flex items-center justify-center mb-4">
+                            03
+                        </div>
+                        <h4 class="text-xl font-bold text-white gold-flow mb-3">Monthly OTA Firmware Updates (每月 OTA 韌體升級優化)</h4>
+                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                            建議每月或空閒時檢查 OTA 更新，保持系統極致順暢並解鎖新功能。
+                        </p>
+                        <span class="text-[11px] text-yellow-500 uppercase tracking-widest font-semibold">步驟 03：無線升級 &rarr;</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 02 / 顯示素材庫 -->
+        <div class="mb-12 pt-8 border-t border-gray-900">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase">
+                02 / 顯示素材庫
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <a href="https://show.pakex.app/" target="_blank" 
+                   class="p-6 rounded-xl bg-black bg-opacity-60 gold-border card-glow flex items-center justify-between hover:bg-yellow-950/30 transition group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-base font-bold text-white gold-flow">Pakex Official Media Showcase (Pakex 官方預設素材展示庫)</h4>
+                            <p class="text-xs text-gray-400">瀏覽並免費下載官方動態圖檔與專屬光效預設。</p>
+                        </div>
+                    </div>
+                    <span class="text-yellow-400 text-lg group-hover:translate-x-1 transition">&rarr;</span>
+                </a>
+
+                <a href="https://pixabay.com/videos/" target="_blank" 
+                   class="p-6 rounded-xl bg-black bg-opacity-60 gold-border card-glow flex items-center justify-between hover:bg-yellow-950/30 transition group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-gray-900 border border-yellow-600 flex items-center justify-center text-yellow-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-base font-bold text-white gold-flow">Pixabay HD Royalty-Free Videos (Pixabay 免費高清短片庫)</h4>
+                            <p class="text-xs text-gray-400">探索數萬條高畫質背景動態循環短片，自訂你的專屬車標。</p>
+                        </div>
+                    </div>
+                    <span class="text-yellow-400 text-lg group-hover:translate-x-1 transition">&rarr;</span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- 03 / 官方 App 下載 -->
+        <div class="pt-8 border-t border-gray-900">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase">
+                03 / 官方 App 下載
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <a href="https://apps.apple.com/us/app/%E5%B3%B0%E7%9D%BF%E6%93%8E%E5%B5%8C/id6783410080" target="_blank" 
+                   class="p-6 rounded-xl bg-gradient-to-r from-gray-900 to-black gold-border card-glow flex items-center justify-between hover:border-yellow-400 transition group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-black border border-yellow-600 flex items-center justify-center text-yellow-400">
+                            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.62-.75 1.04-1.8 0.93-2.85-.9.04-2 .6-2.64 1.35-.58.67-1.09 1.75-.95 2.78 1.01.08 2.04-.53 2.66-1.28z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">iOS 系統專用</span>
+                            <h4 class="text-base font-bold text-white gold-flow">Apple App Store</h4>
+                        </div>
+                    </div>
+                    <span class="px-4 py-2 bg-yellow-600 text-black text-xs font-black uppercase tracking-widest rounded-lg group-hover:bg-yellow-500 transition">立即下載</span>
+                </a>
+
+                <a href="https://github.com/cmntamazeshing/KINGZCARBON/releases/download/app/led-app.apk" target="_blank" 
+                   class="p-6 rounded-xl bg-gradient-to-r from-gray-900 to-black gold-border card-glow flex items-center justify-between hover:border-yellow-400 transition group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-black border border-yellow-600 flex items-center justify-center text-yellow-400">
+                            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                                <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997 0-.5511.4482-.9993.9993-.9993.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997 0-.5511.4482-.9993.9993-.9993.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997zm11.4045-6.02l1.9973-3.4592c.1217-.2108.0494-.4797-.1614-.6014-.2108-.1217-.4797-.0494-.6014.1614l-2.0238 3.5051c-1.4013-.6386-2.9754-1.0023-4.6322-1.0023s-3.2309.3637-4.6322 1.0023l-2.0238-3.5051c-.1217-.2108-.3906-.2831-.6014-.1614-.2108.1217-.2831.3906-.1614.6014l1.9973 3.4592c-3.1412 1.7088-5.3007 4.8872-5.6385 8.6258h21.9168c-.3378-3.7386-2.4973-6.917-5.6385-8.6258z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Android 安卓直連 APK 安裝包</span>
+                            <h4 class="text-base font-bold text-white gold-flow">下載 APK 安裝檔</h4>
+                        </div>
+                    </div>
+                    <span class="px-4 py-2 bg-yellow-600 text-black text-xs font-black uppercase tracking-widest rounded-lg group-hover:bg-yellow-500 transition">下載 APK</span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- 04 / 注意事項 (Preventive Care) -->
+        <div class="mt-12 pt-8 border-t border-gray-900">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase">
+                04 / 注意事項 (Preventive Care)
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow border-l-4 border-l-yellow-600">
+                    <div class="flex items-center gap-3 mb-3">
+                        <svg class="w-6 h-6 text-yellow-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <h4 class="text-base font-bold text-white gold-flow">高壓洗車注意事項</h4>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        本機身雖然具備 IP68/IP69 級別防水，但洗車時請盡量避免高壓水槍近距離長時間直射，以保護密封膠圈壽命。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow border-l-4 border-l-yellow-600">
+                    <div class="flex items-center gap-3 mb-3">
+                        <svg class="w-6 h-6 text-yellow-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <h4 class="text-base font-bold text-white gold-flow">車頭透明保護膜 (PPF) 建議</h4>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        如安裝於車頭引擎蓋，強烈建議在車標表面貼上透明保護膜 (PPF)，有效抵禦路面碎石撞擊與長途 UV 紫外線曝曬。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 👑 區塊五：產品內容與訂購通路 (Section 5: Pricing & Package) -->
+    <section class="mb-16 bg-black bg-opacity-40 p-6 md:p-12 rounded-2xl gold-border shadow-2xl backdrop-blur-md">
+        
+        <div class="text-center mb-12 select-none">
+            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow block mb-2">
+                OFFICIAL COMMISSIONS & PACKAGE ARCHITECTURE
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-wider text-white uppercase">
+                Acquire Your LED Badge
+            </h2>
+            <p class="mt-4 text-gray-400 text-xs md:text-sm tracking-widest uppercase">
+                轉數快 FPS 直接特惠 • 專人極速確認配置
+            </p>
+        </div>
+
+        <!-- 01 / 包裝內容物 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
+                01 / 包裝內容物 (Package Contents)
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-400 font-bold">
+                        01
+                    </div>
+                    <h4 class="text-base font-bold text-white gold-flow mb-2">動態 LED 車標本體</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        航天級鋁合金 CNC 一體成型外殼，搭配雙重光學鏡面膜，IP68/IP69 全天候防水密封。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-400 font-bold">
+                        02
+                    </div>
+                    <h4 class="text-base font-bold text-white gold-flow mb-2">智能主控制盒</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        內建高速微處理晶片、行駛聯動感應器與內置記憶卡，長效穩定。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-xl bg-black bg-opacity-50 gold-border card-glow text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-gray-900 border border-yellow-600 rounded-lg text-yellow-400 font-bold">
+                        03
+                    </div>
+                    <h4 class="text-base font-bold text-white gold-flow mb-2">專用供電線材</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        可選 12V 點煙器插頭 或 保險絲接頭（Fuse 隱藏暗線），滿足不同走線習慣。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 02 / 購買卡片與轉數快 FPS 付款引導 -->
+        <div>
+            <h3 class="text-xl font-bold gold-flow gold-glow mb-6 tracking-widest uppercase border-b border-gray-900 pb-3">
+                02 / 訂購專區 (FPS Direct & Custom Service)
+            </h3>
+
+            <div class="max-w-2xl mx-auto p-8 rounded-2xl bg-black bg-opacity-80 gold-border card-glow border-2 border-yellow-600/80 shadow-2xl relative">
+                
+                <div class="text-center mb-6">
+                    <span class="text-xs font-bold text-yellow-500 uppercase tracking-widest block mb-2">港澳台專屬特惠直訂</span>
+                    <h4 class="text-3xl font-extrabold text-white gold-flow mb-2">轉數快 FPS 快捷支付</h4>
+                    <div class="text-5xl font-black text-yellow-400 mb-2">HKD $1,799</div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        包含全套配件。付款後請點擊下方按鈕，直接經 WhatsApp 發送收據及確認規格。
+                    </p>
+                </div>
+
+                <!-- 轉數快帳號詳情 -->
+                <div class="p-5 rounded-xl bg-zinc-900/90 border border-yellow-600/40 mb-6 space-y-3 text-sm">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+                        <span class="text-gray-400 text-xs font-semibold uppercase">轉數快 FPS 號碼:</span>
+                        <span class="text-yellow-400 font-black text-lg tracking-wider">95368533</span>
+                    </div>
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+                        <span class="text-gray-400 text-xs font-semibold uppercase">收款人戶口名稱:</span>
+                        <span class="text-white font-bold tracking-wider">LKS</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-400 text-xs font-semibold uppercase">專屬特惠金額:</span>
+                        <span class="text-emerald-400 font-extrabold text-base">HKD $1,799</span>
+                    </div>
+                </div>
+
+                <!-- 上門安裝附加服務選項 -->
+                <div class="p-5 rounded-xl bg-yellow-950/20 border border-yellow-600/40 mb-8 text-xs text-gray-300">
+                    <strong class="text-yellow-400 block text-sm mb-2 font-black uppercase tracking-wider">
+                        🔧 香港區專業上門安裝加購服務：
+                    </strong>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center mt-3">
+                        <div class="p-2.5 rounded-lg bg-black/60 border border-zinc-800">
+                            <span class="block text-gray-400 font-bold mb-1">新界區</span>
+                            <span class="text-yellow-400 font-extrabold">+ $300 HKD</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-black/60 border border-zinc-800">
+                            <span class="block text-gray-400 font-bold mb-1">九龍區</span>
+                            <span class="text-yellow-400 font-extrabold">+ $350 HKD</span>
+                        </div>
+                        <div class="p-2.5 rounded-lg bg-black/60 border border-zinc-800">
+                            <span class="block text-gray-400 font-bold mb-1">港島區</span>
+                            <span class="text-yellow-400 font-extrabold">+ $400 HKD</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-400 mt-3 text-center">
+                        ※ 需要上門安裝之車友，可於 WhatsApp 確認配置時一併告知。
+                    </p>
+                </div>
+
+                <!-- 核心 WhatsApp 直連確認按鈕 -->
+                <div class="space-y-3">
+                    <a href="https://wa.me/85295368533?text=Hello%20SHING,%20我已透過轉數快支付%20HKD%20$1,799%20訂購%20LED%20BADGE。%0A%0A【我的規格確認】%0A1.%20車標尺寸：%5B82mm%20/%2074mm%5D%0A2.%20取電方式：%5B12V點煙器插頭%20/%20保險絲接頭%5D%0A3.%20上門安裝需求：%5B自裝%20/%20新界+$300%20/%20九龍+$350%20/%20港島+$400%5D%0A%0A收據截圖如下：" 
+                       target="_blank" 
+                       class="w-full py-4 px-6 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 text-black font-extrabold text-sm uppercase tracking-widest rounded-xl hover:brightness-110 transition shadow-2xl flex items-center justify-center gap-2 text-center">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.704 1.456h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        💬 經 WhatsApp 發送收據並確認配置 (SHING)
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <div class="mt-20 border-t border-gray-900 pt-12 text-center">
+        <p class="uppercase tracking-widest text-xs text-gray-500 mb-6">
+            Direct Commissions & Social Portals
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-6 text-sm tracking-widest">
+            <a href="https://wa.me/85295368533?text=Hello%20SHING,%20我想查詢%20LED%20BADGE%20發光車標。" 
+               target="_blank" 
+               class="inline-flex items-center px-6 py-3 border border-yellow-600 rounded-xl text-yellow-400 font-medium transition duration-300 hover:bg-yellow-600 hover:text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
+                <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.704 1.456h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp Direct
+            </a>
+
+            <a href="https://www.instagram.com/kingzcarbon" 
+               target="_blank" 
+               class="inline-flex items-center px-6 py-3 border border-yellow-600 rounded-xl text-yellow-400 font-medium transition duration-300 hover:bg-yellow-600 hover:text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
+                @kingzcarbon
+            </a>
+
+            <a href="https://www.instagram.com/sgkzphoto" 
+               target="_blank" 
+               class="inline-flex items-center px-6 py-3 border border-yellow-600 rounded-xl text-yellow-400 font-medium transition duration-300 hover:bg-yellow-600 hover:text-black hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
+                @sgkzphoto
+            </a>
+        </div>
+
+        <p class="mt-16 text-xs text-gray-600 tracking-wider">
+            &copy; 2026 KINGZCARBON. All Rights Reserved. Handcrafted Performance Luxury.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
