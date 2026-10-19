@@ -64,6 +64,15 @@ body {
     box-shadow: 0 0 30px rgba(212,175,55,0.25);
     transform: translateY(-5px);
 }
+
+/* 👑 精選 Showcase 縮略圖高亮樣式 (移植自 ex-en) */
+.active-thumb {
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 12px rgba(212,175,55,0.4);
+}
+.viewer-box {
+    background: rgba(0, 0, 0, 0.8);
+}
 </style>
 </head>
 
@@ -73,9 +82,11 @@ body {
 
     <!-- Brand Logo -->
     <div class="flex justify-center mb-6">
-        <img src="https://i.imgur.com/WNQPBad.png"
-             alt="KINGZCARBON Logo"
-             class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-full border-2 border-yellow-600 shadow-2xl">
+        <a href="index.html">
+            <img src="https://i.imgur.com/WNQPBad.png"
+                 alt="KINGZCARBON Logo"
+                 class="w-40 h-40 md:w-48 md:h-48 object-contain rounded-full border-2 border-yellow-600 shadow-2xl hover:scale-105 transition duration-300">
+        </a>
     </div>
 
     <!-- 品牌大標題 -->
@@ -99,8 +110,8 @@ body {
         </h2>
     </div>
 
-    <!-- 🚀 交換後位置：單行平排 5 格奢華分頁卡片（調至上方） -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+    <!-- 🚀 單行平排 4 格奢華分頁卡片（已完全移除 Exterior Upgrades，自動升級為 lg:grid-cols-4 對稱平排） -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
 
         <!-- 👑 1. LED Badges 分頁 -->
         <a href="led.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
@@ -138,25 +149,7 @@ body {
             </div>
         </a>
 
-        <!-- 👑 3. Exterior Upgrades 分頁 -->
-        <a href="ex-en.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
-            <div>
-                <div class="relative h-48 bg-gray-900">
-                    <img src="https://i.imgur.com/Spk0zpY.jpeg" alt="Bespoke Exterior Upgrades" class="w-full h-full object-cover">
-                </div>
-                <div class="p-5 text-center">
-                    <h3 class="text-lg font-bold gold-flow gold-glow mb-2 tracking-wide">Exterior Upgrades</h3>
-                    <p class="text-xs text-gray-400 leading-relaxed line-clamp-5">
-                        Custom aerodynamic body kits, front splitters, rear diffusers, spoilers, and 100% handcrafted signature carbon badges. Tailored individually to dominate your vehicle's street presence.
-                    </p>
-                </div>
-            </div>
-            <div class="text-center pb-5">
-                <span class="inline-block text-[11px] text-yellow-500 uppercase tracking-widest border-b border-yellow-600 pb-1">Explore Exterior &rarr;</span>
-            </div>
-        </a>
-
-        <!-- 👑 4. Bucket Seats 分頁 -->
+        <!-- 👑 3. Bucket Seats 分頁 -->
         <a href="bucket.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
             <div>
                 <div class="relative h-48 bg-gray-900">
@@ -174,7 +167,7 @@ body {
             </div>
         </a>
 
-        <!-- 👑 5. Luxury Seating 分頁 -->
+        <!-- 👑 4. Luxury Seating 分頁 -->
         <a href="seating.html" class="pattern-card bg-black bg-opacity-70 rounded-2xl overflow-hidden gold-border card-glow flex flex-col justify-between">
             <div>
                 <div class="relative h-48 bg-gray-900">
@@ -194,18 +187,61 @@ body {
 
     </div>
 
-    <!-- 🚀 交換後位置：KINGZCARBON SHOWCASE 輪播展台（調至下方） -->
-    <div class="mb-16 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
-        <div class="text-center mb-5 select-none">
-            <span class="text-xs uppercase tracking-[0.25em] font-black gold-flow gold-glow">KINGZCARBON SHOWCASE</span>
+    <!-- 👑 移植自 ex-en：動態影片/圖片 Showcase 展台與連動功能（取代原本的靜態輪播圖） -->
+    <div id="bodykits-showcase-zone" class="w-full mb-16 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
+        <div class="mb-4">
+            <label class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-2 font-black text-center md:text-left">
+                ⭐ KingzCarbon Premium Showcase Profile
+            </label>
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                <div onclick="switchBodyKitsViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
+                    <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                    </div>
+                </div>
+                <div onclick="switchBodyKitsViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                    <video src="https://i.imgur.com/CzT3FVY.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                    </div>
+                </div>
+                <div onclick="switchBodyKitsViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                    <video src="https://i.imgur.com/lIweAMD.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                    </div>
+                </div>
+                <div onclick="switchBodyKitsViewer(3, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                    <video src="https://i.imgur.com/BqBmit2.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
+                    </div>
+                </div>
+                <div onclick="switchBodyKitsViewer(4, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
+                    <img src="https://i.imgur.com/DNeHanC.png" alt="Profile" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div onclick="switchBodyKitsViewer(5, this)" class="paddle-thumb aspect-square bg-zinc-950 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center cursor-pointer transition duration-300 hover:border-yellow-600">
+                    <span class="text-[9px] text-gray-600 font-bold uppercase tracking-wider block">Coming</span>
+                    <span class="text-[9px] text-yellow-600 font-bold uppercase tracking-wider block">Soon</span>
+                </div>
+            </div>
         </div>
 
-        <div class="w-full rounded-xl gold-border overflow-hidden bg-black flex items-center justify-center min-h-[40vh] md:min-h-[55vh] relative shadow-2xl">
-            <button onclick="prevHeroImg(event)" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&larr;</button>
-            
-            <button onclick="nextHeroImg(event)" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black bg-opacity-70 text-gray-400 hover:text-yellow-400 text-xl font-bold transition w-10 h-12 rounded-xl flex items-center justify-center select-none shadow-2xl border border-gray-900">&rarr;</button>
-
-            <img id="hero-showcase-img" src="https://i.imgur.com/NZtQRfC.jpeg" alt="KINGZCARBON Premium Showcase" class="w-full h-auto max-h-[65vh] object-cover block select-none pointer-events-none transition-all duration-500">
+        <div class="viewer-box rounded-xl overflow-hidden border border-gray-900 p-2 shadow-inner relative">
+            <div class="w-full aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center relative">
+                <img id="main-view-img" src="" alt="HD Display View" class="max-w-full max-h-full object-contain transition duration-300 hidden">
+                <video id="main-view-video" class="w-full h-full object-contain" autoplay loop muted playsinline controls></video>
+                <div id="coming-soon-overlay" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-gray-950 bg-opacity-95">
+                    <h3 class="text-xs font-black gold-flow gold-glow uppercase tracking-[0.2em]">Next Artisan Project</h3>
+                    <p class="text-[10px] text-gray-500 uppercase mt-1">Template Engineering</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a id="whatsapp-link" href="https://wa.me/85295368533?text=Hello%20Shing%2C%20i%20want%20to%20custom%20some%20body%20kits." target="_blank" class="block text-center w-full py-3 bg-yellow-600 hover:bg-yellow-500 text-black rounded-xl font-bold tracking-widest uppercase text-xs transition duration-300 shadow-md">
+                    Inquire This Custom Kit Configuration
+                </a>
+            </div>
         </div>
     </div>
 
@@ -246,31 +282,68 @@ body {
 </div>
 
 <script>
-const heroShowcaseSlides = [
-    { image: 'https://i.imgur.com/NZtQRfC.jpeg' },    
-    { image: 'https://i.imgur.com/w4oKKL3.jpeg' },    
-    { image: 'https://i.imgur.com/4dMcqJf.jpeg' },   
-    { image: 'https://i.imgur.com/0StnhdP.jpeg' },
-    { image: 'https://i.imgur.com/MshTVDg.jpeg' }
+// 👑 移植自 ex-en 的 Showcase 多媒體數據源
+const bodyKitsDatabase = [
+    { type: 'video', url: 'https://i.imgur.com/OWKM58C.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/CzT3FVY.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/lIweAMD.mp4' },
+    { type: 'video', url: 'https://i.imgur.com/BqBmit2.mp4' },
+    { type: 'image', url: 'https://i.imgur.com/DNeHanC.png' },
+    { type: 'coming-soon', url: '' }
 ];
-let currentHeroIndex = 0;
 
-function updateHeroSlide() {
-    const slide = heroShowcaseSlides[currentHeroIndex];
-    document.getElementById('hero-showcase-img').src = slide.image;
+// 👑 Showcase 切換邏輯核心
+function switchBodyKitsViewer(index, thumbElement) {
+    const data = bodyKitsDatabase[index];
+    if (!data) return;
+
+    const allThumbs = document.querySelectorAll('.paddle-thumb');
+    allThumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
+    if (thumbElement) thumbElement.classList.add('active-thumb');
+
+    const imgElement = document.getElementById('main-view-img');
+    const videoElement = document.getElementById('main-view-video');
+    const csOverlay = document.getElementById('coming-soon-overlay');
+    const btnLink = document.getElementById('whatsapp-link');
+
+    if (data.type === 'video') {
+        csOverlay.classList.add('hidden'); 
+        imgElement.classList.add('hidden'); 
+        imgElement.src = "";
+        videoElement.src = data.url; 
+        videoElement.classList.remove('hidden'); 
+        videoElement.load();
+        videoElement.play().catch(e => console.log(e));
+        btnLink.style.opacity = "1"; 
+        btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'image') {
+        csOverlay.classList.add('hidden'); 
+        videoElement.classList.add('hidden'); 
+        videoElement.pause(); 
+        videoElement.src = "";
+        imgElement.src = data.url; 
+        imgElement.classList.remove('hidden');
+        btnLink.style.opacity = "1"; 
+        btnLink.style.pointerEvents = "auto";
+    } else if (data.type === 'coming-soon') {
+        videoElement.classList.add('hidden'); 
+        videoElement.pause(); 
+        videoElement.src = "";
+        imgElement.classList.add('hidden'); 
+        imgElement.src = "";
+        csOverlay.classList.remove('hidden');
+        btnLink.style.opacity = "0.3"; 
+        btnLink.style.pointerEvents = "none";
+    }
 }
 
-function nextHeroImg(event) {
-    if(event) event.stopPropagation();
-    currentHeroIndex = (currentHeroIndex + 1) % heroShowcaseSlides.length;
-    updateHeroSlide();
-}
-
-function prevHeroImg(event) {
-    if(event) event.stopPropagation();
-    currentHeroIndex = (currentHeroIndex - 1 + heroShowcaseSlides.length) % heroShowcaseSlides.length;
-    updateHeroSlide();
-}
+// 頁面載入後自動啟動 Showcase 首個影片
+window.onload = () => {
+    const firstThumb = document.querySelectorAll('.paddle-thumb')[0];
+    if (firstThumb) {
+        switchBodyKitsViewer(0, firstThumb);
+    }
+};
 </script>
 
 </body>
