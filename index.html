@@ -65,7 +65,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* 👑 精選 Showcase 縮略圖高亮樣式 (移植自 ex-en) */
+/* 👑 精選 Showcase 縮略圖高亮樣式 */
 .active-thumb {
     border-color: #d4af37 !important;
     box-shadow: 0 0 12px rgba(212,175,55,0.4);
@@ -110,7 +110,7 @@ body {
         </h2>
     </div>
 
-    <!-- 🚀 單行平排 4 格奢華分頁卡片（已完全移除 Exterior Upgrades，自動升級為 lg:grid-cols-4 對稱平排） -->
+    <!-- 🚀 單行平排 4 格奢華分頁卡片 -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
 
         <!-- 👑 1. LED Badges 分頁 -->
@@ -187,41 +187,36 @@ body {
 
     </div>
 
-    <!-- 👑 移植自 ex-en：動態影片/圖片 Showcase 展台與連動功能（取代原本的靜態輪播圖） -->
+    <!-- 👑 Showcase 展台（已刪減第 1 條片與最後一張相，完美 4 等分縮略圖佈局） -->
     <div id="bodykits-showcase-zone" class="w-full mb-16 bg-black bg-opacity-40 p-4 md:p-6 rounded-2xl gold-border shadow-2xl">
         <div class="mb-4">
             <label class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-2 font-black text-center md:text-left">
                 ⭐ KingzCarbon Premium Showcase Profile
             </label>
-            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <!-- 展位 1 (原第 2 條片) -->
                 <div onclick="switchBodyKitsViewer(0, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative active-thumb">
-                    <video src="https://i.imgur.com/OWKM58C.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
-                    </div>
-                </div>
-                <div onclick="switchBodyKitsViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
                     <video src="https://i.imgur.com/CzT3FVY.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
                     </div>
                 </div>
-                <div onclick="switchBodyKitsViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                <!-- 展位 2 (原第 3 條片) -->
+                <div onclick="switchBodyKitsViewer(1, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
                     <video src="https://i.imgur.com/lIweAMD.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
                     </div>
                 </div>
-                <div onclick="switchBodyKitsViewer(3, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
+                <!-- 展位 3 (原第 4 條片) -->
+                <div onclick="switchBodyKitsViewer(2, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600 relative">
                     <video src="https://i.imgur.com/BqBmit2.mp4" class="w-full h-full object-cover rounded-lg opacity-70" muted playsinline></video>
                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/></svg>
                     </div>
                 </div>
-                <div onclick="switchBodyKitsViewer(4, this)" class="paddle-thumb aspect-square bg-gray-950 rounded-xl border border-gray-800 p-1 flex items-center justify-center overflow-hidden cursor-pointer transition duration-300 hover:border-yellow-600">
-                    <img src="https://i.imgur.com/DNeHanC.png" alt="Profile" class="w-full h-full object-cover rounded-lg">
-                </div>
-                <div onclick="switchBodyKitsViewer(5, this)" class="paddle-thumb aspect-square bg-zinc-950 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center cursor-pointer transition duration-300 hover:border-yellow-600">
+                <!-- 展位 4 (Coming Soon) -->
+                <div onclick="switchBodyKitsViewer(3, this)" class="paddle-thumb aspect-square bg-zinc-950 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center cursor-pointer transition duration-300 hover:border-yellow-600">
                     <span class="text-[9px] text-gray-600 font-bold uppercase tracking-wider block">Coming</span>
                     <span class="text-[9px] text-yellow-600 font-bold uppercase tracking-wider block">Soon</span>
                 </div>
@@ -282,17 +277,15 @@ body {
 </div>
 
 <script>
-// 👑 移植自 ex-en 的 Showcase 多媒體數據源
+// 👑 已刪除原第 1 條片與最後一張相，保留精華 3 條短片 + Coming Soon 展位
 const bodyKitsDatabase = [
-    { type: 'video', url: 'https://i.imgur.com/OWKM58C.mp4' },
     { type: 'video', url: 'https://i.imgur.com/CzT3FVY.mp4' },
     { type: 'video', url: 'https://i.imgur.com/lIweAMD.mp4' },
     { type: 'video', url: 'https://i.imgur.com/BqBmit2.mp4' },
-    { type: 'image', url: 'https://i.imgur.com/DNeHanC.png' },
     { type: 'coming-soon', url: '' }
 ];
 
-// 👑 Showcase 切換邏輯核心
+// 👑 Showcase 切換邏輯
 function switchBodyKitsViewer(index, thumbElement) {
     const data = bodyKitsDatabase[index];
     if (!data) return;
@@ -337,7 +330,7 @@ function switchBodyKitsViewer(index, thumbElement) {
     }
 }
 
-// 頁面載入後自動啟動 Showcase 首個影片
+// 頁面載入後自動啟動 Showcase 首個影片 (CzT3FVY.mp4)
 window.onload = () => {
     const firstThumb = document.querySelectorAll('.paddle-thumb')[0];
     if (firstThumb) {
